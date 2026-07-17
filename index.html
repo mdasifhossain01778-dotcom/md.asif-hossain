@@ -829,6 +829,174 @@ Let's Build Something Amazing Together.
 
 </footer>
 
+<!-- Auto Welcome AI Assistant -->
 
+<div id="welcome-ai">
+
+<div class="welcome-title">
+🤖 Asif AI Assistant
+</div>
+
+<p>
+👋 Hello! আমি Asif AI Assistant।
+</p>
+
+<p>
+আপনাকে কীভাবে সাহায্য করতে পারি?
+</p>
+
+<div class="quick-buttons">
+
+<button onclick="quickReply('service')">
+💼 Services
+</button>
+
+<button onclick="quickReply('price')">
+💰 Pricing
+</button>
+
+<button onclick="quickReply('contact')">
+📞 Contact
+</button>
+
+</div>
+
+</div>
+
+
+<style>
+
+#welcome-ai{
+
+position:fixed;
+
+right:20px;
+
+bottom:100px;
+
+width:300px;
+
+background:#111827;
+
+color:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 0 30px #00eaff;
+
+z-index:99999;
+
+animation:welcomeShow 1s ease;
+
+}
+
+
+.welcome-title{
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#00eaff;
+
+margin-bottom:15px;
+
+}
+
+
+
+.quick-buttons button{
+
+background:#00eaff;
+
+border:none;
+
+padding:10px;
+
+margin:5px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+@keyframes welcomeShow{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+</style>
+
+
+<script>
+
+// 5 সেকেন্ড পরে Welcome Box লুকাবে
+
+setTimeout(function(){
+
+document.getElementById("welcome-ai").style.display="none";
+
+},8000);
+
+
+
+// Quick Reply Function
+
+function quickReply(type){
+
+
+if(type=="service"){
+
+alert(
+"আমি Digital Marketing, SEO, Graphic Design, Social Media Marketing এবং Data Entry Service প্রদান করি।"
+);
+
+}
+
+
+else if(type=="price"){
+
+alert(
+"Pricing জানতে WhatsApp এ যোগাযোগ করুন: 01778016695"
+);
+
+}
+
+
+else if(type=="contact"){
+
+alert(
+"WhatsApp: 01778016695"
+);
+
+}
+
+
+}
+
+
+</script>
 </body>
 </html>
