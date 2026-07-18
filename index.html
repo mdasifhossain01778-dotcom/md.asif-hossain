@@ -1,834 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MD. Asif Hossain | Digital Marketer</title>
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
-<!-- AI Service Showcase -->
 
-<div class="ai-service-show">
+body{
+background:#0b1120;
+color:white;
+overflow-x:hidden;
+}
 
-🤖 <span id="aiServiceText">
-Digital Marketing Service
-</span>
-
-</div>
-
-
-<style>
-
-.ai-service-show{
-
+header{
 position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
 
-left:20px;
-
-bottom:25px;
-
-background:white;
-
-color:#2563eb;
-
-padding:15px 25px;
-
-border-radius:30px;
-
+.logo{
+font-size:28px;
 font-weight:bold;
-
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-
-animation:serviceMove 1s infinite alternate;
-
-z-index:999;
-
+color:#00e5ff;
 }
 
-
-@keyframes serviceMove{
-
-from{
-transform:translateY(0);
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+transition:.3s;
 }
 
-to{
-transform:translateY(-8px);
+nav a:hover{
+color:#00e5ff;
 }
 
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#312e81);
+animation:bgMove 10s infinite alternate;
 }
 
-
-</style>
-
-
-
-<script>
-
-
-const services=[
-
-"🚀 Digital Marketing Service",
-
-"🎨 Professional Graphic Design",
-
-"🔍 SEO Optimization Service",
-
-"📱 Social Media Marketing",
-
-"⌨ Data Entry & Web Research",
-
-"📢 Google Ads Advertising",
-
-"✉ Email Marketing Service"
-
-];
-
-
-let index=0;
-
-
-function changeService(){
-
-
-document.getElementById("aiServiceText").innerHTML =
-services[index];
-
-
-index++;
-
-
-if(index>=services.length){
-
-index=0;
-
+@keyframes bgMove{
+0%{background-position:left;}
+100%{background-position:right;}
 }
 
-
+.hero h1{
+font-size:55px;
+margin-bottom:15px;
 }
 
+.hero h1 span{
+color:#00e5ff;
+}
 
+.hero p{
+font-size:20px;
+margin-bottom:25px;
+}
 
-setInterval(changeService,3000);
+.btn{
+display:inline-block;
+padding:14px 30px;
+background:#00e5ff;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+border-radius:40px;
+transition:.4s;
+}
 
-
-changeService();
-
-
-
-</script>
+.btn:hover{
+transform:scale(1.08);
+}
 </style>
 
 </head>
 
-<!-- Auto AI Service Assistant -->
+<body>
 
-<div id="serviceAI" class="service-ai-box">
+<header>
 
-<div class="service-ai-header">
-🤖 Asif AI Assistant
-<span onclick="closeServiceAI()">✖</span>
+<div class="logo">
+ASIF
 </div>
 
+<nav>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<div class="service-ai-content">
+</header>
 
-<p>
-Hello 👋<br>
-আমি Asif AI Assistant।
+<section class="hero">
 
-আপনাকে কীভাবে সাহায্য করতে পারি?
+<div>
 
-</p>
+<h1>Hello, I'm <span>MD. Asif Hossain</span></h1>
 
+<p>Digital Marketer | Graphic Designer | Data Entry Specialist</p>
 
-<p>
-আমার Services:
-
-🚀 Digital Marketing
-
-🎨 Graphic Design
-
-🔍 SEO Service
-
-📱 Social Media Marketing
-
-⌨ Data Entry Service
-
-</p>
-
-
-<p>
-আপনি চাইলে আপনার প্রয়োজন অনুযায়ী Service সম্পর্কে জানতে পারেন।
-</p>
-
-</div>
-
-
-</div>
-
-
-
-<div class="service-ai-button" onclick="openServiceAI()">
-
-🤖
-
-</div>
-
-
-
-
-<style>
-
-
-.service-ai-button{
-
-position:fixed;
-
-right:25px;
-
-bottom:100px;
-
-width:65px;
-
-height:65px;
-
-background:#2563eb;
-
-color:white;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:30px;
-
-cursor:pointer;
-
-box-shadow:0 0 20px #2563eb;
-
-}
-
-
-
-.service-ai-box{
-
-position:fixed;
-
-right:25px;
-
-bottom:180px;
-
-width:330px;
-
-background:white;
-
-color:#222;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-
-display:none;
-
-z-index:999;
-
-}
-
-
-
-.service-ai-header{
-
-background:#2563eb;
-
-color:white;
-
-padding:15px;
-
-font-weight:bold;
-
-display:flex;
-
-justify-content:space-between;
-
-}
-
-
-
-.service-ai-content{
-
-padding:20px;
-
-line-height:1.6;
-
-}
-
-
-</style>
-
-
-
-
-<script>
-
-
-function openServiceAI(){
-
-document.getElementById("serviceAI").style.display="block";
-
-}
-
-
-
-function closeServiceAI(){
-
-document.getElementById("serviceAI").style.display="none";
-
-}
-
-
-
-// Auto Open After 2 Seconds
-
-setTimeout(function(){
-
-openServiceAI();
-
-},2000);
-
-
-
-</script>
-  <!-- WhatsApp Floating Button -->
-
-<a href="https://wa.me/8801778016695?text=Hello%20Asif,%20I%20want%20to%20know%20about%20your%20services"
-target="_blank"
-class="whatsapp-float">
-
-💬
-
+<a href="https://wa.me/8801778016695" class="btn">
+Contact on WhatsApp
 </a>
 
-
-
-<style>
-
-.whatsapp-float{
-
-position:fixed;
-
-right:25px;
-
-bottom:25px;
-
-width:65px;
-
-height:65px;
-
-background:#25D366;
-
-color:white;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:35px;
-
-text-decoration:none;
-
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-
-animation:whatsappPulse 2s infinite;
-
-z-index:9999;
-
-}
-
-
-
-@keyframes whatsappPulse{
-
-
-0%{
-
-transform:scale(1);
-
-}
-
-
-50%{
-
-transform:scale(1.15);
-
-}
-
-
-<style>
-
-
-.contact{
-
-text-align:center;
-
-}
-
-
-
-.contact-buttons{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:15px;
-
-}
-
-
-
-.contact-btn{
-
-padding:15px 25px;
-
-border-radius:30px;
-
-color:white;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.3s;
-
-}
-
-
-
-.contact-btn:hover{
-
-transform:scale(1.08);
-
-}
-
-
-
-.whatsapp{
-
-background:#16a34a;
-
-}
-
-
-.email{
-
-background:#ea4335;
-
-}
-
-
-.facebook{
-
-background:#1877f2;
-
-}
-
-
-.instagram{
-
-background:#d62976;
-
-}
-
-
-
-</style>
-<section>
-
-<h2>Professional Experience</h2>
-
-<div class="experience">
-
-
-<div class="exp-card">
-
-<h3>Global Trade International</h3>
-
-<h4>Digital Marketing & Operation Executive</h4>
-
-<p class="location">
-📍 Location: Azimpur, Dhaka, Bangladesh
-</p>
-
-<p>
-Currently working as a Digital Marketing & Operation Executive.
-Responsible for digital marketing activities, online operations,
-social media management, business promotion and operational support.
-</p>
-
 </div>
 
+</section>
+<!-- ABOUT SECTION -->
 
+<section id="about" class="section">
 
+<h2 class="title">About Me</h2>
 
-<div class="exp-card">
+<div class="card">
 
-<h3>ATCO International</h3>
-
-<h4>Digital Marketing & Graphic Designer</h4>
-
-<p class="location">
-📍 Location: Gulshan-1, Dhaka, Bangladesh
-</p>
+<h3>MD. Asif Hossain</h3>
 
 <p>
-Worked as Digital Marketing & Graphic Designer.
-Responsible for social media marketing, creative design,
-content creation, branding materials and digital campaign support.
+I am a Professional Digital Marketer, Graphic Designer and Data Entry Specialist.
+I help businesses grow through Social Media Marketing, SEO, Facebook Ads,
+Lead Generation, Graphic Design and Digital Solutions.
 </p>
-
-</div>
-
-
-
-
-
-<div class="exp-card">
-
-<h3>Max Management & Services (Max HR Group)</h3>
-
-<h4>Digital Marketing & Graphic Designer</h4>
-
-<p class="location">
-📍 Location: Banani, Dhaka, Bangladesh
-</p>
-
-<p>
-Worked for 2 years as Digital Marketing & Graphic Designer.
-Experienced in social media marketing, graphic design,
-content creation, online promotion, data management and
-digital marketing solutions.
-</p>
-
-</div>
-
 
 </div>
 
 </section>
 
+<!-- SERVICES SECTION -->
 
+<section id="services" class="section">
+
+<h2 class="title">My Services</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>📈 Digital Marketing</h3>
+<p>Facebook Marketing, Instagram Marketing, Google Ads, SEO.</p>
+</div>
+
+<div class="service">
+<h3>🎨 Graphic Design</h3>
+<p>Logo, Banner, Poster, Social Media Design.</p>
+</div>
+
+<div class="service">
+<h3>💻 Data Entry</h3>
+<p>Excel, Copy Paste, Web Research, Lead Generation.</p>
+</div>
+
+<div class="service">
+<h3>📧 Email Marketing</h3>
+<p>Professional Email Campaign Management.</p>
+</div>
+
+</div>
+
+</section>
 
 <style>
 
-.experience{
+.section{
+padding:80px 8%;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#00e5ff;
+}
+
+.card{
+background:#111827;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,229,255,.2);
+line-height:1.8;
+}
+
+.services{
 display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+margin-top:30px;
 }
 
-.exp-card{
-
-background:#f8fafc;
+.service{
+background:#1e293b;
 padding:25px;
-border-radius:20px;
-border-left:5px solid #2563eb;
-transition:.3s;
-
+border-radius:15px;
+transition:.4s;
 }
 
-.exp-card:hover{
-
-transform:translateX(10px);
-
+.service:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #00e5ff;
 }
 
-
-.exp-card h3{
-
-color:#2563eb;
-
-}
-
-.exp-card h4{
-
-margin:10px 0;
-
-}
-
-
-.location{
-
-color:#16a34a;
-font-weight:bold;
-
-}
-
-
-.exp-card p{
-
-line-height:1.6;
-
+.service h3{
+margin-bottom:15px;
+color:#00e5ff;
 }
 
 </style>
+<!-- ===== SKILLS SECTION ===== -->
+
+<section id="skills" class="section">
+
+<h2 class="title">My Skills</h2>
+
+<div class="skill">
+<p>Digital Marketing <span>95%</span></p>
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+<p>Graphic Design <span>90%</span></p>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>SEO <span>88%</span></p>
+<div class="bar"><div class="fill" style="width:88%"></div></div>
+</div>
+
+<div class="skill">
+<p>Data Entry <span>98%</span></p>
+<div class="bar"><div class="fill" style="width:98%"></div></div>
+</div>
+
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+
+<section id="portfolio" class="section">
+
+<h2 class="title">My Portfolio</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>📱 Social Media Marketing</h3>
+<p>Facebook, Instagram & Business Growth.</p>
+</div>
+
+<div class="service">
+<h3>🎨 Creative Design</h3>
+<p>Professional Logo, Banner & Poster.</p>
+</div>
+
+<div class="service">
+<h3>💼 Lead Generation</h3>
+<p>Verified Business Leads & Data Collection.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+
+<a href="https://wa.me/8801778016695" class="whatsapp">
+💬
+</a>
+
+<!-- ===== AI ASSISTANT ===== -->
+
+<div class="ai-box" id="aiBox">
+👋 Hello, I'm <b>Asif AI Assistant</b><br>
+How can I help you today?
+</div>
+
+<style>
+
+.skill{
+margin:20px 0;
+}
+
+.skill p{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+.bar{
+height:10px;
+background:
+  <!-- ================= CONTACT SECTION ================= -->
+
+<section id="contact" class="section">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>💬 WhatsApp</h3>
+<a href="https://wa.me/8801778016695" class="btn" target="_blank">
+Chat on WhatsApp
+</a>
+</div>
+
+<div class="service">
+<h3>📸 Instagram</h3>
+<a href="https://www.instagram.com/asifhossain2002_/?hl=en" class="btn" target="_blank">
+Follow Instagram
+</a>
+</div>
+
+<div class="service">
+<h3>📘 Facebook</h3>
+<a href="https://www.facebook.com/share/17zu3eCSMR/" class="btn" target="_blank">
+Visit Facebook
+</a>
+</div>
+
+<div class="service">
+<h3>📧 Email</h3>
+<a href="mailto:elhasshoassin@gmail.com" class="btn">
+elhasshoassin@gmail.com
+</a>
+</div>
+
+<div class="service">
+<h3>📞 Call</h3>
+<a href="tel:+8801778016695" class="btn">
++8801778016695
+</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT FORM ================= -->
+
+<section class="section">
+
+<h2 class="title">Send Me a Message</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Your Email" required>
+
+<textarea placeholder="Write your message here..." required></textarea>
+
+<button type="submit" class="btn">Send Message</button>
+
+</form>
+
+</section>
+
+<style>
+
+form{
+max-width:700px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:16px;
+outline:none;
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+button{
+border:none;
+cursor:pointer;
+}
+
+footer{
+margin-top:60px;
+padding:40px;
+background:#111827;
+text-align:center;
+}
+
+footer h2{
+color:#00e5ff;
+margin-bottom:10px;
+}
+
+.social{
+margin:20px 0;
+}
+
+.social a{
+display:inline-block;
+margin:10px;
+padding:12px 18px;
+background:#00e5ff;
+color:#000;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+transition:.3s;
+}
+
+.social a:hover{
+transform:scale(1.08);
+}
+
+</style>
+
+<footer>
+
+<h2>MD. Asif Hossain</h2>
+
+<p>Digital Marketer | Graphic Designer | Data Entry Specialist</p>
+
+<div class="social">
+
+<a href="https://wa.me/8801778016695" target="_blank">WhatsApp</a>
+
+<a href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank">Instagram</a>
+
+<a href="https://www.facebook.com/share/17zu3eCSMR/" target="_blank">Facebook</a>
+
+<a href="mailto:elhasshoassin@gmail.com">Email</a>
+
+</div>
+
+<p>© 2026 MD. Asif Hossain. All Rights Reserved.</p>
+<!-- ================= AI ASSISTANT ================= -->
+
+<div id="aiAssistant">
+
+<div id="aiHeader">
+🤖 Asif AI Assistant
+</div>
+
+<div id="chatBox">
+
+<p class="bot">
+👋 Hello! Welcome to MD. Asif Hossain's Website.
+</p>
+
+<p class="bot">
+I can help you with Digital Marketing, Graphic Design, SEO, Data Entry and Lead Generation.
+</p>
+
+</div>
+
+<input type="text" id="userInput" placeholder="Ask me something...">
+
+<button onclick="sendMessage()" class="btn">
+Send
+</button>
+
+</div>
+
+<!-- Floating AI Button -->
+
+<button id="aiBtn" onclick="toggleAI()">
+🤖
+</button>
+
+<style>
+
+#aiBtn{
+position:fixed;
+left:20px;
+bottom:20px;
+width:65px;
+height:65px;
+border:none;
+border-radius:50%;
+background:#00e5ff;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 0 20px cyan;
+z-index:9999;
+}
+
+#aiAssistant{
+position:fixed;
+left:20px;
+bottom:100px;
+width:320px;
+background:#111827;
+border-radius:15px;
+display:none;
+overflow:hidden;
+box-shadow:0 0 25px rgba(0,229,255,.4);
+z-index:9999;
+}
+
+#aiHeader{
+background:#00e5ff;
+color:#000;
+padding:15px;
+font-weight:bold;
+text-align:center;
+}
+
+#chatBox{
+height:260px;
+overflow-y:auto;
+padding:15px;
+}
+
+.bot{
+background:#1f2937;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+}
+
+.user{
+background:#2563eb;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+text-align:right;
+}
+
+#userInput{
+width:100%;
+padding:12px;
+border:none;
+outline:none;
+}
+
+</style>
+
 <script>
 
-function sendMsg(){
+function toggleAI(){
 
-let msg = document.getElementById("userMsg").value.toLowerCase();
+var box=document.getElementById("aiAssistant");
 
-let chat = document.getElementById("chatBody");
+if(box.style.display=="block"){
 
+box.style.display="none";
 
-chat.innerHTML += 
-"<p><b>You:</b> "+msg+"</p>";
+}else{
 
-
-let reply="";
-
-
-if(msg.includes("service") || msg.includes("সার্ভিস")){
-
-reply = `
-আমার সার্ভিস সমূহ:
-
-🚀 Digital Marketing:
-Facebook Marketing, Google Ads, Social Media Marketing এবং Online Business Growth Solution।
-
-🎨 Graphic Design:
-Logo Design, Poster Design, Banner Design, Social Media Creative Design।
-
-🔍 SEO Service:
-Keyword Research, Website Optimization এবং Search Ranking Improvement।
-
-⌨ Data Entry:
-Web Research, Data Collection, Excel Work এবং Copy Paste Service।
-
-📱 Social Media Marketing:
-Facebook Page Management, Content Creation এবং Marketing Strategy।
-
-আপনার প্রয়োজন অনুযায়ী Professional Digital Solution প্রদান করা হয়।
-`;
+box.style.display="block";
 
 }
 
-
-
-else if(msg.includes("contact") || msg.includes("যোগাযোগ")){
-
-
-reply =
-`
-যোগাযোগ করুন:
-
-📱 WhatsApp: 01778016695
-
-📧 Email:
-elhasshossain@gmail.com
-
-📸 Instagram:
-asifhossain2002_
-
-`;
-
 }
 
+function sendMessage(){
 
+let input=document.getElementById("userInput");
 
-else if(msg.includes("experience") || msg.includes("অভিজ্ঞতা")){
+let chat=document.getElementById("chatBox");
 
+if(input.value=="") return;
 
-reply =
-`
-আমার Experience:
+chat.innerHTML+="<p class='user'>"+input.value+"</p>";
 
-✔ Max Management & Services (Max HR Group)
-📍 Banani, Dhaka
-Digital Marketing & Graphic Designer
-(2 Years)
+let reply="Thanks for your message! Please contact me on WhatsApp for more details.";
 
-✔ ATCO International
-📍 Gulshan-1, Dhaka
-Digital Marketing & Graphic Designer
+setTimeout(function(){
 
-✔ Global Trade International
-📍 Azimpur, Dhaka
-Digital Marketing & Operation Executive
-(Current)
+chat.innerHTML+="<p class='bot'>"+reply+"</p>";
 
-`;
+chat.scrollTop=chat.scrollHeight;
 
-}
+},700);
 
-
-
-else{
-
-
-reply =
-`
-Hello 👋
-
-আমি Asif AI Assistant।
-
-আমি আপনাকে সাহায্য করতে পারি:
-- My Services
-- My Experience
-- Contact Information
-
-আপনি প্রশ্ন করুন।
-`;
-
-}
-
-
-
-chat.innerHTML +=
-
-"<p><b>AI:</b> "+reply+"</p>";
-
-
-document.getElementById("userMsg").value="";
-
+input.value="";
 
 }
 
 </script>
-<!-- Social Media Links -->
+</footer>
+<!-- ================= LOADING SCREEN ================= -->
 
-<div class="social-section">
-
-<h2>Follow Me</h2>
-
-<a href="https://www.facebook.com/share/1BtAYeVUwU/"
-target="_blank"
-class="social facebook">
-
-🔵 Facebook
-
-</a>
-
-
-<a href="https://www.instagram.com/asifhossain2002_?igsh=Y3p3NnpvdnA2Mmtp"
-target="_blank"
-class="social instagram">
-
-📸 Instagram
-
-</a>
-
-
-<a href="https://wa.me/8801778016695"
-target="_blank"
-class="social whatsapp">
-
-💬 WhatsApp
-
-</a>
-
-
-<a href="mailto:elhasshossain@gmail.com"
-class="social email">
-
-📧 Email
-
-</a>
-
-
+<div id="loader">
+<div class="loader-text">Loading MD. Asif Hossain Website...</div>
 </div>
 
+<!-- ================= DARK/LIGHT MODE ================= -->
 
+<button id="themeBtn">🌙</button>
+
+<!-- ================= TRANSLATE ================= -->
+
+<div id="google_translate_element"></div>
 
 <style>
 
-
-.social-section{
-
-text-align:center;
-
-margin-top:30px;
-
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0b1120;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:.8s;
 }
 
-
-
-.social{
-
-display:inline-block;
-
-padding:14px 25px;
-
-margin:10px;
-
-border-radius:30px;
-
-color:white;
-
-text-decoration:none;
-
+.loader-text{
+font-size:28px;
+color:#00e5ff;
 font-weight:bold;
-
-transition:.3s;
-
+animation:blink 1s infinite;
 }
 
-
-
-.social:hover{
-
-transform:translateY(-8px);
-
+@keyframes blink{
+50%{opacity:.4;}
 }
 
-
-.facebook{
-
-background:#1877f2;
-
+#themeBtn{
+position:fixed;
+top:90px;
+right:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#00e5ff;
+font-size:22px;
+cursor:pointer;
+z-index:9999;
 }
 
-
-.instagram{
-
-background:#d62976;
-
+.light{
+background:#f5f5f5;
+color:#111;
 }
 
-
-.whatsapp{
-
-background:#16a34a;
-
+.light header{
+background:#ffffff;
 }
 
-
-.email{
-
-background:#ea4335;
-
+.light .service,
+.light .card{
+background:#ffffff;
+color:#111;
 }
 
-
+#google_translate_element{
+position:fixed;
+top:160px;
+right:20px;
+z-index:9999;
+}
 
 </style>
+
+<script>
+
+// Loading Screen
+window.onload=function(){
+setTimeout(function(){
+document.getElementById("loader").style.display="none";
+},1500);
+}
+
+// Dark / Light Mode
+document.getElementById("themeBtn").onclick=function(){
+document.body.classList.toggle("light");
+}
+
+// Google Translate
+function googleTranslateElementInit(){
+new google.translate.TranslateElement(
+{
+pageLanguage:'en'
+},
+'google_translate_element'
+);
+}
+
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- ================= AUTO SERVICE POPUP ================= -->
+
+<script>
+
+const services=[
+"📈 Digital Marketing",
+"🎨 Graphic Design",
+"💻 Data Entry",
+"🔍 SEO",
+"📧 Email Marketing",
+"📊 Lead Generation"
+];
+
+let i=0;
+
+setInterval(function(){
+
+const box=document.getElementById("aiBox");
+
+if(box){
+
+box.innerHTML="⭐ My Service:<br><b>"+services[i]+"</b>";
+
+i++;
+
+if(i>=services.length){
+i=0;
+}
+
+}
+
+},3000);
+
+</script>
+<!-- ================= LIVE CLOCK ================= -->
+
+<div id="liveClock"></div>
+
+<!-- ================= SCROLL TO TOP ================= -->
+
+<button id="topBtn" onclick="topFunction()">⬆</button>
+
+<!-- ================= CURSOR EFFECT ================= -->
+
+<div id="cursor"></div>
+
+<style>
+#liveClock{
+position:fixed;
+top:20px;
+right:90px;
+background:#111827;
+color:#00e5ff;
+padding:10px 15px;
+border-radius:10px;
+font-weight:bold;
+z-index:9999;
+}
+
+#topBtn{
+position:fixed;
+right:20px;
+bottom:100px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#00e5ff;
+font-size:22px;
+cursor:pointer;
+display:none;
+z-index:9999;
+}
+
+#cursor{
+width:18px;
+height:18px;
+background:#00e5ff;
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+transform:translate(-50%,-50%);
+opacity:.6;
+z-index:99999;
+}
+</style>
+
+<script>
+
+// Live Clock
+function updateClock(){
+const d=new Date();
+document.getElementById("liveClock").innerHTML=
+d.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// Scroll Button
+window.onscroll=function(){
+if(document.documentElement.scrollTop>200){
+document.getElementById("topBtn").style.display="block";
+}else{
+document.getElementById("topBtn").style.display="none";
+}
+};
+
+function topFunction(){
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+
+// Cursor Effect
+document.addEventListener("mousemove",function(e){
+const c=document.getElementById("cursor");
+c.style.left=e.clientX+"px";
+c.style.top=e.clientY+"px";
+});
+
+// Welcome Voice
+window.onload=function(){
+
+setTimeout(function(){
+
+const msg=new SpeechSynthesisUtterance(
+"Hello. Welcome to M D Asif Hossain website. I am your AI Assistant. How can I help you today?"
+);
+
+msg.lang="en-US";
+
+speechSynthesis.speak(msg);
+
+},1200);
+
+};
+
+</script>
+</body>
+</html>
+  
