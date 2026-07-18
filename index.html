@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD. Asif Hossain | Portfolio</title>
 
-<title>MD. Asif Hossain | Digital Marketer</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -16,10 +16,13 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#0b1120;
-color:white;
-overflow-x:hidden;
+color:#fff;
 }
 
 header{
@@ -27,9 +30,8 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(10px);
 padding:15px 8%;
+background:#111827;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -43,14 +45,9 @@ color:#00e5ff;
 }
 
 nav a{
-color:white;
+color:#fff;
 text-decoration:none;
 margin-left:20px;
-transition:.3s;
-}
-
-nav a:hover{
-color:#00e5ff;
 }
 
 .hero{
@@ -59,28 +56,21 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+background:linear-gradient(135deg,#0b1120,#1d4ed8);
 padding:20px;
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#312e81);
-animation:bgMove 10s infinite alternate;
-}
-
-@keyframes bgMove{
-0%{background-position:left;}
-100%{background-position:right;}
 }
 
 .hero h1{
-font-size:55px;
-margin-bottom:15px;
+font-size:52px;
 }
 
-.hero h1 span{
+.hero span{
 color:#00e5ff;
 }
 
 .hero p{
+margin:20px 0;
 font-size:20px;
-margin-bottom:25px;
 }
 
 .btn{
@@ -88,19 +78,193 @@ display:inline-block;
 padding:14px 30px;
 background:#00e5ff;
 color:#000;
+border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-border-radius:40px;
-transition:.4s;
-}
-
-.btn:hover{
-transform:scale(1.08);
 }
 </style>
 
 </head>
+<!-- ================= AI LIVE CHAT ================= -->
 
+<div id="chatWidget">
+
+<div class="chatHeader">
+🤖 Asif AI Assistant
+<span onclick="closeChat()" style="float:right;cursor:pointer;">✖</span>
+</div>
+
+<div id="chatMessages">
+
+<div class="bot">
+👋 Welcome to MD. Asif Hossain's Website!
+</div>
+
+</div>
+
+<div style="padding:10px;text-align:center;">
+
+<a href="https://wa.me/8801778016695" class="btn" target="_blank">
+💬 Contact on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<button id="chatButton" onclick="openChat()">
+🤖
+</button>
+
+<style>
+
+#chatButton{
+position:fixed;
+bottom:20px;
+left:20px;
+width:65px;
+height:65px;
+border:none;
+border-radius:50%;
+background:#00e5ff;
+font-size:28px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 0 20px cyan;
+}
+
+#chatWidget{
+position:fixed;
+left:20px;
+bottom:95px;
+width:330px;
+background:#111827;
+border-radius:15px;
+display:none;
+overflow:hidden;
+box-shadow:0 0 25px rgba(0,229,255,.5);
+z-index:9999;
+}
+
+.chatHeader{
+background:#00e5ff;
+color:#000;
+padding:15px;
+font-weight:bold;
+}
+
+#chatMessages{
+height:260px;
+overflow:auto;
+padding:15px;
+}
+
+.bot{
+background:#1f2937;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+animation:fade .5s;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+</style>
+
+<script>
+
+function openChat(){
+document.getElementById("chatWidget").style.display="block";
+}
+
+function closeChat(){
+document.getElementById("chatWidget").style.display="none";
+}
+
+// Auto Open After 1 Second
+setTimeout(function(){
+
+openChat();
+
+},1000);
+
+// Auto Service Messages
+const messages=[const messages = [
+
+"👋 Welcome to MD. Asif Hossain's Website!",
+
+"📈 I provide Professional Digital Marketing Services.",
+
+"🎨 I create Professional Logo, Banner, Poster and Social Media Designs.",
+
+"💻 I offer Fast and Accurate Data Entry Services.",
+
+"🔍 I help businesses grow with SEO Optimization.",
+
+"📧 I provide Email Marketing Services.",
+
+"📊 I provide Lead Generation & Web Research.",
+
+"📱 I manage Facebook, Instagram and Social Media Pages.",
+
+"✅ Thank you for visiting my website.",
+
+"💬 Please contact me on WhatsApp for more information."
+
+];
+
+let index = 0;
+
+const chat = document.getElementById("chatMessages");
+
+function showMessage(){
+
+if(index < messages.length){
+
+chat.innerHTML += "<div class='bot'>" + messages[index] + "</div>";
+
+chat.scrollTop = chat.scrollHeight;
+
+index++;
+
+setTimeout(showMessage,2000);
+
+}
+
+}
+
+setTimeout(showMessage,1000);
+"📈 Digital Marketing Service",
+"🎨 Graphic Design Service",
+"💻 Data Entry Service",
+"🔍 SEO Optimization",
+"📧 Email Marketing",
+"📊 Lead Generation",
+"⭐ Need any service? Click the WhatsApp button below."
+];
+
+let index=0;
+
+setInterval(function(){
+
+if(index<messages.length){
+
+document.getElementById("chatMessages").innerHTML+=
+"<div class='bot'>"+messages[index]+"</div>";
+
+document.getElementById("chatMessages").scrollTop=
+document.getElementById("chatMessages").scrollHeight;
+
+index++;
+
+}
+
+},2000);
+
+</script>
 <body>
 
 <header>
@@ -110,7 +274,6 @@ ASIF
 </div>
 
 <nav>
-<a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#contact">Contact</a>
@@ -122,18 +285,20 @@ ASIF
 
 <div>
 
-<h1>Hello, I'm <span>MD. Asif Hossain</span></h1>
+<h1>Hi, I'm <span>MD. Asif Hossain</span></h1>
 
-<p>Digital Marketer | Graphic Designer | Data Entry Specialist</p>
+<p>
+Digital Marketer | Graphic Designer | Data Entry Specialist
+</p>
 
 <a href="https://wa.me/8801778016695" class="btn">
-Contact on WhatsApp
+WhatsApp Me
 </a>
 
 </div>
 
 </section>
-<!-- ABOUT SECTION -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about" class="section">
 
@@ -144,41 +309,39 @@ Contact on WhatsApp
 <h3>MD. Asif Hossain</h3>
 
 <p>
-I am a Professional Digital Marketer, Graphic Designer and Data Entry Specialist.
-I help businesses grow through Social Media Marketing, SEO, Facebook Ads,
-Lead Generation, Graphic Design and Digital Solutions.
+I am a Professional Digital Marketer, Graphic Designer and Data Entry Specialist with experience in SEO, Facebook Marketing, Lead Generation, Graphic Design and Business Growth.
 </p>
 
 </div>
 
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- ================= SERVICES ================= -->
 
 <section id="services" class="section">
 
 <h2 class="title">My Services</h2>
 
-<div class="services">
+<div class="grid">
 
-<div class="service">
+<div class="box">
 <h3>📈 Digital Marketing</h3>
-<p>Facebook Marketing, Instagram Marketing, Google Ads, SEO.</p>
+<p>Facebook Marketing, Instagram Marketing, Google Ads & SEO.</p>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>🎨 Graphic Design</h3>
-<p>Logo, Banner, Poster, Social Media Design.</p>
+<p>Logo Design, Banner Design, Poster Design & Social Media Graphics.</p>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>💻 Data Entry</h3>
-<p>Excel, Copy Paste, Web Research, Lead Generation.</p>
+<p>Copy Paste, Excel, Web Research, Lead Generation.</p>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>📧 Email Marketing</h3>
-<p>Professional Email Campaign Management.</p>
+<p>Professional Email Campaign and Business Promotion.</p>
 </div>
 
 </div>
@@ -193,667 +356,133 @@ padding:80px 8%;
 
 .title{
 text-align:center;
-font-size:40px;
-margin-bottom:40px;
+font-size:38px;
 color:#00e5ff;
+margin-bottom:40px;
 }
 
 .card{
-background:#111827;
+background:#1e293b;
 padding:30px;
 border-radius:15px;
-box-shadow:0 0 20px rgba(0,229,255,.2);
 line-height:1.8;
 }
 
-.services{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-margin-top:30px;
 }
 
-.service{
+.box{
 background:#1e293b;
 padding:25px;
 border-radius:15px;
-transition:.4s;
+transition:.3s;
 }
 
-.service:hover{
+.box:hover{
 transform:translateY(-10px);
 box-shadow:0 0 20px #00e5ff;
 }
 
-.service h3{
+.box h3{
 margin-bottom:15px;
 color:#00e5ff;
 }
 
 </style>
-<!-- ===== SKILLS SECTION ===== -->
+  
+<!-- ================= SKILLS ================= -->
 
 <section id="skills" class="section">
 
 <h2 class="title">My Skills</h2>
 
 <div class="skill">
-<p>Digital Marketing <span>95%</span></p>
-<div class="bar"><div class="fill" style="width:95%"></div></div>
+<p>Digital Marketing - 95%</p>
+<progress value="95" max="100"></progress>
 </div>
 
 <div class="skill">
-<p>Graphic Design <span>90%</span></p>
-<div class="bar"><div class="fill" style="width:90%"></div></div>
+<p>Graphic Design - 90%</p>
+<progress value="90" max="100"></progress>
 </div>
 
 <div class="skill">
-<p>SEO <span>88%</span></p>
-<div class="bar"><div class="fill" style="width:88%"></div></div>
+<p>SEO - 88%</p>
+<progress value="88" max="100"></progress>
 </div>
 
 <div class="skill">
-<p>Data Entry <span>98%</span></p>
-<div class="bar"><div class="fill" style="width:98%"></div></div>
+<p>Data Entry - 98%</p>
+<progress value="98" max="100"></progress>
 </div>
 
 </section>
 
-<!-- ===== PORTFOLIO ===== -->
-
-<section id="portfolio" class="section">
-
-<h2 class="title">My Portfolio</h2>
-
-<div class="services">
-
-<div class="service">
-<h3>📱 Social Media Marketing</h3>
-<p>Facebook, Instagram & Business Growth.</p>
-</div>
-
-<div class="service">
-<h3>🎨 Creative Design</h3>
-<p>Professional Logo, Banner & Poster.</p>
-</div>
-
-<div class="service">
-<h3>💼 Lead Generation</h3>
-<p>Verified Business Leads & Data Collection.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== FLOATING WHATSAPP ===== -->
-
-<a href="https://wa.me/8801778016695" class="whatsapp">
-💬
-</a>
-
-<!-- ===== AI ASSISTANT ===== -->
-
-<div class="ai-box" id="aiBox">
-👋 Hello, I'm <b>Asif AI Assistant</b><br>
-How can I help you today?
-</div>
-
-<style>
-
-.skill{
-margin:20px 0;
-}
-
-.skill p{
-display:flex;
-justify-content:space-between;
-margin-bottom:8px;
-}
-
-.bar{
-height:10px;
-background:
-  <!-- ================= CONTACT SECTION ================= -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="section">
 
 <h2 class="title">Contact Me</h2>
 
-<div class="services">
+<div class="grid">
 
-<div class="service">
+<div class="box">
 <h3>💬 WhatsApp</h3>
-<a href="https://wa.me/8801778016695" class="btn" target="_blank">
-Chat on WhatsApp
-</a>
+<a class="btn" href="https://wa.me/8801778016695" target="_blank">Chat Now</a>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>📸 Instagram</h3>
-<a href="https://www.instagram.com/asifhossain2002_/?hl=en" class="btn" target="_blank">
-Follow Instagram
-</a>
+<a class="btn" href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank">Instagram</a>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>📘 Facebook</h3>
-<a href="https://www.facebook.com/share/17zu3eCSMR/" class="btn" target="_blank">
-Visit Facebook
-</a>
+<a class="btn" href="https://www.facebook.com/share/17zu3eCSMR/" target="_blank">Facebook</a>
 </div>
 
-<div class="service">
+<div class="box">
 <h3>📧 Email</h3>
-<a href="mailto:elhasshoassin@gmail.com" class="btn">
-elhasshoassin@gmail.com
-</a>
-</div>
-
-<div class="service">
-<h3>📞 Call</h3>
-<a href="tel:+8801778016695" class="btn">
-+8801778016695
-</a>
+<a class="btn" href="mailto:elhasshoassin@gmail.com">Send Email</a>
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= CONTACT FORM ================= -->
+<!-- Floating WhatsApp -->
 
-<section class="section">
-
-<h2 class="title">Send Me a Message</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name" required>
-
-<input type="email" placeholder="Your Email" required>
-
-<textarea placeholder="Write your message here..." required></textarea>
-
-<button type="submit" class="btn">Send Message</button>
-
-</form>
-
-</section>
-
-<style>
-
-form{
-max-width:700px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,textarea{
-padding:15px;
-border:none;
-border-radius:10px;
-font-size:16px;
-outline:none;
-}
-
-textarea{
-height:150px;
-resize:none;
-}
-
-button{
-border:none;
-cursor:pointer;
-}
-
-footer{
-margin-top:60px;
-padding:40px;
-background:#111827;
-text-align:center;
-}
-
-footer h2{
-color:#00e5ff;
-margin-bottom:10px;
-}
-
-.social{
-margin:20px 0;
-}
-
-.social a{
-display:inline-block;
-margin:10px;
-padding:12px 18px;
-background:#00e5ff;
-color:#000;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-transition:.3s;
-}
-
-.social a:hover{
-transform:scale(1.08);
-}
-
-</style>
-
-<footer>
-
-<h2>MD. Asif Hossain</h2>
-
-<p>Digital Marketer | Graphic Designer | Data Entry Specialist</p>
-
-<div class="social">
-
-<a href="https://wa.me/8801778016695" target="_blank">WhatsApp</a>
-
-<a href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank">Instagram</a>
-
-<a href="https://www.facebook.com/share/17zu3eCSMR/" target="_blank">Facebook</a>
-
-<a href="mailto:elhasshoassin@gmail.com">Email</a>
-
-</div>
-
-<p>© 2026 MD. Asif Hossain. All Rights Reserved.</p>
-<!-- ================= AI ASSISTANT ================= -->
-
-<div id="aiAssistant">
-
-<div id="aiHeader">
-🤖 Asif AI Assistant
-</div>
-
-<div id="chatBox">
-
-<p class="bot">
-👋 Hello! Welcome to MD. Asif Hossain's Website.
-</p>
-
-<p class="bot">
-I can help you with Digital Marketing, Graphic Design, SEO, Data Entry and Lead Generation.
-</p>
-
-</div>
-
-<input type="text" id="userInput" placeholder="Ask me something...">
-
-<button onclick="sendMessage()" class="btn">
-Send
-</button>
-
-</div>
-
-<!-- Floating AI Button -->
-
-<button id="aiBtn" onclick="toggleAI()">
-🤖
-</button>
-
-<style>
-
-#aiBtn{
+<a href="https://wa.me/8801778016695"
+style="
 position:fixed;
-left:20px;
 bottom:20px;
-width:65px;
-height:65px;
-border:none;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
 border-radius:50%;
-background:#00e5ff;
-font-size:30px;
-cursor:pointer;
-box-shadow:0 0 20px cyan;
-z-index:9999;
-}
-
-#aiAssistant{
-position:fixed;
-left:20px;
-bottom:100px;
-width:320px;
-background:#111827;
-border-radius:15px;
-display:none;
-overflow:hidden;
-box-shadow:0 0 25px rgba(0,229,255,.4);
-z-index:9999;
-}
-
-#aiHeader{
-background:#00e5ff;
-color:#000;
-padding:15px;
-font-weight:bold;
-text-align:center;
-}
-
-#chatBox{
-height:260px;
-overflow-y:auto;
-padding:15px;
-}
-
-.bot{
-background:#1f2937;
-padding:10px;
-margin:8px 0;
-border-radius:10px;
-}
-
-.user{
-background:#2563eb;
-padding:10px;
-margin:8px 0;
-border-radius:10px;
-text-align:right;
-}
-
-#userInput{
-width:100%;
-padding:12px;
-border:none;
-outline:none;
-}
-
-</style>
-
-<script>
-
-function toggleAI(){
-
-var box=document.getElementById("aiAssistant");
-
-if(box.style.display=="block"){
-
-box.style.display="none";
-
-}else{
-
-box.style.display="block";
-
-}
-
-}
-
-function sendMessage(){
-
-let input=document.getElementById("userInput");
-
-let chat=document.getElementById("chatBox");
-
-if(input.value=="") return;
-
-chat.innerHTML+="<p class='user'>"+input.value+"</p>";
-
-let reply="Thanks for your message! Please contact me on WhatsApp for more details.";
-
-setTimeout(function(){
-
-chat.innerHTML+="<p class='bot'>"+reply+"</p>";
-
-chat.scrollTop=chat.scrollHeight;
-
-},700);
-
-input.value="";
-
-}
-
-</script>
-</footer>
-<!-- ================= LOADING SCREEN ================= -->
-
-<div id="loader">
-<div class="loader-text">Loading MD. Asif Hossain Website...</div>
-</div>
-
-<!-- ================= DARK/LIGHT MODE ================= -->
-
-<button id="themeBtn">🌙</button>
-
-<!-- ================= TRANSLATE ================= -->
-
-<div id="google_translate_element"></div>
-
-<style>
-
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#0b1120;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:99999;
-transition:.8s;
-}
-
-.loader-text{
+text-decoration:none;
 font-size:28px;
-color:#00e5ff;
-font-weight:bold;
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:.4;}
-}
-
-#themeBtn{
-position:fixed;
-top:90px;
-right:20px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#00e5ff;
-font-size:22px;
-cursor:pointer;
-z-index:9999;
-}
-
-.light{
-background:#f5f5f5;
-color:#111;
-}
-
-.light header{
-background:#ffffff;
-}
-
-.light .service,
-.light .card{
-background:#ffffff;
-color:#111;
-}
-
-#google_translate_element{
-position:fixed;
-top:160px;
-right:20px;
-z-index:9999;
-}
-
-</style>
-
-<script>
-
-// Loading Screen
-window.onload=function(){
-setTimeout(function(){
-document.getElementById("loader").style.display="none";
-},1500);
-}
-
-// Dark / Light Mode
-document.getElementById("themeBtn").onclick=function(){
-document.body.classList.toggle("light");
-}
-
-// Google Translate
-function googleTranslateElementInit(){
-new google.translate.TranslateElement(
-{
-pageLanguage:'en'
-},
-'google_translate_element'
-);
-}
-
-</script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- ================= AUTO SERVICE POPUP ================= -->
-
-<script>
-
-const services=[
-"📈 Digital Marketing",
-"🎨 Graphic Design",
-"💻 Data Entry",
-"🔍 SEO",
-"📧 Email Marketing",
-"📊 Lead Generation"
-];
-
-let i=0;
-
-setInterval(function(){
-
-const box=document.getElementById("aiBox");
-
-if(box){
-
-box.innerHTML="⭐ My Service:<br><b>"+services[i]+"</b>";
-
-i++;
-
-if(i>=services.length){
-i=0;
-}
-
-}
-
-},3000);
-
-</script>
-<!-- ================= LIVE CLOCK ================= -->
-
-<div id="liveClock"></div>
-
-<!-- ================= SCROLL TO TOP ================= -->
-
-<button id="topBtn" onclick="topFunction()">⬆</button>
-
-<!-- ================= CURSOR EFFECT ================= -->
-
-<div id="cursor"></div>
+z-index:9999;">
+💬
+</a>
 
 <style>
-#liveClock{
-position:fixed;
-top:20px;
-right:90px;
-background:#111827;
-color:#00e5ff;
-padding:10px 15px;
-border-radius:10px;
-font-weight:bold;
-z-index:9999;
+
+.skill{
+margin-bottom:20px;
 }
 
-#topBtn{
-position:fixed;
-right:20px;
-bottom:100px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#00e5ff;
-font-size:22px;
-cursor:pointer;
-display:none;
-z-index:9999;
+.skill p{
+margin-bottom:8px;
 }
 
-#cursor{
-width:18px;
-height:18px;
-background:#00e5ff;
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-opacity:.6;
-z-index:99999;
+progress{
+width:100%;
+height:16px;
 }
+
 </style>
-
-<script>
-
-// Live Clock
-function updateClock(){
-const d=new Date();
-document.getElementById("liveClock").innerHTML=
-d.toLocaleTimeString();
-}
-setInterval(updateClock,1000);
-updateClock();
-
-// Scroll Button
-window.onscroll=function(){
-if(document.documentElement.scrollTop>200){
-document.getElementById("topBtn").style.display="block";
-}else{
-document.getElementById("topBtn").style.display="none";
-}
-};
-
-function topFunction(){
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-
-// Cursor Effect
-document.addEventListener("mousemove",function(e){
-const c=document.getElementById("cursor");
-c.style.left=e.clientX+"px";
-c.style.top=e.clientY+"px";
-});
-
-// Welcome Voice
-window.onload=function(){
-
-setTimeout(function(){
-
-const msg=new SpeechSynthesisUtterance(
-"Hello. Welcome to M D Asif Hossain website. I am your AI Assistant. How can I help you today?"
-);
-
-msg.lang="en-US";
-
-speechSynthesis.speak(msg);
-
-},1200);
-
-};
-
-</script>
-</body>
-</html>
-  
