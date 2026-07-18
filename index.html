@@ -314,6 +314,85 @@ openServiceAI();
 
 
 </script>
+  <!-- WhatsApp Floating Button -->
+
+<a href="https://wa.me/8801778016695?text=Hello%20Asif,%20I%20want%20to%20know%20about%20your%20services"
+target="_blank"
+class="whatsapp-float">
+
+💬
+
+</a>
+
+
+
+<style>
+
+.whatsapp-float{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+background:#25D366;
+
+color:white;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:35px;
+
+text-decoration:none;
+
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+
+animation:whatsappPulse 2s infinite;
+
+z-index:9999;
+
+}
+
+
+
+@keyframes whatsappPulse{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+</style>
 <body>
 
 
@@ -1169,3 +1248,120 @@ document.getElementById("userMsg").value="";
 }
 
 </script>
+<!-- Social Media Links -->
+
+<div class="social-section">
+
+<h2>Follow Me</h2>
+
+<a href="https://www.facebook.com/share/1BtAYeVUwU/"
+target="_blank"
+class="social facebook">
+
+🔵 Facebook
+
+</a>
+
+
+<a href="https://www.instagram.com/asifhossain2002_?igsh=Y3p3NnpvdnA2Mmtp"
+target="_blank"
+class="social instagram">
+
+📸 Instagram
+
+</a>
+
+
+<a href="https://wa.me/8801778016695"
+target="_blank"
+class="social whatsapp">
+
+💬 WhatsApp
+
+</a>
+
+
+<a href="mailto:elhasshossain@gmail.com"
+class="social email">
+
+📧 Email
+
+</a>
+
+
+</div>
+
+
+
+<style>
+
+
+.social-section{
+
+text-align:center;
+
+margin-top:30px;
+
+}
+
+
+
+.social{
+
+display:inline-block;
+
+padding:14px 25px;
+
+margin:10px;
+
+border-radius:30px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+
+.social:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+.facebook{
+
+background:#1877f2;
+
+}
+
+
+.instagram{
+
+background:#d62976;
+
+}
+
+
+.whatsapp{
+
+background:#16a34a;
+
+}
+
+
+.email{
+
+background:#ea4335;
+
+}
+
+
+
+</style>
