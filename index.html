@@ -15,7 +15,117 @@ padding:0;
 box-sizing:border-box;
 font-family:'Poppins',Arial,sans-serif;
 }
+<!-- AI Service Showcase -->
 
+<div class="ai-service-show">
+
+🤖 <span id="aiServiceText">
+Digital Marketing Service
+</span>
+
+</div>
+
+
+<style>
+
+.ai-service-show{
+
+position:fixed;
+
+left:20px;
+
+bottom:25px;
+
+background:white;
+
+color:#2563eb;
+
+padding:15px 25px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+
+animation:serviceMove 1s infinite alternate;
+
+z-index:999;
+
+}
+
+
+@keyframes serviceMove{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-8px);
+}
+
+}
+
+
+</style>
+
+
+
+<script>
+
+
+const services=[
+
+"🚀 Digital Marketing Service",
+
+"🎨 Professional Graphic Design",
+
+"🔍 SEO Optimization Service",
+
+"📱 Social Media Marketing",
+
+"⌨ Data Entry & Web Research",
+
+"📢 Google Ads Advertising",
+
+"✉ Email Marketing Service"
+
+];
+
+
+let index=0;
+
+
+function changeService(){
+
+
+document.getElementById("aiServiceText").innerHTML =
+services[index];
+
+
+index++;
+
+
+if(index>=services.length){
+
+index=0;
+
+}
+
+
+}
+
+
+
+setInterval(changeService,3000);
+
+
+changeService();
+
+
+
+</script>
 body{
 background:linear-gradient(135deg,#020617,#1d4ed8);
 color:white;
@@ -228,7 +338,190 @@ padding:30px;
 
 </head>
 
+<!-- Auto AI Service Assistant -->
 
+<div id="serviceAI" class="service-ai-box">
+
+<div class="service-ai-header">
+🤖 Asif AI Assistant
+<span onclick="closeServiceAI()">✖</span>
+</div>
+
+
+<div class="service-ai-content">
+
+<p>
+Hello 👋<br>
+আমি Asif AI Assistant।
+
+আপনাকে কীভাবে সাহায্য করতে পারি?
+
+</p>
+
+
+<p>
+আমার Services:
+
+🚀 Digital Marketing
+
+🎨 Graphic Design
+
+🔍 SEO Service
+
+📱 Social Media Marketing
+
+⌨ Data Entry Service
+
+</p>
+
+
+<p>
+আপনি চাইলে আপনার প্রয়োজন অনুযায়ী Service সম্পর্কে জানতে পারেন।
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="service-ai-button" onclick="openServiceAI()">
+
+🤖
+
+</div>
+
+
+
+
+<style>
+
+
+.service-ai-button{
+
+position:fixed;
+
+right:25px;
+
+bottom:100px;
+
+width:65px;
+
+height:65px;
+
+background:#2563eb;
+
+color:white;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+cursor:pointer;
+
+box-shadow:0 0 20px #2563eb;
+
+}
+
+
+
+.service-ai-box{
+
+position:fixed;
+
+right:25px;
+
+bottom:180px;
+
+width:330px;
+
+background:white;
+
+color:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+display:none;
+
+z-index:999;
+
+}
+
+
+
+.service-ai-header{
+
+background:#2563eb;
+
+color:white;
+
+padding:15px;
+
+font-weight:bold;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+
+
+.service-ai-content{
+
+padding:20px;
+
+line-height:1.6;
+
+}
+
+
+</style>
+
+
+
+
+<script>
+
+
+function openServiceAI(){
+
+document.getElementById("serviceAI").style.display="block";
+
+}
+
+
+
+function closeServiceAI(){
+
+document.getElementById("serviceAI").style.display="none";
+
+}
+
+
+
+// Auto Open After 2 Seconds
+
+setTimeout(function(){
+
+openServiceAI();
+
+},2000);
+
+
+
+</script>
 <body>
 
 
@@ -462,7 +755,625 @@ updateTime();
 </script>
 
 
+<!-- AI Assistant -->
+<div class="ai-btn" onclick="openAI()">
+🤖
+</div>
 
+<div class="ai-chat" id="aiChat">
+
+<div class="ai-header">
+Asif AI Assistant ✨
+<span onclick="closeAI()">✖</span>
+</div>
+
+<div class="ai-body" id="chatBody">
+<p>
+Hello, আমি Asif AI Assistant 🤖<br>
+আপনাকে কীভাবে সাহায্য করতে পারি?
+</p>
+</div>
+
+<div class="ai-input">
+<input id="userMsg" placeholder="Type your message...">
+
+<button onclick="sendMsg()">
+Send
+</button>
+
+</div>
+
+</div>
+
+
+<style>
+
+.ai-btn{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:65px;
+height:65px;
+
+background:#2563eb;
+color:white;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+cursor:pointer;
+
+box-shadow:0 0 20px #2563eb;
+
+}
+
+
+.ai-chat{
+
+position:fixed;
+
+right:25px;
+bottom:100px;
+
+width:330px;
+
+background:white;
+
+color:#111;
+
+border-radius:20px;
+
+display:none;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+
+.ai-header{
+
+background:#2563eb;
+
+color:white;
+
+padding:15px;
+
+font-weight:bold;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+
+.ai-body{
+
+padding:15px;
+
+height:200px;
+
+overflow:auto;
+
+}
+
+
+.ai-input{
+
+display:flex;
+
+border-top:1px solid #ddd;
+
+}
+
+
+.ai-input input{
+
+flex:1;
+
+padding:12px;
+
+border:none;
+
+outline:none;
+
+}
+
+
+.ai-input button{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:10px 15px;
+
+}
+
+
+</style>
+
+
+
+<script>
+
+function openAI(){
+
+document.getElementById("aiChat").style.display="block";
+
+}
+
+
+function closeAI(){
+
+document.getElementById("aiChat").style.display="none";
+
+}
+
+
+
+function sendMsg(){
+
+let msg=document.getElementById("userMsg").value;
+
+
+let chat=document.getElementById("chatBody");
+
+
+chat.innerHTML +=
+
+"<p><b>You:</b> "+msg+"</p>";
+
+
+let reply="";
+
+
+if(msg.toLowerCase().includes("service")){
+
+reply="আমি Digital Marketing, SEO, Graphic Design এবং Data Entry Service প্রদান করি.";
+
+}
+
+else if(msg.toLowerCase().includes("contact")){
+
+reply="আপনি WhatsApp অথবা Instagram এর মাধ্যমে যোগাযোগ করতে পারেন.";
+
+}
+
+else{
+
+reply="ধন্যবাদ। আমি আপনাকে Asif Hossain এর Website সম্পর্কে সাহায্য করতে পারি.";
+
+}
+
+
+
+chat.innerHTML +=
+
+"<p><b>AI:</b> "+reply+"</p>";
+
+
+document.getElementById("userMsg").value="";
+
+}
+
+</script>
 </body>
 
 </html>
+<section class="contact">
+
+<h2>Contact Me</h2>
+
+<p>
+Let's work together. Feel free to contact me.
+</p>
+
+
+<div class="contact-buttons">
+
+
+<a class="contact-btn whatsapp"
+href="https://wa.me/8801778016695"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+
+<a class="contact-btn email"
+href="mailto:elhasshossain@gmail.com">
+
+📧 Email
+
+</a>
+
+
+
+
+<a class="contact-btn facebook"
+href="https://www.facebook.com/share/1BtAYeVUwU/"
+target="_blank">
+
+🔵 Facebook
+
+</a>
+
+
+
+
+
+<a class="contact-btn instagram"
+href="https://www.instagram.com/asifhossain2002_?igsh=Y3p3NnpvdnA2Mmtp"
+target="_blank">
+
+📸 Instagram
+
+</a>
+
+
+</div>
+
+
+<h3 style="margin-top:20px">
+
+📱 Phone:
+<a href="https://wa.me/8801778016695" 
+style="color:#16a34a">
+
+01778016695
+
+</a>
+
+</h3>
+
+
+</section>
+
+
+
+<style>
+
+
+.contact{
+
+text-align:center;
+
+}
+
+
+
+.contact-buttons{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+
+.contact-btn{
+
+padding:15px 25px;
+
+border-radius:30px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+
+.contact-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+
+
+.whatsapp{
+
+background:#16a34a;
+
+}
+
+
+.email{
+
+background:#ea4335;
+
+}
+
+
+.facebook{
+
+background:#1877f2;
+
+}
+
+
+.instagram{
+
+background:#d62976;
+
+}
+
+
+
+</style>
+<section>
+
+<h2>Professional Experience</h2>
+
+<div class="experience">
+
+
+<div class="exp-card">
+
+<h3>Global Trade International</h3>
+
+<h4>Digital Marketing & Operation Executive</h4>
+
+<p class="location">
+📍 Location: Azimpur, Dhaka, Bangladesh
+</p>
+
+<p>
+Currently working as a Digital Marketing & Operation Executive.
+Responsible for digital marketing activities, online operations,
+social media management, business promotion and operational support.
+</p>
+
+</div>
+
+
+
+
+<div class="exp-card">
+
+<h3>ATCO International</h3>
+
+<h4>Digital Marketing & Graphic Designer</h4>
+
+<p class="location">
+📍 Location: Gulshan-1, Dhaka, Bangladesh
+</p>
+
+<p>
+Worked as Digital Marketing & Graphic Designer.
+Responsible for social media marketing, creative design,
+content creation, branding materials and digital campaign support.
+</p>
+
+</div>
+
+
+
+
+
+<div class="exp-card">
+
+<h3>Max Management & Services (Max HR Group)</h3>
+
+<h4>Digital Marketing & Graphic Designer</h4>
+
+<p class="location">
+📍 Location: Banani, Dhaka, Bangladesh
+</p>
+
+<p>
+Worked for 2 years as Digital Marketing & Graphic Designer.
+Experienced in social media marketing, graphic design,
+content creation, online promotion, data management and
+digital marketing solutions.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<style>
+
+.experience{
+display:grid;
+gap:20px;
+}
+
+.exp-card{
+
+background:#f8fafc;
+padding:25px;
+border-radius:20px;
+border-left:5px solid #2563eb;
+transition:.3s;
+
+}
+
+.exp-card:hover{
+
+transform:translateX(10px);
+
+}
+
+
+.exp-card h3{
+
+color:#2563eb;
+
+}
+
+.exp-card h4{
+
+margin:10px 0;
+
+}
+
+
+.location{
+
+color:#16a34a;
+font-weight:bold;
+
+}
+
+
+.exp-card p{
+
+line-height:1.6;
+
+}
+
+</style>
+<script>
+
+function sendMsg(){
+
+let msg = document.getElementById("userMsg").value.toLowerCase();
+
+let chat = document.getElementById("chatBody");
+
+
+chat.innerHTML += 
+"<p><b>You:</b> "+msg+"</p>";
+
+
+let reply="";
+
+
+if(msg.includes("service") || msg.includes("সার্ভিস")){
+
+reply = `
+আমার সার্ভিস সমূহ:
+
+🚀 Digital Marketing:
+Facebook Marketing, Google Ads, Social Media Marketing এবং Online Business Growth Solution।
+
+🎨 Graphic Design:
+Logo Design, Poster Design, Banner Design, Social Media Creative Design।
+
+🔍 SEO Service:
+Keyword Research, Website Optimization এবং Search Ranking Improvement।
+
+⌨ Data Entry:
+Web Research, Data Collection, Excel Work এবং Copy Paste Service।
+
+📱 Social Media Marketing:
+Facebook Page Management, Content Creation এবং Marketing Strategy।
+
+আপনার প্রয়োজন অনুযায়ী Professional Digital Solution প্রদান করা হয়।
+`;
+
+}
+
+
+
+else if(msg.includes("contact") || msg.includes("যোগাযোগ")){
+
+
+reply =
+`
+যোগাযোগ করুন:
+
+📱 WhatsApp: 01778016695
+
+📧 Email:
+elhasshossain@gmail.com
+
+📸 Instagram:
+asifhossain2002_
+
+`;
+
+}
+
+
+
+else if(msg.includes("experience") || msg.includes("অভিজ্ঞতা")){
+
+
+reply =
+`
+আমার Experience:
+
+✔ Max Management & Services (Max HR Group)
+📍 Banani, Dhaka
+Digital Marketing & Graphic Designer
+(2 Years)
+
+✔ ATCO International
+📍 Gulshan-1, Dhaka
+Digital Marketing & Graphic Designer
+
+✔ Global Trade International
+📍 Azimpur, Dhaka
+Digital Marketing & Operation Executive
+(Current)
+
+`;
+
+}
+
+
+
+else{
+
+
+reply =
+`
+Hello 👋
+
+আমি Asif AI Assistant।
+
+আমি আপনাকে সাহায্য করতে পারি:
+- My Services
+- My Experience
+- Contact Information
+
+আপনি প্রশ্ন করুন।
+`;
+
+}
+
+
+
+chat.innerHTML +=
+
+"<p><b>AI:</b> "+reply+"</p>";
+
+
+document.getElementById("userMsg").value="";
+
+
+}
+
+</script>
