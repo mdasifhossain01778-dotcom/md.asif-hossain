@@ -1,116 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MD ASIF HOSSAIN | Portfolio</title>
+<title>MD. Asif Hossain | Digital Marketer</title>
 
-<link rel="stylesheet" href="style.css">
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:120px 20px;
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#020617,#1d4ed8);
+color:white;
+overflow-x:hidden;
+}
+
+
+/* Header */
+
+header{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+animation:fade 2s;
 }
 
 .hero h1{
-    font-size:60px;
-    color:#00e5ff;
-    margin:10px 0;
+font-size:50px;
 }
 
-.hero h2{
-    font-size:30px;
-    margin-bottom:20px;
+.hero span{
+color:#38bdf8;
 }
 
 .hero p{
-    max-width:700px;
-    line-height:1.8;
-    font-size:18px;
-    color:#ddd;
+font-size:22px;
+margin:15px;
 }
 
-.hero-buttons{
-    margin-top:30px;
+
+.clock{
+background:white;
+color:#111;
+display:inline-block;
+padding:15px 30px;
+border-radius:20px;
+font-size:25px;
+font-weight:bold;
+margin-top:20px;
 }
+
+
+/* Sections */
+
+section{
+
+background:white;
+color:#222;
+margin:30px;
+padding:35px;
+border-radius:25px;
+animation:slide 1.5s;
+
+}
+
+
+h2{
+
+color:#2563eb;
+margin-bottom:20px;
+font-size:30px;
+
+}
+
+
+/* Services */
+
+
+.services{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+
+}
+
+
+.card{
+
+background:#f8fafc;
+padding:25px;
+border-radius:20px;
+text-align:center;
+transition:.4s;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+/* Buttons */
+
 
 .btn{
-    display:inline-block;
-    padding:14px 30px;
-    margin:10px;
-    background:#00e5ff;
-    color:#000;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
-    transition:0.3s;
+
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+background:#2563eb;
+
 }
 
-.btn:hover{
-    transform:scale(1.05);
+
+.whatsapp{
+
+background:#16a34a;
+
 }
 
-.btn2{
-    background:transparent;
-    color:#00e5ff;
-    border:2px solid #00e5ff;
+
+.instagram{
+
+background:#db2777;
+
 }
+
+
+
+/* AI Button */
+
+
+.ai{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:70px;
+height:70px;
+
+background:#2563eb;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:35px;
+
+animation:pulse 2s infinite;
+
+}
+
+
+/* Animation */
+
+
+@keyframes fade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+
+@keyframes slide{
+
+from{
+transform:translateY(50px);
+opacity:0;
+}
+
+to{
+transform:translateY(0);
+opacity:1;
+}
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.15);
+}
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:30px;
+
+}
+
+
+
+</style>
+
 </head>
 
+
 <body>
-<header class="header">
 
-    <div class="logo">
-        MD ASIF HOSSAIN
-    </div>
 
-    <nav class="navbar">
+<header>
 
-        <a href="#home">Home</a>
+<div class="hero">
 
-        <a href="#about">About</a>
+<h1>
+MD. <span>Asif Hossain</span>
+</h1>
 
-        <a href="#services">Services</a>
 
-        <a href="#skills">Skills</a>
+<p>
+Digital Marketer | Graphic Designer | SEO Expert
+</p>
 
-        <a href="#portfolio">Portfolio</a>
 
-        <a href="#contact">Contact</a>
+<div class="clock">
 
-    </nav>
+🇧🇩 Bangladesh Time:
+<br>
+<span id="time"></span>
+
+</div>
+
+
+</div>
 
 </header>
-<section id="home" class="hero">
 
-    <h3>Hello, I'm</h3>
 
-    <h1>MD ASIF HOSSAIN</h1>
 
-    <h2>Digital Marketing & Graphic Designer</h2>
 
-    <p>
-        Welcome to my professional portfolio website.
-        I provide Digital Marketing, SEO, Graphic Design,
-        Lead Generation, Data Entry and Social Media Marketing services.
-    </p>
+<section>
 
-    <div class="hero-buttons">
-        <a href="#contact" class="btn">Hire Me</a>
-        <a href="#about" class="btn btn2">About Me</a>
-    </div>
+<h2>About Me</h2>
+
+
+<p>
+
+I am MD. Asif Hossain, a professional Digital Marketer and Graphic Designer.
+
+I provide Digital Marketing, Social Media Marketing, SEO, Google Ads,
+Graphic Design, Data Entry and Online Business Solutions.
+
+</p>
+
 
 </section>
 
-<script src="script.js"></script>
+
+
+
+
+<section>
+
+<h2>My Services</h2>
+
+
+<div class="services">
+
+
+<div class="card">
+
+<h3>🚀 Digital Marketing</h3>
+
+<p>
+Facebook Marketing, Google Ads, Online Growth Strategy
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🎨 Graphic Design</h3>
+
+<p>
+Logo Design, Poster, Banner, Social Media Design
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🔍 SEO</h3>
+
+<p>
+Keyword Research, Website Ranking Optimization
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>⌨ Data Entry</h3>
+
+<p>
+Excel, Web Research, Copy Paste Work
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>Professional Experience</h2>
+
+
+<p>
+
+✔ Digital Marketing Executive<br><br>
+
+✔ Graphic Designer<br><br>
+
+✔ Social Media Marketing Specialist<br><br>
+
+✔ Data Entry Specialist
+
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section style="text-align:center">
+
+
+<h2>Contact Me</h2>
+
+
+<a class="btn whatsapp"
+href="https://wa.me/8801778016695">
+
+WhatsApp
+
+</a>
+
+
+
+<a class="btn instagram"
+
+href="https://www.instagram.com/asifhossain2002_/?hl=en">
+
+Instagram
+
+</a>
+
+
+
+</section>
+
+
+
+
+
+
+<div class="ai">
+
+🤖
+
+</div>
+
+
+
+
+
+
+<footer>
+
+© 2026 MD. Asif Hossain | All Rights Reserved
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+function updateTime(){
+
+let now=new Date();
+
+
+let time=now.toLocaleTimeString(
+"en-US",
+{
+timeZone:"Asia/Dhaka",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
+
+
+document.getElementById("time").innerHTML=time;
+
+
+}
+
+
+setInterval(updateTime,1000);
+
+updateTime();
+
+
+
+</script>
+
+
 
 </body>
 
