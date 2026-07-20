@@ -19,14 +19,15 @@
         }
         .mono-clock {
             font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 8px rgba(29, 78, 216, 0.2);
         }
         @keyframes FloatUp {
             0% { transform: translateY(15px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
         .service-pulse-active {
-            border-color: #1d4ed8 !important; /* Royal Blue */
-            box-shadow: 0 10px 30px rgba(29, 78, 216, 0.15);
+            border-color: #f97316 !important; /* Orange Accent */
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
             transform: scale(1.04) translateY(-6px) !important;
             background: #ffffff !important;
         }
@@ -40,7 +41,6 @@
             0% { r: 3px; opacity: 1; }
             100% { r: 14px; opacity: 0; }
         }
-        /* World Map Moving/Panning Animation */
         .moving-world-map {
             animation: mapOrbit 25s ease-in-out infinite alternate;
             transform-origin: center;
@@ -50,13 +50,22 @@
             50% { transform: scale(1.08) translate(-15px, -10px) rotate(0.5deg); }
             100% { transform: scale(1.03) translate(10px, 8px) rotate(-0.3deg); }
         }
-        /* Popup Notification Review Animation */
         .review-popup-show {
-            animation: slideInPopup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation: slideInPopupLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
-        @keyframes slideInPopup {
+        @keyframes slideInPopupLeft {
             0% { transform: translateY(120px) scale(0.85); opacity: 0; }
             100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        /* Auto Flight Text Keyframes */
+        @keyframes marqueeFlight {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeFlight 30s linear infinite;
         }
     </style>
 </head>
@@ -79,24 +88,50 @@
         </div>
     </header>
 
-    <!-- Global Dual Region Time Framework Console -->
-    <div class="w-full bg-slate-100 border-b border-slate-200 py-4">
-        <div class="container mx-auto px-6 flex flex-wrap justify-center gap-6">
-            <div class="px-4 py-2 bg-white border border-slate-200 rounded-xl flex items-center gap-3 min-w-[220px] justify-center shadow-sm">
-                <span class="text-[9px] uppercase font-bold text-slate-500 tracking-widest block">BD Node Time:</span>
-                <div id="clock-bd" class="text-sm font-bold tracking-widest text-blue-600 mono-clock">00:00:00 AM</div>
+    <!-- Modern Redesigned Clock Component Framework -->
+    <div class="w-full bg-slate-50 border-b border-slate-200 py-6">
+        <div class="container mx-auto px-6 flex flex-wrap justify-center gap-8">
+            <!-- Bangladesh Node Clock -->
+            <div class="relative px-6 py-3 bg-white border-2 border-blue-100 rounded-3xl flex items-center gap-4 min-w-[260px] justify-between shadow-md hover:border-blue-500 transition-colors group">
+                <div class="absolute -top-3 left-6 px-2.5 py-0.5 bg-blue-600 text-white text-[8px] font-bold tracking-widest uppercase rounded-md shadow-sm">Primary Node</div>
+                <div class="flex flex-col">
+                    <span class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">BD Local Time</span>
+                    <span class="text-[11px] font-medium text-slate-600">Dhaka GMT+6</span>
+                </div>
+                <div id="clock-bd" class="text-md font-bold tracking-widest text-blue-700 mono-clock">00:00:00 AM</div>
             </div>
-            <div class="px-4 py-2 bg-white border border-slate-200 rounded-xl flex items-center gap-3 min-w-[220px] justify-center shadow-sm">
-                <span class="text-[9px] uppercase font-bold text-slate-500 tracking-widest block">GMT Node Time:</span>
-                <div id="clock-eu" class="text-sm font-bold tracking-widest text-slate-700 mono-clock">00:00:00 AM</div>
+            
+            <!-- Global Node Clock -->
+            <div class="relative px-6 py-3 bg-white border-2 border-slate-200 rounded-3xl flex items-center gap-4 min-w-[260px] justify-between shadow-md hover:border-slate-400 transition-colors group">
+                <div class="absolute -top-3 left-6 px-2.5 py-0.5 bg-slate-700 text-white text-[8px] font-bold tracking-widest uppercase rounded-md shadow-sm">Sync Node</div>
+                <div class="flex flex-col">
+                    <span class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">UK Local Time</span>
+                    <span class="text-[11px] font-medium text-slate-600">London GMT+1</span>
+                </div>
+                <div id="clock-eu" class="text-md font-bold tracking-widest text-slate-800 mono-clock">00:00:00 AM</div>
             </div>
+        </div>
+    </div>
+
+    <!-- Auto-Flight Text Endless Scrolling Banner Component -->
+    <div class="w-full bg-blue-900 text-white py-3 overflow-hidden border-y border-blue-950 relative z-10 shadow-sm">
+        <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-xs font-bold tracking-widest uppercase">
+            <span><i class="fa-solid fa-bolt text-orange-500 mr-2"></i> High-Fidelity Graphics Design Pipelines Online</span>
+            <span><i class="fa-solid fa-chart-line text-orange-500 mr-2"></i> Conversion Optimization Models Active</span>
+            <span><i class="fa-solid fa-globe text-orange-500 mr-2"></i> Multi-Regional Distribution Networks Operational</span>
+            <span><i class="fa-solid fa-gears text-orange-500 mr-2"></i> B2B Lead Generation Loops Synchronized</span>
+            <!-- Duplicate for Infinite Seamless Loop Effect -->
+            <span><i class="fa-solid fa-bolt text-orange-500 mr-2"></i> High-Fidelity Graphics Design Pipelines Online</span>
+            <span><i class="fa-solid fa-chart-line text-orange-500 mr-2"></i> Conversion Optimization Models Active</span>
+            <span><i class="fa-solid fa-globe text-orange-500 mr-2"></i> Multi-Regional Distribution Networks Operational</span>
+            <span><i class="fa-solid fa-gears text-orange-500 mr-2"></i> B2B Lead Generation Loops Synchronized</span>
         </div>
     </div>
 
     <!-- Section 1: Hero Workspace Component -->
     <section id="home" class="container mx-auto px-6 pt-16 pb-20 flex flex-col items-center text-center relative min-h-[50vh] justify-center">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold tracking-widest uppercase mb-8">
-            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span> Multi-Regional Distribution Framework Online
+            <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework Online
         </div>
         <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-none text-slate-900">
             Global Digital Matrix <br><span class="text-blue-700">MD. ASIF HOSSAIN</span>
@@ -106,8 +141,8 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm">
-                <i class="fa-brands fa-whatsapp text-lg"></i> <span>Secure Chat Line</span>
+            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-white border border-slate-200 hover:border-orange-500 hover:bg-orange-50/20 transition-all text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-500"></i> <span>Secure Chat Line</span>
             </a>
             <a href="#services" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-600/10">
                 <span>Explore Core Matrix</span> <i class="fa-solid fa-arrow-down"></i>
@@ -115,7 +150,7 @@
         </div>
     </section>
 
-    <!-- Section 2: Expanded Service Architecture Grid -->
+    <!-- Section 2: Expanded Service Architecture Grid (With Premium Orange Theme accents) -->
     <section id="services" class="py-24 bg-slate-50 border-y border-slate-200 relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -125,66 +160,66 @@
 
             <div id="service-showcase" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 <!-- Card 1: Graphics Design -->
-                <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-vector-square"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">High-Fidelity Graphics Design</h3>
+                <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-vector-square"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">High-Fidelity Graphics Design</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Corporate identity maps, UI visual system assets, dynamic conversion mockups, and layout templates.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 2: SEO -->
-                <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Search Engine Optimization</h3>
+                <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Search Engine Optimization</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Deep technical audit setups, indexing structural configuration, and high-authority search rank acquisition loops.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 3: Social Media Service -->
-                <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Social Media Ecosystems</h3>
+                <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Social Media Ecosystems</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling, and continuous target engagement control.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 4: Ad Boosting Operations -->
-                <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-rocket"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Targeted Media Boosting</h3>
+                <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Targeted Media Boosting</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling, and rapid programmatic placement distribution.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 5: Enterprise Advertising Campaigns -->
-                <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Strategic Ad Campaigns</h3>
+                <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Strategic Ad Campaigns</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">End-to-end full funnel deployment across global networks, API server tracking, and attribution matrices.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 6: Data Entry & Web Research -->
-                <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-database"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Data Entry & Web Research</h3>
+                <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Data Entry & Web Research</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Highly accurate database mining, CRM records cleaning, catalog configuration, and custom information tracking.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 7: Lead Generation -->
-                <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-filter-list"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">B2B Lead Generation</h3>
+                <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-filter-list"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">B2B Lead Generation</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Targeted executive data collection, verified corporate emails routing, and clean list profiling for sales pipelines.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
                 <!-- Card 8: Operational Automation Matrix -->
-                <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm">
-                    <div class="text-blue-600 text-3xl mb-4"><i class="fa-solid fa-gears"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide">Operational Automation Matrix</h3>
+                <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
+                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-gears"></i></div>
+                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Operational Automation Matrix</h3>
                     <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Task sync orchestration, custom workspace workflow layout automation, and data pipeline management.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW SECTION: Global Companies Location Card Grid -->
+    <!-- Section 3: Global Companies Location Card Grid -->
     <section id="companies" class="py-20 bg-[#fdfbf7]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -269,34 +304,30 @@
         </div>
     </section>
 
-    <!-- Section 3: Animated Live World Tracking Map Section -->
+    <!-- Section 4: Animated Live World Tracking Map Section -->
     <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="text-3xl font-extrabold text-center mb-4 tracking-tight text-slate-900">Active World Client Deployments Hub</h2>
             <p class="text-center text-slate-500 text-xs mb-12 uppercase tracking-wider">Live Animated Panoramic Interface Tracking Globally Executed Node Connections</p>
             
-            <!-- Live Panning Animated SVG Map Component -->
             <div class="w-full bg-white border border-slate-200 p-4 rounded-3xl relative overflow-hidden shadow-sm min-h-[420px] flex items-center justify-center">
                 <div class="absolute top-4 left-5 text-[10px] font-mono text-slate-600 tracking-widest uppercase z-10 bg-slate-50 px-3 py-1 rounded-md border border-slate-200"><i class="fa-solid fa-globe animate-spin text-blue-600 mr-2"></i> Panoramic Orbit Sync Enabled</div>
                 
                 <div class="w-full h-full overflow-hidden flex items-center justify-center">
                     <svg id="interactive-world-canvas" class="w-full max-w-[950px] h-auto opacity-90 moving-world-map" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Abstract Continents Matrix (SVG Path Shapes) -->
                         <path d="M120,140 Q160,100 240,110 T340,140 T380,200 L360,260 L280,280 Z M560,100 Q620,80 720,90 T840,120 T880,180 L800,300 L700,260 Z M180,320 Q220,350 260,420 L160,450 Z M420,220 Q460,190 500,230 T560,260 L520,320 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.2"/>
                         <path d="M680,300 Q720,330 760,400 L660,430 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
                         
-                        <!-- Connecting Global Signal Rails Mapped Out To BD Node Hub -->
                         <g stroke="#1d4ed8" stroke-width="0.7" stroke-dasharray="4 4" class="opacity-40">
-                            <line x1="720" y1="240" x2="220" y2="120" /> <!-- BD to NY -->
-                            <line x1="720" y1="240" x2="520" y2="115" /> <!-- BD to France -->
-                            <line x1="720" y1="240" x2="560" y2="135" /> <!-- BD to Germany -->
-                            <line x1="720" y1="240" x2="505" y2="100" /> <!-- BD to UK -->
-                            <line x1="720" y1="240" x2="760" y2="280" /> <!-- BD to Malaysia -->
-                            <line x1="720" y1="240" x2="630" y2="230" /> <!-- BD to Dubai -->
-                            <line x1="720" y1="240" x2="655" y2="245" /> <!-- BD to Qatar -->
+                            <line x1="720" y1="240" x2="220" y2="120" />
+                            <line x1="720" y1="240" x2="520" y2="115" />
+                            <line x1="720" y1="240" x2="560" y2="135" />
+                            <line x1="720" y1="240" x2="505" y2="100" />
+                            <line x1="720" y1="240" x2="760" y2="280" />
+                            <line x1="720" y1="240" x2="630" y2="230" />
+                            <line x1="720" y1="240" x2="655" y2="245" />
                         </g>
                         
-                        <!-- Interactive Target Node Locations Pins Grid Overlay -->
                         <!-- 1. Bangladesh Node Hub -->
                         <circle cx="720" cy="240" r="6" fill="#ef4444"/>
                         <circle cx="720" cy="240" r="14" stroke="#ef4444" stroke-width="1.5" fill="none" class="map-pulse"/>
@@ -340,7 +371,6 @@
                 </div>
             </div>
             
-            <!-- Direct Secure Coordinates Footnote -->
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-sm">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase mb-1">HQ Core Location</span>
@@ -377,7 +407,7 @@
         </div>
     </section>
 
-    <!-- Multi-page Explainer Simulator Modal Window -->
+    <!-- Service Explainer Modal Window Component -->
     <div id="service-modal-page" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-50 hidden flex-col items-center justify-center p-6 transition-all duration-500 opacity-0">
         <div class="w-full max-w-3xl bg-white border border-slate-200 rounded-3xl p-8 relative shadow-2xl overflow-y-auto max-h-[85vh]">
             <button onclick="closeServicePage()" class="absolute top-6 right-6 text-slate-500 hover:text-slate-900 text-lg bg-slate-100 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
@@ -390,50 +420,56 @@
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
     </footer>
 
-    <!-- INTERACTIVE 3-SECOND POPUP CLIENT REVIEW ENGINE (CONTAINING 100+ REALISTIC MATRIX REVIEWS) -->
-    <div id="review-popup-container" class="fixed bottom-24 right-6 z-40 w-[320px] pointer-events-none">
-        <div id="review-popup-card" class="bg-white border border-blue-500 p-4 rounded-xl shadow-xl hidden flex-col gap-2 backdrop-blur-md review-popup-show pointer-events-auto">
-            <div class="flex justify-between items-center border-b border-slate-200 pb-1.5">
-                <span id="popup-client-tag" class="text-[9px] font-mono text-blue-600 uppercase tracking-wider">Verified Sync Node</span>
+    <!-- LEFT SIDE ALIGNED: VERIFIED CLIENT REVIEWS POPUP ENGINES (5-SECOND LOOP CYCLE) -->
+    <div id="review-popup-container" class="fixed bottom-6 left-6 z-40 w-[320px] pointer-events-none">
+        <div id="review-popup-card" class="bg-white border-2 border-orange-500 p-4 rounded-2xl shadow-xl hidden flex-col gap-2 backdrop-blur-md review-popup-show pointer-events-auto">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-1.5">
+                <span id="popup-client-tag" class="text-[9px] font-mono text-orange-600 uppercase tracking-wider font-bold">Verified Client Node</span>
                 <div id="popup-stars-container" class="flex text-amber-500 text-[9px] gap-0.5"></div>
             </div>
-            <p id="popup-client-text" class="text-slate-700 text-[11px] leading-relaxed italic"></p>
+            <p id="popup-client-text" class="text-slate-700 text-[11px] leading-relaxed italic font-medium"></p>
             <div class="flex justify-between items-center mt-1">
-                <h5 id="popup-client-name" class="text-[10px] font-bold text-slate-900 uppercase"></h5>
-                <span id="popup-client-service" class="text-[8px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold uppercase"></span>
+                <h5 id="popup-client-name" class="text-[10px] font-bold text-slate-900 uppercase tracking-wide"></h5>
+                <span id="popup-client-service" class="text-[8px] bg-orange-50 text-orange-700 px-2 py-0.5 rounded font-extrabold uppercase tracking-wider"></span>
             </div>
         </div>
     </div>
 
-    <!-- Mini AI Agent Widget Component Panel -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50">
-        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-blue-600 shadow-lg flex items-center justify-center text-white cursor-pointer hover:scale-105 transition-transform relative">
-            <i class="fa-solid fa-robot text-lg"></i>
-            <span class="absolute top-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white animate-pulse"></span>
-        </button>
-        <div id="chat-window" class="hidden absolute bottom-16 right-0 w-[320px] max-w-[85vw] h-[390px] bg-white border border-slate-200 rounded-2xl shadow-xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0">
-            <div class="bg-blue-600 p-3 flex items-center justify-between">
-                <h4 class="text-[11px] font-bold text-white">Asif Matrix AI Assistant</h4>
-                <button onclick="toggleChat()" class="text-white hover:text-slate-200 text-xs cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+    <!-- RIGHT SIDE ALIGNED: MINI TERMINAL AI CHAT ASSISTANT (DEFAULT STATE MINIMIZED) -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Main Chat Box UI Panel Structure -->
+        <div id="chat-window" class="hidden w-[320px] max-w-[85vw] h-[390px] bg-white border-2 border-blue-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 mb-4 origin-bottom-right">
+            <div class="bg-blue-600 p-3.5 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <h4 class="text-[11px] font-bold text-white uppercase tracking-wider">Asif Matrix AI Assistant</h4>
+                </div>
+                <button onclick="toggleChat()" class="text-white hover:text-slate-200 text-sm cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px]"></div>
-            <div class="p-2 bg-slate-50 border-t border-slate-200 flex gap-2">
-                <input type="text" id="ai-user-input" placeholder="Ask details..." class="flex-1 bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-[11px] text-slate-700 focus:outline-none focus:border-blue-500">
-                <button onclick="handleUserSubmit()" class="bg-blue-600 text-white font-bold px-3 py-1 rounded-lg text-[11px] cursor-pointer"><i class="fa-solid fa-paper-plane"></i></button>
+            <div id="chat-messages" class="flex-1 p-3.5 overflow-y-auto space-y-3.5 text-[11px] bg-slate-50/50"></div>
+            <div class="p-2.5 bg-white border-t border-slate-200 flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type your query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-[11px] text-slate-700 focus:outline-none focus:border-blue-500 focus:bg-white transition-all">
+                <button onclick="handleUserSubmit()" class="bg-blue-600 text-white font-bold px-3.5 py-1.5 rounded-xl text-[11px] cursor-pointer hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/10"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
+
+        <!-- Float Trigger Button Controller Element -->
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-blue-600 shadow-xl flex items-center justify-center text-white cursor-pointer hover:scale-105 active:scale-95 transition-all relative border border-blue-700">
+            <i class="fa-solid fa-robot text-lg"></i>
+            <span class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-sm"></span>
+        </button>
     </div>
 
     <!-- Core Intelligent Scripts Assembly -->
     <script>
-        // 1. Dual Clock Pipeline
+        // 1. Dual Clock Pipeline Array
         function runSystemClocks() {
             document.getElementById('clock-bd').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
             document.getElementById('clock-eu').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
         }
         setInterval(runSystemClocks, 1000); runSystemClocks();
 
-        // 2. Continuous 1s Framework Grid Highlight Pulse Engine
+        // 2. Continuous 1s Framework Grid Highlight Pulse Engine (Orange Accent Color)
         let highlightedNodeIdx = 0;
         function runHighlightPulse() {
             const cards = document.querySelectorAll('.service-card');
@@ -443,7 +479,7 @@
         }
         setInterval(runHighlightPulse, 1000); runHighlightPulse();
 
-        // 3. 100+ Positive Diversified Client Reviews Array (3-Second Cycle System)
+        // 3. Positive Diversified Client Reviews Array
         const clientMasterReviewsDatabase = [
             { name: "John S. (New York)", service: "Campaign", tag: "Apex Digital solutions", stars: 5, text: "\"Exceptional full-funnel scaling capability. Lowered target conversion costs effectively.\"" },
             { name: "রাসেল আহমেদ", service: "Boosting", tag: "Max HR Group", stars: 5, text: "\"আসিফ ভাইয়ের বুস্টিং স্ট্রাটেজি চমৎকার! আমাদের পেজের সেলস ৪ গুণ পর্যন্ত বেড়েছে।\"" },
@@ -452,28 +488,10 @@
             { name: "Tan Sri H. (Kuala Lumpur)", service: "Automation", tag: "KL Logistics Sync", stars: 4, text: "\"System operations error rates dropped down to absolute zero inside a single billing deployment cycle.\"" },
             { name: "ফারিহা সুলতানা", service: "Social Media", tag: "Fashion Brand Node", stars: 5, text: "\"কন্টেন্ট ম্যানেজমেন্ট এবং শিডিউলিং নিয়ে কাজের কোয়ালিটি সত্যিই দারুণ ছিল।\"" },
             { name: "Marcus V. (Berlin)", service: "Data Entry", tag: "Berlin InfoMatrix", stars: 5, text: "\"Database mining pipeline execution was incredibly fast and accurately organized.\"" },
-            { name: "Ahmed Al-M. (Doha)", service: "Lead Gen", tag: "Al-Miraj Trading", stars: 4, text: "\"Clean B2B corporate tracking data provided. Highly validated executive email leads sync.\"" },
-            { name: "Zayed Al-N. (Dubai)", service: "Campaign", tag: "Gulf Coast Ventures", stars: 5, text: "\"Amazing paid distribution tracking scaling. Return on ad spend exceeded original expectations.\"" },
-            { name: "David K. (London)", service: "SEO", tag: "UK Real Estate Node", stars: 5, text: "\"Impressive Core Web Vitals optimization and clean structural tag hierarchy mapping.\"" }
+            { name: "Ahmed Al-M. (Doha)", service: "Lead Gen", tag: "Al-Miraj Trading", stars: 4, text: "\"Clean B2B corporate tracking data provided. Highly validated executive email leads sync.\"" }
         ];
 
-        // Generate synthetic rows up to 105 distinct nodes dynamically
-        const componentsArr = ["Campaign", "Boosting", "Graphics", "SEO", "Automation", "Data Entry", "Lead Gen", "Social Media"];
-        const zonesArr = ["Apex Digital Solutions", "Max HR Group", "Lumiere Media Group", "KL Logistics Sync", "Berlin InfoMatrix", "Al-Miraj Trading", "Gulf Coast Ventures", "Vanguard SEO Group"];
-        const titlesArr = ["Alex P.", "নাসির উদ্দিন", "Elena R.", "কাজী রিফাত", "Mohammad K.", "জয়নাল আবেদীন", "Stephan M.", "Tariq A.", "Emma W.", "ফয়সাল আহমেদ"];
-        
-        for (let i = 10; i < 105; i++) {
-            const tempStars = (i % 7 === 0 || i % 9 === 0) ? 4 : 5;
-            const targetComp = componentsArr[i % componentsArr.length];
-            const targetZone = zonesArr[i % zonesArr.length];
-            const targetTitle = titlesArr[i % titlesArr.length] + ` (#${100 + i})`;
-            const textContent = tempStars === 5 
-                ? `\"Highly professional execution framework. Streamlined operational deliverables matching modern enterprise specs perfectly.\"`
-                : `\"Dependable delivery sync. Smooth interface communications with reliable conversion target tracking records.\"`;
-            
-            clientMasterReviewsDatabase.push({ name: targetTitle, service: targetComp, tag: targetZone, stars: tempStars, text: textContent });
-        }
-
+        // 4. Extended Review Popup Controller Array System (5-Second Cycle)
         let currentReviewTracker = 0;
         const targetPopupUI = document.getElementById('review-popup-card');
         const starsContainer = document.getElementById('popup-stars-container');
@@ -500,10 +518,11 @@
             
             currentReviewTracker = (currentReviewTracker + 1) % clientMasterReviewsDatabase.length;
         }
-        setInterval(streamPopupReviewCycle, 3000); 
+        // কাস্টমার রিভিউ ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড) পর পর পরিবর্তিত হবে
+        setInterval(streamPopupReviewCycle, 5000); 
         streamPopupReviewCycle();
 
-        // 4. Detailed Schema Model Modal
+        // 5. Schema Data Hub
         const customDetailedSchema = {
             gd: { title: "High-Fidelity Graphic Design Ecosystems", overview: "Premium visual asset conversion setups mapped out perfectly for modern digital branding requirements.", timeline: "2-5 Days", audience: "Agencies & Brands", features: ["Scalable enterprise vector branding production frameworks.", "Optimized creative assets for multi-channel targeting campaigns."] },
             seo: { title: "Technical Search Engine Optimization Pipelines", overview: "Advanced structural audit infrastructure providing clean domain authority elevation and indexing logs.", timeline: "7-14 Days", audience: "Content Portals & SaaS", features: ["Schema markups deployment and web vitals tuning layouts.", "Keyword intent map scaling for search acquisition indexes."] },
@@ -518,7 +537,7 @@
         function openServicePage(k) {
             const data = customDetailedSchema[k] || customDetailedSchema['gd'];
             let bulletHtml = "";
-            data.features.forEach(f => { bulletHtml += `<li class="text-xs text-slate-600 border-b border-slate-100 pb-2 mb-2 flex items-start gap-2"><i class="fa-solid fa-square-check text-blue-600 mt-0.5"></i><span>${f}</span></li>`; });
+            data.features.forEach(f => { bulletHtml += `<li class="text-xs text-slate-600 border-b border-slate-100 pb-2 mb-2 flex items-start gap-2"><i class="fa-solid fa-square-check text-orange-500 mt-0.5"></i><span>${f}</span></li>`; });
             
             document.getElementById('modal-content-stream').innerHTML = `
                 <h3 class="text-xl font-bold text-blue-700 mb-3">${data.title}</h3>
@@ -528,7 +547,7 @@
                     <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Client Focus</b><span class="text-blue-600 font-bold">${data.audience}</span></div>
                 </div>
                 <ul class="list-none">${bulletHtml}</ul>
-                <div class="mt-6 flex gap-3"><a href="https://wa.me/8801778016695" target="_blank" class="px-5 py-2 bg-blue-600 text-white font-bold text-xs uppercase rounded-xl">Order Deployment</a><button onclick="closeServicePage()" class="px-5 py-2 bg-slate-100 text-slate-700 font-bold text-xs uppercase rounded-xl cursor-pointer">Close</button></div>
+                <div class="mt-6 flex gap-3"><a href="https://wa.me/8801778016695" target="_blank" class="px-5 py-2 bg-orange-500 text-white font-bold text-xs uppercase rounded-xl shadow-md">Order Deployment</a><button onclick="closeServicePage()" class="px-5 py-2 bg-slate-100 text-slate-700 font-bold text-xs uppercase rounded-xl cursor-pointer">Close</button></div>
             `;
             const m = document.getElementById('service-modal-page'); m.classList.remove('hidden');
             setTimeout(() => { m.classList.remove('opacity-0'); m.classList.add('opacity-100'); }, 40);
@@ -538,7 +557,7 @@
             setTimeout(() => { m.classList.add('hidden'); }, 400);
         }
 
-        // 5. Mini Terminal AI
+        // 6. Mini Terminal AI Agent UI Engine Toggle Controller (Minimized Default Setup)
         let aiWidgetOpen = false;
         const uiPanel = document.getElementById('chat-window');
         const textStream = document.getElementById('chat-messages');
@@ -548,6 +567,10 @@
             if(aiWidgetOpen) {
                 uiPanel.classList.remove('hidden');
                 setTimeout(() => { uiPanel.classList.remove('scale-95', 'opacity-0'); uiPanel.classList.add('scale-100', 'opacity-100'); }, 10);
+                // First greeting prompt trigger if empty logs
+                if(textStream.innerHTML === "") {
+                    setTimeout(() => { printMsg('ai', 'হ্যালো! আমি আসিফের **Matrix AI Sync Node**। আমাদের ১০০+ গ্লোবাল রিভিউ, কোম্পানি লোকেশন বা সার্ভিস সম্পর্কে কিছু জানতে চান?'); }, 400);
+                }
             } else {
                 uiPanel.classList.remove('scale-100', 'opacity-100'); uiPanel.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => { uiPanel.classList.add('hidden'); }, 300);
@@ -559,9 +582,6 @@
             box.innerHTML = s === 'ai' ? `<div class="bg-slate-100 p-2.5 rounded-xl rounded-tl-none text-slate-800 border border-slate-200">${t}</div>` : `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-none">${t}</div>`;
             textStream.appendChild(box); textStream.scrollTop = textStream.scrollHeight;
         }
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => { toggleChat(); printMsg('ai', 'হ্যালো! আমি আসিফের **Matrix AI Sync Node**। আমাদের ১০০+ গ্লোবাল রিভিউ, কোম্পানি লোকেশন বা সার্ভিস সম্পর্কে কিছু জানতে চান?'); }, 1500);
-        });
         function handleUserSubmit() {
             const inp = document.getElementById('ai-user-input'); const txt = inp.value.trim(); if(!txt) return;
             printMsg('user', txt); inp.value = '';
