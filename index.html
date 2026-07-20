@@ -1,796 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MD. Asif Hossain | Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#08111f;
-color:#fff;
-overflow-x:hidden;
-}
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.65);
-backdrop-filter:blur(12px);
-z-index:999;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-color:#00e5ff;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin-left:20px;
-transition:.3s;
-}
-
-nav a:hover{
-color:#00e5ff;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:60px;
-padding:120px 8% 60px;
-flex-wrap:wrap;
-background:linear-gradient(135deg,#08111f,#102b5a,#1b3c7a);
-}
-
-.hero-text{
-flex:1;
-min-width:300px;
-}
-
-.hero-text h1{
-font-size:55px;
-line-height:1.2;
-margin-bottom:20px;
-}
-
-.hero-text span{
-color:#00e5ff;
-}
-
-.hero-text p{
-font-size:20px;
-margin-bottom:30px;
-color:#ddd;
-}
-
-.btn{
-display:inline-block;
-padding:14px 30px;
-background:#00e5ff;
-color:#000;
-text-decoration:none;
-border-radius:40px;
-font-weight:600;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.08);
-}
-
-.hero-img{
-flex:1;
-text-align:center;
-min-width:300px;
-}
-
-.hero-img img{
-width:330px;
-height:330px;
-object-fit:cover;
-border-radius:50%;
-border:6px solid #00e5ff;
-box-shadow:0 0 40px #00e5ff;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-
-50%{
-transform:translateY(-15px);
-}
-
-}
-
-@media(max-width:768px){
-
-.hero{
-text-align:center;
-}
-
-.hero-text h1{
-font-size:38px;
-}
-
-.hero-img img{
-width:250px;
-height:250px;
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Wishes - HSC 2026</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for beautiful Bengali text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+    </style>
 </head>
-<!-- ================= AI ASSISTANT ================= -->
-
-<div id="aiChat">
-
-<div id="aiHeader">
-🤖 Asif AI Assistant
-<span onclick="closeAI()" style="float:right;cursor:pointer;">✖</span>
-</div>
-
-<div id="aiBody"></div>
-
-<div style="padding:10px;text-align:center;">
-<a href="https://wa.me/8801778016695" class="btn" target="_blank">
-💬 Contact on WhatsApp
-</a>
-</div>
-
-</div>
-
-<button id="aiBtn" onclick="openAI()">🤖</button>
-
-<!-- Bangladesh Clock -->
-<div id="bdClock"></div>
-
-<!-- Floating WhatsApp -->
-<a id="waFloat" href="https://wa.me/8801778016695" target="_blank">💬</a>
-
-<!-- Contact -->
-<section id="contact" class="section">
-
-<h2 class="title">Contact Me</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<h3>📧 Email</h3>
-<p>elhasshoassin@gmail.com</p>
-</div>
-
-<div class="service-card">
-<h3>📸 Instagram</h3>
-<p>@asifhossain2002_</p>
-</div>
-
-<div class="service-card">
-<h3>📘 Facebook</h3>
-<p>MD. Asif Hossain</p>
-</div>
-
-</div>
-
-</section>
-
-<style>
-
-#aiBtn{
-position:fixed;
-left:20px;
-bottom:20px;
-width:65px;
-height:65px;
-border:none;
-border-radius:50%;
-background:#00e5ff;
-font-size:28px;
-cursor:pointer;
-z-index:9999;
-}
-
-#aiChat{
-position:fixed;
-left:20px;
-bottom:95px;
-width:340px;
-background:#111827;
-border-radius:15px;
-display:none;
-overflow:hidden;
-box-shadow:0 0 25px rgba(0,229,255,.4);
-z-index:9999;
-}
-
-#aiHeader{
-background:#00e5ff;
-color:#000;
-padding:15px;
-font-weight:bold;
-}
-
-#aiBody{
-padding:15px;
-height:250px;
-overflow:auto;
-}
-
-.bot{
-background:#1f2937;
-padding:10px;
-margin:8px 0;
-border-radius:10px;
-}
-
-#bdClock{
-position:fixed;
-top:90px;
-right:20px;
-background:#111827;
-padding:10px 15px;
-border-radius:10px;
-color:#00e5ff;
-font-weight:bold;
-z-index:9999;
-}
-
-#waFloat{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:#fff;
-text-decoration:none;
-font-size:28px;
-padding:15px;
-border-radius:50%;
-z-index:9999;
-}
-
-</style>
-
-<script>
-
-function openAI(){
-document.getElementById("aiChat").style.display="block";
-}
-
-function closeAI(){
-document.getElementById("aiChat").style.display="none";
-}
-
-// Auto open
-setTimeout(openAI,1000);
-
-const services=[
-"👋 Welcome to MD. Asif Hossain's Website!",
-"📈 Digital Marketing Service",
-"🎨 Graphic Design Service",
-"💻 Data Entry Service",
-"🔍 SEO Service",
-"📧 Email Marketing",
-"📊 Lead Generation",
-"📱 Social Media Management",
-"🙏 Thank you for visiting my website.",
-"💬 Please contact me on WhatsApp for more information."
-];
-
-let i=0;
-
-function showService(){
-
-if(i<services.length){
-
-let div=document.createElement("div");
-div.className="bot";
-div.innerHTML=services[i];
-
-document.getElementById("aiBody").appendChild(div);
-
-document.getElementById("aiBody").scrollTop=
-document.getElementById("aiBody").scrollHeight;
-
-i++;
-
-setTimeout(showService,2000);
-
-}
-
-}
-
-setTimeout(showService,1500);
-
-// Bangladesh Time
-function clock(){
-
-const now=new Date();
-
-document.getElementById("bdClock").innerHTML=
-"🇧🇩 "+now.toLocaleTimeString("en-BD");
-
-}
-
-setInterval(clock,1000);
-
-clock();
-<!-- ================= FINAL EFFECTS ================= -->
-
-<footer>
-
-<h2>MD. Asif Hossain</h2>
-
-<p>Digital Marketer | Graphic Designer | Data Entry Specialist</p>
-
-<div class="footer-links">
-
-<a href="https://wa.me/8801778016695" target="_blank">WhatsApp</a>
-
-<a href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank">Instagram</a>
-
-<a href="https://www.facebook.com/share/17zu3eCSMR/" target="_blank">Facebook</a>
-
-<a href="mailto:elhasshoassin@gmail.com">Email</a>
-
-</div>
-
-<p>© 2026 MD. Asif Hossain. All Rights Reserved.</p>
-
-</footer>
-
-<button id="topBtn">⬆</button>
-
-<style>
-
-footer{
-background:#111827;
-padding:50px 20px;
-text-align:center;
-margin-top:80px;
-}
-
-footer h2{
-color:#00e5ff;
-margin-bottom:10px;
-}
-
-.footer-links{
-margin:20px 0;
-}
-
-.footer-links a{
-display:inline-block;
-margin:8px;
-padding:10px 18px;
-background:#00e5ff;
-color:#000;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-transition:.3s;
-}
-
-.footer-links a:hover{
-transform:scale(1.08);
-}
-
-#topBtn{
-position:fixed;
-right:20px;
-bottom:95px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#00e5ff;
-font-size:22px;
-cursor:pointer;
-display:none;
-z-index:9999;
-}
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 30%,rgba(0,229,255,.12),transparent 25%),
-radial-gradient(circle at 80% 70%,rgba(0,229,255,.10),transparent 25%);
-pointer-events:none;
-z-index:-1;
-}
-
-</style>
-
-<script>
-
-window.addEventListener("scroll",function(){
-
-const btn=document.getElementById("topBtn");
-
-if(window.scrollY>300){
-
-btn.style.display="block";
-
-}else{
-
-btn.style.display="none";
-
-}
-
-});
-
-document.getElementById("topBtn").onclick=function(){
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-
-</script>
-</script>
-<body>
-
-<header>
-
-<div class="logo">
-ASIF
-</div>
-
-<nav>
-
-<a href="#about">About</a>
-
-<a href="#experience">Experience</a>
-
-<a href="#services">Services</a>
-
-<a href="#portfolio">Portfolio</a>
-
-<a href="#contact">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>
-
-Hi, I'm
-
-<span>MD. Asif Hossain</span>
-
-</h1>
-
-<p>
-
-Digital Marketer • Graphic Designer • Data Entry Specialist
-
-</p>
-
-<a href="https://wa.me/8801778016695" class="btn">
-
-Chat on WhatsApp
-
-</a>
-
-</div>
-
-<div class="hero-img">
-
-<img src="profile.jpg" alt="MD Asif Hossain">
-
-</div>
-
-</section>
-<!-- ================= ABOUT ================= -->
-
-<section id="about" class="section">
-
-<h2 class="title">About Me</h2>
-
-<div class="about-card">
-
-<h3>MD. Asif Hossain</h3>
-
-<p>
-I am a Professional Digital Marketer, Graphic Designer and Data Entry Specialist. I help businesses grow through Digital Marketing, Social Media Management, SEO, Lead Generation and Creative Graphic Design.
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= EXPERIENCE ================= -->
-
-<section id="experience" class="section">
-
-<h2 class="title">Work Experience</h2>
-
-<div class="timeline">
-
-<div class="exp-card">
-
-<h3>Max Management & Services (Max HR Group)</h3>
-
-<h4>Banani, Dhaka</h4>
-
-<p>
-Digital Marketer & Graphic Designer
-</p>
-
-</div>
-
-<div class="exp-card">
-
-<h3>ATCO International</h3>
-
-<h4>Gulshan 1, Dhaka</h4>
-
-<p>
-Digital Marketing & Graphic Designer
-</p>
-
-</div>
-
-<div class="exp-card">
-
-<h3>Global Trade International</h3>
-
-<h4>Azimpur, Dhaka</h4>
-
-<p>
-Digital Marketer & Operation Executive
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<style>
-
-.section{
-padding:90px 8%;
-}
-
-.title{
-text-align:center;
-font-size:40px;
-margin-bottom:40px;
-color:#00e5ff;
-}
-
-.about-card,
-.exp-card{
-
-background:#111827;
-
-padding:30px;
-
-border-radius:18px;
-
-margin-bottom:25px;
-
-box-shadow:0 0 20px rgba(0,229,255,.15);
-
-transition:.4s;
-
-}
-
-.about-card:hover,
-.exp-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 25px #00e5ff;
-
-}
-
-.timeline{
-
-display:grid;
-
-gap:20px;
-
-}
-
-.exp-card h3{
-
-color:#00e5ff;
-
-margin-bottom:10px;
-
-}
-
-.exp-card h4{
-
-color:#ddd;
-
-margin-bottom:12px;
-
-font-weight:400;
-
-}
-
-</style>
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="section">
-
-<h2 class="title">My Services</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<h3>📈 Digital Marketing</h3>
-<p>Facebook Marketing, Instagram Marketing, Google Ads & Business Growth.</p>
-</div>
-
-<div class="service-card">
-<h3>🎨 Graphic Design</h3>
-<p>Logo Design, Banner Design, Poster, Business Card & Social Media Design.</p>
-</div>
-
-<div class="service-card">
-<h3>💻 Data Entry</h3>
-<p>Copy Paste, Excel, Web Research, Data Collection & Lead Generation.</p>
-</div>
-
-<div class="service-card">
-<h3>🔍 SEO</h3>
-<p>On Page SEO, Off Page SEO & Website Optimization.</p>
-</div>
-
-<div class="service-card">
-<h3>📧 Email Marketing</h3>
-<p>Professional Email Campaign & Email List Management.</p>
-</div>
-
-<div class="service-card">
-<h3>📱 Social Media Management</h3>
-<p>Facebook Page, Instagram Page & Content Management.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills" class="section">
-
-<h2 class="title">Professional Skills</h2>
-
-<div class="skill">
-<p>Digital Marketing <span>95%</span></p>
-<progress value="95" max="100"></progress>
-</div>
-
-<div class="skill">
-<p>Graphic Design <span>92%</span></p>
-<progress value="92" max="100"></progress>
-</div>
-
-<div class="skill">
-<p>SEO <span>90%</span></p>
-<progress value="90" max="100"></progress>
-</div>
-
-<div class="skill">
-<p>Data Entry <span>98%</span></p>
-<progress value="98" max="100"></progress>
-</div>
-
-</section>
-
-<!-- ================= PORTFOLIO ================= -->
-
-<section id="portfolio" class="section">
-
-<h2 class="title">Portfolio</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<h3>📈 Digital Marketing Projects</h3>
-<p>Facebook Ads, Instagram Growth & SEO Campaign.</p>
-</div>
-
-<div class="service-card">
-<h3>🎨 Graphic Design Projects</h3>
-<p>Professional Logo, Banner & Social Media Creative.</p>
-</div>
-
-<div class="service-card">
-<h3>💼 Lead Generation</h3>
-<p>Business Leads, Data Collection & Web Research.</p>
-</div>
-
-</div>
-
-</section>
-
-<style>
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-
-.service-card{
-background:#111827;
-padding:25px;
-border-radius:18px;
-transition:.4s;
-box-shadow:0 0 15px rgba(0,229,255,.15);
-}
-
-.service-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #00e5ff;
-}
-
-.service-card h3{
-color:#00e5ff;
-margin-bottom:12px;
-}
-
-.skill{
-margin:20px 0;
-}
-
-.skill p{
-display:flex;
-justify-content:space-between;
-margin-bottom:8px;
-}
-
-progress{
-width:100%;
-height:18px;
-}
-
-</style>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center p-4 antialiased">
+
+    <div class="max-w-xl w-full bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-2xl border border-white/20 text-center text-white transform transition-all duration-300 hover:scale-[1.01]">
+        
+        <!-- HSC Batch Badge -->
+        <div class="inline-block bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+            📢 Attention: HSC 2026 Candidates
+        </div>
+
+        <!-- Main Heading and Wish -->
+        <div class="mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold leading-relaxed tracking-wide">
+                আগামী ২৪ জুলাই শুক্রবার আমাদের পরীক্ষার জন্য সবার প্রতি শুভকামনা! 🎯
+            </h1>
+            
+            <!-- Creator Mention -->
+            <p class="text-slate-300 mt-4 text-sm md:text-base border-t border-b border-white/10 py-2 inline-block px-4 mx-auto">
+                <i class="fa-solid fa-pen-nib text-cyan-400 mr-1"></i> 
+                Best wishes from <span class="font-semibold text-cyan-300">MD. Asif Hossain</span> to all <span class="text-pink-400 font-semibold">HSC 2026 Candidates</span>!
+            </p>
+            
+            <p class="text-slate-400 mt-6 text-xs md:text-sm uppercase tracking-widest">নিচের যেকোনো একটি অপশন সিলেক্ট করো:</p>
+        </div>
+
+        <!-- Options Container -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <!-- Option 1 Card -->
+            <button onclick="showResult('brilliant')" class="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 p-5 rounded-xl font-semibold shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer text-left">
+                <span class="block text-xs text-cyan-200 uppercase tracking-wider mb-1">Option 1</span>
+                <span class="text-lg font-bold block">For Brilliant Student</span>
+                <div class="absolute right-3 bottom-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fa-solid fa-brain text-5xl"></i>
+                </div>
+            </button>
+
+            <!-- Option 2 Card -->
+            <button onclick="showResult('regular')" class="group relative overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 p-5 rounded-xl font-semibold shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer text-left">
+                <span class="block text-xs text-emerald-200 uppercase tracking-wider mb-1">Option 2</span>
+                <span class="text-lg font-bold block">For Regular Student</span>
+                <div class="absolute right-3 bottom-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fa-solid fa-book-open text-5xl"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Dynamic Output Section -->
+        <div id="resultBox" class="hidden min-h-[120px] flex flex-col items-center justify-center bg-white/5 rounded-xl p-6 border border-white/10 transition-all duration-500 transform scale-95 opacity-0">
+            <div id="resultIcon" class="text-4xl mb-3"></div>
+            <p id="resultText" class="text-xl font-semibold tracking-wide"></p>
+        </div>
+
+    </div>
+
+    <!-- JavaScript to handle clicks -->
+    <script>
+        function showResult(type) {
+            const resultBox = document.getElementById('resultBox');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultText = document.getElementById('resultText');
+
+            // Reset classes for smooth animation trigger
+            resultBox.classList.remove('scale-100', 'opacity-100', 'hidden');
+            resultBox.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                if (type === 'brilliant') {
+                    resultIcon.innerHTML = '<i class="fa-solid fa-smile-beam text-amber-400 animate-pulse"></i> <i class="fa-solid fa-heart text-rose-500 animate-beat"></i>';
+                    resultText.innerHTML = 'No Tension & ❤️';
+                    resultText.className = "text-xl font-bold text-amber-300";
+                } else if (type === 'regular') {
+                    resultIcon.innerHTML = '<i class="fa-solid fa-dumbbell text-emerald-400 animate-spin-slow"></i>';
+                    resultText.innerHTML = 'Try to hard work!';
+                    resultText.className = "text-xl font-bold text-emerald-300";
+                }
+                
+                // Show with animation
+                resultBox.classList.remove('scale-95', 'opacity-0');
+                resultBox.classList.add('scale-100', 'opacity-100');
+            }, 150);
+        }
+    </script>
+
+    <!-- Extra CSS for minor icon animations -->
+    <style>
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .animate-beat {
+            display: inline-block;
+            animation: beat 1s infinite;
+        }
+        .animate-spin-slow {
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+    </style>
+</body>
+</html>
