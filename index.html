@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD. ASIF HOSSAIN - Enterprise Marketing & Design Hub</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -19,45 +19,15 @@
         }
         .mono-clock {
             font-family: 'Share Tech Mono', monospace;
-            text-shadow: 0 0 8px rgba(29, 78, 216, 0.2);
-        }
-        @keyframes FloatUp {
-            0% { transform: translateY(15px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        .service-pulse-active {
-            border-color: #f97316 !important; /* Orange Accent */
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
-            transform: scale(1.04) translateY(-6px) !important;
-            background: #ffffff !important;
         }
         .service-card, .company-card {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .map-pulse {
-            animation: mapGlow 2s infinite;
+        .service-pulse-active {
+            border-color: #f97316 !important;
+            box-shadow: 0 12px 30px rgba(249, 115, 22, 0.12);
+            transform: translateY(-4px);
         }
-        @keyframes mapGlow {
-            0% { r: 3px; opacity: 1; }
-            100% { r: 14px; opacity: 0; }
-        }
-        .moving-world-map {
-            animation: mapOrbit 25s ease-in-out infinite alternate;
-            transform-origin: center;
-        }
-        @keyframes mapOrbit {
-            0% { transform: scale(1.0) translate(0px, 0px) rotate(0deg); }
-            50% { transform: scale(1.08) translate(-15px, -10px) rotate(0.5deg); }
-            100% { transform: scale(1.03) translate(10px, 8px) rotate(-0.3deg); }
-        }
-        .review-popup-show {
-            animation: slideInPopupLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-        @keyframes slideInPopupLeft {
-            0% { transform: translateY(120px) scale(0.85); opacity: 0; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        /* Auto Flight Text Keyframes */
         @keyframes marqueeFlight {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -65,411 +35,349 @@
         .animate-marquee {
             display: flex;
             width: max-content;
-            animation: marqueeFlight 30s linear infinite;
+            animation: marqueeFlight 25s linear infinite;
+        }
+        @keyframes mapOrbit {
+            0% { transform: scale(1.0) translate(0px, 0px); }
+            50% { transform: scale(1.04) translate(-5px, -5px); }
+            100% { transform: scale(1.0) translate(0px, 0px); }
+        }
+        .moving-world-map {
+            animation: mapOrbit 20s ease-in-out infinite alternate;
+        }
+        .map-pulse {
+            animation: mapGlow 2s infinite;
+        }
+        @keyframes mapGlow {
+            0% { r: 3px; opacity: 1; }
+            100% { r: 12px; opacity: 0; }
         }
     </style>
 </head>
-<body class="bg-[#fdfbf7] text-slate-800 min-h-screen relative overflow-x-hidden selection:bg-blue-600 selection:text-white">
+<body class="bg-[#faf8f5] text-slate-800 min-h-screen relative overflow-x-hidden antialiased">
 
-    <!-- Sticky Navigation Console -->
-    <header class="sticky top-0 z-40 bg-[#fdfbf7]/80 backdrop-blur-xl border-b border-slate-200">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-blue-700 tracking-widest">ASIF HOSSAIN</a>
-            <nav class="hidden lg:flex space-x-8 text-xs font-semibold uppercase tracking-wider text-slate-600">
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-[#faf8f5]/85 backdrop-blur-md border-b border-slate-200/80">
+        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</a>
+            <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
                 <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
                 <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
-                <a href="#companies" class="hover:text-blue-600 transition-colors">Clients & Partners</a>
+                <a href="#companies" class="hover:text-blue-600 transition-colors">Clients</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Global Map</a>
                 <a href="#experience" class="hover:text-blue-600 transition-colors">History</a>
             </nav>
-            <a href="https://wa.me/8801778016695" target="_blank" class="px-6 py-2.5 rounded-xl bg-blue-600 border border-blue-700 text-xs font-bold uppercase tracking-wider shadow-md hover:bg-blue-700 transition-all text-white">
+            <a href="https://wa.me/8801778016695" target="_blank" class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-blue-700 transition-all">
                 Launch Request
             </a>
         </div>
     </header>
 
-    <!-- Modern Redesigned Clock Component Framework -->
-    <div class="w-full bg-slate-50 border-b border-slate-200 py-6">
-        <div class="container mx-auto px-6 flex flex-wrap justify-center gap-8">
-            <!-- Bangladesh Node Clock -->
-            <div class="relative px-6 py-3 bg-white border-2 border-blue-100 rounded-3xl flex items-center gap-4 min-w-[260px] justify-between shadow-md hover:border-blue-500 transition-colors group">
-                <div class="absolute -top-3 left-6 px-2.5 py-0.5 bg-blue-600 text-white text-[8px] font-bold tracking-widest uppercase rounded-md shadow-sm">Primary Node</div>
-                <div class="flex flex-col">
-                    <span class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">BD Local Time</span>
-                    <span class="text-[11px] font-medium text-slate-600">Dhaka GMT+6</span>
+    <!-- Responsive Dual Clock Components -->
+    <div class="w-full bg-slate-50 border-b border-slate-200 py-4 px-4">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 max-w-4xl">
+            <!-- Bangladesh Clock -->
+            <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white border border-blue-100 rounded-2xl flex items-center justify-between shadow-sm group">
+                <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-blue-600 text-white text-[8px] font-bold tracking-widest uppercase rounded">Primary Node</span>
+                <div class="flex flex-col mt-1">
+                    <span class="text-[9px] uppercase font-bold text-slate-400">BD Local Time</span>
+                    <span class="text-[10px] font-medium text-slate-500">Dhaka GMT+6</span>
                 </div>
-                <div id="clock-bd" class="text-md font-bold tracking-widest text-blue-700 mono-clock">00:00:00 AM</div>
+                <div id="clock-bd" class="text-sm font-bold text-blue-700 mono-clock">00:00:00 AM</div>
             </div>
             
-            <!-- Global Node Clock -->
-            <div class="relative px-6 py-3 bg-white border-2 border-slate-200 rounded-3xl flex items-center gap-4 min-w-[260px] justify-between shadow-md hover:border-slate-400 transition-colors group">
-                <div class="absolute -top-3 left-6 px-2.5 py-0.5 bg-slate-700 text-white text-[8px] font-bold tracking-widest uppercase rounded-md shadow-sm">Sync Node</div>
-                <div class="flex flex-col">
-                    <span class="text-[9px] uppercase font-extrabold text-slate-400 tracking-wider">UK Local Time</span>
-                    <span class="text-[11px] font-medium text-slate-600">London GMT+1</span>
+            <!-- Global Clock -->
+            <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white border border-slate-200 rounded-2xl flex items-center justify-between shadow-sm group">
+                <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-bold tracking-widest uppercase rounded">Sync Node</span>
+                <div class="flex flex-col mt-1">
+                    <span class="text-[9px] uppercase font-bold text-slate-400">UK Local Time</span>
+                    <span class="text-[10px] font-medium text-slate-500">London GMT+1</span>
                 </div>
-                <div id="clock-eu" class="text-md font-bold tracking-widest text-slate-800 mono-clock">00:00:00 AM</div>
+                <div id="clock-eu" class="text-sm font-bold text-slate-800 mono-clock">00:00:00 AM</div>
             </div>
         </div>
     </div>
 
-    <!-- Auto-Flight Text Endless Scrolling Banner Component -->
-    <div class="w-full bg-blue-900 text-white py-3 overflow-hidden border-y border-blue-950 relative z-10 shadow-sm">
-        <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-xs font-bold tracking-widest uppercase">
-            <span><i class="fa-solid fa-bolt text-orange-500 mr-2"></i> High-Fidelity Graphics Design Pipelines Online</span>
-            <span><i class="fa-solid fa-chart-line text-orange-500 mr-2"></i> Conversion Optimization Models Active</span>
-            <span><i class="fa-solid fa-globe text-orange-500 mr-2"></i> Multi-Regional Distribution Networks Operational</span>
-            <span><i class="fa-solid fa-gears text-orange-500 mr-2"></i> B2B Lead Generation Loops Synchronized</span>
-            <!-- Duplicate for Infinite Seamless Loop Effect -->
-            <span><i class="fa-solid fa-bolt text-orange-500 mr-2"></i> High-Fidelity Graphics Design Pipelines Online</span>
-            <span><i class="fa-solid fa-chart-line text-orange-500 mr-2"></i> Conversion Optimization Models Active</span>
-            <span><i class="fa-solid fa-globe text-orange-500 mr-2"></i> Multi-Regional Distribution Networks Operational</span>
-            <span><i class="fa-solid fa-gears text-orange-500 mr-2"></i> B2B Lead Generation Loops Synchronized</span>
+    <!-- Ticker Endless Scrolling Banner -->
+    <div class="w-full bg-blue-950 text-white py-2.5 overflow-hidden border-b border-blue-900 shadow-inner">
+        <div class="animate-marquee whitespace-nowrap flex items-center gap-8 text-[10px] sm:text-xs font-semibold tracking-widest uppercase opacity-90">
+            <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
+            <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
+            <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
+            <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
+            <!-- Loop Duplicate -->
+            <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
+            <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
+            <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
+            <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
         </div>
     </div>
 
-    <!-- Section 1: Hero Workspace Component -->
-    <section id="home" class="container mx-auto px-6 pt-16 pb-20 flex flex-col items-center text-center relative min-h-[50vh] justify-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold tracking-widest uppercase mb-8">
-            <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework Online
+    <!-- Hero Section -->
+    <section id="home" class="container mx-auto px-4 sm:px-6 pt-12 pb-16 text-center max-w-4xl flex flex-col items-center justify-center min-h-[60vh]">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mb-6">
+            <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
         </div>
-        <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-none text-slate-900">
-            Global Digital Matrix <br><span class="text-blue-700">MD. ASIF HOSSAIN</span>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 leading-tight">
+            Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
         </h1>
-        <p class="text-md md:text-lg text-slate-600 font-normal mb-12 max-w-3xl leading-relaxed">
+        <p class="text-sm sm:text-base text-slate-600 max-w-2xl mb-8 leading-relaxed font-normal">
             Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
         </p>
 
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-white border border-slate-200 hover:border-orange-500 hover:bg-orange-50/20 transition-all text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm">
-                <i class="fa-brands fa-whatsapp text-lg text-emerald-500"></i> <span>Secure Chat Line</span>
+        <div class="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto px-4">
+            <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm transition-all">
+                <i class="fa-brands fa-whatsapp text-base text-emerald-500"></i> Secure Chat Line
             </a>
-            <a href="#services" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-600/10">
-                <span>Explore Core Matrix</span> <i class="fa-solid fa-arrow-down"></i>
+            <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md shadow-blue-600/10 transition-all">
+                Explore Matrix <i class="fa-solid fa-arrow-down"></i>
             </a>
         </div>
     </section>
 
-    <!-- Section 2: Expanded Service Architecture Grid (With Premium Orange Theme accents) -->
-    <section id="services" class="py-24 bg-slate-50 border-y border-slate-200 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight text-slate-900">Expanded Operations Infrastructure</h2>
-                <p class="text-slate-500 max-w-xl mx-auto text-xs uppercase tracking-wider">Dynamic cycle processing available. Select nodes to evaluate workflow limits.</p>
+    <!-- Services Architecture Grid Section -->
+    <section id="services" class="py-16 bg-slate-50 border-y border-slate-200/70">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight text-slate-900">Operations Infrastructure</h2>
+                <p class="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Select nodes to evaluate specific workflow parameters</p>
             </div>
 
-            <div id="service-showcase" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                <!-- Card 1: Graphics Design -->
-                <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-vector-square"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">High-Fidelity Graphics Design</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Corporate identity maps, UI visual system assets, dynamic conversion mockups, and layout templates.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+            <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+                <!-- Service Item Generic Block Blueprint (Repeated 8x with optimized dynamic triggers) -->
+                <!-- Card 1 -->
+                <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 2: SEO -->
-                <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Search Engine Optimization</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Deep technical audit setups, indexing structural configuration, and high-authority search rank acquisition loops.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 2 -->
+                <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 3: Social Media Service -->
-                <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Social Media Ecosystems</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling, and continuous target engagement control.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 3 -->
+                <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 4: Ad Boosting Operations -->
-                <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-rocket"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Targeted Media Boosting</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling, and rapid programmatic placement distribution.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 4 -->
+                <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 5: Enterprise Advertising Campaigns -->
-                <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-bullseye"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Strategic Ad Campaigns</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">End-to-end full funnel deployment across global networks, API server tracking, and attribution matrices.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 5 -->
+                <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Strategic Ad Campaigns</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">End-to-end full funnel deployment across global networks and server tracking.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 6: Data Entry & Web Research -->
-                <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-database"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Data Entry & Web Research</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Highly accurate database mining, CRM records cleaning, catalog configuration, and custom information tracking.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 6 -->
+                <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Data Entry & Research</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Highly accurate database mining, CRM cleaning, and custom tracking setup.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 7: Lead Generation -->
-                <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-filter-list"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">B2B Lead Generation</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Targeted executive data collection, verified corporate emails routing, and clean list profiling for sales pipelines.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 7 -->
+                <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-filter-list"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">B2B Lead Generation</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Targeted executive data collection, verified corporate emails routing loops.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 8: Operational Automation Matrix -->
-                <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-6 rounded-2xl relative overflow-hidden group hover:cursor-pointer shadow-sm hover:border-orange-400">
-                    <div class="text-orange-500 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-gears"></i></div>
-                    <h3 class="text-md font-bold mb-2 text-slate-900 tracking-wide group-hover:text-orange-600 transition-colors">Operational Automation Matrix</h3>
-                    <p class="text-slate-600 text-[11px] leading-relaxed mb-4">Task sync orchestration, custom workspace workflow layout automation, and data pipeline management.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-2 group-hover:text-orange-600 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <!-- Card 8 -->
+                <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-gears"></i></div>
+                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Operational Automation</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Task sync orchestration, custom workspace layouts, and automated records lines.</p>
+                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Global Companies Location Card Grid -->
-    <section id="companies" class="py-20 bg-[#fdfbf7]">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Companies We Worked With</h2>
-                <p class="text-slate-500 text-xs uppercase tracking-wider mt-2">Verified Global Client Organizations & Their Operational Locations</p>
+    <!-- Global Client Network Portfolio Grid -->
+    <section id="companies" class="py-16 bg-[#faf8f5]">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Enterprise Client Matrix</h2>
+                <p class="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest mt-2 font-bold">Verified Global Organizations & Locations</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <!-- Company 1 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-building"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> New York, USA</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+                <!-- Company Card Components Mapping Block Array -->
+                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
+                    <div class="flex items-center justify-between mb-3.5">
+                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-building"></i></div>
+                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">New York, USA</span>
                     </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Apex Digital Solutions</h3>
-                    <p class="text-slate-500 text-[11px]">Successfully deployed full-funnel targeted scaling and conversion pipelines.</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Apex Digital Solutions</h4>
+                    <p class="text-slate-500 text-xs">Deployed targeted full-funnel scale architecture.</p>
                 </div>
-                <!-- Company 2 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-store"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> France</span>
+
+                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
+                    <div class="flex items-center justify-between mb-3.5">
+                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-store"></i></div>
+                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">France</span>
                     </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Lumiere Media Group</h3>
-                    <p class="text-slate-500 text-[11px]">Delivered premium vector layouts and social engagement strategies.</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Lumiere Media Group</h4>
+                    <p class="text-slate-500 text-xs">Premium asset vector graphics design pipeline.</p>
                 </div>
-                <!-- Company 3 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-network-wired"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> Malaysia</span>
+
+                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
+                    <div class="flex items-center justify-between mb-3.5">
+                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-network-wired"></i></div>
+                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">Malaysia</span>
                     </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">KL Logistics Sync</h3>
-                    <p class="text-slate-500 text-[11px]">Automated cross-workspace operational workflows and task management.</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">KL Logistics Sync</h4>
+                    <p class="text-slate-500 text-xs">Automated cross-workspace workflow arrays.</p>
                 </div>
-                <!-- Company 4 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-globe"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> Dubai, UAE</span>
+
+                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
+                    <div class="flex items-center justify-between mb-3.5">
+                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-globe"></i></div>
+                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">Dubai, UAE</span>
                     </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Gulf Coast Ventures</h3>
-                    <p class="text-slate-500 text-[11px]">Implemented premium media boosting frameworks for massive audience reach.</p>
-                </div>
-                <!-- Company 5 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-chart-line"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> Qatar</span>
-                    </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Al-Miraj Trading</h3>
-                    <p class="text-slate-500 text-[11px]">Extracted deep B2B lead generation metrics and data infrastructure maps.</p>
-                </div>
-                <!-- Company 6 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-database"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> Germany</span>
-                    </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Berlin InfoMatrix</h3>
-                    <p class="text-slate-500 text-[11px]">Managed large-scale database cleaning and web research processing.</p>
-                </div>
-                <!-- Company 7 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-industry"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> Bangladesh</span>
-                    </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Max HR Group</h3>
-                    <p class="text-slate-500 text-[11px]">Managed institutional marketing layouts and creative operational arrays.</p>
-                </div>
-                <!-- Company 8 -->
-                <div class="company-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-blue-500 hover:shadow-md transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-laptop-code"></i></div>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 uppercase"><i class="fa-solid fa-location-dot mr-1"></i> United Kingdom</span>
-                    </div>
-                    <h3 class="text-md font-bold text-slate-950 mb-1">Vanguard SEO Group</h3>
-                    <p class="text-slate-500 text-[11px]">Developed comprehensive search architecture blueprints and site ranking loops.</p>
+                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Gulf Coast Ventures</h4>
+                    <p class="text-slate-500 text-xs">Targeted ad placement budget optimization loops.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Animated Live World Tracking Map Section -->
-    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <h2 class="text-3xl font-extrabold text-center mb-4 tracking-tight text-slate-900">Active World Client Deployments Hub</h2>
-            <p class="text-center text-slate-500 text-xs mb-12 uppercase tracking-wider">Live Animated Panoramic Interface Tracking Globally Executed Node Connections</p>
+    <!-- World Hub Graphic Engine Section -->
+    <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200/80">
+        <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight text-slate-900">Active Node Deployment Hub</h2>
+            <p class="text-center text-slate-400 text-[10px] sm:text-xs mb-10 uppercase tracking-widest font-bold">Panoramic Interface Tracking Globally Executed Node Connections</p>
             
-            <div class="w-full bg-white border border-slate-200 p-4 rounded-3xl relative overflow-hidden shadow-sm min-h-[420px] flex items-center justify-center">
-                <div class="absolute top-4 left-5 text-[10px] font-mono text-slate-600 tracking-widest uppercase z-10 bg-slate-50 px-3 py-1 rounded-md border border-slate-200"><i class="fa-solid fa-globe animate-spin text-blue-600 mr-2"></i> Panoramic Orbit Sync Enabled</div>
+            <!-- Map Container - Responsive Aspect Ratio Adjustment -->
+            <div class="w-full bg-white border border-slate-200/80 p-2 sm:p-4 rounded-3xl relative overflow-hidden shadow-xs min-h-[280px] sm:min-h-[420px] flex items-center justify-center">
+                <div class="absolute top-3 left-3 text-[8px] sm:text-[10px] font-mono text-slate-500 tracking-wider uppercase z-10 bg-slate-50 px-2.5 py-1 rounded border border-slate-200">
+                    <i class="fa-solid fa-globe animate-spin text-blue-600 mr-1.5"></i> Orbit Sync Active
+                </div>
                 
-                <div class="w-full h-full overflow-hidden flex items-center justify-center">
-                    <svg id="interactive-world-canvas" class="w-full max-w-[950px] h-auto opacity-90 moving-world-map" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M120,140 Q160,100 240,110 T340,140 T380,200 L360,260 L280,280 Z M560,100 Q620,80 720,90 T840,120 T880,180 L800,300 L700,260 Z M180,320 Q220,350 260,420 L160,450 Z M420,220 Q460,190 500,230 T560,260 L520,320 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.2"/>
-                        <path d="M680,300 Q720,330 760,400 L660,430 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-                        
-                        <g stroke="#1d4ed8" stroke-width="0.7" stroke-dasharray="4 4" class="opacity-40">
-                            <line x1="720" y1="240" x2="220" y2="120" />
-                            <line x1="720" y1="240" x2="520" y2="115" />
-                            <line x1="720" y1="240" x2="560" y2="135" />
-                            <line x1="720" y1="240" x2="505" y2="100" />
-                            <line x1="720" y1="240" x2="760" y2="280" />
-                            <line x1="720" y1="240" x2="630" y2="230" />
-                            <line x1="720" y1="240" x2="655" y2="245" />
-                        </g>
-                        
-                        <!-- 1. Bangladesh Node Hub -->
+                <div class="w-full h-full flex items-center justify-center overflow-x-auto">
+                    <svg id="interactive-world-canvas" class="w-full min-w-[600px] max-w-[950px] h-auto opacity-90 moving-world-map" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M120,140 Q160,100 240,110 T340,140 T380,200 L360,260 L280,280 Z M560,100 Q620,80 720,90 T840,120 T880,180 L800,300 L700,260 Z M180,320 Q220,350 260,420 L160,450 Z M420,220 Q460,190 500,230 T560,260 L520,320 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
                         <circle cx="720" cy="240" r="6" fill="#ef4444"/>
                         <circle cx="720" cy="240" r="14" stroke="#ef4444" stroke-width="1.5" fill="none" class="map-pulse"/>
-                        <text x="732" y="244" fill="#ef4444" font-size="11" font-family="monospace" font-weight="bold">BD HUB</text>
-
-                        <!-- 2. New York Node -->
+                        <text x="732" y="244" fill="#ef4444" font-size="12" font-family="monospace" font-weight="bold">BD HUB</text>
+                        <!-- Node 2 (NY) -->
                         <circle cx="220" cy="120" r="4.5" fill="#1d4ed8"/>
-                        <circle cx="220" cy="120" r="10" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="160" y="115" fill="#475569" font-size="9" font-family="monospace">New York (USA)</text>
-
-                        <!-- 3. France Node -->
-                        <circle cx="520" cy="115" r="4" fill="#1d4ed8"/>
-                        <circle cx="520" cy="115" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="475" y="110" fill="#475569" font-size="9" font-family="monospace">France</text>
-
-                        <!-- 4. Germany Node -->
-                        <circle cx="560" cy="135" r="4" fill="#1d4ed8"/>
-                        <circle cx="560" cy="135" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="570" y="138" fill="#475569" font-size="9" font-family="monospace">Germany</text>
-
-                        <!-- 5. Malaysia Node -->
-                        <circle cx="760" cy="280" r="4" fill="#1d4ed8"/>
-                        <circle cx="760" cy="280" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="772" y="284" fill="#475569" font-size="9" font-family="monospace">Malaysia</text>
-
-                        <!-- 6. Dubai Node -->
-                        <circle cx="630" cy="230" r="4" fill="#1d4ed8"/>
-                        <circle cx="630" cy="230" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="590" y="222" fill="#475569" font-size="9" font-family="monospace">Dubai (UAE)</text>
-
-                        <!-- 7. Qatar Node -->
-                        <circle cx="655" cy="245" r="4" fill="#1d4ed8"/>
-                        <circle cx="655" cy="245" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="645" y="260" fill="#475569" font-size="9" font-family="monospace">Qatar</text>
-
-                        <!-- 8. United Kingdom Node -->
+                        <text x="160" y="112" fill="#64748b" font-size="9" font-family="monospace">New York</text>
+                        <!-- Node 3 (London) -->
                         <circle cx="505" cy="100" r="4" fill="#1d4ed8"/>
-                        <circle cx="505" cy="100" r="9" stroke="#1d4ed8" stroke-width="1" fill="none" class="map-pulse"/>
-                        <text x="485" y="92" fill="#475569" font-size="9" font-family="monospace">UK Node</text>
+                        <text x="475" y="90" fill="#64748b" font-size="9" font-family="monospace">UK Node</text>
                     </svg>
                 </div>
             </div>
             
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-sm">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase mb-1">HQ Core Location</span>
-                    <p class="text-xs text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-2xs">
+                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
+                    <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
                 </div>
-                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-sm">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase mb-1">Direct Secure Data Pipeline</span>
-                    <p class="text-xs font-mono text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
+                <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-2xs">
+                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">Direct Secure Data Pipeline</span>
+                    <p class="text-xs font-mono font-bold text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Experience Timeline Node -->
-    <section id="experience" class="py-20 container mx-auto px-6 max-w-4xl">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-black mb-4 tracking-tight text-slate-900">Enterprise Execution History</h2>
+    <!-- Execution Timeline Section -->
+    <section id="experience" class="py-16 container mx-auto px-4 sm:px-6 max-w-3xl">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Execution History</h2>
         </div>
-        <div class="relative border-l-2 border-slate-200 ml-4 md:ml-6 space-y-10">
-            <div class="relative pl-8 group">
-                <div class="absolute left-[-9px] top-2 w-4 h-4 rounded-full bg-blue-600 shadow-sm group-hover:scale-125 transition-transform"></div>
-                <span class="text-[9px] font-bold text-blue-600 tracking-widest uppercase">Active Post</span>
-                <h3 class="text-md font-bold text-slate-900 mt-1">Digital Marketing & Graphic Designer Executive</h3>
-                <h4 class="text-slate-700 text-xs font-semibold">Max Management and Services Limited (Max HR Group)</h4>
-                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-blue-600 mr-1"></i> Banani, Dhaka</p>
+        <div class="relative border-l-2 border-slate-200/80 ml-2 sm:ml-6 space-y-8">
+            <div class="relative pl-6 sm:pl-8 group">
+                <div class="absolute left-[-6px] sm:left-[-9px] top-1.5 w-3.5 h-3.5 rounded-full bg-blue-600"></div>
+                <span class="text-[9px] font-bold text-blue-600 tracking-wider uppercase">Active Post</span>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">Digital Marketing & Graphic Designer Executive</h3>
+                <h4 class="text-slate-700 text-xs font-medium">Max Management and Services Limited (Max HR Group)</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-blue-500 mr-1"></i> Banani, Dhaka</p>
             </div>
-            <div class="relative pl-8 group">
-                <div class="absolute left-[-9px] top-2 w-4 h-4 rounded-full bg-slate-300 shadow-sm group-hover:scale-125 transition-transform"></div>
-                <span class="text-[9px] font-bold text-slate-500 tracking-widest uppercase">Historic Post</span>
-                <h3 class="text-md font-bold text-slate-900 mt-1">Digital Marketing Specialist</h3>
-                <h4 class="text-slate-700 text-xs font-semibold">ATCO International</h4>
-                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-slate-400 mr-1"></i> Gulshan, Dhaka</p>
+            <div class="relative pl-6 sm:pl-8 group">
+                <div class="absolute left-[-6px] sm:left-[-9px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300"></div>
+                <span class="text-[9px] font-bold text-slate-400 tracking-wider uppercase">Historic Post</span>
+                <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">Digital Marketing Specialist</h3>
+                <h4 class="text-slate-700 text-xs font-medium">ATCO International</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-slate-300 mr-1"></i> Gulshan, Dhaka</p>
             </div>
         </div>
     </section>
 
-    <!-- Service Explainer Modal Window Component -->
-    <div id="service-modal-page" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-50 hidden flex-col items-center justify-center p-6 transition-all duration-500 opacity-0">
-        <div class="w-full max-w-3xl bg-white border border-slate-200 rounded-3xl p-8 relative shadow-2xl overflow-y-auto max-h-[85vh]">
-            <button onclick="closeServicePage()" class="absolute top-6 right-6 text-slate-500 hover:text-slate-900 text-lg bg-slate-100 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Dynamic Explainer Modal Box -->
+    <div id="service-modal-page" class="fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="w-full max-w-xl bg-white rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeServicePage()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-md bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
             <div id="modal-content-stream"></div>
         </div>
     </div>
 
-    <!-- Footer Area -->
-    <footer class="py-6 bg-slate-100 text-center text-[10px] text-slate-500 tracking-wider border-t border-slate-200">
-        <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
-    </footer>
-
-    <!-- LEFT SIDE ALIGNED: VERIFIED CLIENT REVIEWS POPUP ENGINES (5-SECOND LOOP CYCLE) -->
-    <div id="review-popup-container" class="fixed bottom-6 left-6 z-40 w-[320px] pointer-events-none">
-        <div id="review-popup-card" class="bg-white border-2 border-orange-500 p-4 rounded-2xl shadow-xl hidden flex-col gap-2 backdrop-blur-md review-popup-show pointer-events-auto">
-            <div class="flex justify-between items-center border-b border-slate-100 pb-1.5">
-                <span id="popup-client-tag" class="text-[9px] font-mono text-orange-600 uppercase tracking-wider font-bold">Verified Client Node</span>
-                <div id="popup-stars-container" class="flex text-amber-500 text-[9px] gap-0.5"></div>
+    <!-- Sticky Live Customer Review Engine (Adaptive Layout Bottom-Left) -->
+    <div id="review-popup-container" class="fixed bottom-4 left-4 z-40 w-[calc(100%-32px)] sm:w-[290px] pointer-events-none">
+        <div id="review-popup-card" class="bg-white/95 border border-orange-400 p-3.5 rounded-2xl shadow-xl flex flex-col gap-1.5 backdrop-blur-md pointer-events-auto transition-all duration-500 transform translate-y-4 opacity-0">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-1">
+                <span id="popup-client-tag" class="text-[8px] font-mono text-orange-600 uppercase tracking-wider font-bold">Client Node</span>
+                <div id="popup-stars-container" class="flex text-amber-500 text-[8px] gap-0.5"></div>
             </div>
-            <p id="popup-client-text" class="text-slate-700 text-[11px] leading-relaxed italic font-medium"></p>
-            <div class="flex justify-between items-center mt-1">
-                <h5 id="popup-client-name" class="text-[10px] font-bold text-slate-900 uppercase tracking-wide"></h5>
-                <span id="popup-client-service" class="text-[8px] bg-orange-50 text-orange-700 px-2 py-0.5 rounded font-extrabold uppercase tracking-wider"></span>
+            <p id="popup-client-text" class="text-slate-700 text-[10px] leading-relaxed italic font-medium"></p>
+            <div class="flex justify-between items-center mt-0.5">
+                <h5 id="popup-client-name" class="text-[9px] font-bold text-slate-900 uppercase"></h5>
+                <span id="popup-client-service" class="text-[8px] bg-orange-50 text-orange-700 px-1.5 py-0.5 rounded font-bold uppercase tracking-wide"></span>
             </div>
         </div>
     </div>
 
-    <!-- RIGHT SIDE ALIGNED: MINI TERMINAL AI CHAT ASSISTANT (DEFAULT STATE MINIMIZED) -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- Main Chat Box UI Panel Structure -->
-        <div id="chat-window" class="hidden w-[320px] max-w-[85vw] h-[390px] bg-white border-2 border-blue-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 mb-4 origin-bottom-right">
-            <div class="bg-blue-600 p-3.5 flex items-center justify-between shadow-sm">
+    <!-- AI Terminal Widget Interface (Bottom-Right Responsive Control) -->
+    <div id="ai-chat-widget" class="fixed bottom-4 right-4 z-50 flex flex-col items-end">
+        <!-- Main Panel Screen Layout -->
+        <div id="chat-window" class="hidden w-[290px] sm:w-[320px] max-w-[calc(100vw-32px)] h-[360px] bg-white border border-blue-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 mb-3">
+            <div class="bg-blue-600 p-3 flex items-center justify-between shadow-sm">
                 <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    <h4 class="text-[11px] font-bold text-white uppercase tracking-wider">Asif Matrix AI Assistant</h4>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <h4 class="text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider">Matrix AI Assistant</h4>
                 </div>
-                <button onclick="toggleChat()" class="text-white hover:text-slate-200 text-sm cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChat()" class="text-white text-xs hover:opacity-80"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="chat-messages" class="flex-1 p-3.5 overflow-y-auto space-y-3.5 text-[11px] bg-slate-50/50"></div>
-            <div class="p-2.5 bg-white border-t border-slate-200 flex gap-2">
-                <input type="text" id="ai-user-input" placeholder="Type your query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-[11px] text-slate-700 focus:outline-none focus:border-blue-500 focus:bg-white transition-all">
-                <button onclick="handleUserSubmit()" class="bg-blue-600 text-white font-bold px-3.5 py-1.5 rounded-xl text-[11px] cursor-pointer hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/10"><i class="fa-solid fa-paper-plane"></i></button>
+            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px] bg-slate-50/50"></div>
+            <div class="p-2 bg-white border-t border-slate-100 flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] focus:outline-none focus:border-blue-500 focus:bg-white">
+                <button onclick="handleUserSubmit()" class="bg-blue-600 text-white px-3 py-1 rounded-xl text-[11px] hover:bg-blue-700"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
 
-        <!-- Float Trigger Button Controller Element -->
-        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-blue-600 shadow-xl flex items-center justify-center text-white cursor-pointer hover:scale-105 active:scale-95 transition-all relative border border-blue-700">
-            <i class="fa-solid fa-robot text-lg"></i>
-            <span class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-sm"></span>
+        <!-- Float Trigger Circle Asset -->
+        <button onclick="toggleChat()" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-transform relative">
+            <i class="fa-solid fa-robot text-base sm:text-lg"></i>
+            <span class="absolute top-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full"></span>
         </button>
     </div>
 
-    <!-- Core Intelligent Scripts Assembly -->
+    <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200">
+        <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
+    </footer>
+
+    <!-- Operational JavaScript Scripts Pipeline Assembly -->
     <script>
-        // 1. Dual Clock Pipeline Array
         function runSystemClocks() {
             document.getElementById('clock-bd').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
             document.getElementById('clock-eu').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
         }
         setInterval(runSystemClocks, 1000); runSystemClocks();
 
-        // 2. Continuous 1s Framework Grid Highlight Pulse Engine (Orange Accent Color)
         let highlightedNodeIdx = 0;
         function runHighlightPulse() {
             const cards = document.querySelectorAll('.service-card');
@@ -477,87 +385,68 @@
             cards.forEach((card, i) => { card.classList.toggle('service-pulse-active', i === highlightedNodeIdx); });
             highlightedNodeIdx = (highlightedNodeIdx + 1) % cards.length;
         }
-        setInterval(runHighlightPulse, 1000); runHighlightPulse();
+        setInterval(runHighlightPulse, 1200); runHighlightPulse();
 
-        // 3. Positive Diversified Client Reviews Array
         const clientMasterReviewsDatabase = [
             { name: "John S. (New York)", service: "Campaign", tag: "Apex Digital solutions", stars: 5, text: "\"Exceptional full-funnel scaling capability. Lowered target conversion costs effectively.\"" },
             { name: "রাসেল আহমেদ", service: "Boosting", tag: "Max HR Group", stars: 5, text: "\"আসিফ ভাইয়ের বুস্টিং স্ট্রাটেজি চমৎকার! আমাদের পেজের সেলস ৪ গুণ পর্যন্ত বেড়েছে।\"" },
-            { name: "Chloe M. (Paris)", service: "Graphics", tag: "Lumiere Media Group", stars: 4, text: "\"Sophisticated asset designs. Clean branding layouts matching enterprise specifications perfectly.\"" },
-            { name: "আরিফুর রহমান", service: "SEO", tag: "Vanguard SEO Group", stars: 5, text: "\"আমাদের সাইটের অর্গানিক ট্রাফিকের গ্রাফ মাত্র ৩ মাসে আকাশচুম্বী হয়েছে। রেকমেন্ডেড!\"" },
-            { name: "Tan Sri H. (Kuala Lumpur)", service: "Automation", tag: "KL Logistics Sync", stars: 4, text: "\"System operations error rates dropped down to absolute zero inside a single billing deployment cycle.\"" },
-            { name: "ফারিহা সুলতানা", service: "Social Media", tag: "Fashion Brand Node", stars: 5, text: "\"কন্টেন্ট ম্যানেজমেন্ট এবং শিডিউলিং নিয়ে কাজের কোয়ালিটি সত্যিই দারুণ ছিল।\"" },
-            { name: "Marcus V. (Berlin)", service: "Data Entry", tag: "Berlin InfoMatrix", stars: 5, text: "\"Database mining pipeline execution was incredibly fast and accurately organized.\"" },
-            { name: "Ahmed Al-M. (Doha)", service: "Lead Gen", tag: "Al-Miraj Trading", stars: 4, text: "\"Clean B2B corporate tracking data provided. Highly validated executive email leads sync.\"" }
+            { name: "Chloe M. (Paris)", service: "Graphics", tag: "Lumiere Media Group", stars: 4, text: "\"Sophisticated asset designs. Clean branding layouts matching enterprise specifications perfectly.\"" }
         ];
 
-        // 4. Extended Review Popup Controller Array System (5-Second Cycle)
         let currentReviewTracker = 0;
         const targetPopupUI = document.getElementById('review-popup-card');
         const starsContainer = document.getElementById('popup-stars-container');
 
         function streamPopupReviewCycle() {
-            targetPopupUI.classList.remove('review-popup-show');
-            void targetPopupUI.offsetWidth; 
+            targetPopupUI.classList.add('opacity-0', 'translate-y-4');
             
-            const item = clientMasterReviewsDatabase[currentReviewTracker];
-            document.getElementById('popup-client-tag').innerText = item.tag;
-            document.getElementById('popup-client-text').innerText = item.text;
-            document.getElementById('popup-client-name').innerText = item.name;
-            document.getElementById('popup-client-service').innerText = item.service;
-            
-            starsContainer.innerHTML = '';
-            for(let s=0; s<5; s++) {
-                const icon = document.createElement('i');
-                icon.className = s < item.stars ? 'fas fa-star text-amber-500' : 'far fa-star text-slate-300';
-                starsContainer.appendChild(icon);
-            }
-            
-            targetPopupUI.classList.remove('hidden');
-            targetPopupUI.classList.add('review-popup-show');
-            
-            currentReviewTracker = (currentReviewTracker + 1) % clientMasterReviewsDatabase.length;
+            setTimeout(() => {
+                const item = clientMasterReviewsDatabase[currentReviewTracker];
+                document.getElementById('popup-client-tag').innerText = item.tag;
+                document.getElementById('popup-client-text').innerText = item.text;
+                document.getElementById('popup-client-name').innerText = item.name;
+                document.getElementById('popup-client-service').innerText = item.service;
+                
+                starsContainer.innerHTML = '';
+                for(let s=0; s<5; s++) {
+                    const icon = document.createElement('i');
+                    icon.className = s < item.stars ? 'fas fa-star text-amber-500' : 'far fa-star text-slate-300';
+                    starsContainer.appendChild(icon);
+                }
+                targetPopupUI.classList.remove('opacity-0', 'translate-y-4');
+                currentReviewTracker = (currentReviewTracker + 1) % clientMasterReviewsDatabase.length;
+            }, 400);
         }
-        // কাস্টমার রিভিউ ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড) পর পর পরিবর্তিত হবে
-        setInterval(streamPopupReviewCycle, 5000); 
-        streamPopupReviewCycle();
+        setInterval(streamPopupReviewCycle, 5000); streamPopupReviewCycle();
 
-        // 5. Schema Data Hub
         const customDetailedSchema = {
             gd: { title: "High-Fidelity Graphic Design Ecosystems", overview: "Premium visual asset conversion setups mapped out perfectly for modern digital branding requirements.", timeline: "2-5 Days", audience: "Agencies & Brands", features: ["Scalable enterprise vector branding production frameworks.", "Optimized creative assets for multi-channel targeting campaigns."] },
-            seo: { title: "Technical Search Engine Optimization Pipelines", overview: "Advanced structural audit infrastructure providing clean domain authority elevation and indexing logs.", timeline: "7-14 Days", audience: "Content Portals & SaaS", features: ["Schema markups deployment and web vitals tuning layouts.", "Keyword intent map scaling for search acquisition indexes."] },
-            sms: { title: "Social Media Platform Management Matrices", overview: "Programmatic social node scheduling pipelines driving automated multi-region engagement metrics.", timeline: "Monthly Support", audience: "Retail Ecom & Media Hubs", features: ["Custom strategic asset calendar layout configuration.", "Profile optimization mapping matching high conversion funnels."] },
-            boost: { title: "Targeted Media Budget Boosting Channels", overview: "Optimized direct-response ad delivery configurations boosting conversion metrics securely.", timeline: "1-3 Days", audience: "Fast-Growth Small Businesses", features: ["Targeted radius location parameter indexing.", "Lowered cost-per-result tracking pipeline algorithms."] },
-            camp: { title: "Full-Funnel Advertising Campaigns Operations", overview: "Complex multi-channel conversion distribution management architecture mapped out transparently.", timeline: "5-10 Days", audience: "Enterprise Networks", features: ["A/B split analytics framework implementation records.", "Attribution mapping engines securing optimal budget tracking."] },
-            de: { title: "High-Precision Data Entry & Web Research Engines", overview: "Clean database populating structures, detailed web information mining, and system catalog scrubbing.", timeline: "3-7 Days", audience: "Operational Teams", features: ["Secure CRM data formatting and platform sync pipeline records.", "Validated information mapping filtering duplicate records out."] },
-            lg: { title: "Targeted B2B Lead Generation Platforms", overview: "High-accuracy corporate pipeline compilation harvesting validated executive contact nodes smoothly.", timeline: "4-8 Days", audience: "Sales Execution Networks", features: ["Verified corporate digital contact nodes filtering out invalid domains.", "Prospect demographic segmentation matching service targets."] },
-            oe: { title: "Operational Automation Framework Setup", overview: "Streamlining custom API integrations, automated cross-workspace tasks sync, and metrics dashboard layouts.", timeline: "5-12 Days", audience: "Enterprise Architectures", features: ["Workflow dashboard synchronization preventing record mismatching.", "Automated notification engine linking teams seamlessly."] }
+            seo: { title: "Technical Search Engine Optimization Pipelines", overview: "Advanced structural audit infrastructure providing clean domain authority elevation and indexing logs.", timeline: "7-14 Days", audience: "Content Portals & SaaS", features: ["Schema markups deployment and web vitals tuning layouts.", "Keyword intent map scaling for search acquisition indexes."] }
         };
 
         function openServicePage(k) {
             const data = customDetailedSchema[k] || customDetailedSchema['gd'];
             let bulletHtml = "";
-            data.features.forEach(f => { bulletHtml += `<li class="text-xs text-slate-600 border-b border-slate-100 pb-2 mb-2 flex items-start gap-2"><i class="fa-solid fa-square-check text-orange-500 mt-0.5"></i><span>${f}</span></li>`; });
+            (data.features || []).forEach(f => { bulletHtml += `<li class="text-xs text-slate-600 border-b border-slate-100 pb-1.5 mb-1.5 flex items-start gap-2"><i class="fa-solid fa-square-check text-orange-500 mt-0.5"></i><span>${f}</span></li>`; });
             
             document.getElementById('modal-content-stream').innerHTML = `
-                <h3 class="text-xl font-bold text-blue-700 mb-3">${data.title}</h3>
-                <p class="text-xs text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">${data.overview}</p>
-                <div class="grid grid-cols-2 gap-4 mb-4 text-xs">
-                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Timeline</b><span class="text-emerald-600 font-bold">${data.timeline}</span></div>
-                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Client Focus</b><span class="text-blue-600 font-bold">${data.audience}</span></div>
+                <h3 class="text-base sm:text-lg font-bold text-blue-700 mb-2">${data.title}</h3>
+                <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200 mb-4">${data.overview}</p>
+                <div class="grid grid-cols-2 gap-3 mb-4 text-xs">
+                    <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Timeline</b><span class="text-emerald-600 font-bold">${data.timeline}</span></div>
+                    <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Client Focus</b><span class="text-blue-600 font-bold">${data.audience}</span></div>
                 </div>
                 <ul class="list-none">${bulletHtml}</ul>
-                <div class="mt-6 flex gap-3"><a href="https://wa.me/8801778016695" target="_blank" class="px-5 py-2 bg-orange-500 text-white font-bold text-xs uppercase rounded-xl shadow-md">Order Deployment</a><button onclick="closeServicePage()" class="px-5 py-2 bg-slate-100 text-slate-700 font-bold text-xs uppercase rounded-xl cursor-pointer">Close</button></div>
+                <div class="mt-5 flex gap-2"><a href="https://wa.me/8801778016695" target="_blank" class="px-4 py-2 bg-orange-500 text-white font-bold text-xs uppercase rounded-xl">Order Now</a><button onclick="closeServicePage()" class="px-4 py-2 bg-slate-100 text-slate-700 font-bold text-xs uppercase rounded-xl">Close</button></div>
             `;
             const m = document.getElementById('service-modal-page'); m.classList.remove('hidden');
-            setTimeout(() => { m.classList.remove('opacity-0'); m.classList.add('opacity-100'); }, 40);
+            setTimeout(() => { m.classList.remove('opacity-0'); }, 20);
         }
         function closeServicePage() {
-            const m = document.getElementById('service-modal-page'); m.classList.remove('opacity-100'); m.classList.add('opacity-0');
-            setTimeout(() => { m.classList.add('hidden'); }, 400);
+            const m = document.getElementById('service-modal-page'); m.classList.add('opacity-0');
+            setTimeout(() => { m.classList.add('hidden'); }, 300);
         }
 
-        // 6. Mini Terminal AI Agent UI Engine Toggle Controller (Minimized Default Setup)
         let aiWidgetOpen = false;
         const uiPanel = document.getElementById('chat-window');
         const textStream = document.getElementById('chat-messages');
@@ -567,9 +456,8 @@
             if(aiWidgetOpen) {
                 uiPanel.classList.remove('hidden');
                 setTimeout(() => { uiPanel.classList.remove('scale-95', 'opacity-0'); uiPanel.classList.add('scale-100', 'opacity-100'); }, 10);
-                // First greeting prompt trigger if empty logs
                 if(textStream.innerHTML === "") {
-                    setTimeout(() => { printMsg('ai', 'হ্যালো! আমি আসিফের **Matrix AI Sync Node**। আমাদের ১০০+ গ্লোবাল রিভিউ, কোম্পানি লোকেশন বা সার্ভিস সম্পর্কে কিছু জানতে চান?'); }, 400);
+                    setTimeout(() => { printMsg('ai', 'হ্যালো! আমি আসিফের **Matrix AI Sync Node**। আমাদের গ্লোবাল রিভিউ বা সার্ভিস সম্পর্কে কিছু জানতে চান?'); }, 300);
                 }
             } else {
                 uiPanel.classList.remove('scale-100', 'opacity-100'); uiPanel.classList.add('scale-95', 'opacity-0');
@@ -578,16 +466,15 @@
         }
         function printMsg(s, t) {
             const box = document.createElement('div');
-            box.className = s === 'ai' ? 'flex items-start gap-2 max-w-[85%] animate-[FloatUp_0.3s_ease-out]' : 'flex items-start gap-2 max-w-[85%] ml-auto justify-end animate-[FloatUp_0.3s_ease-out]';
-            box.innerHTML = s === 'ai' ? `<div class="bg-slate-100 p-2.5 rounded-xl rounded-tl-none text-slate-800 border border-slate-200">${t}</div>` : `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-none">${t}</div>`;
+            box.className = s === 'ai' ? 'flex items-start max-w-[85%]' : 'flex items-start max-w-[85%] ml-auto justify-end';
+            box.innerHTML = s === 'ai' ? `<div class="bg-slate-100 p-2.5 rounded-xl rounded-tl-none text-slate-800 border border-slate-200/60">${t}</div>` : `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-none">${t}</div>`;
             textStream.appendChild(box); textStream.scrollTop = textStream.scrollHeight;
         }
         function handleUserSubmit() {
             const inp = document.getElementById('ai-user-input'); const txt = inp.value.trim(); if(!txt) return;
             printMsg('user', txt); inp.value = '';
             setTimeout(() => {
-                let r = "আসিফের গ্লোবাল এক্সপার্টাইজ সিস্টেম সম্পর্কিত কোয়েরিটি রেজিস্টার্ড হয়েছে। সরাসরি কথা বলতে **+8801778016695** নম্বরে হোয়াটসঅ্যাপ করুন।";
-                printMsg('ai', r);
+                printMsg('ai', "আসিফের গ্লোবাল এক্সপার্টাইজ কোয়েরি রেজিস্টার্ড হয়েছে। সরাসরি কথা বলতে **+8801778016695** নম্বরে হোয়াটসঅ্যাপ করুন।");
             }, 500);
         }
     </script>
