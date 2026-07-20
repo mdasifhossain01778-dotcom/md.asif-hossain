@@ -3,117 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Wishes - HSC 2026</title>
-    <!-- Tailwind CSS for modern styling -->
+    <title>MD. ASIF HOSSAIN - Portfolio</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for beautiful Bengali text -->
+    <!-- Google Fonts for beautiful typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Click Animation Ripple Effect */
+        .click-ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        /* Soft Floating Keyframes for Services */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating-card {
+            animation: float 4s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+        .floating-card:nth-child(2) { animation-delay: 1s; }
+        .floating-card:nth-child(3) { animation-delay: 2s; }
+        
+        /* Active Highlight Class for Auto Service Ticker */
+        .service-active {
+            border-color: #06b6d4 !important;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            transform: scale(1.03) translateY(-5px) !important;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center p-4 antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950">
 
-    <div class="max-w-xl w-full bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-2xl border border-white/20 text-center text-white transform transition-all duration-300 hover:scale-[1.01]">
-        
-        <!-- HSC Batch Badge -->
-        <div class="inline-block bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-            📢 Attention: HSC 2026 Candidates
+    <!-- Global Click Effect Layer -->
+    <div id="click-effect-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <!-- Background Glow Elements -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wider">ASIF HOSSAIN</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+            <a href="https://wa.me/8801778016695" target="_blank" class="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-sm font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all transform hover:-translate-y-0.5">
+                Hire Me
+            </a>
         </div>
+    </header>
 
-        <!-- Main Heading and Wish -->
-        <div class="mb-8">
-            <h1 class="text-2xl md:text-3xl font-bold leading-relaxed tracking-wide">
-                আগামী ২৪ জুলাই শুক্রবার আমাদের পরীক্ষার জন্য সবার প্রতি শুভকামনা! 🎯
-            </h1>
-            
-            <!-- Creator Mention -->
-            <p class="text-slate-300 mt-4 text-sm md:text-base border-t border-b border-white/10 py-2 inline-block px-4 mx-auto">
-                <i class="fa-solid fa-pen-nib text-cyan-400 mr-1"></i> 
-                Best wishes from <span class="font-semibold text-cyan-300">MD. Asif Hossain</span> to all <span class="text-pink-400 font-semibold">HSC 2026 Candidates</span>!
-            </p>
-            
-            <p class="text-slate-400 mt-6 text-xs md:text-sm uppercase tracking-widest">নিচের যেকোনো একটি অপশন সিলেক্ট করো:</p>
+    <!-- Hero Section -->
+    <section id="about" class="container mx-auto px-6 pt-20 pb-16 flex flex-col items-center text-center relative">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-sm mb-6 animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Available for Freelance & Contract
         </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+            Hi, I am <span class="bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-500 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
+        </h1>
+        <p class="text-lg md:text-2xl text-slate-400 font-medium mb-8 max-w-2xl">
+            Expert Digital Marketer & Professional Graphic Designer Executive
+        </p>
 
-        <!-- Options Container -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <!-- Option 1 Card -->
-            <button onclick="showResult('brilliant')" class="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 p-5 rounded-xl font-semibold shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer text-left">
-                <span class="block text-xs text-cyan-200 uppercase tracking-wider mb-1">Option 1</span>
-                <span class="text-lg font-bold block">For Brilliant Student</span>
-                <div class="absolute right-3 bottom-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fa-solid fa-brain text-5xl"></i>
+        <!-- Social Quick Links -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-950/20 transition-all text-emerald-400">
+                <i class="fa-brands fa-whatsapp text-xl"></i> <span>WhatsApp</span>
+            </a>
+            <a href="https://www.facebook.com/share/1EPYXxHKHZ/" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/50 hover:bg-blue-950/20 transition-all text-blue-400">
+                <i class="fa-brands fa-facebook text-xl"></i> <span>Facebook</span>
+            </a>
+            <a href="https://www.facebook.com/share/1EPYXxHKHZ/" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500/50 hover:bg-pink-950/20 transition-all text-pink-400">
+                <i class="fa-brands fa-instagram text-xl"></i> <span>Instagram</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Auto-Rotating Services Section -->
+    <section id="services" class="py-20 bg-slate-900/40 border-y border-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Core Services</h2>
+                <p class="text-slate-400 max-w-lg mx-auto">Providing end-to-end digital solutions to exponentially grow your brand presence online.</p>
+            </div>
+
+            <!-- Service Showcase Grid -->
+            <div id="service-showcase" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="service-card floating-card bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-500/50 transition-all">
+                    <div class="text-cyan-400 text-3xl mb-4"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Digital Marketing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Social Media Marketing (SMM), Targeted Ad Campaigns, SEO optimization, and data-driven Growth Strategies.</p>
                 </div>
-            </button>
-
-            <!-- Option 2 Card -->
-            <button onclick="showResult('regular')" class="group relative overflow-hidden bg-gradient-to-r from-emerald-500 to-teal-600 p-5 rounded-xl font-semibold shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer text-left">
-                <span class="block text-xs text-emerald-200 uppercase tracking-wider mb-1">Option 2</span>
-                <span class="text-lg font-bold block">For Regular Student</span>
-                <div class="absolute right-3 bottom-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <i class="fa-solid fa-book-open text-5xl"></i>
+                <div class="service-card floating-card bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-all">
+                    <div class="text-purple-400 text-3xl mb-4"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Graphic Designing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Creative brand identity layouts, engaging social media creatives, banners, and professional corporate asset designs.</p>
                 </div>
-            </button>
+                <div class="service-card floating-card bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-teal-500/50 transition-all">
+                    <div class="text-teal-400 text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Operation Executive</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Streamlining online tasks, handling digital platforms management, execution transparency, and customer flow scaling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Timeline -->
+    <section id="experience" class="py-20 container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Work Experience</h2>
+            <p class="text-slate-400">A track record of handling high-end corporate digital assets and design workflows.</p>
         </div>
 
-        <!-- Dynamic Output Section -->
-        <div id="resultBox" class="hidden min-h-[120px] flex flex-col items-center justify-center bg-white/5 rounded-xl p-6 border border-white/10 transition-all duration-500 transform scale-95 opacity-0">
-            <div id="resultIcon" class="text-4xl mb-3"></div>
-            <p id="resultText" class="text-xl font-semibold tracking-wide"></p>
-        </div>
+        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-12">
+            <!-- Job 1 -->
+            <div class="relative pl-8 group">
+                <div class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 group-hover:scale-125 transition-transform shadow-lg shadow-cyan-500/50"></div>
+                <span class="text-xs text-cyan-400 font-bold uppercase tracking-widest">Recent Post</span>
+                <h3 class="text-xl font-bold text-white mt-1">Digital Marketing & Graphic Designer Executive</h3>
+                <h4 class="text-slate-300 font-medium">Max Management and Services Limited (Max HR Group)</h4>
+                <p class="text-sm text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-rose-500"></i> Kamal Ataturk Avenue, Banani, Dhaka
+                </p>
+            </div>
 
+            <!-- Job 2 -->
+            <div class="relative pl-8 group">
+                <div class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 group-hover:scale-125 transition-transform shadow-lg shadow-purple-500/50"></div>
+                <span class="text-xs text-purple-400 font-bold uppercase tracking-widest">Previous Experience</span>
+                <h3 class="text-xl font-bold text-white mt-1">Digital Marketing & Graphic Designer</h3>
+                <h4 class="text-slate-300 font-medium">ATCO International</h4>
+                <p class="text-sm text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-rose-500"></i> Gulshan Lake Road, Road Number 1, Dhaka
+                </p>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="relative pl-8 group">
+                <div class="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-teal-500 group-hover:scale-125 transition-transform shadow-lg shadow-teal-500/50"></div>
+                <span class="text-xs text-teal-400 font-bold uppercase tracking-widest">Previous Experience</span>
+                <h3 class="text-xl font-bold text-white mt-1">Digital Marketing & Operation Executive</h3>
+                <h4 class="text-slate-300 font-medium">Global Trade International</h4>
+                <p class="text-sm text-slate-400 mt-1 flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-rose-500"></i> Azampur, Uttara, Dhaka
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details & Address -->
+    <section id="contact" class="py-16 bg-slate-900/20 border-t border-slate-900">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-8">Let's Connect</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl flex items-start gap-4">
+                    <div class="p-3 bg-cyan-500/10 rounded-lg text-cyan-400"><i class="fa-solid fa-map-location-dot text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">Address</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">ফরিদাবাদ গ্লাস ফ্যাক্টরি রোড, একতা হাউসিং, গেন্ডারিয়া, ঢাকা ১২০৪</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl flex items-start gap-4">
+                    <div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400"><i class="fa-solid fa-envelope text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white mb-1">Email / Contact</h4>
+                        <p class="text-sm text-slate-400">elhasshossain@gmail.com</p>
+                        <p class="text-sm text-slate-400 mt-1">Mob: +88 01778016695</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Glowing Digital Clock Section -->
+    <section class="py-6 bg-slate-950 flex flex-col items-center justify-center border-t border-slate-900">
+        <div class="text-xs uppercase tracking-widest text-slate-500 mb-2 font-semibold">Real-Time Clock</div>
+        <div id="digital-clock" class="text-2xl md:text-3xl font-bold px-6 py-2 bg-slate-900 border border-slate-800 rounded-xl text-cyan-400 shadow-inner tracking-wider font-mono shadow-cyan-500/5">
+            00:00:00 AM
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-slate-950 text-center text-xs text-slate-600 border-t border-slate-900/60">
+        <p>&copy; 2026 MD. ASIF HOSSAIN. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Smart AI Assistant Widget Component -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 font-sans">
+        <!-- Floating Chat Trigger Button -->
+        <button onclick="toggleChat()" id="chat-trigger-btn" class="w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-2xl flex items-center justify-center text-white text-xl relative cursor-pointer hover:scale-110 transition-transform">
+            <i class="fa-solid fa-robot" id="chat-icon"></i>
+            <span class="absolute top-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
+        </button>
+
+        <!-- Chat Window Interface Box -->
+        <div id="chat-window" class="hidden absolute bottom-18 right-0 w-[350px] max-w-[90vw] h-[450px] bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-cyan-500/20 rounded-full flex items-center justify-center text-cyan-400">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white leading-tight">Asif's Assistant</h4>
+                        <span class="text-[10px] text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span> Active Agent</span>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-lg cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Messages Stream Area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs scrollbar-thin"></div>
+
+            <!-- Predefined Option Prompt Tags for Smart Interaction -->
+            <div class="p-2 bg-slate-950/40 border-t border-slate-800/60 flex flex-wrap gap-1.5" id="suggested-prompts">
+                <button onclick="askAI('services')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] transition-all cursor-pointer">What services do you offer?</button>
+                <button onclick="askAI('experience')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] transition-all cursor-pointer">Tell me about experience</button>
+                <button onclick="askAI('contact')" class="px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px] transition-all cursor-pointer">Get Contact Link</button>
+            </div>
+        </div>
     </div>
 
-    <!-- JavaScript to handle clicks -->
+    <!-- JavaScript Interactions Logic Core -->
     <script>
-        function showResult(type) {
-            const resultBox = document.getElementById('resultBox');
-            const resultIcon = document.getElementById('resultIcon');
-            const resultText = document.getElementById('resultText');
+        // 1. Live Digital Clock Function
+        function updateClock() {
+            const clockElement = document.getElementById('digital-clock');
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            const hoursStr = String(hours).padStart(2, '0');
+            
+            clockElement.innerText = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
 
-            // Reset classes for smooth animation trigger
-            resultBox.classList.remove('scale-100', 'opacity-100', 'hidden');
-            resultBox.classList.add('scale-95', 'opacity-0');
-
-            setTimeout(() => {
-                if (type === 'brilliant') {
-                    resultIcon.innerHTML = '<i class="fa-solid fa-smile-beam text-amber-400 animate-pulse"></i> <i class="fa-solid fa-heart text-rose-500 animate-beat"></i>';
-                    resultText.innerHTML = 'No Tension & ❤️';
-                    resultText.className = "text-xl font-bold text-amber-300";
-                } else if (type === 'regular') {
-                    resultIcon.innerHTML = '<i class="fa-solid fa-dumbbell text-emerald-400 animate-spin-slow"></i>';
-                    resultText.innerHTML = 'Try to hard work!';
-                    resultText.className = "text-xl font-bold text-emerald-300";
+        // 2. Auto-Rotating Highlight Effect for Services Box
+        let currentServiceIndex = 0;
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        function rotateServices() {
+            serviceCards.forEach((card, index) => {
+                if(index === currentServiceIndex) {
+                    card.classList.add('service-active');
+                } else {
+                    card.classList.remove('service-active');
                 }
-                
-                // Show with animation
-                resultBox.classList.remove('scale-95', 'opacity-0');
-                resultBox.classList.add('scale-100', 'opacity-100');
-            }, 150);
+            });
+            currentServiceIndex = (currentServiceIndex + 1) % serviceCards.length;
+        }
+        setInterval(rotateServices, 3000);
+        rotateServices(); // Initial trigger
+
+        // 3. Dynamic Ripple Click Animation Logic anywhere on page
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('click-effect-container');
+            const ripple = document.createElement('div');
+            ripple.className = 'click-ripple';
+            ripple.style.left = `${e.clientX - 10}px`;
+            ripple.style.top = `${e.clientY - 10}px`;
+            container.appendChild(ripple);
+            setTimeout(() => { ripple.remove(); }, 600);
+        });
+        
+        // 4. Automated Agent Engine Setup
+        let chatOpen = false;
+        const chatWindow = document.getElementById('chat-window');
+        const chatMessages = document.getElementById('chat-messages');
+
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            if (chatOpen) {
+                chatWindow.classList.remove('hidden');
+                setTimeout(() => {
+                    chatWindow.classList.remove('scale-95', 'opacity-0');
+                    chatWindow.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                chatWindow.classList.remove('scale-100', 'opacity-100');
+                chatWindow.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => { chatWindow.classList.add('hidden'); }, 300);
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = sender === 'ai' ? 'flex items-start gap-2 max-w-[85%]' : 'flex items-start gap-2 max-w-[85%] ml-auto justify-end';
+            
+            const contentHtml = sender === 'ai' ? `
+                <div class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-[10px] shrink-0 mt-0.5"><i class="fa-solid fa-robot"></i></div>
+                <div class="bg-slate-800 text-slate-200 p-3 rounded-2xl rounded-tl-none leading-relaxed">${text}</div>
+            ` : `
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-3 rounded-2xl rounded-tr-none leading-relaxed">${text}</div>
+            `;
+            
+            msgDiv.innerHTML = contentHtml;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Trigger AI Welcome Auto-Msg after 1.5 Seconds of full DOM load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                toggleChat();
+                appendMessage('ai', 'আসসালামু আলাইকুম! আমি <b>MD. ASIF HOSSAIN</b> এর ব্যক্তিগত এআই অ্যাসিস্ট্যান্ট। আমি তাঁর অধীনে কাজ করছি। কীভাবে আপনাকে সহযোগিতা করতে পারি?');
+            }, 1800);
+        });
+
+        // Smart Knowledge Base replies logic
+        function askAI(topic) {
+            if(topic === 'services') {
+                appendMessage('user', 'What services do you offer?');
+                setTimeout(() => {
+                    appendMessage('ai', 'আসিফ হোসেন একজন প্রফেশনাল ডিজিটাল মার্কেটিং এবং গ্রাফিক ডিজাইন এক্সপার্ট। তিনি <b>Social Media Marketing (SMM), Targeted Paid Ads Campaigns, Search Engine Optimization (SEO), Brand Identity Design</b> এবং অপারেশনাল এক্সিকিউটিভ সার্ভিস প্রদান করে থাকেন।');
+                }, 600);
+            } else if(topic === 'experience') {
+                appendMessage('user', 'Tell me about Asif\'s experience');
+                setTimeout(() => {
+                    appendMessage('ai', 'আসিফ হোসেনের শীর্ষস্থানীয় প্রতিষ্ঠানে কাজ করার চমৎকার অভিজ্ঞতা রয়েছে:<br>• <b>Max Management & Services Ltd (Max HR Group)</b> - Digital Marketing & Graphic Designer Executive (Banani)<br>• <b>ATCO International</b> - Digital Marketing & Graphic Designer (Gulshan)<br>• <b>Global Trade International</b> - Digital Marketing & Operation Executive (Azampur).');
+                }, 600);
+            } else if(topic === 'contact') {
+                appendMessage('user', 'How can I contact him directly?');
+                setTimeout(() => {
+                    appendMessage('ai', 'আপনি সরাসরি আসিফের সাথে যোগাযোগ করতে পারেন:<br>📞 ফোন/হোয়াটসঅ্যাপ: <a href="https://wa.me/8801778016695" target="_blank" class="text-cyan-400 underline">01778016695</a><br>🌐 ফেসবুক প্রোফাইল: <a href="https://www.facebook.com/share/1EPYXxHKHZ/" target="_blank" class="text-cyan-400 underline">এখানে ক্লিক করুন</a><br>📍 ঠিকানা: ফরিদাবাদ গ্লাস ফ্যাক্টরি রোড, গেন্ডারিয়া, ঢাকা।');
+                }, 600);
+            }
         }
     </script>
-
-    <!-- Extra CSS for minor icon animations -->
-    <style>
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        .animate-beat {
-            display: inline-block;
-            animation: beat 1s infinite;
-        }
-        .animate-spin-slow {
-            display: inline-block;
-            animation: spin 3s linear infinite;
-        }
-    </style>
 </body>
 </html>
