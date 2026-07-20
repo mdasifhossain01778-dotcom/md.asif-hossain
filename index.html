@@ -21,54 +21,47 @@
             font-family: 'Share Tech Mono', monospace;
         }
         @keyframes FloatUp {
-            0% { transform: translateY(20px); opacity: 0; }
+            0% { transform: translateY(15px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
         .service-pulse-active {
-            border-color: #06b6d4 !important;
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+            border-color: #f59e0b !important; /* Amber Gold Accent */
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
             transform: scale(1.03) translateY(-6px) !important;
             background: rgba(15, 23, 42, 0.9) !important;
         }
         .service-card {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .click-ripple {
-            position: absolute;
-            background: rgba(6, 182, 212, 0.3);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.5s linear;
-            pointer-events: none;
+        .map-pulse {
+            animation: mapGlow 2s infinite;
         }
-        @keyframes ripple {
-            to { transform: scale(4); opacity: 0; }
+        @keyframes mapGlow {
+            0% { r: 4px; opacity: 1; }
+            100% { r: 12px; opacity: 0; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- Global Click Canvas Element -->
-    <div id="click-effect-container" class="fixed inset-0 pointer-events-none z-50"></div>
-
-    <!-- Background Cyber Ambient Glow Layers -->
-    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="fixed top-[40%] right-[-10%] w-[45vw] h-[45vw] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="fixed bottom-[-10%] left-[20%] w-[50vw] h-[50vw] bg-blue-500/5 rounded-full blur-[160px] pointer-events-none"></div>
+    <!-- Background Premium Ambient Glow Layers (Indigo & Amber Palette) -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/15 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="fixed top-[40%] right-[-10%] w-[45vw] h-[45vw] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] left-[20%] w-[50vw] h-[50vw] bg-indigo-900/10 rounded-full blur-[160px] pointer-events-none"></div>
 
     <!-- Sticky Navigation Console -->
-    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-900/80">
+    <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-indigo-950/60">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent tracking-widest">ASIF HOSSAIN</a>
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-amber-400 via-indigo-400 to-amber-300 bg-clip-text text-transparent tracking-widest">ASIF HOSSAIN</a>
             <nav class="hidden lg:flex space-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
-                <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
-                <a href="#brands" class="hover:text-cyan-400 transition-colors">Global Partners</a>
-                <a href="#testimonials" class="hover:text-cyan-400 transition-colors">Reviews</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors">Corporate Track</a>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact Matrix</a>
+                <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+                <a href="#services" class="hover:text-amber-400 transition-colors">Services</a>
+                <a href="#brands" class="hover:text-amber-400 transition-colors">Global Partners</a>
+                <a href="#testimonials" class="hover:text-amber-400 transition-colors">Reviews</a>
+                <a href="#experience" class="hover:text-amber-400 transition-colors">Corporate Track</a>
+                <a href="#contact" class="hover:text-amber-400 transition-colors">Tracking Hub</a>
             </nav>
-            <a href="https://wa.me/8801778016695" target="_blank" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-xs font-bold uppercase tracking-wider shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-0.5">
+            <a href="https://wa.me/8801778016695" target="_blank" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-800 border border-indigo-500/30 text-xs font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/10 hover:shadow-amber-500/20 hover:border-amber-400/50 transition-all transform hover:-translate-y-0.5 text-amber-300">
                 Launch Request
             </a>
         </div>
@@ -76,11 +69,11 @@
 
     <!-- Section 1: Hero Workspace Component -->
     <section id="home" class="container mx-auto px-6 pt-24 pb-20 flex flex-col items-center text-center relative min-h-[75vh] justify-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-400 text-[10px] font-bold tracking-widest uppercase mb-8">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Enterprise Infrastructure Node Ready
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-indigo-950 text-slate-400 text-[10px] font-bold tracking-widest uppercase mb-8">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Enterprise Infrastructure Node Ready
         </div>
         <h1 class="text-5xl md:text-8xl font-black tracking-tight mb-6 leading-none">
-            Digital Catalyst <br><span class="bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-500 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
+            Digital Catalyst <br><span class="bg-gradient-to-r from-indigo-400 via-amber-400 to-indigo-300 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
         </h1>
         <p class="text-md md:text-xl text-slate-400 font-normal mb-12 max-w-3xl leading-relaxed">
             Architecting end-to-end user acquisition pipelines and modern visual layouts for forward-thinking enterprises globally.
@@ -88,17 +81,17 @@
 
         <!-- Main CTAs -->
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 hover:bg-emerald-950/10 transition-all text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 border border-indigo-900 hover:border-amber-500/40 hover:bg-amber-950/10 transition-all text-amber-400 text-xs font-bold uppercase tracking-wider">
                 <i class="fa-brands fa-whatsapp text-lg"></i> <span>Direct WhatsApp Line</span>
             </a>
-            <a href="#services" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-all text-xs font-bold uppercase tracking-wider shadow-xl shadow-cyan-500/20">
+            <a href="#services" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400 hover:to-amber-500 transition-all text-xs font-bold uppercase tracking-wider shadow-xl shadow-amber-500/20">
                 <span>View Framework Operations</span> <i class="fa-solid fa-arrow-down"></i>
             </a>
         </div>
     </section>
 
     <!-- Section 2: Core Enterprise Services Component -->
-    <section id="services" class="py-28 bg-slate-900/20 border-y border-slate-900/60 relative">
+    <section id="services" class="py-28 bg-slate-900/10 border-y border-indigo-950/50 relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Operational Service Architecture</h2>
@@ -108,25 +101,25 @@
             <!-- Service Architecture Grid Container -->
             <div id="service-showcase" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Card 1 -->
-                <div onclick="openServicePage('dm')" class="service-card bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
-                    <div class="text-cyan-400 text-4xl mb-6"><i class="fa-solid fa-chart-network"></i></div>
+                <div onclick="openServicePage('dm')" class="service-card bg-slate-900/30 border border-indigo-950 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
+                    <div class="text-indigo-400 text-4xl mb-6"><i class="fa-solid fa-chart-network"></i></div>
                     <h3 class="text-lg font-bold mb-3 text-white tracking-wide">Digital Marketing Infrastructure</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-6">Targeted paid operations, conversion rate optimizations, multi-channel growth auditing, and scalable data collection loops.</p>
-                    <span class="text-xs font-bold text-cyan-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
+                    <span class="text-xs font-bold text-amber-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
                 </div>
                 <!-- Card 2 -->
-                <div onclick="openServicePage('gd')" class="service-card bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
-                    <div class="text-purple-400 text-4xl mb-6"><i class="fa-solid fa-vector-square"></i></div>
+                <div onclick="openServicePage('gd')" class="service-card bg-slate-900/30 border border-indigo-950 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
+                    <div class="text-amber-400 text-4xl mb-6"><i class="fa-solid fa-vector-square"></i></div>
                     <h3 class="text-lg font-bold mb-3 text-white tracking-wide">High-Fidelity Graphic System</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-6">Corporate identity development, conversion creative systems, enterprise asset templates, and advanced UI/UX vector layers.</p>
-                    <span class="text-xs font-bold text-purple-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
+                    <span class="text-xs font-bold text-indigo-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
                 </div>
                 <!-- Card 3 -->
-                <div onclick="openServicePage('oe')" class="service-card bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
-                    <div class="text-teal-400 text-4xl mb-6"><i class="fa-solid fa-square-sliders"></i></div>
+                <div onclick="openServicePage('oe')" class="service-card bg-slate-900/30 border border-indigo-950 p-8 rounded-2xl relative overflow-hidden group hover:cursor-pointer">
+                    <div class="text-indigo-300 text-4xl mb-6"><i class="fa-solid fa-square-sliders"></i></div>
                     <h3 class="text-lg font-bold mb-3 text-white tracking-wide">Operation Management Matrix</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-6">Operational dashboard integrations, automated platform alignment, high-volume performance metrics tracking, and CRM control.</p>
-                    <span class="text-xs font-bold text-teal-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
+                    <span class="text-xs font-bold text-amber-400 inline-flex items-center gap-2 group-hover:underline uppercase tracking-wider">Inspect Ecosystem <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
                 </div>
             </div>
         </div>
@@ -140,25 +133,24 @@
                 <p class="text-slate-500 text-xs uppercase tracking-widest">Validated organizational networks executing operations cross-border</p>
             </div>
             
-            <!-- Global Region Grid Map Structure -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="p-6 bg-slate-900/40 border border-slate-900 rounded-2xl hover:border-cyan-500/20 transition-all group">
-                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-cyan-400 transition-colors uppercase">New York Node</div>
+                <div class="p-6 bg-slate-900/30 border border-indigo-950/60 rounded-2xl hover:border-amber-500/30 transition-all group">
+                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-amber-400 transition-colors uppercase">New York Node</div>
                     <div class="text-lg font-bold text-slate-300">Nexus Media Inc.</div>
                     <p class="text-[10px] text-slate-600 mt-1">Acquisition Retainers</p>
                 </div>
-                <div class="p-6 bg-slate-900/40 border border-slate-900 rounded-2xl hover:border-purple-500/20 transition-all group">
-                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-purple-400 transition-colors uppercase">France Node</div>
+                <div class="p-6 bg-slate-900/30 border border-indigo-950/60 rounded-2xl hover:border-indigo-500/30 transition-all group">
+                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-indigo-400 transition-colors uppercase">France Node</div>
                     <div class="text-lg font-bold text-slate-300">Lumière Design Lab</div>
                     <p class="text-[10px] text-slate-600 mt-1">Brand Guideline Audit</p>
                 </div>
-                <div class="p-6 bg-slate-900/40 border border-slate-900 rounded-2xl hover:border-teal-500/20 transition-all group">
-                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-teal-400 transition-colors uppercase">Malaysia Node</div>
+                <div class="p-6 bg-slate-900/30 border border-indigo-950/60 rounded-2xl hover:border-amber-500/30 transition-all group">
+                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-amber-400 transition-colors uppercase">Malaysia Node</div>
                     <div class="text-lg font-bold text-slate-300">Vanguard Logistics</div>
                     <p class="text-[10px] text-slate-600 mt-1">Operational Sync</p>
                 </div>
-                <div class="p-6 bg-slate-900/40 border border-slate-900 rounded-2xl hover:border-blue-500/20 transition-all group">
-                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-blue-400 transition-colors uppercase">Bangladesh Node</div>
+                <div class="p-6 bg-slate-900/30 border border-indigo-950/60 rounded-2xl hover:border-indigo-500/30 transition-all group">
+                    <div class="text-xs font-bold text-slate-500 mb-2 group-hover:text-indigo-400 transition-colors uppercase">Bangladesh Node</div>
                     <div class="text-lg font-bold text-slate-300">Max HR Corporate</div>
                     <p class="text-[10px] text-slate-600 mt-1">Active Design Hub</p>
                 </div>
@@ -167,7 +159,7 @@
     </section>
 
     <!-- Section 4: Global Verified Testimonials & Reviews -->
-    <section id="testimonials" class="py-24 bg-slate-900/10 border-t border-slate-900">
+    <section id="testimonials" class="py-24 bg-slate-900/10 border-t border-indigo-950/40">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Client Verification Matrix</h2>
@@ -176,36 +168,36 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
-                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div class="bg-slate-900/40 border border-indigo-950/80 p-6 rounded-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex text-amber-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-slate-300 text-xs leading-relaxed italic mb-6">"Asif scaled our paid social ad metrics efficiently. His structural profiling approach lowered our acquisition costs in New York significantly."</p>
                     </div>
                     <div>
                         <h5 class="text-xs font-bold text-white uppercase">Jonathan V.</h5>
-                        <span class="text-[10px] text-slate-500 font-mono">Operations Chief - Nexus Media (USA)</span>
+                        <span class="text-[10px] text-indigo-400 font-mono">Operations Chief - Nexus Media (USA)</span>
                     </div>
                 </div>
                 <!-- Review 2 -->
-                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div class="bg-slate-900/40 border border-indigo-950/80 p-6 rounded-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex text-amber-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-slate-300 text-xs leading-relaxed italic mb-6">"The corporate brand book generated by Asif's design framework helped align our visual strategy across our entire distribution system."</p>
                     </div>
                     <div>
                         <h5 class="text-xs font-bold text-white uppercase">Amélie Laurent</h5>
-                        <span class="text-[10px] text-slate-500 font-mono">Product Director - Lumière Lab (France)</span>
+                        <span class="text-[10px] text-indigo-400 font-mono">Product Director - Lumière Lab (France)</span>
                     </div>
                 </div>
                 <!-- Review 3 -->
-                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div class="bg-slate-900/40 border border-indigo-950/80 p-6 rounded-2xl flex flex-col justify-between">
                     <div>
                         <div class="flex text-amber-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <p class="text-slate-300 text-xs leading-relaxed italic mb-6">"Remarkable platform orchestration efficiency. Our dashboard synchronization error rate hit zero within the first week of implementation."</p>
                     </div>
                     <div>
                         <h5 class="text-xs font-bold text-white uppercase">Tan Sri Hazwan</h5>
-                        <span class="text-[10px] text-slate-500 font-mono">Managing Director - Vanguard (Malaysia)</span>
+                        <span class="text-[10px] text-indigo-400 font-mono">Managing Director - Vanguard (Malaysia)</span>
                     </div>
                 </div>
             </div>
@@ -218,42 +210,79 @@
             <h2 class="text-3xl font-black mb-4 tracking-tight">Enterprise Execution History</h2>
             <p class="text-slate-400 text-xs uppercase tracking-widest">Validated professional background summary</p>
         </div>
-        <div class="relative border-l border-slate-800/80 ml-4 md:ml-6 space-y-12">
+        <div class="relative border-l border-indigo-900 ml-4 md:ml-6 space-y-12">
             <div class="relative pl-8 group">
-                <div class="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50 group-hover:scale-150 transition-transform"></div>
-                <span class="text-[9px] font-bold text-cyan-400 tracking-widest uppercase">Active Post</span>
+                <div class="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-amber-400 shadow-lg shadow-amber-500/50 group-hover:scale-150 transition-transform"></div>
+                <span class="text-[9px] font-bold text-amber-400 tracking-widest uppercase">Active Post</span>
                 <h3 class="text-lg font-bold text-white mt-1">Digital Marketing & Graphic Designer Executive</h3>
                 <h4 class="text-slate-300 text-xs font-semibold">Max Management and Services Limited (Max HR Group)</h4>
-                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> Kamal Ataturk Avenue, Banani, Dhaka</p>
+                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Kamal Ataturk Avenue, Banani, Dhaka</p>
             </div>
             <div class="relative pl-8 group">
-                <div class="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-purple-500 shadow-lg shadow-purple-500/50 group-hover:scale-150 transition-transform"></div>
-                <span class="text-[9px] font-bold text-purple-400 tracking-widest uppercase">Historic Post</span>
+                <div class="absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-indigo-500 shadow-lg shadow-indigo-500/50 group-hover:scale-150 transition-transform"></div>
+                <span class="text-[9px] font-bold text-indigo-400 tracking-widest uppercase">Historic Post</span>
                 <h3 class="text-lg font-bold text-white mt-1">Digital Marketing Specialist</h3>
                 <h4 class="text-slate-300 text-xs font-semibold">ATCO International</h4>
-                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> Gulshan Lake Road, Dhaka</p>
+                <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-indigo-400 mr-1"></i> Gulshan Lake Road, Dhaka</p>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: Corporate Contact Nodes Matrix -->
-    <section id="contact" class="py-20 bg-slate-900/20 border-t border-slate-900">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl font-extrabold text-center mb-12 tracking-tight">Secure Communications Portal</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4 hover:border-cyan-500/20 transition-colors">
-                    <div class="p-3.5 bg-cyan-500/10 rounded-xl text-cyan-400"><i class="fa-solid fa-map-location-dot text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-1">HQ Demographics Location</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">Faridabad Glass Factory Road, Ekota Housing, Gandaria, Dhaka-1204, Bangladesh</p>
-                    </div>
+    <!-- NEW FEATURE: Advanced Location Tracking Hub with Live Animated World Map -->
+    <section id="contact" class="py-20 bg-slate-900/20 border-t border-indigo-950/60">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-3xl font-extrabold text-center mb-4 tracking-tight">Global Operations Tracking Hub</h2>
+            <p class="text-center text-slate-400 text-xs mb-12 uppercase tracking-wider">Live front-end tracking matrix & verified communication coordinates</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Live Animated SVG Map Console (7 Cols) -->
+                <div class="lg:col-span-7 bg-slate-950 border border-indigo-950 p-4 rounded-2xl relative overflow-hidden shadow-inner min-h-[300px] flex items-center justify-center">
+                    <div class="absolute top-3 left-4 text-[9px] font-mono text-slate-500 tracking-widest uppercase"><i class="fa-solid fa-satellite animate-spin text-amber-400 mr-1"></i> Active Frontend Map Node System</div>
+                    
+                    <!-- Highly detailed scalable vector world map structure -->
+                    <svg class="w-full h-auto opacity-70" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Landmass Simulators (Aesthetic Paths) -->
+                        <path d="M150,150 Q180,120 250,130 T350,160 T400,220 L380,280 L300,300 Z M600,120 Q650,100 750,110 T850,140 T900,200 L820,320 L720,280 Z M200,350 Q250,380 280,450 L180,480 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path d="M450,250 Q480,220 520,260 T580,290 L550,340 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        
+                        <!-- Pulse Node Connections (Lines) -->
+                        <line x1="720" y1="260" x2="250" y2="130" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="4 4" class="opacity-40" />
+                        <line x1="720" y1="260" x2="650" y2="150" stroke="#6366f1" stroke-width="0.8" stroke-dasharray="4 4" class="opacity-40" />
+                        
+                        <!-- LIVE TRACKING NODES ANIMATIONS -->
+                        <!-- Bangladesh HQ Node -->
+                        <circle cx="720" cy="260" r="5" fill="#f59e0b"/>
+                        <circle cx="720" cy="260" r="10" stroke="#f59e0b" stroke-width="1" fill="none" class="map-pulse"/>
+                        <text x="732" y="264" fill="#f59e0b" font-size="10" font-family="monospace" font-weight="bold">BD Node (Active)</text>
+
+                        <!-- USA Node -->
+                        <circle cx="250" cy="130" r="4" fill="#6366f1"/>
+                        <circle cx="250" cy="130" r="8" stroke="#6366f1" stroke-width="1" fill="none" class="map-pulse"/>
+                        <text x="180" y="125" fill="#94a3b8" font-size="9" font-family="monospace">NY Pipeline</text>
+
+                        <!-- Europe Node -->
+                        <circle cx="650" cy="150" r="4" fill="#6366f1"/>
+                        <circle cx="650" cy="150" r="8" stroke="#6366f1" stroke-width="1" fill="none" class="map-pulse"/>
+                        <text x="610" y="140" fill="#94a3b8" font-size="9" font-family="monospace">FR Pipeline</text>
+                    </svg>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-start gap-4 hover:border-emerald-500/20 transition-colors">
-                    <div class="p-3.5 bg-emerald-500/10 rounded-xl text-emerald-400"><i class="fa-solid fa-envelope-open text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-1">Direct Secure Lines</h4>
-                        <p class="text-xs text-slate-400 font-mono">Email: elhasshossain@gmail.com</p>
-                        <p class="text-xs text-slate-400 font-mono mt-1">Mobile/WA: +8801778016695</p>
+
+                <!-- Secure Communication Info Grid (5 Cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    <div class="bg-slate-900 border border-indigo-950 p-5 rounded-xl flex items-start gap-4 hover:border-amber-500/20 transition-colors">
+                        <div class="p-3 bg-amber-500/10 rounded-xl text-amber-400"><i class="fa-solid fa-map-location-dot text-lg"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-1">HQ Demographics Location</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed text-[11px]">Faridabad Glass Factory Road, Ekota Housing, Gandaria, Dhaka-1204, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 border border-indigo-950 p-5 rounded-xl flex items-start gap-4 hover:border-indigo-500/20 transition-colors">
+                        <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-400"><i class="fa-solid fa-envelope-open text-lg"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-1">Direct Secure Lines</h4>
+                            <p class="text-[11px] text-slate-400 font-mono">Email: elhasshossain@gmail.com</p>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1">Mobile/WA: +8801778016695</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -262,67 +291,65 @@
 
     <!-- Global Multipage Fullscreen Modal Window Simulator Interface -->
     <div id="service-modal-page" class="fixed inset-0 bg-slate-950/98 backdrop-blur-2xl z-50 hidden flex-col items-center justify-center p-6 transition-all duration-500 opacity-0">
-        <div class="w-full max-w-4xl bg-slate-900 border border-slate-800 rounded-3xl p-8 relative shadow-2xl overflow-y-auto max-h-[88vh]">
-            <!-- Dismiss Button -->
+        <div class="w-full max-w-4xl bg-slate-900 border border-indigo-950 rounded-3xl p-8 relative shadow-2xl overflow-y-auto max-h-[88vh]">
             <button onclick="closeServicePage()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-lg bg-slate-800 w-10 h-10 rounded-full flex items-center justify-center border border-slate-700/60 cursor-pointer transition-colors"><i class="fa-solid fa-xmark"></i></button>
-            <div id="modal-content-stream">
-                <!-- Data dynamically injected via JavaScript engine -->
-            </div>
+            <div id="modal-content-stream"></div>
         </div>
     </div>
 
     <!-- Live Dual Region Time Framework Engine Grid -->
-    <section class="py-10 bg-slate-950 border-t border-slate-900/60 flex flex-wrap justify-center gap-6">
-        <div class="px-6 py-4 bg-slate-900/40 border border-slate-900 rounded-2xl min-w-[240px] text-center">
+    <section class="py-10 bg-slate-950 border-t border-indigo-950/40 flex flex-wrap justify-center gap-6">
+        <div class="px-6 py-4 bg-slate-900/30 border border-indigo-950 rounded-2xl min-w-[240px] text-center">
             <span class="text-[10px] uppercase font-bold text-slate-500 tracking-widest block mb-1">Bangladesh Node Time (BD)</span>
-            <div id="clock-bd" class="text-2xl font-bold tracking-widest text-cyan-400 mono-clock">00:00:00 AM</div>
+            <div id="clock-bd" class="text-2xl font-bold tracking-widest text-amber-400 mono-clock">00:00:00 AM</div>
         </div>
-        <div class="px-6 py-4 bg-slate-900/40 border border-slate-900 rounded-2xl min-w-[240px] text-center">
+        <div class="px-6 py-4 bg-slate-900/30 border border-indigo-950 rounded-2xl min-w-[240px] text-center">
             <span class="text-[10px] uppercase font-bold text-slate-500 tracking-widest block mb-1">Europe/GMT Node Time</span>
-            <div id="clock-eu" class="text-2xl font-bold tracking-widest text-purple-400 mono-clock">00:00:00 AM</div>
+            <div id="clock-eu" class="text-2xl font-bold tracking-widest text-indigo-400 mono-clock">00:00:00 AM</div>
         </div>
     </section>
 
     <!-- Footer Terminal Info -->
-    <footer class="py-6 bg-slate-950 text-center text-[10px] text-slate-600 tracking-wider border-t border-slate-900/30">
+    <footer class="py-6 bg-slate-950 text-center text-[10px] text-slate-600 tracking-wider border-t border-indigo-950/20">
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering System Infrastructure Protected.</p>
     </footer>
 
-    <!-- Smart Intelligent AI Agent Widget Component Panel -->
+    <!-- UPDATED: Optimized Mini AI Agent Widget Component Panel (Sleek & Space Saving) -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 font-sans">
-        <button onclick="toggleChat()" id="chat-trigger-btn" class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-2xl flex items-center justify-center text-white p-0.5 relative cursor-pointer hover:scale-105 transition-transform group">
+        <button onclick="toggleChat()" id="chat-trigger-btn" class="w-14 h-14 rounded-full bg-gradient-to-tr from-indigo-500 to-amber-500 shadow-2xl flex items-center justify-center text-white p-0.5 relative cursor-pointer hover:scale-105 transition-transform group">
             <div class="w-full h-full bg-slate-950 rounded-full overflow-hidden flex items-center justify-center">
-                <svg class="w-8 h-8 text-cyan-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+                <i class="fa-solid fa-robot text-lg text-amber-400 group-hover:scale-110 transition-transform"></i>
             </div>
-            <span class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-950 animate-pulse"></span>
+            <span class="absolute top-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950 animate-pulse"></span>
         </button>
 
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[380px] max-w-[92vw] h-[500px] bg-slate-900/95 border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 backdrop-blur-md">
+        <!-- Decreased Width (330px) and Height (420px) for Compact Mini Modernized UI -->
+        <div id="chat-window" class="hidden absolute bottom-16 right-0 w-[330px] max-w-[88vw] h-[420px] bg-slate-900/95 border border-indigo-950 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 backdrop-blur-md">
             <!-- Terminal Header -->
-            <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-4 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full border border-cyan-500/30 p-0.5 bg-slate-950 overflow-hidden flex items-center justify-center text-cyan-400"><i class="fa-solid fa-robot"></i></div>
+            <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-3 border-b border-indigo-950/80 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-full border border-amber-500/30 p-0.5 bg-slate-950 overflow-hidden flex items-center justify-center text-amber-400 text-xs"><i class="fa-solid fa-brain"></i></div>
                     <div>
-                        <h4 class="text-xs font-bold text-white leading-tight">Asif's ChatGPT Brain v2.0</h4>
-                        <span class="text-[9px] text-emerald-400 flex items-center gap-1 font-mono"><span class="w-1 h-1 bg-emerald-400 rounded-full animate-ping"></span> LOGGED ON</span>
+                        <h4 class="text-[11px] font-bold text-white leading-tight">Asif AI Mini-Brain v2.5</h4>
+                        <span class="text-[8px] text-emerald-400 flex items-center gap-1 font-mono"><span class="w-1 h-1 bg-emerald-400 rounded-full animate-ping"></span> LOGGED</span>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-md cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-xs cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
             <!-- Messages Stream Area -->
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs tracking-wide"></div>
+            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px] tracking-wide"></div>
             
-            <!-- Live Text Input Engine (Advantage Feature) -->
-            <div class="p-3 bg-slate-950 border-t border-slate-800/80 flex flex-col gap-2">
-                <div class="flex gap-2">
-                    <input type="text" id="ai-user-input" placeholder="আসিফ সম্পর্কে যেকোনো প্রশ্ন এখানে টাইপ করুন..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors">
-                    <button onclick="handleUserSubmit()" class="bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition-colors cursor-pointer flex items-center justify-center"><i class="fa-solid fa-paper-plane"></i></button>
+            <!-- Live Text Input Engine -->
+            <div class="p-2 bg-slate-950 border-t border-indigo-950/80 flex flex-col gap-1.5">
+                <div class="flex gap-1.5">
+                    <input type="text" id="ai-user-input" placeholder="প্রশ্ন এখানে টাইপ করুন..." class="flex-1 bg-slate-900 border border-indigo-950 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-200 focus:outline-none focus:border-amber-500 transition-colors">
+                    <button onclick="handleUserSubmit()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3 py-1.5 rounded-lg text-[11px] transition-colors cursor-pointer flex items-center justify-center"><i class="fa-solid fa-paper-plane"></i></button>
                 </div>
-                <div class="flex gap-1 overflow-x-auto pb-1" id="suggested-prompts">
-                    <button onclick="askAI('number')" class="shrink-0 py-1 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] font-medium transition-all cursor-pointer">📞 ফোন নম্বর</button>
-                    <button onclick="askAI('location')" class="shrink-0 py-1 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] font-medium transition-all cursor-pointer">📍 লোকেশন</button>
-                    <button onclick="askAI('services')" class="shrink-0 py-1 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] font-medium transition-all cursor-pointer">⚙️ সার্ভিসসমূহ</button>
+                <div class="flex gap-1 overflow-x-auto pb-0.5" id="suggested-prompts">
+                    <button onclick="askAI('number')" class="shrink-0 py-0.5 px-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[9px] font-medium transition-all cursor-pointer">📞 নম্বর</button>
+                    <button onclick="askAI('location')" class="shrink-0 py-0.5 px-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[9px] font-medium transition-all cursor-pointer">📍 লোকেশন</button>
+                    <button onclick="askAI('services')" class="shrink-0 py-0.5 px-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[9px] font-medium transition-all cursor-pointer">⚙️ সার্ভিস</button>
                 </div>
             </div>
         </div>
@@ -340,7 +367,7 @@
         setInterval(processRealtimeClocks, 1000);
         processRealtimeClocks();
 
-        // 2. 1-Second (1000ms) High Frequency Active Showcase Pulse Engine
+        // 2. High Frequency Active Showcase Pulse Engine
         let trackingIdx = 0;
         const totalCards = document.querySelectorAll('.service-card');
         function executeHighlightPulse() {
@@ -361,38 +388,26 @@
             dm: {
                 title: "Digital Marketing Infrastructure Framework",
                 overview: "A comprehensive data-driven ecosystem executing user acquisition strategies, scalable paid funnels, and precision analytics tracking setup.",
-                timeline: "3 to 7 Business Deployment Days (Depending on ad set scaling complexity)",
+                timeline: "3 to 7 Business Deployment Days",
                 audience: "E-Commerce Enterprise, B2B SaaS Entities, Local Brands Targeting International Expansion.",
                 partners: "Currently servicing systems for Nexus Media Inc. (New York) and internal operational validation structures at Max HR Corporate (Dhaka).",
-                features: [
-                    "High ROI Facebook & Google Ad Account optimization pipelines.",
-                    "Granular pixel configuration tracking setups with structural tag auditing.",
-                    "High-retention A/B ad framework matrix deployment structures."
-                ]
+                features: ["High ROI Facebook & Google Ad Account optimization pipelines.","Granular pixel configuration tracking setups with structural tag auditing.","High-retention A/B ad framework matrix deployment structures."]
             },
             gd: {
                 title: "High-Fidelity Graphic Architecture & Identity Assets",
                 overview: "Advanced visual asset planning engines designed to match contemporary global graphic guidelines and conversion optimization layouts.",
-                timeline: "2 to 5 Business Deployment Days (Includes conceptual exploration loops)",
+                timeline: "2 to 5 Business Deployment Days",
                 audience: "Corporate Groups, Agency Partners, Visual Product Exporters, Marketing Executives.",
                 partners: "Deployed enterprise visual branding assets for Lumière Design Lab (France) and multi-channel marketing campaigns.",
-                features: [
-                    "Scalable vector system asset production under strict layout parameters.",
-                    "High conversion layout creative systems for optimization platforms.",
-                    "Premium typography alignment guidelines tailored to digital branding rules."
-                ]
+                features: ["Scalable vector system asset production under strict layout parameters.","High conversion layout creative systems for optimization platforms.","Premium typography alignment guidelines tailored to digital branding rules."]
             },
             oe: {
                 title: "Operational Management & Platform Sync Matrix",
                 overview: "Infrastructure optimization system focused on streamlining modern CRM platforms, internal task tracking automation, and workflow monitoring pipelines.",
-                timeline: "5 to 10 Business Deployment Days (Includes platform operational security audits)",
+                timeline: "5 to 10 Business Deployment Days",
                 audience: "Logistics Framework Networks, Multi-tiered Operations Agencies, Scaling Small Businesses.",
                 partners: "Currently utilized by Vanguard Logistics (Malaysia) for keeping transactional record updates clear.",
-                features: [
-                    "Automated performance metric indexing dashboard layouts.",
-                    "Multi-tier API control configurations and operational integrity mapping.",
-                    "Modern CRM software integration setup matching production requirements."
-                ]
+                features: ["Automated performance metric indexing dashboard layouts.","Multi-tier API control configurations and operational integrity mapping.","Modern CRM software integration setup matching production requirements."]
             }
         };
 
@@ -402,66 +417,44 @@
             
             let bulletHtml = "";
             data.features.forEach(feat => {
-                bulletHtml += `<li class="text-xs text-slate-400 border-b border-slate-800/60 pb-3 mb-3 flex items-start gap-2"><i class="fa-solid fa-square-check text-cyan-400 mt-0.5"></i> <span>${feat}</span></li>`;
+                bulletHtml += `<li class="text-xs text-slate-400 border-b border-slate-800/60 pb-2 mb-2 flex items-start gap-2"><i class="fa-solid fa-square-check text-amber-400 mt-0.5"></i> <span>${feat}</span></li>`;
             });
 
             contentArea.innerHTML = `
-                <h3 class="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent mb-4 leading-tight">${data.title}</h3>
-                <p class="text-xs text-slate-300 bg-slate-950 p-5 rounded-2xl border border-slate-800/80 leading-relaxed mb-6">${data.overview}</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-xl">
-                        <span class="text-[10px] uppercase text-slate-500 font-bold block mb-1">Standard Delivery Timeline</span>
-                        <p class="text-xs font-semibold text-emerald-400"><i class="fa-regular fa-clock mr-1.5"></i> ${data.timeline}</p>
+                <h3 class="text-2xl font-extrabold bg-gradient-to-r from-amber-400 to-indigo-400 bg-clip-text text-transparent mb-4">${data.title}</h3>
+                <p class="text-xs text-slate-300 bg-slate-950 p-4 rounded-xl border border-indigo-950 leading-relaxed mb-4">${data.overview}</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-slate-950/40 border border-indigo-950 p-3 rounded-xl">
+                        <span class="text-[9px] uppercase text-slate-500 font-bold block mb-1">Timeline</span>
+                        <p class="text-xs font-semibold text-emerald-400">${data.timeline}</p>
                     </div>
-                    <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-xl">
-                        <span class="text-[10px] uppercase text-slate-500 font-bold block mb-1">Target Client Profile</span>
-                        <p class="text-xs font-semibold text-purple-400"><i class="fa-solid fa-users mr-1.5"></i> ${data.audience}</p>
+                    <div class="bg-slate-950/40 border border-indigo-950 p-3 rounded-xl">
+                        <span class="text-[9px] uppercase text-slate-500 font-bold block mb-1">Target Client</span>
+                        <p class="text-xs font-semibold text-indigo-400">${data.audience}</p>
                     </div>
                 </div>
-
-                <div class="mb-6 bg-slate-950/30 border border-slate-800/60 p-4 rounded-xl">
-                    <span class="text-[10px] uppercase text-slate-500 font-bold block mb-1">Validated Network Footprint</span>
-                    <p class="text-xs text-slate-400 leading-relaxed"><i class="fa-solid fa-globe text-cyan-500 mr-1.5"></i> ${data.partners}</p>
+                <div class="mb-4 bg-slate-950/30 border border-indigo-950/60 p-3 rounded-xl">
+                    <span class="text-[9px] uppercase text-slate-500 font-bold block mb-1">Validated Footprint</span>
+                    <p class="text-xs text-slate-400">${data.partners}</p>
                 </div>
-
-                <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Granular Deliverables Core:</h4>
                 <ul class="list-none">${bulletHtml}</ul>
-
-                <div class="mt-8 pt-4 border-t border-slate-800 flex gap-4">
-                    <a href="https://wa.me/8801778016695" target="_blank" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all">Order Framework Implementation</a>
-                    <button onclick="closeServicePage()" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs uppercase tracking-wider rounded-xl cursor-pointer transition-all">Back to Terminal</button>
+                <div class="mt-6 flex gap-3">
+                    <a href="https://wa.me/8801778016695" target="_blank" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs uppercase rounded-xl transition-all">Order Framework</a>
+                    <button onclick="closeServicePage()" class="px-5 py-2.5 bg-slate-800 text-slate-300 font-bold text-xs uppercase rounded-xl cursor-pointer">Close</button>
                 </div>
             `;
-            
             const targetModal = document.getElementById('service-modal-page');
             targetModal.classList.remove('hidden');
-            setTimeout(() => {
-                targetModal.classList.remove('opacity-0');
-                targetModal.classList.add('opacity-100');
-            }, 50);
+            setTimeout(() => { targetModal.classList.remove('opacity-0'); targetModal.classList.add('opacity-100'); }, 50);
         }
 
         function closeServicePage() {
             const targetModal = document.getElementById('service-modal-page');
-            targetModal.classList.remove('opacity-100');
-            targetModal.classList.add('opacity-0');
+            targetModal.classList.remove('opacity-100'); targetModal.classList.add('opacity-0');
             setTimeout(() => { targetModal.classList.add('hidden'); }, 400);
         }
 
-        // 4. Fluid Click Ripple Engine Injection
-        document.addEventListener('click', function(e) {
-            const container = document.getElementById('click-effect-container');
-            if(!container) return;
-            const rip = document.createElement('div');
-            rip.className = 'click-ripple';
-            rip.style.left = `${e.clientX - 10}px`;
-            rip.style.top = `${e.clientY - 10}px`;
-            container.appendChild(rip);
-            setTimeout(() => { rip.remove(); }, 500);
-        });
-
-        // 5. Intelligent AI Terminal Chat Widget System Engine (ChatGPT Simulated NLP Brain)
+        // 4. Intelligent AI Mini Terminal Chat Engine Setup
         let internalStateOpen = false;
         const panel = document.getElementById('chat-window');
         const frameStream = document.getElementById('chat-messages');
@@ -470,25 +463,21 @@
             internalStateOpen = !internalStateOpen;
             if (internalStateOpen) {
                 panel.classList.remove('hidden');
-                setTimeout(() => {
-                    panel.classList.remove('scale-95', 'opacity-0');
-                    panel.classList.add('scale-100', 'opacity-100');
-                }, 10);
+                setTimeout(() => { panel.classList.remove('scale-95', 'opacity-0'); panel.classList.add('scale-100', 'opacity-100'); }, 10);
             } else {
-                panel.classList.remove('scale-100', 'opacity-100');
-                panel.classList.add('scale-95', 'opacity-0');
+                panel.classList.remove('scale-100', 'opacity-100'); panel.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => { panel.classList.add('hidden'); }, 300);
             }
         }
 
         function writeLog(sender, text) {
             const wrap = document.createElement('div');
-            wrap.className = sender === 'ai' ? 'flex items-start gap-2 max-w-[85%] animate-[FloatUp_0.4s_ease-out]' : 'flex items-start gap-2 max-w-[85%] ml-auto justify-end animate-[FloatUp_0.4s_ease-out]';
+            wrap.className = sender === 'ai' ? 'flex items-start gap-2 max-w-[88%] animate-[FloatUp_0.3s_ease-out]' : 'flex items-start gap-2 max-w-[88%] ml-auto justify-end animate-[FloatUp_0.3s_ease-out]';
             wrap.innerHTML = sender === 'ai' ? `
-                <div class="w-6 h-6 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-[9px] shrink-0 border border-cyan-500/20"><i class="fa-solid fa-robot"></i></div>
-                <div class="bg-slate-800 text-slate-200 p-3 rounded-2xl rounded-tl-none leading-relaxed whitespace-pre-line">${text}</div>
+                <div class="w-5 h-5 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-[8px] shrink-0 border border-amber-500/20"><i class="fa-solid fa-robot"></i></div>
+                <div class="bg-slate-800 text-slate-200 p-2.5 rounded-xl rounded-tl-none leading-relaxed whitespace-pre-line">${text}</div>
             ` : `
-                <div class="bg-gradient-to-tr from-cyan-500 to-blue-600 text-white p-3 rounded-2xl rounded-tr-none leading-relaxed">${text}</div>
+                <div class="bg-gradient-to-tr from-indigo-600 to-indigo-800 border border-indigo-500/20 text-white p-2.5 rounded-xl rounded-tr-none leading-relaxed">${text}</div>
             `;
             frameStream.appendChild(wrap);
             frameStream.scrollTop = frameStream.scrollHeight;
@@ -497,55 +486,28 @@
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 toggleChat();
-                writeLog('ai', 'হ্যালো! আমি আসিফ হোসেনের **Advanced AI Agent**। ChatGPT-র মতো আমি আপনাকে আসিফের সার্ভিস, মোবাইল নম্বর, লোকেশন এবং ডেলিভারি টাইমলাইন সম্পর্কে যেকোনো প্রশ্নের উত্তর সরাসরি দিতে পারি। নিচে টাইপ করুন অথবা বাটনে ক্লিক করুন!');
-            }, 1200);
+                writeLog('ai', 'হ্যালো! আমি আসিফের **Compact AI Assistant**। ChatGPT-র মতো আমি আপনাকে আসিফের সার্ভিস, মোবাইল নম্বর, লাইভ লোকেশন এবং কাজের এক্সপেরিয়েন্স সুন্দর করে বুঝিয়ে দিতে পারব। নিচে আপনার প্রশ্নটি টাইপ করুন!');
+            }, 1000);
         });
 
-        // Smart NLP Engine Matrix to process user queries dynamically
         function generateAIResponse(rawQuery) {
             const query = rawQuery.toLowerCase();
-            
             if (query.includes('নম্বর') || query.includes('number') || query.includes('ফোন') || query.includes('যোগাযোগ') || query.includes('contact') || query.includes('হোয়াটস')) {
-                return `📞 **আসিফের সাথে যোগাযোগের মাধ্যম:**
-                - **মোবাইল/হোয়াটসঅ্যাপ:** +8801778016695 (সরাসরি মেসেজ করতে নিচের হোয়াটসঅ্যাপ বাটনে ক্লিক করতে পারেন)
-                - **ইমেইল:** elhasshossain@gmail.com`;
+                return `📞 **কন্টাক্ট ইনফরমেশন:**\n- **মোবাইল/হোয়াটসঅ্যাপ:** +8801778016695\n- **ইমেইল:** elhasshossain@gmail.com\nসরাসরি লাইভ চ্যাটের জন্য মূল পেজের হোয়াটসঅ্যাপ বাটনে ক্লিক করতে পারেন।`;
             }
-            
-            if (query.includes('লোকেশন') || query.includes('location') || query.includes('বাসা') || query.includes('অফিস') || query.includes('ঠিকানা') || query.includes('address')) {
-                return `📍 **আসিফের বর্তমান লোকেশন প্রোফাইল:**
-                - **হেডকোয়ার্টার:** ফরিদাবাদ গ্লাস ফ্যাক্টরি রোড, একতা হাউজিং, গ্যান্ডারিয়া, ঢাকা-১২০৪, বাংলাদেশ।
-                - **অফিস ট্র্যাক:** তিনি বর্তমানে বনানীর কামাল আতাতুর্ক এভিনিউতে অবস্থিত 'ম্যাক্স ম্যানেজমেন্ট অ্যান্ড সার্ভিসেস লিমিটেড'-এ কর্মরত আছেন।`;
+            if (query.includes('লোকেশন') || query.includes('location') || query.includes('বাসা') || query.includes('অফিস') || query.includes('ঠিকানা') || query.includes('address') || query.includes('ট্রাকিং')) {
+                return `📍 **লাইভ লোকেশন ট্র্যাকিং প্রোফাইল:**\n- **স্থায়ী ঠিকানা:** ফরিদাবাদ গ্লাস ফ্যাক্টরি রোড, একতা হাউজিং, গ্যান্ডারিয়া, ঢাকা-১২০৪, বাংলাদেশ।\n- **কর্পোরেট হাব:** বনানীর কামাল আতাতুর্ক এভিনিউতে অবস্থিত 'ম্যাক্স ম্যানেজমেন্ট'-এ তিনি কর্মরত। স্ক্রিনের লাইভ ম্যাপ নোডেও এটি দেখতে পাচ্ছেন!`;
             }
-            
             if (query.includes('সার্ভিস') || query.includes('service') || query.includes('কাজ') || query.includes('graphic') || query.includes('marketing') || query.includes('ডিজিটাল')) {
-                return `⚙️ **আসিফের কোর এন্টারপ্রাইজ সার্ভিসসমূহ:**
-                1. **ডিজিটাল মার্কেটিং ইনফ্রাস্ট্রাকচার:** ফেসবুক/গুগল পেইড ক্যাম্পেইন এবং সেলস ফানেল অপ্টিমাইজেশন।
-                2. **হাই-ফিডেলিটি গ্রাফিক ডিজাইন:** কর্পোরেট ব্র্যান্ডিং, ভেক্টর অ্যাসেট এবং UI/UX লেআউট।
-                3. **অপারেশন ম্যানেজমেন্ট:** সিআরএম (CRM) সিঙ্ক এবং ড্যাশবোর্ড অটোমেশন।`;
+                return `⚙️ **আসিফের সার্ভিসসমূহ:**\n1. **ডিজিটাল মার্কেটিং:** ফেসবুক/গুগল পেইড সেলস ফানেল অপ্টিমাইজেশন।\n2. **হাই-ফিডেলিটি গ্রাফিক ডিজাইন:** কর্পোরেট ব্র্যান্ডিং এবং UI/UX রেডি অ্যাসেট।\n3. **অপারেশন ম্যানেজমেন্ট:** সিআরএম (CRM) সিঙ্ক এবং ড্যাশবোর্ড অটোমেশন।`;
             }
-            
-            if (query.includes('কতদিন') || query.includes('সময়') || query.includes('ডেলিভারি') || query.includes('time') || query.includes('day')) {
-                return `⏳ **সার্ভিস ডেলিভারি টাইমলাইন ম্যাট্রিক্স:**
-                - **ডিজিটাল মার্কেটিং:** ৩ থেকে ৭ কার্যদিবস।
-                - **গ্রাফিক ডিজাইন:** ২ থেকে ৫ কার্যদিবস।
-                - **অপারেশন সিস্টেম:** ৫ থেকে ১০ কার্যদিবস।`;
+            if (query.includes('কতদিন') || query.includes('সময়') || query.includes('ডেলিভারি') || query.includes('time')) {
+                return `⏳ **ডেলিভারি টাইমলাইন:**\n- গ্রাফিক ডিজাইন: ২-৫ দিন।\n- ডিজিটাল মার্কেটিং: ৩-৭ দিন।\n- অপারেশন ম্যানেজমেন্ট: ৫-১০ দিন।`;
             }
-            
-            if (query.includes('কোম্পানি') || query.includes('অভিজ্ঞতা') || query.includes('experience') || query.includes('ক্লায়েন্ট') || query.includes('client')) {
-                return `💼 **ভেরিফাইড কর্পোরেট ট্র্যাক রেকর্ড:**
-                - বর্তমানে **Max Management (Banani)**-তে ডিজিটাল মার্কেটিং ও গ্রাফিক ডিজাইনার এক্সিকিউটিভ হিসেবে কাজ করছেন।
-                - পূর্বে **ATCO International (Gulshan)**-এ ডিজিটাল মার্কেটিং স্পেশালিস্ট ছিলেন।
-                - নিউইয়র্ক, ফ্রান্স এবং মালয়েশিয়ার গ্লোবাল ক্লায়েন্টদের সাথে সফল প্রজেক্টের ট্র্যাক রয়েছে।`;
-            }
-
             if (query.includes('হ্যালো') || query.includes('hi') || query.includes('hello') || query.includes('কেমন')) {
-                return `হ্যালো! আমি খুব ভালো আছি। আসিফ হোসেন সম্পর্কে আপনার যেকোনো প্রশ্ন (যেমন: তার নম্বর, সার্ভিস, কাজের লোকেশন বা ডেলিভারির সময়) আমাকে জিজ্ঞেস করুন, আমি বিস্তারিত বুঝিয়ে দিচ্ছি।`;
+                return `হ্যালো! আসিফ হোসেনের এআই ব্রেইনে আপনাকে স্বাগতম। তার নম্বর, সার্ভিস বা ট্র্যাকিং লোকেশন সম্পর্কে যেকোনো তথ্য জানতে নিচে শর্টকাট ক্লিক করুন বা টাইপ করুন।`;
             }
-
-            // Fallback general intelligent answer
-            return `আমি আপনার প্রশ্নটি বুঝতে পেরেছি। **আসিফ হোসেন** একজন প্রফেশনাল ডিজিটাল মার্কেটর ও গ্রাফিক ডিজাইনার। 
-            
-            আপনি তার **ফোন নম্বর (+8801778016695)**, **লোকেশন (গ্যান্ডারিয়া/বনানী)**, অথবা তার **সার্ভিস ডেলিভারি টাইমলাইন** সম্পর্কে জানতে চাইলে নির্দিষ্ট কিওয়ার্ড দিয়ে প্রশ্ন করুন, অথবা সরাসরি আমাদের সাথে লাইভ কথা বলতে নিচের সবুজ হোয়াটসঅ্যাপ লিংকে ক্লিক করুন!`;
+            return `আমি বুঝতে পেরেছি। আসিফ হোসেন একজন প্রফেশনাল ডিজিটাল মার্কেটর ও ডিজাইনার। আপনি তার **ফোন নম্বর (+8801778016695)**, **গ্যান্ডারিয়া/বনানী লোকেশন** অথবা সার্ভিস ডেলিভারি নিয়ে নির্দিষ্ট কিছু জানতে চাইলে প্রশ্নটি আরও ছোট করে টাইপ করুন।`;
         }
 
         function handleUserSubmit() {
@@ -556,18 +518,17 @@
             writeLog('user', userText);
             inputEl.value = '';
 
-            // Loading state animation
             setTimeout(() => {
                 const response = generateAIResponse(userText);
                 writeLog('ai', response);
-            }, 600);
+            }, 500);
         }
 
         function askAI(topic) {
             let userPromptText = "";
             if(topic === 'number') userPromptText = "আসিফের ফোন নম্বর ও যোগাযোগের ডিটেইলস দাও।";
-            if(topic === 'location') userPromptText = "আসিফের অফিস এবং বর্তমান লোকেশন কোথায়?";
-            if(topic === 'services') userPromptText = "তোমাদের এখানে কি কি সার্ভিস এভেলেবল আছে?";
+            if(topic === 'location') userPromptText = "আসিফের অফিস এবং লাইভ লোকেশন কোথায়?";
+            if(topic === 'services') userPromptText = "তোমাদের এখানে কি কি সার্ভিস পাওয়া যাবে?";
             
             writeLog('user', userPromptText);
             setTimeout(() => {
@@ -576,11 +537,8 @@
             }, 400);
         }
 
-        // Allow 'Enter' key submission inside input
         document.getElementById('ai-user-input').addEventListener('keypress', function(e) {
-            if(e.key === 'Enter') {
-                handleUserSubmit();
-            }
+            if(e.key === 'Enter') handleUserSubmit();
         });
     </script>
 </body>
