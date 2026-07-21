@@ -119,39 +119,38 @@
         </div>
     </div>
 
-   <!-- Hero Section with Background Image -->
-    <section id="home" class="relative container mx-auto px-4 sm:px-6 pt-16 pb-20 text-center max-w-5xl flex flex-col items-center justify-center min-h-[70vh] rounded-3xl my-6 overflow-hidden border border-slate-200/60 shadow-sm">
+   <!-- Clear Full Photo & Below Text Hero Section -->
+    <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
         
-        <!-- 📸 ব্যাকগ্রাউন্ড ছবি এবং ডার্ক অভারলে (Overlay) 📸 -->
-        <div class="absolute inset-0 z-0">
-            <img src="profile.jpg" alt="Background" class="w-full h-full object-cover object-center filter blur-[1px] scale-105">
-            <!-- আফছা ভাব আনায় যাতে লেখাগুলো পরিষ্কার পড়া যায় -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/70 to-slate-900/90"></div>
+        <!-- 📸 ১. সম্পূর্ণ ক্লিয়ার পিকচার (কোনো শেড বা ব্লার ছাড়া) 📸 -->
+        <div class="mb-6 w-full max-w-md overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-slate-100">
+            <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl">
         </div>
 
-        <!-- কন্টেন্ট (লেখা ও বাটন) -->
-        <div class="relative z-10 flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mb-6 backdrop-blur-md">
-                <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span> Multi-Regional Distribution Framework
+        <!-- 📝 ২. ছবির ঠিক নিচের লেখা ও বাটনসমূহ 📝 -->
+        <div class="w-full flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mb-4">
+                <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
             </div>
 
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-white leading-tight">
-                Global Digital Matrix <br><span class="text-orange-400 bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 leading-tight">
+                Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
             </h1>
 
-            <p class="text-sm sm:text-base text-slate-200 max-w-2xl mb-8 leading-relaxed font-normal">
+            <p class="text-sm sm:text-base text-slate-600 max-w-2xl mb-8 leading-relaxed font-normal">
                 Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto px-4">
-                <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/10 border border-white/20 hover:border-orange-400 text-white text-xs font-bold uppercase tracking-wider shadow-sm backdrop-blur-md transition-all">
-                    <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i> Secure Chat Line
+                <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm transition-all">
+                    <i class="fa-brands fa-whatsapp text-base text-emerald-500"></i> Secure Chat Line
                 </a>
-                <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md shadow-blue-600/30 transition-all">
+                <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md shadow-blue-600/10 transition-all">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
             </div>
         </div>
+
     </section>
     <!-- Services Architecture Grid Section -->
     <section id="services" class="py-16 bg-slate-50 border-y border-slate-200/70">
