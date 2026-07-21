@@ -56,10 +56,16 @@
 </head>
 <body class="bg-[#faf8f5] text-slate-800 min-h-screen relative overflow-x-hidden antialiased">
 
-    <!-- Sticky Navigation Bar -->
+   <!-- Sticky Navigation Bar -->
     <header class="sticky top-0 z-40 bg-[#faf8f5]/85 backdrop-blur-md border-b border-slate-200/80">
         <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</a>
+            
+            <!-- 👇 নামের পাশে ছবি যোগ করা হয়েছে এখানে 👇 -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-blue-600 shadow-sm">
+                <span class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</span>
+            </a>
+
             <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
                 <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
                 <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
@@ -119,7 +125,7 @@
             <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
         </div>
         <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 leading-tight">
-            Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent"><MD. ASIF HOSSAIN</span>
+            Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
         </h1>
         <p class="text-sm sm:text-base text-slate-600 max-w-2xl mb-8 leading-relaxed font-normal">
             Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
@@ -144,7 +150,6 @@
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <!-- Service Item Generic Block Blueprint (Repeated 8x with optimized dynamic triggers) -->
                 <!-- Card 1 -->
                 <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
@@ -214,7 +219,6 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-                <!-- Company Card Components Mapping Block Array -->
                 <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
                     <div class="flex items-center justify-between mb-3.5">
                         <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-building"></i></div>
@@ -260,7 +264,6 @@
             <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight text-slate-900">Active Node Deployment Hub</h2>
             <p class="text-center text-slate-400 text-[10px] sm:text-xs mb-10 uppercase tracking-widest font-bold">Panoramic Interface Tracking Globally Executed Node Connections</p>
             
-            <!-- Map Container - Responsive Aspect Ratio Adjustment -->
             <div class="w-full bg-white border border-slate-200/80 p-2 sm:p-4 rounded-3xl relative overflow-hidden shadow-xs min-h-[280px] sm:min-h-[420px] flex items-center justify-center">
                 <div class="absolute top-3 left-3 text-[8px] sm:text-[10px] font-mono text-slate-500 tracking-wider uppercase z-10 bg-slate-50 px-2.5 py-1 rounded border border-slate-200">
                     <i class="fa-solid fa-globe animate-spin text-blue-600 mr-1.5"></i> Orbit Sync Active
@@ -326,7 +329,7 @@
         </div>
     </div>
 
-    <!-- Sticky Live Customer Review Engine (Adaptive Layout Bottom-Left) -->
+    <!-- Sticky Live Customer Review Engine -->
     <div id="review-popup-container" class="fixed bottom-4 left-4 z-40 w-[calc(100%-32px)] sm:w-[290px] pointer-events-none">
         <div id="review-popup-card" class="bg-white/95 border border-orange-400 p-3.5 rounded-2xl shadow-xl flex flex-col gap-1.5 backdrop-blur-md pointer-events-auto transition-all duration-500 transform translate-y-4 opacity-0">
             <div class="flex justify-between items-center border-b border-slate-100 pb-1">
@@ -341,9 +344,8 @@
         </div>
     </div>
 
-    <!-- AI Terminal Widget Interface (Bottom-Right Responsive Control) -->
+    <!-- AI Terminal Widget Interface -->
     <div id="ai-chat-widget" class="fixed bottom-4 right-4 z-50 flex flex-col items-end">
-        <!-- Main Panel Screen Layout -->
         <div id="chat-window" class="hidden w-[290px] sm:w-[320px] max-w-[calc(100vw-32px)] h-[360px] bg-white border border-blue-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 mb-3">
             <div class="bg-blue-600 p-3 flex items-center justify-between shadow-sm">
                 <div class="flex items-center gap-2">
@@ -352,14 +354,17 @@
                 </div>
                 <button onclick="toggleChat()" class="text-white text-xs hover:opacity-80"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px] bg-slate-50/50"></div>
+            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px] bg-slate-50/50">
+                <div class="bg-blue-50 border border-blue-100 text-slate-700 p-2.5 rounded-xl">
+                    Hello! I'm the Matrix Assistant. How can I assist you with Md. Asif Hossain's services today?
+                </div>
+            </div>
             <div class="p-2 bg-white border-t border-slate-100 flex gap-2">
-                <input type="text" id="ai-user-input" placeholder="Type query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] focus:outline-none focus:border-blue-500 focus:bg-white">
+                <input type="text" id="ai-user-input" placeholder="Type query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] focus:outline-none focus:border-blue-500 focus:bg-white" onkeydown="if(event.key === 'Enter') handleUserSubmit()">
                 <button onclick="handleUserSubmit()" class="bg-blue-600 text-white px-3 py-1 rounded-xl text-[11px] hover:bg-blue-700"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
 
-        <!-- Float Trigger Circle Asset -->
         <button onclick="toggleChat()" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-transform relative">
             <i class="fa-solid fa-robot text-base sm:text-lg"></i>
             <span class="absolute top-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full"></span>
@@ -370,14 +375,17 @@
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
     </footer>
 
-    <!-- Operational JavaScript Scripts Pipeline Assembly -->
+    <!-- Operational JavaScript Engine -->
     <script>
+        // System Clocks
         function runSystemClocks() {
             document.getElementById('clock-bd').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
             document.getElementById('clock-eu').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
         }
-        setInterval(runSystemClocks, 1000); runSystemClocks();
+        setInterval(runSystemClocks, 1000); 
+        runSystemClocks();
 
+        // Service Highlight Pulse Cycle
         let highlightedNodeIdx = 0;
         function runHighlightPulse() {
             const cards = document.querySelectorAll('.service-card');
@@ -385,11 +393,13 @@
             cards.forEach((card, i) => { card.classList.toggle('service-pulse-active', i === highlightedNodeIdx); });
             highlightedNodeIdx = (highlightedNodeIdx + 1) % cards.length;
         }
-        setInterval(runHighlightPulse, 1200); runHighlightPulse();
+        setInterval(runHighlightPulse, 1200); 
+        runHighlightPulse();
 
+        // Customer Review Engine
         const clientMasterReviewsDatabase = [
             { name: "John S. (New York)", service: "Campaign", tag: "Apex Digital solutions", stars: 5, text: "\"Exceptional full-funnel scaling capability. Lowered target conversion costs effectively.\"" },
-            { name: "রাসেল আহমেদ", service: "Boosting", tag: "Max HR Group", stars: 5, text: "\"আসিফ ভাইয়ের বুস্টিং স্ট্রাটেজি চমৎকার! আমাদের পেজের সেলস ৪ গুণ পর্যন্ত বেড়েছে।\"" },
+            { name: "রাসেল আহমেদ", service: "Boosting", tag: "Max HR Group", stars: 5, text: "\"আসিফ ভাইয়ের বুস্টিং স্ট্রাটেজি চমৎকার! আমাদের পেজের সেলস ৪ গুণ পর্যন্ত বেড়েছে।\"" },
             { name: "Chloe M. (Paris)", service: "Graphics", tag: "Lumiere Media Group", stars: 4, text: "\"Sophisticated asset designs. Clean branding layouts matching enterprise specifications perfectly.\"" }
         ];
 
@@ -408,74 +418,104 @@
                 document.getElementById('popup-client-service').innerText = item.service;
                 
                 starsContainer.innerHTML = '';
-                for(let s=0; s<5; s++) {
+                for(let s = 0; s < 5; s++) {
                     const icon = document.createElement('i');
                     icon.className = s < item.stars ? 'fas fa-star text-amber-500' : 'far fa-star text-slate-300';
                     starsContainer.appendChild(icon);
                 }
+                
                 targetPopupUI.classList.remove('opacity-0', 'translate-y-4');
                 currentReviewTracker = (currentReviewTracker + 1) % clientMasterReviewsDatabase.length;
-            }, 400);
+            }, 500);
         }
-        setInterval(streamPopupReviewCycle, 5000); streamPopupReviewCycle();
 
-        const customDetailedSchema = {
-            gd: { title: "High-Fidelity Graphic Design Ecosystems", overview: "Premium visual asset conversion setups mapped out perfectly for modern digital branding requirements.", timeline: "2-5 Days", audience: "Agencies & Brands", features: ["Scalable enterprise vector branding production frameworks.", "Optimized creative assets for multi-channel targeting campaigns."] },
-            seo: { title: "Technical Search Engine Optimization Pipelines", overview: "Advanced structural audit infrastructure providing clean domain authority elevation and indexing logs.", timeline: "7-14 Days", audience: "Content Portals & SaaS", features: ["Schema markups deployment and web vitals tuning layouts.", "Keyword intent map scaling for search acquisition indexes."] }
+        setInterval(streamPopupReviewCycle, 4000);
+        streamPopupReviewCycle();
+
+        // Service Modal Logic
+        const serviceDetailsMap = {
+            'gd': { title: 'High-Fidelity Graphics Design', desc: 'Creation of vector visual systems, UI mockups, and corporate branding identity packages aligned to modern UI design guidelines.' },
+            'seo': { title: 'Search Engine Optimization (SEO)', desc: 'Complete technical SEO audit, indexing fixes, keyword tracking, and keyword topology mapping to drive organic rank continuous growth.' },
+            'sms': { title: 'Social Ecosystem Management', desc: 'Omnichannel brand profiles automation, visual publishing timelines, and audience engagement retention campaigns.' },
+            'boost': { title: 'Targeted Media Boosting', desc: 'Precision audience targeting, interest layering, budget optimization loops, and direct ROAS enhancement.' },
+            'camp': { title: 'Strategic Ad Campaigns', desc: 'Meta/Google Ads Manager architecture, pixel conversion API setups, lookalike audience deployment, and funnel tracking.' },
+            'de': { title: 'Data Entry & Web Research', desc: 'High-accuracy dataset validation, lead enrichment, web scraping, CRM database cleanup, and structured report management.' },
+            'lg': { title: 'B2B Lead Generation', desc: 'Executive data collection, verified email list sourcing, B2B outbound list building, and prospecting workflows.' },
+            'oe': { title: 'Operational Automation', desc: 'Cross-platform workflow synchronization, custom internal dashboards, automated notifications, and productivity tool orchestration.' }
         };
 
-        function openServicePage(k) {
-            const data = customDetailedSchema[k] || customDetailedSchema['gd'];
-            let bulletHtml = "";
-            (data.features || []).forEach(f => { bulletHtml += `<li class="text-xs text-slate-600 border-b border-slate-100 pb-1.5 mb-1.5 flex items-start gap-2"><i class="fa-solid fa-square-check text-orange-500 mt-0.5"></i><span>${f}</span></li>`; });
+        function openServicePage(key) {
+            const modal = document.getElementById('service-modal-page');
+            const stream = document.getElementById('modal-content-stream');
+            const item = serviceDetailsMap[key] || { title: 'Node Data', desc: 'Details unavailable.' };
             
-            document.getElementById('modal-content-stream').innerHTML = `
-                <h3 class="text-base sm:text-lg font-bold text-blue-700 mb-2">${data.title}</h3>
-                <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200 mb-4">${data.overview}</p>
-                <div class="grid grid-cols-2 gap-3 mb-4 text-xs">
-                    <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Timeline</b><span class="text-emerald-600 font-bold">${data.timeline}</span></div>
-                    <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl"><b class="text-slate-400 block text-[9px] uppercase">Client Focus</b><span class="text-blue-600 font-bold">${data.audience}</span></div>
-                </div>
-                <ul class="list-none">${bulletHtml}</ul>
-                <div class="mt-5 flex gap-2"><a href="https://wa.me/8801778016695" target="_blank" class="px-4 py-2 bg-orange-500 text-white font-bold text-xs uppercase rounded-xl">Order Now</a><button onclick="closeServicePage()" class="px-4 py-2 bg-slate-100 text-slate-700 font-bold text-xs uppercase rounded-xl">Close</button></div>
+            stream.innerHTML = `
+                <h3 class="text-xl font-extrabold text-slate-900 mb-3">${item.title}</h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">${item.desc}</p>
+                <a href="https://wa.me/8801778016695" target="_blank" class="inline-block w-full text-center px-4 py-2.5 bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-blue-700 transition-colors">
+                    Request Strategy Call
+                </a>
             `;
-            const m = document.getElementById('service-modal-page'); m.classList.remove('hidden');
-            setTimeout(() => { m.classList.remove('opacity-0'); }, 20);
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
         }
+
         function closeServicePage() {
-            const m = document.getElementById('service-modal-page'); m.classList.add('opacity-0');
-            setTimeout(() => { m.classList.add('hidden'); }, 300);
+            const modal = document.getElementById('service-modal-page');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
         }
 
-        let aiWidgetOpen = false;
-        const uiPanel = document.getElementById('chat-window');
-        const textStream = document.getElementById('chat-messages');
-
+        // AI Chat Widget Logic
         function toggleChat() {
-            aiWidgetOpen = !aiWidgetOpen;
-            if(aiWidgetOpen) {
-                uiPanel.classList.remove('hidden');
-                setTimeout(() => { uiPanel.classList.remove('scale-95', 'opacity-0'); uiPanel.classList.add('scale-100', 'opacity-100'); }, 10);
-                if(textStream.innerHTML === "") {
-                    setTimeout(() => { printMsg('ai', 'হ্যালো! আমি আসিফের **Matrix AI Sync Node**। আমাদের গ্লোবাল রিভিউ বা সার্ভিস সম্পর্কে কিছু জানতে চান?'); }, 300);
-                }
+            const win = document.getElementById('chat-window');
+            if (win.classList.contains('hidden')) {
+                win.classList.remove('hidden');
+                setTimeout(() => {
+                    win.classList.remove('scale-95', 'opacity-0');
+                }, 10);
             } else {
-                uiPanel.classList.remove('scale-100', 'opacity-100'); uiPanel.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => { uiPanel.classList.add('hidden'); }, 300);
+                win.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    win.classList.add('hidden');
+                }, 300);
             }
         }
-        function printMsg(s, t) {
-            const box = document.createElement('div');
-            box.className = s === 'ai' ? 'flex items-start max-w-[85%]' : 'flex items-start max-w-[85%] ml-auto justify-end';
-            box.innerHTML = s === 'ai' ? `<div class="bg-slate-100 p-2.5 rounded-xl rounded-tl-none text-slate-800 border border-slate-200/60">${t}</div>` : `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-none">${t}</div>`;
-            textStream.appendChild(box); textStream.scrollTop = textStream.scrollHeight;
-        }
+
         function handleUserSubmit() {
-            const inp = document.getElementById('ai-user-input'); const txt = inp.value.trim(); if(!txt) return;
-            printMsg('user', txt); inp.value = '';
+            const input = document.getElementById('ai-user-input');
+            const messageContainer = document.getElementById('chat-messages');
+            const query = input.value.trim();
+
+            if (!query) return;
+
+            // User message bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = "bg-blue-600 text-white p-2.5 rounded-xl ml-auto max-w-[80%]";
+            userBubble.innerText = query;
+            messageContainer.appendChild(userBubble);
+
+            input.value = '';
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            // Simulated response delay
             setTimeout(() => {
-                printMsg('ai', "আসিফের গ্লোবাল এক্সপার্টাইজ কোয়েরি রেজিস্টার্ড হয়েছে। সরাসরি কথা বলতে **+8801778016695** নম্বরে হোয়াটসঅ্যাপ করুন।");
-            }, 500);
+                const aiBubble = document.createElement('div');
+                aiBubble.className = "bg-blue-50 border border-blue-100 text-slate-700 p-2.5 rounded-xl max-w-[85%]";
+                
+                const lowerQuery = query.toLowerCase();
+                if (lowerQuery.includes('price') || lowerQuery.includes('cost')) {
+                    aiBubble.innerText = "Pricing depends on project scope. Reach out on WhatsApp (+8801778016695) for a quick custom quote!";
+                } else if (lowerQuery.includes('service') || lowerQuery.includes('design')) {
+                    aiBubble.innerText = "We offer Graphic Design, SEO, Ad Campaigns, Lead Generation, and Operations Automation. Check out the 'Services' section above!";
+                } else {
+                    aiBubble.innerText = "Thanks for reaching out! You can contact Md. Asif Hossain directly at elhasshossain@gmail.com or via WhatsApp for immediate support.";
+                }
+
+                messageContainer.appendChild(aiBubble);
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }, 600);
         }
     </script>
 </body>
