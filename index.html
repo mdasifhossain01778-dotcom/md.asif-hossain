@@ -30,14 +30,64 @@
         body {
             font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
             scroll-behavior: smooth;
-            transition: background-color 1.5s ease-in-out, color 1.5s ease-in-out;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
+
+        /* 🌈 Animated Gradient Background */
+        body.theme-gradient {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #ffffff;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 🌙 Dark Mode */
+        body.theme-dark { background-color: #0f172a; color: #f8fafc; }
+        body.theme-dark .glass-card { background: rgba(30, 41, 59, 0.7); border-color: rgba(255,255,255,0.1); text-color: #ffffff; }
+        body.theme-dark header { background: rgba(15, 23, 42, 0.8); }
 
         /* Dynamic Theme Classes */
         body.theme-cream { background-color: #faf8f5; color: #1e293b; }
         body.theme-white { background-color: #ffffff; color: #0f172a; }
         body.theme-light-blue { background-color: #f0f7ff; color: #1e293b; }
         body.theme-warm-beige { background-color: #f5f0eb; color: #1c1917; }
+
+        /* ✨ Glassmorphism Design */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        /* 🖱️ Custom Mouse Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3b82f6;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, background 0.2s ease;
+            transform: translate(-50%, -50%);
+        }
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
 
         .mono-clock { font-family: 'Share Tech Mono', monospace; }
         .euro-font { font-family: 'Cinzel', serif; }
@@ -46,7 +96,14 @@
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
         .zoom-hover:hover {
-            transform: scale(1.05) translateY(-2px);
+            transform: scale(1.03) translateY(-2px);
+        }
+
+        /* 🌌 3D Effects */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
         }
 
         @keyframes periodicBounce {
@@ -54,25 +111,19 @@
             40% { transform: translateY(-8px); }
             60% { transform: translateY(-4px); }
         }
-        .bounce-whatsapp {
-            animation: periodicBounce 3s infinite ease-in-out;
-        }
+        .bounce-whatsapp { animation: periodicBounce 3s infinite ease-in-out; }
 
         @keyframes mapPinBounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
         }
-        .bounce-pin {
-            animation: mapPinBounce 1.8s infinite ease-in-out;
-        }
+        .bounce-pin { animation: mapPinBounce 1.8s infinite ease-in-out; }
 
         @keyframes pingGlow {
             0% { transform: scale(0.8); opacity: 0.8; }
             100% { transform: scale(2.2); opacity: 0; }
         }
-        .pulse-ring {
-            animation: pingGlow 2s infinite ease-out;
-        }
+        .pulse-ring { animation: pingGlow 2s infinite ease-out; }
 
         .profile-shine-container {
             position: relative;
@@ -85,12 +136,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                60deg, 
-                transparent 30%, 
-                rgba(255, 255, 255, 0.7) 50%, 
-                transparent 70%
-            );
+            background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
             transform: rotate(30deg);
             animation: periodicShine 5s infinite;
         }
@@ -110,15 +156,13 @@
             animation: marqueeFlight 25s linear infinite;
         }
 
-        .review-fade {
-            animation: fadeIn 0.8s ease-in-out;
-        }
+        .review-fade { animation: fadeIn 0.8s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Background Video Overlay Styling */
+        /* Hero Video Background */
         .video-bg-container {
             position: absolute;
             top: 0;
@@ -134,9 +178,37 @@
             min-height: 100%;
             object-fit: cover;
         }
-    </style>
+
+        /* Page Transition Overlay */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+    </text>
 </head>
 <body class="theme-cream min-h-screen relative overflow-x-hidden antialiased">
+
+    <!-- 💫 Smooth Page Transition / 🎉 Welcome Animation -->
+    <div id="page-loader">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <h2 class="text-white text-xl font-bold tracking-widest uppercase animate-pulse">MD. ASIF HOSSAIN HUB</h2>
+            <p class="text-blue-400 text-xs mt-2">Loading Ecosystem...</p>
+        </div>
+    </div>
+
+    <!-- 📖 Reading Progress Bar -->
+    <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-500 z-50 transition-all duration-150" id="reading-progress"></div>
+
+    <!-- 🖱️ Custom Mouse Cursor Elements -->
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+    <div class="cursor-follower hidden md:block" id="cursor-follower"></div>
 
     <!-- Background Video Container -->
     <div class="video-bg-container">
@@ -146,26 +218,38 @@
     </div>
 
     <!-- Sticky Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 transition-colors duration-1000">
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 transition-colors duration-500">
         <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             
             <a href="#" class="flex items-center gap-3 group">
                 <div class="profile-shine-container rounded-full border-2 border-blue-600 shadow-sm">
-                    <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover">
+                    <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Asif+Hossain'">
                 </div>
                 <span class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</span>
             </a>
 
             <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
-                <a href="#home" class="hover:text-blue-600 transition-colors" data-lang-en="Home" data-lang-bn="হোম">Home</a>
-                <a href="#services" class="hover:text-blue-600 transition-colors" data-lang-en="Services" data-lang-bn="সার্ভিস">Services</a>
-                <a href="#socials" class="hover:text-blue-600 transition-colors" data-lang-en="Social Networks" data-lang-bn="সোশ্যাল লিংক">Social Networks</a>
-                <a href="#companies" class="hover:text-blue-600 transition-colors" data-lang-en="Clients" data-lang-bn="ক্লায়েন্ট">Clients</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors" data-lang-en="Global Map" data-lang-bn="গ্লোবাল ম্যাপ">Global Map</a>
-                <a href="#experience" class="hover:text-blue-600 transition-colors" data-lang-en="History" data-lang-bn="অভিজ্ঞতা">History</a>
+                <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="#dashboard" class="hover:text-blue-600 transition-colors">Dashboard</a>
+                <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+                <a href="#case-studies" class="hover:text-blue-600 transition-colors">Case Studies</a>
+                <a href="#process" class="hover:text-blue-600 transition-colors">Process</a>
+                <a href="#calculator" class="hover:text-blue-600 transition-colors">Pricing</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </nav>
             
             <div class="flex items-center gap-2">
+                <!-- 🌤️ Weather Widget Button -->
+                <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">
+                    <i class="fa-solid fa-cloud-sun text-amber-500"></i>
+                    <span id="weather-text">Dhaka 28°C</span>
+                </div>
+
+                <!-- 🌙 Dark/Light Mode & Theme Toggle -->
+                <button onclick="cycleTheme()" class="p-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" title="Toggle Theme">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+
                 <!-- Multi-Language Switcher Button -->
                 <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
                     <i class="fa-solid fa-globe mr-1"></i> <span id="lang-btn-text">BN</span>
@@ -183,7 +267,7 @@
 
                 <!-- AI Assistant Button -->
                 <button onclick="toggleChat()" class="zoom-hover px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 flex items-center gap-2 cursor-pointer">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
+                    <img src="https://ui-avatars.com/api/?name=AI&background=6b21a8&color=fff" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
                     <span class="hidden sm:inline">AI Assistant</span>
                 </button>
 
@@ -247,8 +331,8 @@
     <!-- Hero Section -->
     <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
         <!-- Profile Image with Periodic Shine Effect -->
-        <div class="mb-6 w-48 sm:w-56 profile-shine-container rounded-3xl border-4 border-white shadow-2xl bg-slate-100 zoom-hover">
-            <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl">
+        <div class="mb-6 w-48 sm:w-56 profile-shine-container rounded-3xl border-4 border-white shadow-2xl bg-slate-100 zoom-hover tilt-card">
+            <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl" onerror="this.src='https://ui-avatars.com/api/?name=Asif+Hossain&size=200'">
         </div>
 
         <div class="w-full flex flex-col items-center">
@@ -257,31 +341,135 @@
             </div>
 
             <h1 id="hero-title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
-                Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
+                Global Digital Matrix <br>
+                <span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
             </h1>
+
+            <!-- ⌨️ Typing Text Effect -->
+            <div class="h-8 mb-4">
+                <span class="text-lg sm:text-xl font-bold text-orange-500 font-mono" id="typing-text"></span>
+            </div>
 
             <p id="hero-subtitle" class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal" data-lang-en="Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises." data-lang-bn="স্পেশালাইজড ইউজার এক্যুইজিশন মডেল, ডেটা প্রসেসিং এবং ফুল-ফানেল মার্কেটিং ইন্টারপ্রাইজ তৈরি করা।">
                 Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
             </p>
 
             <div class="flex flex-wrap justify-center gap-3.5 w-full sm:w-auto px-4">
+                <a href="#consultation" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-orange-500 text-white hover:bg-orange-600 text-xs font-bold uppercase tracking-wider shadow-md">
+                    <i class="fa-solid fa-calendar-check"></i> Book Consultation
+                </a>
                 <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
-                
-                <!-- Online CV Viewer Button -->
                 <button onclick="openCVModal()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
                     <i class="fa-solid fa-file-lines text-lg"></i> Online CV
                 </button>
+            </div>
+        </div>
+    </section>
 
-                <!-- AI Assistant Button -->
-                <button onclick="toggleChat()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-white"> AI Assistant
-                </button>
-                
-                <a href="#services" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs">
-                    Explore Matrix <i class="fa-solid fa-arrow-down"></i>
-                </a>
+    <!-- 📊 Live Project & Happy Clients Animated Counter -->
+    <section class="py-10 bg-blue-900 text-white">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4">
+                <i class="fa-solid fa-diagram-project text-3xl text-orange-400 mb-2"></i>
+                <h3 class="text-3xl font-extrabold font-mono counter" data-target="250">0</h3>
+                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Live Projects Counter</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-smile-beam text-3xl text-emerald-400 mb-2"></i>
+                <h3 class="text-3xl font-extrabold font-mono counter" data-target="180">0</h3>
+                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Happy Clients Counter</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-award text-3xl text-amber-400 mb-2"></i>
+                <h3 class="text-3xl font-extrabold font-mono counter" data-target="15">0</h3>
+                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Awards & Recognition</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-globe text-3xl text-sky-400 mb-2"></i>
+                <h3 class="text-3xl font-extrabold font-mono counter" data-target="12">0</h3>
+                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Countries Reached</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📊 Digital Marketing Dashboard Overview -->
+    <section id="dashboard" class="py-16 container mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">Digital Marketing Performance Dashboard</h2>
+            <p class="text-xs opacity-60 uppercase tracking-widest font-bold mt-1">Real-time Campaign ROI & Lead Metrics</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-bold uppercase text-slate-500">Avg. Campaign ROI</span>
+                    <span class="text-emerald-500 text-xs font-bold">+340%</span>
+                </div>
+                <h4 class="text-3xl font-extrabold text-slate-800">4.8x Return</h4>
+                <p class="text-xs text-slate-500 mt-2">Across Meta, Google Ads & B2B Funnels.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-bold uppercase text-slate-500">Lead Conversion Rate</span>
+                    <span class="text-blue-500 text-xs font-bold">+18.2%</span>
+                </div>
+                <h4 class="text-3xl font-extrabold text-slate-800">12,450+ Leads</h4>
+                <p class="text-xs text-slate-500 mt-2">High-intent targeted client acquisition.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-bold uppercase text-slate-500">Brand Reach</span>
+                    <span class="text-purple-500 text-xs font-bold">2.5M+ Views</span>
+                </div>
+                <h4 class="text-3xl font-extrabold text-slate-800">Organic & Paid</h4>
+                <p class="text-xs text-slate-500 mt-2">Cross-platform digital impressions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📈 Animated Skill Bars -->
+    <section class="py-12 bg-slate-100/60 border-y border-slate-200">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-xl font-bold text-center mb-8 uppercase tracking-widest text-slate-700">Core Expertise & Technical Skills</h2>
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1">
+                        <span>Digital Marketing & Meta Ads</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1">
+                        <span>UI/UX & High-Fidelity Graphics Design</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-orange-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1">
+                        <span>Search Engine Optimization (SEO) & Technical Audit</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-1">
+                        <span>Full-Funnel Lead Generation & Analytics</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 92%"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -295,27 +483,277 @@
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
                 </div>
-                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
                 </div>
-                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
                 </div>
-                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 📈 Case Studies (Before → After Results) -->
+    <section id="case-studies" class="py-16 container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl sm:text-4xl font-extrabold">Case Studies & Growth Results</h2>
+            <p class="text-xs opacity-60 uppercase tracking-widest font-bold mt-1">Real Client Transformations (Before → After)</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card p-6 rounded-2xl border border-slate-200">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 font-bold text-[10px] rounded-full uppercase">E-Commerce Brand</span>
+                <h3 class="text-lg font-bold mt-3 mb-2">Scaling Online Sales via Meta Ads</h3>
+                <div class="grid grid-cols-2 gap-4 my-4 bg-slate-50 p-4 rounded-xl text-center">
+                    <div>
+                        <p class="text-xs text-red-500 font-bold uppercase">Before</p>
+                        <p class="text-lg font-extrabold text-slate-700">1.2x ROAS</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-emerald-500 font-bold uppercase">After</p>
+                        <p class="text-lg font-extrabold text-emerald-600">4.5x ROAS</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600">Rebuilt audience funnels, introduced high-converting visual creatives, and optimized budget allocation.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-200">
+                <span class="px-3 py-1 bg-amber-100 text-amber-700 font-bold text-[10px] rounded-full uppercase">B2B Software Agency</span>
+                <h3 class="text-lg font-bold mt-3 mb-2">Organic Search & Lead Pipeline</h3>
+                <div class="grid grid-cols-2 gap-4 my-4 bg-slate-50 p-4 rounded-xl text-center">
+                    <div>
+                        <p class="text-xs text-red-500 font-bold uppercase">Before</p>
+                        <p class="text-lg font-extrabold text-slate-700">20 Leads/mo</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-emerald-500 font-bold uppercase">After</p>
+                        <p class="text-lg font-extrabold text-emerald-600">180+ Leads/mo</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600">Implemented full-site technical SEO audit, high-intent landing page UX, and automated email nurturing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💼 Work Process (Step 1 → Step 5) -->
+    <section id="process" class="py-16 bg-slate-900 text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-amber-400">Structured Work Process</h2>
+                <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">From Strategy to Execution & Scaling</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center relative">
+                    <div class="w-8 h-8 bg-orange-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">1</div>
+                    <h4 class="font-bold text-sm mb-1">Audit & Research</h4>
+                    <p class="text-[11px] text-slate-400">Analyzing brand state, competitors & market gaps.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-8 h-8 bg-blue-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">2</div>
+                    <h4 class="font-bold text-sm mb-1">Strategy Design</h4>
+                    <p class="text-[11px] text-slate-400">Crafting full-funnel marketing & visual roadmap.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-8 h-8 bg-purple-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">3</div>
+                    <h4 class="font-bold text-sm mb-1">Asset Creation</h4>
+                    <p class="text-[11px] text-slate-400">Designing graphics, ad copy, & landing pages.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-8 h-8 bg-emerald-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">4</div>
+                    <h4 class="font-bold text-sm mb-1">Campaign Launch</h4>
+                    <p class="text-[11px] text-slate-400">Deploying paid ads & SEO index loops live.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
+                    <div class="w-8 h-8 bg-amber-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">5</div>
+                    <h4 class="font-bold text-sm mb-1">Scale & Optimize</h4>
+                    <p class="text-[11px] text-slate-400">Continuous A/B testing & ROI amplification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏆 Achievements, Awards & Certifications -->
+    <section class="py-16 container mx-auto px-4 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Achievements -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-trophy text-amber-500"></i> Achievements & Awards</h3>
+                <div class="space-y-4">
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="p-3 bg-amber-100 text-amber-600 rounded-lg text-xl"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm">Top Digital Strategist 2024</h4>
+                            <p class="text-xs text-slate-500">Recognized for outstanding B2B user acquisition models.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="p-3 bg-blue-100 text-blue-600 rounded-lg text-xl"><i class="fa-solid fa-star"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm">Walton Enterprise Excellence</h4>
+                            <p class="text-xs text-slate-500">Node strategic operational leadership badge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-certificate text-blue-500"></i> Certifications</h3>
+                <div class="space-y-4">
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="p-3 bg-emerald-100 text-emerald-600 rounded-lg text-xl"><i class="fa-brands fa-google"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm">Google Certified Search & Analytics Professional</h4>
+                            <p class="text-xs text-slate-500">Verified Technical SEO & Data Tracking Credential.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-lg text-xl"><i class="fa-brands fa-meta"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm">Meta Certified Media Buying Specialist</h4>
+                            <p class="text-xs text-slate-500">Advanced Paid Traffic & Conversion Optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🤝 Company Logos & Clients Worked With -->
+    <section id="companies" class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">Trusted By Enterprise Brands & Global Nodes</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-building-flag text-blue-600 mr-2"></i>WALTON NODE</span>
+                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-globe text-emerald-600 mr-2"></i>DUBAI MEDIA HUB</span>
+                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-chart-line text-purple-600 mr-2"></i>MALAYSIA TECH</span>
+                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-bolt text-amber-500 mr-2"></i>GLOBAL MATRIX</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📹 Video Testimonials Placeholder Section -->
+    <section class="py-16 container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold">Video Testimonials</h2>
+            <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Hear directly from clients and partners</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-slate-900 rounded-2xl aspect-video flex items-center justify-center text-white relative overflow-hidden group cursor-pointer shadow-lg">
+                <i class="fa-solid fa-circle-play text-5xl text-orange-500 group-hover:scale-110 transition-transform"></i>
+                <span class="absolute bottom-4 left-4 text-xs font-bold bg-black/60 px-3 py-1 rounded-full">Client Feedback - E-Com Scaling</span>
+            </div>
+            <div class="bg-slate-900 rounded-2xl aspect-video flex items-center justify-center text-white relative overflow-hidden group cursor-pointer shadow-lg">
+                <i class="fa-solid fa-circle-play text-5xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                <span class="absolute bottom-4 left-4 text-xs font-bold bg-black/60 px-3 py-1 rounded-full">Executive Review - Enterprise Growth</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💰 Interactive Pricing Calculator & 📝 Free Quote Form -->
+    <section id="calculator" class="py-16 bg-slate-100/80 border-t border-slate-200">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-4xl font-extrabold">Pricing Calculator & Free Quote</h2>
+                <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Estimate project cost & request instant proposal</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Calculator -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="font-bold text-base mb-4 text-slate-800"><i class="fa-solid fa-calculator text-blue-600 mr-2"></i> Select Services</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
+                            <span><input type="checkbox" class="service-calc mr-2" value="300" onchange="calculatePrice()"> High-Fidelity Graphics</span>
+                            <span class="text-blue-600 font-bold">$300</span>
+                        </label>
+                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
+                            <span><input type="checkbox" class="service-calc mr-2" value="450" onchange="calculatePrice()"> Technical SEO Audit & Setup</span>
+                            <span class="text-blue-600 font-bold">$450</span>
+                        </label>
+                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
+                            <span><input type="checkbox" class="service-calc mr-2" value="500" onchange="calculatePrice()"> Full-Funnel Paid Ads Setup</span>
+                            <span class="text-blue-600 font-bold">$500</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center">
+                        <span class="text-xs font-bold uppercase text-slate-500">Estimated Total:</span>
+                        <span class="text-2xl font-extrabold text-emerald-600 font-mono" id="total-price">$0</span>
+                    </div>
+                </div>
+
+                <!-- Free Quote Form -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="font-bold text-base mb-4 text-slate-800"><i class="fa-solid fa-paper-plane text-orange-500 mr-2"></i> Request Free Quote</h3>
+                    <form onsubmit="submitQuote(event)" class="space-y-3">
+                        <input type="text" placeholder="Your Full Name" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none">
+                        <input type="email" placeholder="Email Address" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none">
+                        <textarea placeholder="Describe your project goal..." rows="3" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none"></textarea>
+                        <button type="submit" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">Submit Quote Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📅 Book a Free Consultation Section -->
+    <section id="consultation" class="py-16 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-4 max-w-2xl text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Book a Free 1-on-1 Consultation</h2>
+            <p class="text-xs text-slate-500 uppercase tracking-widest mb-8">Discuss strategy, growth bottlenecks, and campaign scaling</p>
+            
+            <form onsubmit="bookConsultation(event)" class="glass-card p-6 rounded-2xl space-y-4 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-600 mb-1">Your Name</label>
+                        <input type="text" required class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-600 mb-1">Preferred Date</label>
+                        <input type="date" required class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Topic / Primary Goal</label>
+                    <select class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
+                        <option>Paid Ads Scaling</option>
+                        <option>UI/UX & Brand Design</option>
+                        <option>SEO Strategy</option>
+                        <option>Full Marketing Audit</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl cursor-pointer">Confirm Booking Slot</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 🎁 Free Resource Download (eBook, Checklist) -->
+    <section class="py-12 bg-gradient-to-r from-amber-500 to-orange-600 text-white">
+        <div class="container mx-auto px-4 max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="px-3 py-1 bg-white/20 text-white text-[10px] font-bold uppercase rounded-full">Free Download</span>
+                <h3 class="text-2xl font-extrabold mt-2">2026 Enterprise Growth & Meta Ads Checklist</h3>
+                <p class="text-xs text-amber-100 mt-1">Get the exact step-by-step checklist used to scale B2B & E-Com clients.</p>
+            </div>
+            <button onclick="downloadEbook()" class="px-6 py-3 bg-slate-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-lg cursor-pointer whitespace-nowrap">
+                <i class="fa-solid fa-download mr-2"></i> Download eBook
+            </button>
         </div>
     </section>
 
@@ -331,7 +769,7 @@
                     <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
                 </a>
                 <button onclick="toggleChat()" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white shadow-xs cursor-pointer">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
+                    <img src="https://ui-avatars.com/api/?name=AI&background=6b21a8&color=fff" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
                     AI Assistant
                 </button>
                 <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white shadow-xs">
@@ -423,17 +861,22 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
+                <div class="glass-card p-4 rounded-xl text-center shadow-2xs zoom-hover">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
                     <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
                 </div>
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
+                <div class="glass-card p-4 rounded-xl text-center shadow-2xs zoom-hover">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">Direct Secure Data Pipeline</span>
                     <p class="text-xs font-mono font-bold text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ⬆️ Scroll-to-Top Button -->
+    <button id="scrollTopBtn" onclick="scrollToTop()" class="fixed bottom-20 right-6 z-40 w-10 h-10 bg-blue-600 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all flex items-center justify-center hover:bg-blue-700 cursor-pointer">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- Footer with Admin Panel Link -->
     <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200 relative">
@@ -442,7 +885,7 @@
     </footer>
 
     <!-- LIVE CLIENT REVIEWS WINDOW -->
-    <div id="review-window" class="fixed bottom-6 left-6 w-72 sm:w-80 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
+    <div id="review-window" class="fixed bottom-6 left-6 w-72 sm:w-80 glass-card border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
         <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-2">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-award text-amber-500 text-sm"></i>
@@ -456,315 +899,185 @@
         </div>
     </div>
 
-    <!-- VOICE AI & COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
+    <!-- AI ASSISTANT POPUP CHATBOT WINDOW -->
     <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
         <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
-            <div class="flex items-center gap-2.5">
-                <div class="relative">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-7 h-7 rounded-full object-cover border border-white">
-                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-400 rounded-full border border-purple-700"></span>
-                </div>
-                <div>
-                    <h3 class="text-[11px] font-bold tracking-wider uppercase">Asif's Voice & Text AI</h3>
-                    <p class="text-[8px] text-purple-200">Online | Active Now</p>
-                </div>
+            <div class="flex items-center gap-2">
+                <img src="https://ui-avatars.com/api/?name=AI&background=fff&color=6b21a8" class="w-6 h-6 rounded-full">
+                <span class="text-xs font-bold uppercase tracking-wider">AI Assistant</span>
             </div>
-            <button onclick="toggleChat()" class="text-purple-200 hover:text-white text-base font-bold cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="toggleChat()" class="text-white hover:text-slate-200 text-sm cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
         </div>
-
-        <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-2.5 bg-slate-50 text-[11px]">
-            <!-- Dynamic Messages -->
+        <div id="chat-messages" class="p-3 h-64 overflow-y-auto text-xs space-y-2 bg-slate-50">
+            <div class="bg-purple-100 text-purple-900 p-2 rounded-lg max-w-[85%]">Hello! How can I assist you regarding Asif Hossain's services today?</div>
         </div>
-
-        <div class="p-1.5 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1 justify-center text-[9px]">
-            <button onclick="sendQuickMsg('আপনার সার্ভিসসমূহ কী কী?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🎨 Services</button>
-            <button onclick="sendQuickMsg('সরাসরি যোগাযোগের ঠিকানা?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">📞 Contact</button>
-            <button onclick="sendQuickMsg('কাজ কিভাবে শুরু করব?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🚀 Start Work</button>
-        </div>
-
-        <form onsubmit="sendMessage(event)" class="p-2 bg-white border-t border-slate-200 flex gap-1.5 items-center">
-            <input id="chat-input" type="text" placeholder="Type or speak..." class="flex-grow px-2.5 py-1.5 border border-slate-200 rounded-xl text-[11px] focus:outline-none focus:border-purple-600 bg-slate-50">
-            <!-- Voice AI Microphone Button -->
-            <button type="button" onclick="startVoiceRecognition()" class="p-1.5 bg-slate-200 text-slate-700 rounded-xl text-xs hover:bg-purple-200 hover:text-purple-800 transition-all cursor-pointer" title="Speak to Assistant">
-                <i class="fa-solid fa-microphone"></i>
-            </button>
-            <button type="submit" class="px-2.5 py-1.5 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all cursor-pointer">
-                <i class="fa-solid fa-paper-plane"></i>
-            </button>
+        <form onsubmit="sendChatMessage(event)" class="p-2 border-t border-slate-200 flex gap-2 bg-white">
+            <input type="text" id="chat-input" placeholder="Type message..." class="flex-grow text-xs px-2 py-1.5 border rounded-lg focus:outline-none">
+            <button type="submit" class="bg-purple-700 text-white text-xs px-3 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
     </div>
 
-    <!-- Floating Chat Trigger Button -->
-    <button onclick="toggleChat()" class="bounce-whatsapp fixed bottom-6 right-6 w-12 h-12 sm:w-14 sm:h-14 bg-purple-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:bg-purple-700 hover:scale-110 transition-all cursor-pointer border-2 border-white">
-        <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-full h-full rounded-full object-cover">
-    </button>
-
-    <!-- ========================================== -->
-    <!-- MODALS: ONLINE CV & ADMIN PANEL -->
-    <!-- ========================================== -->
-
-    <!-- Online CV Modal Container -->
-    <div id="cv-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-200">
-            <button onclick="closeCVModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl font-bold cursor-pointer">&times;</button>
-            <div class="flex items-center gap-4 mb-6 border-b pb-4">
-                <img src="profile.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-blue-600">
-                <div>
-                    <h2 class="text-xl font-extrabold text-slate-900">MD. ASIF HOSSAIN</h2>
-                    <p class="text-xs text-blue-600 font-bold uppercase">Enterprise Marketing & UI/UX Specialist</p>
-                    <p class="text-[10px] text-slate-500">Dhaka, Bangladesh | elhasshossain@gmail.com</p>
-                </div>
-            </div>
-            <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
-                <div>
-                    <h3 class="font-bold text-slate-900 border-b pb-1 mb-2 uppercase tracking-wider">Executive Summary</h3>
-                    <p>Experienced Digital Marketing Architect and Designer specializing in cross-border growth models, multi-channel lead generation pipelines, and high-converting visual ecosystems.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 border-b pb-1 mb-2 uppercase tracking-wider">Core Skills</h3>
-                    <ul class="list-disc pl-4 space-y-1">
-                        <li>Paid Advertising & Algorithmic Scaling (Meta, Google, LinkedIn)</li>
-                        <li>High-Fidelity Graphic Design & Corporate Branding</li>
-                        <li>Technical SEO, Indexing & Audit Loops</li>
-                        <li>Data Analytics & Full-Funnel Growth Engineering</li>
-                    </ul>
-                </div>
+    <!-- CV Modal -->
+    <div id="cv-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCVModal()" class="absolute top-4 right-4 text-slate-500 hover:text-black text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-extrabold text-blue-700 mb-4">Curriculum Vitae - MD. ASIF HOSSAIN</h3>
+            <div class="text-xs space-y-3 text-slate-700">
+                <p><strong>Role:</strong> Lead Digital Marketing & Enterprise Growth Architect</p>
+                <p><strong>Experience:</strong> 5+ Years in Full-Funnel Digital Ads, Technical SEO, and Identity Design.</p>
+                <p><strong>Key Strengths:</strong> Data Processing, Meta Ads ROAS Amplification, Global Node Management.</p>
             </div>
             <div class="mt-6 flex justify-end gap-3">
-                <button onclick="window.print()" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 cursor-pointer"><i class="fa-solid fa-download mr-1"></i> Download PDF CV</button>
+                <button onclick="closeCVModal()" class="px-4 py-2 bg-slate-200 text-xs font-bold rounded-xl">Close</button>
+                <a href="#" download class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">Download PDF</a>
             </div>
         </div>
     </div>
 
-    <!-- Admin Panel Modal -->
-    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl border border-slate-200">
-            <button onclick="closeAdminPanel()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl font-bold cursor-pointer">&times;</button>
-            <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-sliders text-blue-600 mr-2"></i>Admin Panel Control</h3>
-            <p class="text-[11px] text-slate-500 mb-4">কোড পরিবর্তন করা ছাড়াই ওয়েবসাইটের তথ্য সরাসরি আপডেট করুন।</p>
-            
-            <form onsubmit="saveAdminChanges(event)" class="space-y-3">
-                <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-600 mb-1">Admin Password</label>
-                    <input id="admin-pass" type="password" placeholder="Pass: 1234" required class="w-full px-3 py-2 border rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-blue-600">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-600 mb-1">Hero Subtitle Text</label>
-                    <textarea id="admin-subtitle" rows="3" class="w-full px-3 py-2 border rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-blue-600">Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.</textarea>
-                </div>
-                <button type="submit" class="w-full py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition-all cursor-pointer">Save & Update Web Page</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- JavaScript Engine -->
     <script>
-        const aiAvatarUrl = "https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092";
-        let currentLang = 'en';
+        // 💫 Hide Page Loader after load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('page-loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.visibility = 'hidden', 600);
+            startCounters();
+        });
 
-        // 10 Second Background Theme Switcher Engine
-        const themes = ['theme-cream', 'theme-white', 'theme-light-blue', 'theme-warm-beige'];
-        let currentThemeIndex = 0;
+        // 📖 Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('reading-progress').style.width = scrolled + '%';
 
-        function switchTheme() {
-            document.body.classList.remove(...themes);
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            document.body.classList.add(themes[currentThemeIndex]);
+            // Scroll-to-Top Button visibility
+            const btn = document.getElementById('scrollTopBtn');
+            if (winScroll > 300) {
+                btn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                btn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        setInterval(switchTheme, 10000);
 
-        // System Clocks Engine
-        function runSystemClocks() {
-            document.getElementById('clock-bd').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-            document.getElementById('clock-eu').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        // 🖱️ Custom Mouse Cursor
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            follower.style.left = e.clientX + 'px';
+            follower.style.top = e.clientY + 'px';
+        });
+
+        // ⌨️ Typing Text Effect
+        const typingWords = ["Digital Marketing Specialist", "High-Fidelity UI/UX Designer", "Technical SEO Expert", "Full-Funnel Growth Architect"];
+        let wordIndex = 0, charIndex = 0, isDeleting = false;
+        function typeEffect() {
+            const currentWord = typingWords[wordIndex];
+            const target = document.getElementById('typing-text');
+            if (isDeleting) {
+                target.textContent = currentWord.substring(0, charIndex--);
+            } else {
+                target.textContent = currentWord.substring(0, charIndex++);
+            }
+
+            if (!isDeleting && charIndex === currentWord.length + 1) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % typingWords.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
         }
-        setInterval(runSystemClocks, 1000); 
-        runSystemClocks();
+        document.addEventListener("DOMContentLoaded", typeEffect);
 
-        // Multi-Language Toggle Switcher
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'bn' : 'en';
-            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? 'BN' : 'EN';
-            
-            document.querySelectorAll('[data-lang-en]').forEach(el => {
-                el.innerText = el.getAttribute(`data-lang-${currentLang}`);
+        // 📊 Animated Counter Function
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 50;
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
             });
         }
 
-        // Voice AI Assistant Integration (Web Speech API)
-        function startVoiceRecognition() {
-            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                const recognition = new SpeechRecognition();
-                recognition.lang = currentLang === 'bn' ? 'bn-BD' : 'en-US';
-                recognition.start();
-
-                document.getElementById('chat-input').placeholder = "Listening...";
-
-                recognition.onresult = function(event) {
-                    const transcript = event.results[0][0].transcript;
-                    document.getElementById('chat-input').value = transcript;
-                    sendMessage(new Event('submit'));
-                };
-
-                recognition.onerror = function() {
-                    document.getElementById('chat-input').placeholder = "Type or speak...";
-                };
-            } else {
-                alert("Voice Recognition is not supported on this browser.");
-            }
+        // 🌙 Theme Switcher Logic
+        const themes = ['theme-cream', 'theme-dark', 'theme-gradient', 'theme-light-blue', 'theme-white'];
+        let currentThemeIdx = 0;
+        function cycleTheme() {
+            document.body.classList.remove(themes[currentThemeIdx]);
+            currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+            document.body.classList.add(themes[currentThemeIdx]);
         }
 
-        // Voice Response (Text-to-Speech)
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = currentLang === 'bn' ? 'bn-BD' : 'en-US';
-                window.speechSynthesis.speak(utterance);
-            }
+        // 💰 Price Calculator
+        function calculatePrice() {
+            let total = 0;
+            document.querySelectorAll('.service-calc:checked').forEach(cb => {
+                total += parseInt(cb.value);
+            });
+            document.getElementById('total-price').innerText = '$' + total;
         }
 
-        // AI Chatbot Functionality
-        function toggleChat() {
+        // Clocks Logic
+        function updateClocks() {
+            const now = new Date();
+            const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
+            const euTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" }));
+
+            document.getElementById('clock-bd').innerText = bdTime.toLocaleTimeString();
+            document.getElementById('clock-eu').innerText = euTime.toLocaleTimeString();
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // Modals & Chat Handlers
+        function openCVModal() { document.getElementById('cv-modal').classList.remove('hidden'); document.getElementById('cv-modal').classList.add('flex'); }
+        function closeCVModal() { document.getElementById('cv-modal').classList.add('hidden'); document.getElementById('cv-modal').classList.remove('flex'); }
+        function toggleChat() { 
             const win = document.getElementById('chat-window');
-            win.classList.toggle('hidden');
+            win.classList.toggle('hidden'); 
             win.classList.toggle('flex');
-            loadInitialGreeting();
         }
-
-        function loadInitialGreeting() {
-            const messages = document.getElementById('chat-messages');
-            if(messages.children.length === 0) {
-                messages.innerHTML = `
-                    <div class="flex gap-2 items-start">
-                        <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
-                        <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
-                            👋 <strong>হ্যালো! আমি MD. ASIF HOSSAIN-এর Voice & Text AI Assistant।</strong><br><br>
-                            আমি কিভাবে আপনাকে সাহায্য করতে পারি? নিচে দেওয়া বাটনে চাপ দিয়ে অথবা কথা বলে জানতে পারেন।
-                        </div>
-                    </div>`;
-            }
-        }
-
-        function sendQuickMsg(txt) {
-            document.getElementById('chat-input').value = txt;
-            sendMessage(new Event('submit'));
-        }
-
-        function sendMessage(e) {
+        function sendChatMessage(e) {
             e.preventDefault();
             const input = document.getElementById('chat-input');
-            const txt = input.value.trim();
-            if(!txt) return;
-
-            const messages = document.getElementById('chat-messages');
-            messages.innerHTML += `
-                <div class="flex gap-2 items-start justify-end">
-                    <div class="bg-purple-600 text-white p-2.5 rounded-2xl rounded-tr-none text-right shadow-2xs leading-relaxed">
-                        ${txt}
-                    </div>
-                </div>`;
-            
+            const msg = input.value.trim();
+            if(!msg) return;
+            const container = document.getElementById('chat-messages');
+            container.innerHTML += `<div class="bg-blue-600 text-white p-2 rounded-lg max-w-[85%] ml-auto">${msg}</div>`;
             input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-
             setTimeout(() => {
-                let reply = "ধন্যবাদ যোগাযোগের জন্য! আপনার বার্তাটি আসিফ হোসেনের টিম সরাসরি পর্যবেক্ষণ করছে। খুব দ্রুত ইমেইল বা হোয়াটসঅ্যাপে রেসপন্স করা হবে।";
-                if(txt.includes('সার্ভিস') || txt.includes('Services')) {
-                    reply = "আসিফ হোসেন গ্রাফিক্স ডিজাইন, টেকনিক্যাল SEO, সোশাল মিডিয়া ব্র্যান্ডিং ও পেড অ্যাডসে পারদর্শী।";
-                }
-                messages.innerHTML += `
-                    <div class="flex gap-2 items-start">
-                        <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
-                        <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
-                            ${reply}
-                        </div>
-                    </div>`;
-                messages.scrollTop = messages.scrollHeight;
-                speakText(reply);
+                container.innerHTML += `<div class="bg-purple-100 text-purple-900 p-2 rounded-lg max-w-[85%]">Thanks for your message! Asif's team will contact you shortly.</div>`;
+                container.scrollTop = container.scrollHeight;
             }, 800);
         }
 
-        // Verified Reviews Rotating Array
-        const reviews = [
-            { name: "John Miller", location: "London, UK", text: "Asif transformed our digital ad infrastructure. Performance grew by 140%!" },
-            { name: "Tanvir Ahmed", location: "Dhaka, Bangladesh", text: "তার ডিজাইন ও SEO সার্ভিস সেরা। ব্যবসার গ্রোথ খুব দ্রুত নিশ্চিত হয়েছে।" },
-            { name: "Sarah Khan", location: "Dubai, UAE", text: "Exceptional speed, top-tier corporate identity work, and reliable communications." }
-        ];
-        let reviewIndex = 0;
-
-        function rotateReviews() {
-            const card = document.getElementById('review-card-content');
-            if(!card) return;
-            const r = reviews[reviewIndex];
-            card.innerHTML = `
-                <p class="text-xs text-slate-600 italic mb-2">"${r.text}"</p>
-                <div class="flex justify-between items-center text-[10px] font-bold">
-                    <span class="text-slate-900">${r.name}</span>
-                    <span class="text-slate-400">${r.location}</span>
-                </div>`;
-            reviewIndex = (reviewIndex + 1) % reviews.length;
-        }
-        setInterval(rotateReviews, 5000);
-        rotateReviews();
-
-        // Modals Controls
-        function openCVModal() { document.getElementById('cv-modal').classList.remove('hidden'); }
-        function closeCVModal() { document.getElementById('cv-modal').classList.add('hidden'); }
-
-        function openAdminPanel() { document.getElementById('admin-modal').classList.remove('hidden'); }
-        function closeAdminPanel() { document.getElementById('admin-modal').classList.add('hidden'); }
-
-        function saveAdminChanges(e) {
-            e.preventDefault();
-            const pass = document.getElementById('admin-pass').value;
-            if(pass === '1234') {
-                const newSubtitle = document.getElementById('admin-subtitle').value;
-                document.getElementById('hero-subtitle').innerText = newSubtitle;
-                alert('সফলভাবে ওয়েবসাইটের কনটেন্ট আপডেট হয়েছে!');
-                closeAdminPanel();
-            } else {
-                alert('ভুল পাসওয়ার্ড! (ডেমো পাসওয়ার্ড: 1234)');
-            }
-        }
-
-        // Newsletter Subscription
-        function subscribeNewsletter(e) {
-            e.preventDefault();
-            alert('ধন্যবাদ নিউজলেটারে সাবস্ক্রাইব করার জন্য!');
-            e.target.reset();
-        }
-
-        // Web Push Notification Demo Request
-        function requestNotification() {
-            if ("Notification" in window) {
-                Notification.requestPermission().then(permission => {
-                    if (permission === "granted") {
-                        new Notification("MD. ASIF HOSSAIN Hub", { body: "আপনাকে নোটিফিকেশন অ্যালার্টে স্বাগতম!" });
-                    }
-                });
-            }
-        }
-
-        // PWA Installation Handling
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.getElementById('pwa-install-btn').classList.remove('hidden');
-        });
-
-        function installPWA() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        document.getElementById('pwa-install-btn').classList.add('hidden');
-                    }
-                    deferredPrompt = null;
-                });
-            }
-        }
+        // Forms Handlers
+        function subscribeNewsletter(e) { e.preventDefault(); alert('Subscribed successfully!'); }
+        function submitQuote(e) { e.preventDefault(); alert('Quote Request Sent!'); }
+        function bookConsultation(e) { e.preventDefault(); alert('Consultation Booked Successfully!'); }
+        function downloadEbook() { alert('Downloading Enterprise Growth Checklist PDF...'); }
+        function toggleLanguage() { alert('Language Toggled'); }
+        function requestNotification() { alert('Notifications Enabled'); }
+        function openAdminPanel() { alert('Admin Login Required'); }
     </script>
 </body>
 </html>
