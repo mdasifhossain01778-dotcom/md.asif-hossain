@@ -7,7 +7,7 @@
     <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +60,6 @@
     <header class="sticky top-0 z-40 bg-[#faf8f5]/85 backdrop-blur-md border-b border-slate-200/80">
         <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             
-            <!-- 👇 নামের পাশে ছবি যোগ করা হয়েছে এখানে 👇 -->
             <a href="#" class="flex items-center gap-3">
                 <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-blue-600 shadow-sm">
                 <span class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</span>
@@ -69,13 +68,22 @@
             <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
                 <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
                 <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+                <a href="#socials" class="hover:text-blue-600 transition-colors">Social Networks</a>
                 <a href="#companies" class="hover:text-blue-600 transition-colors">Clients</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Global Map</a>
                 <a href="#experience" class="hover:text-blue-600 transition-colors">History</a>
             </nav>
-            <a href="https://wa.me/8801778016695" target="_blank" class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-blue-700 transition-all">
-                Launch Request
-            </a>
+            
+            <div class="flex items-center gap-2">
+                <!-- AI Assistant Button -->
+                <a href="#ai-assistant" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-robot"></i> <span class="hidden sm:inline">AI Assistant</span>
+                </a>
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/8801778016695" target="_blank" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 transition-all flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -111,7 +119,6 @@
             <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
             <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
             <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
-            <!-- Loop Duplicate -->
             <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
             <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
             <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
@@ -119,15 +126,12 @@
         </div>
     </div>
 
-   <!-- Clear Full Photo & Below Text Hero Section -->
+   <!-- Clear Full Photo & Hero Section -->
     <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
-        
-        <!-- 📸 ১. সম্পূর্ণ ক্লিয়ার পিকচার (কোনো শেড বা ব্লার ছাড়া) 📸 -->
         <div class="mb-6 w-full max-w-md overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-slate-100">
             <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl">
         </div>
 
-        <!-- 📝 ২. ছবির ঠিক নিচের লেখা ও বাটনসমূহ 📝 -->
         <div class="w-full flex flex-col items-center">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mb-4">
                 <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
@@ -142,16 +146,19 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto px-4">
-                <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-blue-700 text-xs font-bold uppercase tracking-wider shadow-sm transition-all">
-                    <i class="fa-brands fa-whatsapp text-base text-emerald-500"></i> Secure Chat Line
+                <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
-                <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md shadow-blue-600/10 transition-all">
+                <a href="#ai-assistant" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all">
+                    <i class="fa-solid fa-wand-magic-sparkles text-lg"></i> AI Assistant
+                </a>
+                <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs transition-all">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
             </div>
         </div>
-
     </section>
+
     <!-- Services Architecture Grid Section -->
     <section id="services" class="py-16 bg-slate-50 border-y border-slate-200/70">
         <div class="container mx-auto px-4 sm:px-6">
@@ -161,62 +168,91 @@
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <!-- Card 1 -->
                 <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 2 -->
                 <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 3 -->
                 <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 4 -->
                 <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 5 -->
                 <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-bullseye"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Strategic Ad Campaigns</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">End-to-end full funnel deployment across global networks and server tracking.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 6 -->
                 <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-database"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Data Entry & Research</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Highly accurate database mining, CRM cleaning, and custom tracking setup.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 7 -->
                 <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-filter-list"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">B2B Lead Generation</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Targeted executive data collection, verified corporate emails routing loops.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <!-- Card 8 -->
                 <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-gears"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Operational Automation</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Task sync orchestration, custom workspace layouts, and automated records lines.</p>
                     <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Connections Section -->
+    <section id="socials" class="py-12 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Connect Networks</h2>
+                <p class="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest mt-1 font-bold">Official Social Media & Communication Channels</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto">
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white transition-all shadow-xs">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                </a>
+                <!-- AI Assistant Icon -->
+                <a href="#ai-assistant" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white transition-all shadow-xs">
+                    <i class="fa-solid fa-bot text-lg"></i> AI Assistant
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white transition-all shadow-xs">
+                    <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white transition-all shadow-xs">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-pink-50 border border-pink-100 text-pink-600 font-bold text-xs uppercase tracking-wider hover:bg-pink-600 hover:text-white transition-all shadow-xs">
+                    <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                </a>
+                <!-- X / Twitter -->
+                <a href="https://x.com/hossain_mdasif" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white transition-all shadow-xs">
+                    <i class="fa-brands fa-x-twitter text-lg"></i> Twitter / X
+                </a>
             </div>
         </div>
     </section>
@@ -332,56 +368,6 @@
         </div>
     </section>
 
-    <!-- Dynamic Explainer Modal Box -->
-    <div id="service-modal-page" class="fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="w-full max-w-xl bg-white rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeServicePage()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-md bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-            <div id="modal-content-stream"></div>
-        </div>
-    </div>
-
-    <!-- Sticky Live Customer Review Engine -->
-    <div id="review-popup-container" class="fixed bottom-4 left-4 z-40 w-[calc(100%-32px)] sm:w-[290px] pointer-events-none">
-        <div id="review-popup-card" class="bg-white/95 border border-orange-400 p-3.5 rounded-2xl shadow-xl flex flex-col gap-1.5 backdrop-blur-md pointer-events-auto transition-all duration-500 transform translate-y-4 opacity-0">
-            <div class="flex justify-between items-center border-b border-slate-100 pb-1">
-                <span id="popup-client-tag" class="text-[8px] font-mono text-orange-600 uppercase tracking-wider font-bold">Client Node</span>
-                <div id="popup-stars-container" class="flex text-amber-500 text-[8px] gap-0.5"></div>
-            </div>
-            <p id="popup-client-text" class="text-slate-700 text-[10px] leading-relaxed italic font-medium"></p>
-            <div class="flex justify-between items-center mt-0.5">
-                <h5 id="popup-client-name" class="text-[9px] font-bold text-slate-900 uppercase"></h5>
-                <span id="popup-client-service" class="text-[8px] bg-orange-50 text-orange-700 px-1.5 py-0.5 rounded font-bold uppercase tracking-wide"></span>
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Terminal Widget Interface -->
-    <div id="ai-chat-widget" class="fixed bottom-4 right-4 z-50 flex flex-col items-end">
-        <div id="chat-window" class="hidden w-[290px] sm:w-[320px] max-w-[calc(100vw-32px)] h-[360px] bg-white border border-blue-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right transform scale-95 opacity-0 mb-3">
-            <div class="bg-blue-600 p-3 flex items-center justify-between shadow-sm">
-                <div class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                    <h4 class="text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider">Matrix AI Assistant</h4>
-                </div>
-                <button onclick="toggleChat()" class="text-white text-xs hover:opacity-80"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-[11px] bg-slate-50/50">
-                <div class="bg-blue-50 border border-blue-100 text-slate-700 p-2.5 rounded-xl">
-                    Hello! I'm the Matrix Assistant. How can I assist you with Md. Asif Hossain's services today?
-                </div>
-            </div>
-            <div class="p-2 bg-white border-t border-slate-100 flex gap-2">
-                <input type="text" id="ai-user-input" placeholder="Type query..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] focus:outline-none focus:border-blue-500 focus:bg-white" onkeydown="if(event.key === 'Enter') handleUserSubmit()">
-                <button onclick="handleUserSubmit()" class="bg-blue-600 text-white px-3 py-1 rounded-xl text-[11px] hover:bg-blue-700"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-
-        <button onclick="toggleChat()" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-transform relative">
-            <i class="fa-solid fa-robot text-base sm:text-lg"></i>
-            <span class="absolute top-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full"></span>
-        </button>
-    </div>
-
     <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200">
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
     </footer>
@@ -406,128 +392,6 @@
         }
         setInterval(runHighlightPulse, 1200); 
         runHighlightPulse();
-
-        // Customer Review Engine
-        const clientMasterReviewsDatabase = [
-            { name: "John S. (New York)", service: "Campaign", tag: "Apex Digital solutions", stars: 5, text: "\"Exceptional full-funnel scaling capability. Lowered target conversion costs effectively.\"" },
-            { name: "রাসেল আহমেদ", service: "Boosting", tag: "Max HR Group", stars: 5, text: "\"আসিফ ভাইয়ের বুস্টিং স্ট্রাটেজি চমৎকার! আমাদের পেজের সেলস ৪ গুণ পর্যন্ত বেড়েছে।\"" },
-            { name: "Chloe M. (Paris)", service: "Graphics", tag: "Lumiere Media Group", stars: 4, text: "\"Sophisticated asset designs. Clean branding layouts matching enterprise specifications perfectly.\"" }
-        ];
-
-        let currentReviewTracker = 0;
-        const targetPopupUI = document.getElementById('review-popup-card');
-        const starsContainer = document.getElementById('popup-stars-container');
-
-        function streamPopupReviewCycle() {
-            targetPopupUI.classList.add('opacity-0', 'translate-y-4');
-            
-            setTimeout(() => {
-                const item = clientMasterReviewsDatabase[currentReviewTracker];
-                document.getElementById('popup-client-tag').innerText = item.tag;
-                document.getElementById('popup-client-text').innerText = item.text;
-                document.getElementById('popup-client-name').innerText = item.name;
-                document.getElementById('popup-client-service').innerText = item.service;
-                
-                starsContainer.innerHTML = '';
-                for(let s = 0; s < 5; s++) {
-                    const icon = document.createElement('i');
-                    icon.className = s < item.stars ? 'fas fa-star text-amber-500' : 'far fa-star text-slate-300';
-                    starsContainer.appendChild(icon);
-                }
-                
-                targetPopupUI.classList.remove('opacity-0', 'translate-y-4');
-                currentReviewTracker = (currentReviewTracker + 1) % clientMasterReviewsDatabase.length;
-            }, 500);
-        }
-
-        setInterval(streamPopupReviewCycle, 4000);
-        streamPopupReviewCycle();
-
-        // Service Modal Logic
-        const serviceDetailsMap = {
-            'gd': { title: 'High-Fidelity Graphics Design', desc: 'Creation of vector visual systems, UI mockups, and corporate branding identity packages aligned to modern UI design guidelines.' },
-            'seo': { title: 'Search Engine Optimization (SEO)', desc: 'Complete technical SEO audit, indexing fixes, keyword tracking, and keyword topology mapping to drive organic rank continuous growth.' },
-            'sms': { title: 'Social Ecosystem Management', desc: 'Omnichannel brand profiles automation, visual publishing timelines, and audience engagement retention campaigns.' },
-            'boost': { title: 'Targeted Media Boosting', desc: 'Precision audience targeting, interest layering, budget optimization loops, and direct ROAS enhancement.' },
-            'camp': { title: 'Strategic Ad Campaigns', desc: 'Meta/Google Ads Manager architecture, pixel conversion API setups, lookalike audience deployment, and funnel tracking.' },
-            'de': { title: 'Data Entry & Web Research', desc: 'High-accuracy dataset validation, lead enrichment, web scraping, CRM database cleanup, and structured report management.' },
-            'lg': { title: 'B2B Lead Generation', desc: 'Executive data collection, verified email list sourcing, B2B outbound list building, and prospecting workflows.' },
-            'oe': { title: 'Operational Automation', desc: 'Cross-platform workflow synchronization, custom internal dashboards, automated notifications, and productivity tool orchestration.' }
-        };
-
-        function openServicePage(key) {
-            const modal = document.getElementById('service-modal-page');
-            const stream = document.getElementById('modal-content-stream');
-            const item = serviceDetailsMap[key] || { title: 'Node Data', desc: 'Details unavailable.' };
-            
-            stream.innerHTML = `
-                <h3 class="text-xl font-extrabold text-slate-900 mb-3">${item.title}</h3>
-                <p class="text-xs text-slate-600 leading-relaxed mb-6">${item.desc}</p>
-                <a href="https://wa.me/8801778016695" target="_blank" class="inline-block w-full text-center px-4 py-2.5 bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-blue-700 transition-colors">
-                    Request Strategy Call
-                </a>
-            `;
-            
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.remove('opacity-0'), 10);
-        }
-
-        function closeServicePage() {
-            const modal = document.getElementById('service-modal-page');
-            modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        // AI Chat Widget Logic
-        function toggleChat() {
-            const win = document.getElementById('chat-window');
-            if (win.classList.contains('hidden')) {
-                win.classList.remove('hidden');
-                setTimeout(() => {
-                    win.classList.remove('scale-95', 'opacity-0');
-                }, 10);
-            } else {
-                win.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    win.classList.add('hidden');
-                }, 300);
-            }
-        }
-
-        function handleUserSubmit() {
-            const input = document.getElementById('ai-user-input');
-            const messageContainer = document.getElementById('chat-messages');
-            const query = input.value.trim();
-
-            if (!query) return;
-
-            // User message bubble
-            const userBubble = document.createElement('div');
-            userBubble.className = "bg-blue-600 text-white p-2.5 rounded-xl ml-auto max-w-[80%]";
-            userBubble.innerText = query;
-            messageContainer.appendChild(userBubble);
-
-            input.value = '';
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-
-            // Simulated response delay
-            setTimeout(() => {
-                const aiBubble = document.createElement('div');
-                aiBubble.className = "bg-blue-50 border border-blue-100 text-slate-700 p-2.5 rounded-xl max-w-[85%]";
-                
-                const lowerQuery = query.toLowerCase();
-                if (lowerQuery.includes('price') || lowerQuery.includes('cost')) {
-                    aiBubble.innerText = "Pricing depends on project scope. Reach out on WhatsApp (+8801778016695) for a quick custom quote!";
-                } else if (lowerQuery.includes('service') || lowerQuery.includes('design')) {
-                    aiBubble.innerText = "We offer Graphic Design, SEO, Ad Campaigns, Lead Generation, and Operations Automation. Check out the 'Services' section above!";
-                } else {
-                    aiBubble.innerText = "Thanks for reaching out! You can contact Md. Asif Hossain directly at elhasshossain@gmail.com or via WhatsApp for immediate support.";
-                }
-
-                messageContainer.appendChild(aiBubble);
-                messageContainer.scrollTop = messageContainer.scrollHeight;
-            }, 600);
-        }
     </script>
 </body>
 </html>
