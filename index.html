@@ -27,6 +27,21 @@
     </script>
 
     <style>
+        <script>
+  // ওয়েবসাইট লোড হওয়ার ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর এটি কাজ করবে
+  window.addEventListener('DOMContentLoaded', (event) => {
+    setTimeout(function() {
+      // ১. একটি নোটিফিকেশন/মেসেজ অ্যালার্ট দেখাবে
+      alert("Welcome! Feel free to send us a message or get in touch.");
+      
+      // ২. আপনি চাইলে মেসেজ ইনপুট বক্স বা Contact সেকশনে অটো স্ক্রোল করাতে পারেন
+      const contactSection = document.getElementById('contact'); 
+      if(contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 2000); 
+  });
+</script>
         body {
             font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
             scroll-behavior: smooth;
@@ -619,8 +634,8 @@
             <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm text-center">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">👥 Clients & Brands Worked With</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center opacity-80">
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🏢 WALTON</div>
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🌐 GLOBAL TECH</div>
+                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🏢Atco International</div>
+                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🌐 Global Trade International</div>
                     <div class="font-extrabold text-lg text-slate-800 tracking-wider">⚡ APEX MEDIA</div>
                     <div class="font-extrabold text-lg text-slate-800 tracking-wider">🚀 NEXUS CORP</div>
                 </div>
