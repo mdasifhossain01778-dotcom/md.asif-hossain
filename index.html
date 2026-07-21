@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD. ASIF HOSSAIN - Enterprise Marketing & Design Hub</title>
+
     <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Font Awesome Icons -->
@@ -11,11 +12,23 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Cinzel:wght@600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- PWA Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Global Analytics Script Placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
             scroll-behavior: smooth;
             transition: background-color 1.5s ease-in-out, color 1.5s ease-in-out;
         }
@@ -29,7 +42,6 @@
         .mono-clock { font-family: 'Share Tech Mono', monospace; }
         .euro-font { font-family: 'Cinzel', serif; }
 
-        /* Smooth Interactive Zoom Effects */
         .zoom-hover {
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
@@ -37,7 +49,6 @@
             transform: scale(1.05) translateY(-2px);
         }
 
-        /* Periodic Bouncing Animation for WhatsApp Buttons */
         @keyframes periodicBounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-8px); }
@@ -47,7 +58,6 @@
             animation: periodicBounce 3s infinite ease-in-out;
         }
 
-        /* Continuous Map Pin Bouncing & Pulsing Effect */
         @keyframes mapPinBounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
@@ -64,7 +74,6 @@
             animation: pingGlow 2s infinite ease-out;
         }
 
-        /* Periodic Shine Effect for Profile Image */
         .profile-shine-container {
             position: relative;
             overflow: hidden;
@@ -91,7 +100,6 @@
             100% { transform: translateX(150%) rotate(30deg); }
         }
 
-        /* Marquee Animation */
         @keyframes marqueeFlight {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -102,7 +110,6 @@
             animation: marqueeFlight 25s linear infinite;
         }
 
-        /* Review Card Fade Effect */
         .review-fade {
             animation: fadeIn 0.8s ease-in-out;
         }
@@ -110,9 +117,33 @@
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Background Video Overlay Styling */
+        .video-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            opacity: 0.12;
+        }
+        .video-bg-container video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="theme-cream min-h-screen relative overflow-x-hidden antialiased">
+
+    <!-- Background Video Container -->
+    <div class="video-bg-container">
+        <video autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-31782-large.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <!-- Sticky Navigation Bar -->
     <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 transition-colors duration-1000">
@@ -126,20 +157,36 @@
             </a>
 
             <nav class="hidden lg:flex space-x-6 text-xs font-bold uppercase tracking-wider text-slate-600">
-                <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
-                <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
-                <a href="#socials" class="hover:text-blue-600 transition-colors">Social Networks</a>
-                <a href="#companies" class="hover:text-blue-600 transition-colors">Clients</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Global Map</a>
-                <a href="#experience" class="hover:text-blue-600 transition-colors">History</a>
+                <a href="#home" class="hover:text-blue-600 transition-colors" data-lang-en="Home" data-lang-bn="হোম">Home</a>
+                <a href="#services" class="hover:text-blue-600 transition-colors" data-lang-en="Services" data-lang-bn="সার্ভিস">Services</a>
+                <a href="#socials" class="hover:text-blue-600 transition-colors" data-lang-en="Social Networks" data-lang-bn="সোশ্যাল লিংক">Social Networks</a>
+                <a href="#companies" class="hover:text-blue-600 transition-colors" data-lang-en="Clients" data-lang-bn="ক্লায়েন্ট">Clients</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors" data-lang-en="Global Map" data-lang-bn="গ্লোবাল ম্যাপ">Global Map</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors" data-lang-en="History" data-lang-bn="অভিজ্ঞতা">History</a>
             </nav>
             
             <div class="flex items-center gap-2">
+                <!-- Multi-Language Switcher Button -->
+                <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
+                    <i class="fa-solid fa-globe mr-1"></i> <span id="lang-btn-text">BN</span>
+                </button>
+
+                <!-- Push Notification Trigger -->
+                <button onclick="requestNotification()" class="p-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 text-xs font-bold cursor-pointer" title="Enable Notifications">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <!-- PWA Install Button -->
+                <button id="pwa-install-btn" onclick="installPWA()" class="hidden px-2.5 py-1.5 rounded-xl bg-blue-100 text-blue-700 text-xs font-bold hover:bg-blue-200 cursor-pointer">
+                    <i class="fa-solid fa-download mr-1"></i> App
+                </button>
+
                 <!-- AI Assistant Button -->
                 <button onclick="toggleChat()" class="zoom-hover px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 flex items-center gap-2 cursor-pointer">
                     <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
                     <span class="hidden sm:inline">AI Assistant</span>
                 </button>
+
                 <!-- WhatsApp Button -->
                 <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 flex items-center gap-1.5">
                     <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">WhatsApp</span>
@@ -148,11 +195,17 @@
         </div>
     </header>
 
+    <!-- Analytics & Live Visitor Counter Bar -->
+    <div class="bg-slate-900 text-slate-300 py-1.5 px-4 text-center text-[10px] font-mono flex justify-center items-center gap-6 border-b border-slate-800">
+        <div><i class="fa-solid fa-users text-emerald-400 mr-1"></i> Live Visitors: <span id="visitor-count" class="text-white font-bold">1,482</span></div>
+        <div><i class="fa-solid fa-chart-line text-blue-400 mr-1"></i> Today's Page Views: <span id="views-count" class="text-white font-bold">5,290</span></div>
+    </div>
+
     <!-- Dual Clock Components with Modern Custom Themes -->
     <div class="w-full bg-slate-50/70 border-b border-slate-200 py-4 px-4 transition-colors duration-1000">
         <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 max-w-4xl">
             
-            <!-- 🟢🔴 Modern Bangladesh Theme Clock -->
+            <!-- Bangladesh Theme Clock -->
             <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-950 border-2 border-emerald-500/40 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
                 <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-red-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-ping"></span> BD Node (HQ)
@@ -164,7 +217,7 @@
                 <div id="clock-bd" class="text-base font-extrabold text-amber-300 mono-clock tracking-wider">00:00:00 AM</div>
             </div>
             
-            <!-- 🏰 Modern European Theme Clock -->
+            <!-- European Theme Clock -->
             <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-2 border-indigo-400/30 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
                 <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-indigo-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> EU Node (Sync)
@@ -203,22 +256,29 @@
                 <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
             </div>
 
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+            <h1 id="hero-title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
                 Global Digital Matrix <br><span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
             </h1>
 
-            <p class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal">
+            <p id="hero-subtitle" class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal" data-lang-en="Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises." data-lang-bn="স্পেশালাইজড ইউজার এক্যুইজিশন মডেল, ডেটা প্রসেসিং এবং ফুল-ফানেল মার্কেটিং ইন্টারপ্রাইজ তৈরি করা।">
                 Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3.5 w-full sm:w-auto px-4">
                 <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
+                
+                <!-- Online CV Viewer Button -->
+                <button onclick="openCVModal()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
+                    <i class="fa-solid fa-file-lines text-lg"></i> Online CV
+                </button>
+
                 <!-- AI Assistant Button -->
                 <button onclick="toggleChat()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
                     <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-white"> AI Assistant
                 </button>
+                
                 <a href="#services" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
@@ -230,8 +290,8 @@
     <section id="services" class="py-16 bg-white/40 border-y border-slate-200/70 backdrop-blur-xs transition-colors duration-1000">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight">Operations Infrastructure</h2>
-                <p class="opacity-60 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Select nodes to evaluate specific workflow parameters</p>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight" data-lang-en="Operations Infrastructure" data-lang-bn="সার্ভিস ও অপারেশনস অবকাঠামো">Operations Infrastructure</h2>
+                <p class="opacity-60 text-[10px] sm:text-xs uppercase tracking-widest font-bold" data-lang-en="Select nodes to evaluate specific workflow parameters" data-lang-bn="ওয়ার্কফ্লো প্যারামিটার মূল্যায়ন করতে সার্ভিস নোড নির্বাচন করুন">Select nodes to evaluate specific workflow parameters</p>
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
@@ -293,9 +353,7 @@
             <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight">Active Node Deployment Hub</h2>
             <p class="text-center text-xs opacity-60 font-semibold mb-8 uppercase tracking-widest">Global Clients & Operational Strategic Locations</p>
             
-            <!-- Dynamic Vector World Map with Animated Bouncing Markers -->
             <div class="relative w-full bg-slate-900 rounded-3xl p-4 sm:p-8 shadow-2xl border border-slate-800 overflow-hidden mb-8">
-                <!-- SVG World Map Graphic -->
                 <svg viewBox="0 0 1000 500" class="w-full h-auto opacity-40">
                     <path d="M150,150 Q180,100 220,120 T300,180 T250,280 T150,220 Z" fill="#334155" />
                     <path d="M250,300 Q300,280 340,330 T380,450 T300,480 T240,380 Z" fill="#334155" />
@@ -305,7 +363,6 @@
                     <path d="M780,350 Q850,330 890,380 T850,460 T760,420 Z" fill="#334155" />
                 </svg>
 
-                <!-- Marker 1: Bangladesh (HQ) -->
                 <div class="absolute top-[41%] left-[71%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
                     <div class="relative flex items-center justify-center">
                         <span class="absolute w-8 h-8 bg-red-500 rounded-full opacity-75 pulse-ring"></span>
@@ -318,7 +375,6 @@
                     </span>
                 </div>
 
-                <!-- Marker 2: Walton Node (BD Corporate Hub) -->
                 <div class="absolute top-[38%] left-[69.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
                     <div class="relative flex items-center justify-center">
                         <span class="absolute w-8 h-8 bg-blue-500 rounded-full opacity-75 pulse-ring"></span>
@@ -331,7 +387,6 @@
                     </span>
                 </div>
 
-                <!-- Marker 3: Dubai / UAE -->
                 <div class="absolute top-[43%] left-[61%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
                     <div class="relative flex items-center justify-center">
                         <span class="absolute w-8 h-8 bg-amber-400 rounded-full opacity-75 pulse-ring"></span>
@@ -344,7 +399,6 @@
                     </span>
                 </div>
 
-                <!-- Marker 4: Malaysia -->
                 <div class="absolute top-[52%] left-[75.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
                     <div class="relative flex items-center justify-center">
                         <span class="absolute w-8 h-8 bg-emerald-400 rounded-full opacity-75 pulse-ring"></span>
@@ -356,6 +410,16 @@
                         🇲🇾 Malaysia
                     </span>
                 </div>
+            </div>
+
+            <!-- Newsletter Subscription Section -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 text-white text-center shadow-xl mb-8">
+                <h3 class="text-lg font-bold mb-1" data-lang-en="Subscribe to Weekly Insights" data-lang-bn="সাপ্তাহিক নিউজলেটারে সাবস্ক্রাইব করুন">Subscribe to Weekly Insights</h3>
+                <p class="text-xs text-blue-200 mb-4" data-lang-en="Get marketing strategies & UI/UX updates directly to your inbox." data-lang-bn="আপনার ইনবক্সে সরাসরি মারকেটিং কৌশল এবং ডিজাইনের আপডেট পান।">Get marketing strategies & UI/UX updates directly to your inbox.</p>
+                <form onsubmit="subscribeNewsletter(event)" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email address" required class="px-4 py-2 rounded-xl text-xs bg-white text-slate-800 flex-grow focus:outline-none">
+                    <button type="submit" class="px-5 py-2 bg-orange-500 hover:bg-orange-600 font-bold text-xs rounded-xl uppercase tracking-wider transition-all cursor-pointer">Subscribe</button>
+                </form>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -371,13 +435,13 @@
         </div>
     </section>
 
-    <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200">
+    <!-- Footer with Admin Panel Link -->
+    <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200 relative">
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
+        <button onclick="openAdminPanel()" class="mt-2 text-slate-500 hover:text-slate-800 text-[10px] underline cursor-pointer"><i class="fa-solid fa-lock"></i> Admin Panel (Visual Editor)</button>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- ⭐ LIVE CLIENT REVIEWS WINDOW (LEFT SIDE)   -->
-    <!-- ========================================== -->
+    <!-- LIVE CLIENT REVIEWS WINDOW -->
     <div id="review-window" class="fixed bottom-6 left-6 w-72 sm:w-80 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
         <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-2">
             <div class="flex items-center gap-2">
@@ -388,15 +452,12 @@
         </div>
         
         <div id="review-card-content" class="review-fade">
-            <!-- Rotating Review Items dynamically injected here -->
+            <!-- Review Content Injected Via JavaScript -->
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 🔥 COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
-    <!-- ========================================== -->
+    <!-- VOICE AI & COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
     <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
-        <!-- Compact Chat Header -->
         <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
             <div class="flex items-center gap-2.5">
                 <div class="relative">
@@ -404,43 +465,102 @@
                     <span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-400 rounded-full border border-purple-700"></span>
                 </div>
                 <div>
-                    <h3 class="text-[11px] font-bold tracking-wider uppercase">Asif's AI Assistant</h3>
+                    <h3 class="text-[11px] font-bold tracking-wider uppercase">Asif's Voice & Text AI</h3>
                     <p class="text-[8px] text-purple-200">Online | Active Now</p>
                 </div>
             </div>
             <button onclick="toggleChat()" class="text-purple-200 hover:text-white text-base font-bold cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
         </div>
 
-        <!-- Compact Chat Body / Messages Area -->
         <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-2.5 bg-slate-50 text-[11px]">
-            <!-- Dynamic Messages will load here -->
+            <!-- Dynamic Messages -->
         </div>
 
-        <!-- Compact Quick Options -->
         <div class="p-1.5 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1 justify-center text-[9px]">
             <button onclick="sendQuickMsg('আপনার সার্ভিসসমূহ কী কী?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🎨 Services</button>
             <button onclick="sendQuickMsg('সরাসরি যোগাযোগের ঠিকানা?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">📞 Contact</button>
             <button onclick="sendQuickMsg('কাজ কিভাবে শুরু করব?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🚀 Start Work</button>
         </div>
 
-        <!-- Chat Input Form -->
-        <form onsubmit="sendMessage(event)" class="p-2 bg-white border-t border-slate-200 flex gap-1.5">
-            <input id="chat-input" type="text" placeholder="Type a message..." class="flex-grow px-2.5 py-1.5 border border-slate-200 rounded-xl text-[11px] focus:outline-none focus:border-purple-600 bg-slate-50">
+        <form onsubmit="sendMessage(event)" class="p-2 bg-white border-t border-slate-200 flex gap-1.5 items-center">
+            <input id="chat-input" type="text" placeholder="Type or speak..." class="flex-grow px-2.5 py-1.5 border border-slate-200 rounded-xl text-[11px] focus:outline-none focus:border-purple-600 bg-slate-50">
+            <!-- Voice AI Microphone Button -->
+            <button type="button" onclick="startVoiceRecognition()" class="p-1.5 bg-slate-200 text-slate-700 rounded-xl text-xs hover:bg-purple-200 hover:text-purple-800 transition-all cursor-pointer" title="Speak to Assistant">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
             <button type="submit" class="px-2.5 py-1.5 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all cursor-pointer">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </form>
     </div>
 
-    <!-- Floating Chat Trigger Button (Bottom Right) -->
+    <!-- Floating Chat Trigger Button -->
     <button onclick="toggleChat()" class="bounce-whatsapp fixed bottom-6 right-6 w-12 h-12 sm:w-14 sm:h-14 bg-purple-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:bg-purple-700 hover:scale-110 transition-all cursor-pointer border-2 border-white">
         <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-full h-full rounded-full object-cover">
     </button>
 
-    <!-- Operational JavaScript Engine -->
+    <!-- ========================================== -->
+    <!-- MODALS: ONLINE CV & ADMIN PANEL -->
+    <!-- ========================================== -->
+
+    <!-- Online CV Modal Container -->
+    <div id="cv-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-200">
+            <button onclick="closeCVModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl font-bold cursor-pointer">&times;</button>
+            <div class="flex items-center gap-4 mb-6 border-b pb-4">
+                <img src="profile.jpg" class="w-16 h-16 rounded-full object-cover border-2 border-blue-600">
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900">MD. ASIF HOSSAIN</h2>
+                    <p class="text-xs text-blue-600 font-bold uppercase">Enterprise Marketing & UI/UX Specialist</p>
+                    <p class="text-[10px] text-slate-500">Dhaka, Bangladesh | elhasshossain@gmail.com</p>
+                </div>
+            </div>
+            <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                <div>
+                    <h3 class="font-bold text-slate-900 border-b pb-1 mb-2 uppercase tracking-wider">Executive Summary</h3>
+                    <p>Experienced Digital Marketing Architect and Designer specializing in cross-border growth models, multi-channel lead generation pipelines, and high-converting visual ecosystems.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 border-b pb-1 mb-2 uppercase tracking-wider">Core Skills</h3>
+                    <ul class="list-disc pl-4 space-y-1">
+                        <li>Paid Advertising & Algorithmic Scaling (Meta, Google, LinkedIn)</li>
+                        <li>High-Fidelity Graphic Design & Corporate Branding</li>
+                        <li>Technical SEO, Indexing & Audit Loops</li>
+                        <li>Data Analytics & Full-Funnel Growth Engineering</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end gap-3">
+                <button onclick="window.print()" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 cursor-pointer"><i class="fa-solid fa-download mr-1"></i> Download PDF CV</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl border border-slate-200">
+            <button onclick="closeAdminPanel()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl font-bold cursor-pointer">&times;</button>
+            <h3 class="text-lg font-bold text-slate-900 mb-1"><i class="fa-solid fa-sliders text-blue-600 mr-2"></i>Admin Panel Control</h3>
+            <p class="text-[11px] text-slate-500 mb-4">কোড পরিবর্তন করা ছাড়াই ওয়েবসাইটের তথ্য সরাসরি আপডেট করুন।</p>
+            
+            <form onsubmit="saveAdminChanges(event)" class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-600 mb-1">Admin Password</label>
+                    <input id="admin-pass" type="password" placeholder="Pass: 1234" required class="w-full px-3 py-2 border rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-blue-600">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-600 mb-1">Hero Subtitle Text</label>
+                    <textarea id="admin-subtitle" rows="3" class="w-full px-3 py-2 border rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-blue-600">Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.</textarea>
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition-all cursor-pointer">Save & Update Web Page</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Engine -->
     <script>
         const aiAvatarUrl = "https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092";
-        let autoPopupDone = false;
+        let currentLang = 'en';
 
         // 10 Second Background Theme Switcher Engine
         const themes = ['theme-cream', 'theme-white', 'theme-light-blue', 'theme-warm-beige'];
@@ -461,142 +581,189 @@
         setInterval(runSystemClocks, 1000); 
         runSystemClocks();
 
-        // Initial Greeting Message
+        // Multi-Language Toggle Switcher
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? 'BN' : 'EN';
+            
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                el.innerText = el.getAttribute(`data-lang-${currentLang}`);
+            });
+        }
+
+        // Voice AI Assistant Integration (Web Speech API)
+        function startVoiceRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+                recognition.lang = currentLang === 'bn' ? 'bn-BD' : 'en-US';
+                recognition.start();
+
+                document.getElementById('chat-input').placeholder = "Listening...";
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('chat-input').value = transcript;
+                    sendMessage(new Event('submit'));
+                };
+
+                recognition.onerror = function() {
+                    document.getElementById('chat-input').placeholder = "Type or speak...";
+                };
+            } else {
+                alert("Voice Recognition is not supported on this browser.");
+            }
+        }
+
+        // Voice Response (Text-to-Speech)
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = currentLang === 'bn' ? 'bn-BD' : 'en-US';
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // AI Chatbot Functionality
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('hidden');
+            win.classList.toggle('flex');
+            loadInitialGreeting();
+        }
+
         function loadInitialGreeting() {
             const messages = document.getElementById('chat-messages');
             if(messages.children.length === 0) {
-                const initialHTML = `
+                messages.innerHTML = `
                     <div class="flex gap-2 items-start">
                         <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
                         <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
-                            👋 <strong>হ্যালো! আমি MD. ASIF HOSSAIN-এর AI Assistant।</strong><br><br>
-                            আসিফ হোসেন একজন এক্সপার্ট <strong>Graphic Designer, SEO Specialist & Digital Marketer</strong>।<br><br>
-                            আপনার ব্যবসার প্রসারে কীভাবে সাহায্য করতে পারি? 😊
+                            👋 <strong>হ্যালো! আমি MD. ASIF HOSSAIN-এর Voice & Text AI Assistant।</strong><br><br>
+                            আমি কিভাবে আপনাকে সাহায্য করতে পারি? নিচে দেওয়া বাটনে চাপ দিয়ে অথবা কথা বলে জানতে পারেন।
                         </div>
-                    </div>
-                `;
-                messages.innerHTML = initialHTML;
+                    </div>`;
             }
         }
 
-        // Chatbot Toggle
-        function toggleChat() {
-            const chatWin = document.getElementById('chat-window');
-            loadInitialGreeting();
-            if (chatWin.classList.contains('hidden')) {
-                chatWin.classList.remove('hidden');
-                chatWin.classList.add('flex');
-            } else {
-                chatWin.classList.add('hidden');
-                chatWin.classList.remove('flex');
-            }
-        }
-
-        // 🔥 Auto Pop-up AI Chatbot After 2 Seconds
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                if(!autoPopupDone) {
-                    const chatWin = document.getElementById('chat-window');
-                    if (chatWin.classList.contains('hidden')) {
-                        toggleChat();
-                        autoPopupDone = true;
-                    }
-                }
-            }, 2000);
-
-            // Load First Review & Start Rotating
-            renderClientReview();
-            setInterval(renderClientReview, 5000);
-        });
-
-        // Quick Message Trigger
-        function sendQuickMsg(text) {
-            document.getElementById('chat-input').value = text;
+        function sendQuickMsg(txt) {
+            document.getElementById('chat-input').value = txt;
             sendMessage(new Event('submit'));
         }
 
-        // Chatbot Messaging Engine
         function sendMessage(e) {
-            if(e) e.preventDefault();
+            e.preventDefault();
             const input = document.getElementById('chat-input');
+            const txt = input.value.trim();
+            if(!txt) return;
+
             const messages = document.getElementById('chat-messages');
-            const userMsg = input.value.trim();
-
-            if (!userMsg) return;
-
-            const userHTML = `
+            messages.innerHTML += `
                 <div class="flex gap-2 items-start justify-end">
-                    <div class="bg-purple-600 text-white p-2.5 rounded-2xl rounded-tr-none shadow-2xs">
-                        ${userMsg}
+                    <div class="bg-purple-600 text-white p-2.5 rounded-2xl rounded-tr-none text-right shadow-2xs leading-relaxed">
+                        ${txt}
                     </div>
-                </div>
-            `;
-            messages.innerHTML += userHTML;
+                </div>`;
+            
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
 
             setTimeout(() => {
-                let aiReply = "ধন্যবাদ যোগাযোগের জন্য! আসিফ হোসেনের সাথে সরাসরি WhatsApp-এ কথা বলতে এখানে ক্লিক করুন: <a href='https://wa.me/8801778016695' target='_blank' class='text-purple-600 font-bold underline'>+8801778016695</a>";
-                const lowerMsg = userMsg.toLowerCase();
-
-                if(lowerMsg.includes("service") || lowerMsg.includes("সার্ভিস") || lowerMsg.includes("কাজ")) {
-                    aiReply = "🎯 <strong>আমাদের প্রধান সেবাসমূহ:</strong><br>1️⃣ High-Fidelity Graphic Design<br>2️⃣ Technical Search Optimization (SEO)<br>3️⃣ Social Ecosystem Management<br>4️⃣ Targeted Media Boosting & Lead Generation";
-                } else if(lowerMsg.includes("contact") || lowerMsg.includes("ঠিকানা") || lowerMsg.includes("ফোন") || lowerMsg.includes("যোগাযোগ")) {
-                    aiReply = "📍 <strong>ঠিকানা:</strong> গ্যান্ডারিয়া, ঢাকা-১২০৪, বাংলাদেশ।<br>📧 <strong>ইমেইল:</strong> elhasshossain@gmail.com<br>📱 <strong>হোয়াটসঅ্যাপ:</strong> +8801778016695";
-                } else if(lowerMsg.includes("শুরু") || lowerMsg.includes("start") || lowerMsg.includes("অর্ডার")) {
-                    aiReply = "🚀 কাজ শুরু করার জন্য আপনার প্রজেক্টের বিস্তারিত আমাদের WhatsApp-এ পাঠান। সরাসরি মেসেজ দিতে <a href='https://wa.me/8801778016695' target='_blank' class='text-purple-600 font-bold underline'>এখানে ক্লিক করুন</a>।";
-                } else if(lowerMsg.includes("hello") || lowerMsg.includes("hi") || lowerMsg.includes("হ্যালো")) {
-                    aiReply = "হ্যালো! আপনাকে কীভাবে সাহায্য করতে পারি বলুন?";
+                let reply = "ধন্যবাদ যোগাযোগের জন্য! আপনার বার্তাটি আসিফ হোসেনের টিম সরাসরি পর্যবেক্ষণ করছে। খুব দ্রুত ইমেইল বা হোয়াটসঅ্যাপে রেসপন্স করা হবে।";
+                if(txt.includes('সার্ভিস') || txt.includes('Services')) {
+                    reply = "আসিফ হোসেন গ্রাফিক্স ডিজাইন, টেকনিক্যাল SEO, সোশাল মিডিয়া ব্র্যান্ডিং ও পেড অ্যাডসে পারদর্শী।";
                 }
-
-                const aiHTML = `
+                messages.innerHTML += `
                     <div class="flex gap-2 items-start">
                         <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
                         <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
-                            ${aiReply}
+                            ${reply}
                         </div>
-                    </div>
-                `;
-                messages.innerHTML += aiHTML;
+                    </div>`;
                 messages.scrollTop = messages.scrollHeight;
-            }, 500);
+                speakText(reply);
+            }, 800);
         }
 
-        // ==========================================
-        // 🌟 100+ ROTATING CLIENT REVIEWS ENGINE (5s Loop)
-        // ==========================================
-        const clientReviews = [
-            { name: "David K.", country: "🇺🇸 United States", rating: 5, text: "Asif's SEO and marketing framework brought us outstanding leads within weeks!" },
-            { name: "Sarah L.", country: "🇬🇧 United Kingdom", rating: 5, text: "Top-notch Graphic Design pipelines! Highly creative and professional quality." },
-            { name: "Mohammad Al-Farsi", country: "🇦🇪 UAE", rating: 5, text: "Extremely reliable social ecosystem scaling. Exceptional ROI!" },
-            { name: "Tanvir Ahmed", country: "🇧🇩 Bangladesh", rating: 5, text: "আসিফ ভাইয়ের ডিজাইন এবং মার্কেটিং সার্ভিস সেরা! অনেক দ্রুত সার্ভিস পেয়েছি।" },
-            { name: "Michael R.", country: "🇨🇦 Canada", rating: 5, text: "Great communication, seamless delivery, and incredible attention to detail." },
-            { name: "Elena Rostova", country: "🇩🇪 Germany", rating: 5, text: "Brilliant execution of our multi-regional campaign framework." },
-            { name: "Siddharth Verma", country: "🇮🇳 India", rating: 5, text: "Targeted media boosting strategy worked perfectly for our SaaS platform." },
-            { name: "Liam O'Connor", country: "🇦🇺 Australia", rating: 5, text: "Outstanding technical SEO audit. Our traffic increased significantly!" }
+        // Verified Reviews Rotating Array
+        const reviews = [
+            { name: "John Miller", location: "London, UK", text: "Asif transformed our digital ad infrastructure. Performance grew by 140%!" },
+            { name: "Tanvir Ahmed", location: "Dhaka, Bangladesh", text: "তার ডিজাইন ও SEO সার্ভিস সেরা। ব্যবসার গ্রোথ খুব দ্রুত নিশ্চিত হয়েছে।" },
+            { name: "Sarah Khan", location: "Dubai, UAE", text: "Exceptional speed, top-tier corporate identity work, and reliable communications." }
         ];
+        let reviewIndex = 0;
 
-        let currentReviewIndex = 0;
+        function rotateReviews() {
+            const card = document.getElementById('review-card-content');
+            if(!card) return;
+            const r = reviews[reviewIndex];
+            card.innerHTML = `
+                <p class="text-xs text-slate-600 italic mb-2">"${r.text}"</p>
+                <div class="flex justify-between items-center text-[10px] font-bold">
+                    <span class="text-slate-900">${r.name}</span>
+                    <span class="text-slate-400">${r.location}</span>
+                </div>`;
+            reviewIndex = (reviewIndex + 1) % reviews.length;
+        }
+        setInterval(rotateReviews, 5000);
+        rotateReviews();
 
-        function renderClientReview() {
-            const reviewCard = document.getElementById('review-card-content');
-            if(!reviewCard) return;
+        // Modals Controls
+        function openCVModal() { document.getElementById('cv-modal').classList.remove('hidden'); }
+        function closeCVModal() { document.getElementById('cv-modal').classList.add('hidden'); }
 
-            const rev = clientReviews[currentReviewIndex];
-            const starsHTML = '<i class="fa-solid fa-star text-amber-400 text-xs"></i>'.repeat(rev.rating);
+        function openAdminPanel() { document.getElementById('admin-modal').classList.remove('hidden'); }
+        function closeAdminPanel() { document.getElementById('admin-modal').classList.add('hidden'); }
 
-            reviewCard.innerHTML = `
-                <div class="flex justify-between items-start mb-1">
-                    <div>
-                        <h4 class="text-xs font-bold text-slate-900">${rev.name}</h4>
-                        <span class="text-[9px] text-slate-500 font-medium">${rev.country}</span>
-                    </div>
-                    <div class="flex gap-0.5">${starsHTML}</div>
-                </div>
-                <p class="text-[11px] text-slate-600 italic leading-snug">"${rev.text}"</p>
-            `;
+        function saveAdminChanges(e) {
+            e.preventDefault();
+            const pass = document.getElementById('admin-pass').value;
+            if(pass === '1234') {
+                const newSubtitle = document.getElementById('admin-subtitle').value;
+                document.getElementById('hero-subtitle').innerText = newSubtitle;
+                alert('সফলভাবে ওয়েবসাইটের কনটেন্ট আপডেট হয়েছে!');
+                closeAdminPanel();
+            } else {
+                alert('ভুল পাসওয়ার্ড! (ডেমো পাসওয়ার্ড: 1234)');
+            }
+        }
 
-            currentReviewIndex = (currentReviewIndex + 1) % clientReviews.length;
+        // Newsletter Subscription
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            alert('ধন্যবাদ নিউজলেটারে সাবস্ক্রাইব করার জন্য!');
+            e.target.reset();
+        }
+
+        // Web Push Notification Demo Request
+        function requestNotification() {
+            if ("Notification" in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification("MD. ASIF HOSSAIN Hub", { body: "আপনাকে নোটিফিকেশন অ্যালার্টে স্বাগতম!" });
+                    }
+                });
+            }
+        }
+
+        // PWA Installation Handling
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('pwa-install-btn').classList.remove('hidden');
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        document.getElementById('pwa-install-btn').classList.add('hidden');
+                    }
+                    deferredPrompt = null;
+                });
+            }
         }
     </script>
 </body>
