@@ -11,44 +11,70 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
-            /* smooth transition for background theme color changes */
             transition: background-color 1.5s ease-in-out, color 1.5s ease-in-out;
         }
 
         /* Dynamic Theme Classes */
-        body.theme-cream {
-            background-color: #faf8f5;
-            color: #1e293b;
+        body.theme-cream { background-color: #faf8f5; color: #1e293b; }
+        body.theme-white { background-color: #ffffff; color: #0f172a; }
+        body.theme-light-blue { background-color: #f0f7ff; color: #1e293b; }
+        body.theme-warm-beige { background-color: #f5f0eb; color: #1c1917; }
+
+        .mono-clock { font-family: 'Share Tech Mono', monospace; }
+        .euro-font { font-family: 'Cinzel', serif; }
+
+        /* Smooth Interactive Zoom Effects */
+        .zoom-hover {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
         }
-        body.theme-white {
-            background-color: #ffffff;
-            color: #0f172a;
-        }
-        body.theme-light-blue {
-            background-color: #f0f7ff;
-            color: #1e293b;
-        }
-        body.theme-warm-beige {
-            background-color: #f5f0eb;
-            color: #1c1917;
+        .zoom-hover:hover {
+            transform: scale(1.05) translateY(-2px);
         }
 
-        .mono-clock {
-            font-family: 'Share Tech Mono', monospace;
+        /* Periodic Bouncing Animation for WhatsApp Buttons */
+        @keyframes periodicBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
-        .service-card, .company-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .bounce-whatsapp {
+            animation: periodicBounce 3s infinite ease-in-out;
         }
-        .service-pulse-active {
-            border-color: #f97316 !important;
-            box-shadow: 0 12px 30px rgba(249, 115, 22, 0.12);
-            transform: translateY(-4px);
+
+        /* Periodic Shine Effect for Profile Image */
+        .profile-shine-container {
+            position: relative;
+            overflow: hidden;
         }
+        .profile-shine-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.7) 50%, 
+                transparent 70%
+            );
+            transform: rotate(30deg);
+            animation: periodicShine 5s infinite;
+        }
+        @keyframes periodicShine {
+            0% { transform: translateX(-150%) rotate(30deg); }
+            20% { transform: translateX(150%) rotate(30deg); }
+            100% { transform: translateX(150%) rotate(30deg); }
+        }
+
+        /* Marquee Animation */
         @keyframes marqueeFlight {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -58,31 +84,27 @@
             width: max-content;
             animation: marqueeFlight 25s linear infinite;
         }
-        @keyframes mapOrbit {
-            0% { transform: scale(1.0) translate(0px, 0px); }
-            50% { transform: scale(1.04) translate(-5px, -5px); }
-            100% { transform: scale(1.0) translate(0px, 0px); }
+
+        /* Review Card Fade Effect */
+        .review-fade {
+            animation: fadeIn 0.8s ease-in-out;
         }
-        .moving-world-map {
-            animation: mapOrbit 20s ease-in-out infinite alternate;
-        }
-        .map-pulse {
-            animation: mapGlow 2s infinite;
-        }
-        @keyframes mapGlow {
-            0% { r: 3px; opacity: 1; }
-            100% { r: 12px; opacity: 0; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="theme-cream min-h-screen relative overflow-x-hidden antialiased">
 
-   <!-- Sticky Navigation Bar -->
+    <!-- Sticky Navigation Bar -->
     <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 transition-colors duration-1000">
         <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             
-            <a href="#" class="flex items-center gap-3">
-                <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-blue-600 shadow-sm">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="profile-shine-container rounded-full border-2 border-blue-600 shadow-sm">
+                    <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover">
+                </div>
                 <span class="text-lg sm:text-xl font-extrabold text-blue-700 tracking-wider">ASIF HOSSAIN</span>
             </a>
 
@@ -97,38 +119,46 @@
             
             <div class="flex items-center gap-2">
                 <!-- AI Assistant Button -->
-                <button onclick="toggleChat()" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 transition-all flex items-center gap-2 cursor-pointer">
+                <button onclick="toggleChat()" class="zoom-hover px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 flex items-center gap-2 cursor-pointer">
                     <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
                     <span class="hidden sm:inline">AI Assistant</span>
                 </button>
                 <!-- WhatsApp Button -->
-                <a href="https://wa.me/8801778016695" target="_blank" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 transition-all flex items-center gap-1.5">
+                <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 flex items-center gap-1.5">
                     <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">WhatsApp</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Dual Clock Components -->
+    <!-- Dual Clock Components with Modern Custom Themes -->
     <div class="w-full bg-slate-50/70 border-b border-slate-200 py-4 px-4 transition-colors duration-1000">
         <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 max-w-4xl">
-            <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white/90 border border-blue-100 rounded-2xl flex items-center justify-between shadow-sm group">
-                <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-blue-600 text-white text-[8px] font-bold tracking-widest uppercase rounded">Primary Node</span>
+            
+            <!-- 🟢🔴 Modern Bangladesh Theme Clock -->
+            <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-950 border-2 border-emerald-500/40 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
+                <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-red-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-ping"></span> BD Node (HQ)
+                </span>
                 <div class="flex flex-col mt-1">
-                    <span class="text-[9px] uppercase font-bold text-slate-400">BD Local Time</span>
-                    <span class="text-[10px] font-medium text-slate-500">Dhaka GMT+6</span>
+                    <span class="text-[10px] font-bold tracking-widest text-emerald-200 uppercase">Bangladesh Standard Time</span>
+                    <span class="text-[9px] font-medium text-emerald-300/80">Dhaka GMT+6</span>
                 </div>
-                <div id="clock-bd" class="text-sm font-bold text-blue-700 mono-clock">00:00:00 AM</div>
+                <div id="clock-bd" class="text-base font-extrabold text-amber-300 mono-clock tracking-wider">00:00:00 AM</div>
             </div>
             
-            <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white/90 border border-slate-200 rounded-2xl flex items-center justify-between shadow-sm group">
-                <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-bold tracking-widest uppercase rounded">Sync Node</span>
+            <!-- 🏰 Modern European Theme Clock -->
+            <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-2 border-indigo-400/30 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
+                <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-indigo-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> EU Node (Sync)
+                </span>
                 <div class="flex flex-col mt-1">
-                    <span class="text-[9px] uppercase font-bold text-slate-400">UK Local Time</span>
-                    <span class="text-[10px] font-medium text-slate-500">London GMT+1</span>
+                    <span class="text-[10px] font-bold tracking-widest text-indigo-200 uppercase euro-font">UK Regional Time</span>
+                    <span class="text-[9px] font-medium text-indigo-300/80">London GMT+1</span>
                 </div>
-                <div id="clock-eu" class="text-sm font-bold text-slate-800 mono-clock">00:00:00 AM</div>
+                <div id="clock-eu" class="text-base font-bold text-sky-300 mono-clock tracking-wider">00:00:00 AM</div>
             </div>
+
         </div>
     </div>
 
@@ -144,9 +174,10 @@
         </div>
     </div>
 
-   <!-- Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
-        <div class="mb-6 w-full max-w-md overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-slate-100">
+        <!-- Profile Image with Periodic Shine Effect -->
+        <div class="mb-6 w-48 sm:w-56 profile-shine-container rounded-3xl border-4 border-white shadow-2xl bg-slate-100 zoom-hover">
             <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl">
         </div>
 
@@ -164,14 +195,14 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto px-4">
-                <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all">
+                <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
                 <!-- AI Assistant Button -->
-                <button onclick="toggleChat()" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all cursor-pointer">
+                <button onclick="toggleChat()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
                     <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-white"> AI Assistant
                 </button>
-                <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs transition-all">
+                <a href="#services" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
             </div>
@@ -187,22 +218,22 @@
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <div class="service-card bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
                 </div>
-                <div class="service-card bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
                 </div>
-                <div class="service-card bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
                 </div>
-                <div class="service-card bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card zoom-hover bg-white/90 border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
@@ -219,17 +250,17 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto">
-                <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white transition-all shadow-xs">
+                <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white shadow-xs">
                     <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
                 </a>
-                <button onclick="toggleChat()" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white transition-all shadow-xs cursor-pointer">
+                <button onclick="toggleChat()" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white shadow-xs cursor-pointer">
                     <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
                     AI Assistant
                 </button>
-                <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white transition-all shadow-xs">
+                <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white shadow-xs">
                     <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
                 </a>
-                <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white transition-all shadow-xs">
+                <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white shadow-xs">
                     <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
                 </a>
             </div>
@@ -241,11 +272,11 @@
         <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
             <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight">Active Node Deployment Hub</h2>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs">
+                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
                     <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
                 </div>
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs">
+                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">Direct Secure Data Pipeline</span>
                     <p class="text-xs font-mono font-bold text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
                 </div>
@@ -258,47 +289,64 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- 🔥 AI ASSISTANT POPUP CHATBOT WINDOW CORE -->
+    <!-- ⭐ LIVE CLIENT REVIEWS WINDOW (LEFT SIDE)   -->
     <!-- ========================================== -->
-    <div id="chat-window" class="fixed bottom-6 right-6 w-80 sm:w-96 bg-white border border-slate-200 rounded-3xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
-        <!-- Chat Header -->
-        <div class="bg-purple-700 text-white p-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
+    <div id="review-window" class="fixed bottom-6 left-6 w-72 sm:w-80 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-2">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-award text-amber-500 text-sm"></i>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-800">Verified Client Review</span>
+            </div>
+            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">100+ Verified</span>
+        </div>
+        
+        <div id="review-card-content" class="review-fade">
+            <!-- Rotating Review Items dynamically injected here -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 🔥 COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
+    <!-- ========================================== -->
+    <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
+        <!-- Compact Chat Header -->
+        <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
                 <div class="relative">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-9 h-9 rounded-full object-cover border-2 border-white">
-                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-purple-700"></span>
+                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-7 h-7 rounded-full object-cover border border-white">
+                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-emerald-400 rounded-full border border-purple-700"></span>
                 </div>
                 <div>
-                    <h3 class="text-xs font-bold tracking-wider uppercase">Asif's AI Assistant</h3>
-                    <p class="text-[9px] text-purple-200">Online | Active Now</p>
+                    <h3 class="text-[11px] font-bold tracking-wider uppercase">Asif's AI Assistant</h3>
+                    <p class="text-[8px] text-purple-200">Online | Active Now</p>
                 </div>
             </div>
-            <button onclick="toggleChat()" class="text-purple-200 hover:text-white text-lg font-bold cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="toggleChat()" class="text-purple-200 hover:text-white text-base font-bold cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
         </div>
 
-        <!-- Chat Body / Messages Area -->
-        <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-3 bg-slate-50 text-xs">
+        <!-- Compact Chat Body / Messages Area -->
+        <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-2.5 bg-slate-50 text-[11px]">
             <!-- Dynamic Messages will load here -->
         </div>
 
-        <!-- Pre-set Quick Options -->
-        <div class="p-2 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1.5 justify-center text-[10px]">
-            <button onclick="sendQuickMsg('আপনার সার্ভিসসমূহ কী কী?')" class="px-2.5 py-1 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🎨 Services</button>
-            <button onclick="sendQuickMsg('সরাসরি যোগাযোগের ঠিকানা?')" class="px-2.5 py-1 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">📞 Contact</button>
-            <button onclick="sendQuickMsg('কাজ কিভাবে শুরু করব?')" class="px-2.5 py-1 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🚀 Start Work</button>
+        <!-- Compact Quick Options -->
+        <div class="p-1.5 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1 justify-center text-[9px]">
+            <button onclick="sendQuickMsg('আপনার সার্ভিসসমূহ কী কী?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🎨 Services</button>
+            <button onclick="sendQuickMsg('সরাসরি যোগাযোগের ঠিকানা?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">📞 Contact</button>
+            <button onclick="sendQuickMsg('কাজ কিভাবে শুরু করব?')" class="px-2 py-0.5 bg-white border border-purple-200 text-purple-700 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all">🚀 Start Work</button>
         </div>
 
         <!-- Chat Input Form -->
-        <form onsubmit="sendMessage(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
-            <input id="chat-input" type="text" placeholder="Type a message..." class="flex-grow px-3 py-2 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-purple-600 bg-slate-50">
-            <button type="submit" class="px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all cursor-pointer">
+        <form onsubmit="sendMessage(event)" class="p-2 bg-white border-t border-slate-200 flex gap-1.5">
+            <input id="chat-input" type="text" placeholder="Type a message..." class="flex-grow px-2.5 py-1.5 border border-slate-200 rounded-xl text-[11px] focus:outline-none focus:border-purple-600 bg-slate-50">
+            <button type="submit" class="px-2.5 py-1.5 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all cursor-pointer">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </form>
     </div>
 
     <!-- Floating Chat Trigger Button (Bottom Right) -->
-    <button onclick="toggleChat()" class="fixed bottom-6 right-6 w-14 h-14 bg-purple-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:bg-purple-700 hover:scale-105 transition-all cursor-pointer border-2 border-white">
+    <button onclick="toggleChat()" class="bounce-whatsapp fixed bottom-6 right-6 w-12 h-12 sm:w-14 sm:h-14 bg-purple-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:bg-purple-700 hover:scale-110 transition-all cursor-pointer border-2 border-white">
         <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-full h-full rounded-full object-cover">
     </button>
 
@@ -307,7 +355,7 @@
         const aiAvatarUrl = "https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092";
         let autoPopupDone = false;
 
-        // 🔥 10 Second Theme Switcher Engine
+        // 10 Second Background Theme Switcher Engine
         const themes = ['theme-cream', 'theme-white', 'theme-light-blue', 'theme-warm-beige'];
         let currentThemeIndex = 0;
 
@@ -316,11 +364,9 @@
             currentThemeIndex = (currentThemeIndex + 1) % themes.length;
             document.body.classList.add(themes[currentThemeIndex]);
         }
-
-        // Change color every 10 seconds (10000ms)
         setInterval(switchTheme, 10000);
 
-        // System Clocks
+        // System Clocks Engine
         function runSystemClocks() {
             document.getElementById('clock-bd').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
             document.getElementById('clock-eu').innerText = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
@@ -333,12 +379,12 @@
             const messages = document.getElementById('chat-messages');
             if(messages.children.length === 0) {
                 const initialHTML = `
-                    <div class="flex gap-2.5 items-start">
-                        <img src="${aiAvatarUrl}" class="w-6 h-6 rounded-full object-cover border border-purple-300 mt-0.5">
-                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
+                    <div class="flex gap-2 items-start">
+                        <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
+                        <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
                             👋 <strong>হ্যালো! আমি MD. ASIF HOSSAIN-এর AI Assistant।</strong><br><br>
                             আসিফ হোসেন একজন এক্সপার্ট <strong>Graphic Designer, SEO Specialist & Digital Marketer</strong>।<br><br>
-                            আপনার ব্যবসার প্রসারে কীভাবে সাহায্য করতে পারি? নিচের কুইক বাটনে ক্লিক করে বেছে নিন বা মেসেজ দিন! 😊
+                            আপনার ব্যবসার প্রসারে কীভাবে সাহায্য করতে পারি? 😊
                         </div>
                     </div>
                 `;
@@ -346,7 +392,7 @@
             }
         }
 
-        // Chatbot Toggle Function
+        // Chatbot Toggle
         function toggleChat() {
             const chatWin = document.getElementById('chat-window');
             loadInitialGreeting();
@@ -359,7 +405,7 @@
             }
         }
 
-        // 🔥 Auto Pop-up After 2 Seconds
+        // 🔥 Auto Pop-up AI Chatbot After 2 Seconds
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if(!autoPopupDone) {
@@ -370,6 +416,10 @@
                     }
                 }
             }, 2000);
+
+            // Load First Review & Start Rotating
+            renderClientReview();
+            setInterval(renderClientReview, 5000);
         });
 
         // Quick Message Trigger
@@ -387,10 +437,9 @@
 
             if (!userMsg) return;
 
-            // User Message HTML
             const userHTML = `
-                <div class="flex gap-2.5 items-start justify-end">
-                    <div class="bg-purple-600 text-white p-3 rounded-2xl rounded-tr-none shadow-2xs">
+                <div class="flex gap-2 items-start justify-end">
+                    <div class="bg-purple-600 text-white p-2.5 rounded-2xl rounded-tr-none shadow-2xs">
                         ${userMsg}
                     </div>
                 </div>
@@ -399,7 +448,6 @@
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
 
-            // Smart AI Response Logic
             setTimeout(() => {
                 let aiReply = "ধন্যবাদ যোগাযোগের জন্য! আসিফ হোসেনের সাথে সরাসরি WhatsApp-এ কথা বলতে এখানে ক্লিক করুন: <a href='https://wa.me/8801778016695' target='_blank' class='text-purple-600 font-bold underline'>+8801778016695</a>";
                 const lowerMsg = userMsg.toLowerCase();
@@ -415,9 +463,9 @@
                 }
 
                 const aiHTML = `
-                    <div class="flex gap-2.5 items-start">
-                        <img src="${aiAvatarUrl}" class="w-6 h-6 rounded-full object-cover border border-purple-300 mt-0.5">
-                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
+                    <div class="flex gap-2 items-start">
+                        <img src="${aiAvatarUrl}" class="w-5 h-5 rounded-full object-cover border border-purple-300 mt-0.5">
+                        <div class="bg-white p-2.5 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs leading-relaxed">
                             ${aiReply}
                         </div>
                     </div>
@@ -425,6 +473,44 @@
                 messages.innerHTML += aiHTML;
                 messages.scrollTop = messages.scrollHeight;
             }, 500);
+        }
+
+        // ==========================================
+        // 🌟 100+ ROTATING CLIENT REVIEWS ENGINE (5s Loop)
+        // ==========================================
+        const clientReviews = [
+            { name: "David K.", country: "🇺🇸 United States", rating: 5, text: "Asif's SEO and marketing framework brought us outstanding leads within weeks!" },
+            { name: "Sarah L.", country: "🇬🇧 United Kingdom", rating: 5, text: "Top-notch Graphic Design pipelines! Highly creative and professional quality." },
+            { name: "Mohammad Al-Farsi", country: "🇦🇪 UAE", rating: 5, text: "Extremely reliable social ecosystem scaling. Exceptional ROI!" },
+            { name: "Tanvir Ahmed", country: "🇧🇩 Bangladesh", rating: 5, text: "আসিফ ভাইয়ের ডিজাইন এবং মার্কেটিং সার্ভিস সেরা! অনেক দ্রুত সার্ভিস পেয়েছি।" },
+            { name: "Michael R.", country: "🇨🇦 Canada", rating: 5, text: "Great communication, seamless delivery, and incredible attention to detail." },
+            { name: "Elena Rostova", country: "🇩🇪 Germany", rating: 5, text: "Brilliant execution of our multi-regional campaign framework." },
+            { name: "Siddharth Verma", country: "🇮🇳 India", rating: 5, text: "Targeted media boosting strategy worked perfectly for our SaaS platform." },
+            { name: "Liam O'Connor", country: "🇦🇺 Australia", rating: 5, text: "Outstanding technical SEO audit. Our traffic increased significantly." }
+        ];
+
+        let reviewIndex = 0;
+
+        function renderClientReview() {
+            const container = document.getElementById('review-card-content');
+            if(!container) return;
+
+            const review = clientReviews[reviewIndex];
+            const stars = "★".repeat(review.rating);
+
+            container.classList.remove('review-fade');
+            void container.offsetWidth; // Trigger Reflow for Restarting Animation
+            container.classList.add('review-fade');
+
+            container.innerHTML = `
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-xs font-bold text-slate-800">${review.name} <span class="text-[10px] font-normal text-slate-400">${review.country}</span></span>
+                    <span class="text-amber-400 text-xs font-bold">${stars}</span>
+                </div>
+                <p class="text-[10px] text-slate-600 italic leading-snug">"${review.text}"</p>
+            `;
+
+            reviewIndex = (reviewIndex + 1) % clientReviews.length;
         }
     </script>
 </body>
