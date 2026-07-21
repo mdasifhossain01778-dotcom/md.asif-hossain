@@ -76,9 +76,10 @@
             
             <div class="flex items-center gap-2">
                 <!-- AI Assistant Button -->
-                <a href="#ai-assistant" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 transition-all flex items-center gap-1.5">
-                    <i class="fa-solid fa-robot"></i> <span class="hidden sm:inline">AI Assistant</span>
-                </a>
+                <button onclick="toggleChat()" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 transition-all flex items-center gap-2 cursor-pointer">
+                    <img src="ai-avatar.jpg" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
+                    <span class="hidden sm:inline">AI Assistant</span>
+                </button>
                 <!-- WhatsApp Button -->
                 <a href="https://wa.me/8801778016695" target="_blank" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 transition-all flex items-center gap-1.5">
                     <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">WhatsApp</span>
@@ -87,10 +88,9 @@
         </div>
     </header>
 
-    <!-- Responsive Dual Clock Components -->
+    <!-- Dual Clock Components -->
     <div class="w-full bg-slate-50 border-b border-slate-200 py-4 px-4">
         <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 max-w-4xl">
-            <!-- Bangladesh Clock -->
             <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white border border-blue-100 rounded-2xl flex items-center justify-between shadow-sm group">
                 <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-blue-600 text-white text-[8px] font-bold tracking-widest uppercase rounded">Primary Node</span>
                 <div class="flex flex-col mt-1">
@@ -100,7 +100,6 @@
                 <div id="clock-bd" class="text-sm font-bold text-blue-700 mono-clock">00:00:00 AM</div>
             </div>
             
-            <!-- Global Clock -->
             <div class="w-full sm:w-1/2 relative px-4 py-3 bg-white border border-slate-200 rounded-2xl flex items-center justify-between shadow-sm group">
                 <span class="absolute -top-2.5 left-4 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-bold tracking-widest uppercase rounded">Sync Node</span>
                 <div class="flex flex-col mt-1">
@@ -121,12 +120,10 @@
             <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
             <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
             <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
-            <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
-            <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
         </div>
     </div>
 
-   <!-- Clear Full Photo & Hero Section -->
+   <!-- Hero Section -->
     <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
         <div class="mb-6 w-full max-w-md overflow-hidden rounded-3xl border-4 border-white shadow-xl bg-slate-100">
             <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl">
@@ -149,9 +146,10 @@
                 <a href="https://wa.me/8801778016695" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
-                <a href="#ai-assistant" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all">
-                    <i class="fa-solid fa-wand-magic-sparkles text-lg"></i> AI Assistant
-                </a>
+                <!-- AI Assistant Button -->
+                <button onclick="toggleChat()" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-purple-600 text-white hover:bg-purple-700 text-xs font-bold uppercase tracking-wider shadow-md transition-all cursor-pointer">
+                    <img src="ai-avatar.jpg" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-white"> AI Assistant
+                </button>
                 <a href="#services" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs transition-all">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
@@ -159,7 +157,7 @@
         </div>
     </section>
 
-    <!-- Services Architecture Grid Section -->
+    <!-- Services Section -->
     <section id="services" class="py-16 bg-slate-50 border-y border-slate-200/70">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12">
@@ -168,170 +166,59 @@
             </div>
 
             <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <div onclick="openServicePage('gd')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <div onclick="openServicePage('seo')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <div onclick="openServicePage('sms')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
-                <div onclick="openServicePage('boost')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
+                <div class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
                     <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
                     <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
-                </div>
-                <div onclick="openServicePage('camp')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
-                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-bullseye"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Strategic Ad Campaigns</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">End-to-end full funnel deployment across global networks and server tracking.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
-                </div>
-                <div onclick="openServicePage('de')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
-                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-database"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Data Entry & Research</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Highly accurate database mining, CRM cleaning, and custom tracking setup.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
-                </div>
-                <div onclick="openServicePage('lg')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
-                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-filter-list"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">B2B Lead Generation</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Targeted executive data collection, verified corporate emails routing loops.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
-                </div>
-                <div onclick="openServicePage('oe')" class="service-card bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400 shadow-xs">
-                    <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-gears"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Operational Automation</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Task sync orchestration, custom workspace layouts, and automated records lines.</p>
-                    <span class="text-[10px] font-bold text-blue-600 inline-flex items-center gap-1 uppercase tracking-wider">Inspect <i class="fa-solid fa-chevron-right text-[7px]"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Media Connections Section -->
+    <!-- Social Connections Section -->
     <section id="socials" class="py-12 bg-white">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-8">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Connect Networks</h2>
-                <p class="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest mt-1 font-bold">Official Social Media & Communication Channels</p>
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto">
-                <!-- WhatsApp Icon -->
                 <a href="https://wa.me/8801778016695" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white transition-all shadow-xs">
                     <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
                 </a>
-                <!-- AI Assistant Icon -->
-                <a href="#ai-assistant" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white transition-all shadow-xs">
-                    <i class="fa-solid fa-bot text-lg"></i> AI Assistant
-                </a>
-                <!-- Facebook -->
+                <button onclick="toggleChat()" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white transition-all shadow-xs cursor-pointer">
+                    <img src="ai-avatar.jpg" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
+                    AI Assistant
+                </button>
                 <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white transition-all shadow-xs">
                     <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
                 </a>
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white transition-all shadow-xs">
                     <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
                 </a>
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/asifhossain2002_/?hl=en" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-pink-50 border border-pink-100 text-pink-600 font-bold text-xs uppercase tracking-wider hover:bg-pink-600 hover:text-white transition-all shadow-xs">
-                    <i class="fa-brands fa-instagram text-lg"></i> Instagram
-                </a>
-                <!-- X / Twitter -->
-                <a href="https://x.com/hossain_mdasif" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white transition-all shadow-xs">
-                    <i class="fa-brands fa-x-twitter text-lg"></i> Twitter / X
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Global Client Network Portfolio Grid -->
-    <section id="companies" class="py-16 bg-[#faf8f5]">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Enterprise Client Matrix</h2>
-                <p class="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest mt-2 font-bold">Verified Global Organizations & Locations</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-building"></i></div>
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">New York, USA</span>
-                    </div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Apex Digital Solutions</h4>
-                    <p class="text-slate-500 text-xs">Deployed targeted full-funnel scale architecture.</p>
-                </div>
-
-                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-store"></i></div>
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">France</span>
-                    </div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Lumiere Media Group</h4>
-                    <p class="text-slate-500 text-xs">Premium asset vector graphics design pipeline.</p>
-                </div>
-
-                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-network-wired"></i></div>
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">Malaysia</span>
-                    </div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">KL Logistics Sync</h4>
-                    <p class="text-slate-500 text-xs">Automated cross-workspace workflow arrays.</p>
-                </div>
-
-                <div class="company-card bg-white border border-slate-200 p-5 rounded-2xl shadow-xs hover:border-blue-500 hover:shadow-sm">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-md"><i class="fa-solid fa-globe"></i></div>
-                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 uppercase">Dubai, UAE</span>
-                    </div>
-                    <h4 class="text-sm sm:text-base font-bold text-slate-950 mb-1">Gulf Coast Ventures</h4>
-                    <p class="text-slate-500 text-xs">Targeted ad placement budget optimization loops.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- World Hub Graphic Engine Section -->
+    <!-- Global Map & Contact -->
     <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200/80">
         <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
             <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight text-slate-900">Active Node Deployment Hub</h2>
-            <p class="text-center text-slate-400 text-[10px] sm:text-xs mb-10 uppercase tracking-widest font-bold">Panoramic Interface Tracking Globally Executed Node Connections</p>
-            
-            <div class="w-full bg-white border border-slate-200/80 p-2 sm:p-4 rounded-3xl relative overflow-hidden shadow-xs min-h-[280px] sm:min-h-[420px] flex items-center justify-center">
-                <div class="absolute top-3 left-3 text-[8px] sm:text-[10px] font-mono text-slate-500 tracking-wider uppercase z-10 bg-slate-50 px-2.5 py-1 rounded border border-slate-200">
-                    <i class="fa-solid fa-globe animate-spin text-blue-600 mr-1.5"></i> Orbit Sync Active
-                </div>
-                
-                <div class="w-full h-full flex items-center justify-center overflow-x-auto">
-                    <svg id="interactive-world-canvas" class="w-full min-w-[600px] max-w-[950px] h-auto opacity-90 moving-world-map" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M120,140 Q160,100 240,110 T340,140 T380,200 L360,260 L280,280 Z M560,100 Q620,80 720,90 T840,120 T880,180 L800,300 L700,260 Z M180,320 Q220,350 260,420 L160,450 Z M420,220 Q460,190 500,230 T560,260 L520,320 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
-                        <circle cx="720" cy="240" r="6" fill="#ef4444"/>
-                        <circle cx="720" cy="240" r="14" stroke="#ef4444" stroke-width="1.5" fill="none" class="map-pulse"/>
-                        <text x="732" y="244" fill="#ef4444" font-size="12" font-family="monospace" font-weight="bold">BD HUB</text>
-                        <!-- Node 2 (NY) -->
-                        <circle cx="220" cy="120" r="4.5" fill="#1d4ed8"/>
-                        <text x="160" y="112" fill="#64748b" font-size="9" font-family="monospace">New York</text>
-                        <!-- Node 3 (London) -->
-                        <circle cx="505" cy="100" r="4" fill="#1d4ed8"/>
-                        <text x="475" y="90" fill="#64748b" font-size="9" font-family="monospace">UK Node</text>
-                    </svg>
-                </div>
-            </div>
-            
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-white border border-slate-200 p-4 rounded-xl text-center shadow-2xs">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
@@ -345,32 +232,52 @@
         </div>
     </section>
 
-    <!-- Execution Timeline Section -->
-    <section id="experience" class="py-16 container mx-auto px-4 sm:px-6 max-w-3xl">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Execution History</h2>
-        </div>
-        <div class="relative border-l-2 border-slate-200/80 ml-2 sm:ml-6 space-y-8">
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute left-[-6px] sm:left-[-9px] top-1.5 w-3.5 h-3.5 rounded-full bg-blue-600"></div>
-                <span class="text-[9px] font-bold text-blue-600 tracking-wider uppercase">Active Post</span>
-                <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">Digital Marketing & Graphic Designer Executive</h3>
-                <h4 class="text-slate-700 text-xs font-medium">Max Management and Services Limited (Max HR Group)</h4>
-                <p class="text-[11px] text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-blue-500 mr-1"></i> Banani, Dhaka</p>
-            </div>
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute left-[-6px] sm:left-[-9px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300"></div>
-                <span class="text-[9px] font-bold text-slate-400 tracking-wider uppercase">Historic Post</span>
-                <h3 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">Digital Marketing Specialist</h3>
-                <h4 class="text-slate-700 text-xs font-medium">ATCO International</h4>
-                <p class="text-[11px] text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-slate-300 mr-1"></i> Gulshan, Dhaka</p>
-            </div>
-        </div>
-    </section>
-
     <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200">
         <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
     </footer>
+
+    <!-- ========================================== -->
+    <!-- 🔥 AI ASSISTANT POPUP CHATBOT WINDOW CORE -->
+    <!-- ========================================== -->
+    <div id="chat-window" class="fixed bottom-6 right-6 w-80 sm:w-96 bg-white border border-slate-200 rounded-3xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
+        <!-- Chat Header -->
+        <div class="bg-purple-700 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="ai-avatar.jpg" alt="AI Assistant" class="w-9 h-9 rounded-full object-cover border-2 border-white">
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-purple-700"></span>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold tracking-wider uppercase">Asif's AI Assistant</h3>
+                    <p class="text-[9px] text-purple-200">Online | Ready to Help</p>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="text-purple-200 hover:text-white text-lg font-bold cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Chat Body / Messages Area -->
+        <div id="chat-messages" class="p-4 h-72 overflow-y-auto space-y-3 bg-slate-50 text-xs">
+            <div class="flex gap-2.5 items-start">
+                <img src="ai-avatar.jpg" class="w-6 h-6 rounded-full object-cover border border-purple-300 mt-0.5">
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs">
+                    Hello! I am MD. ASIF HOSSAIN's AI Assistant. How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form onsubmit="sendMessage(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
+            <input id="chat-input" type="text" placeholder="Type a message..." class="flex-grow px-3 py-2 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-purple-600 bg-slate-50">
+            <button type="submit" class="px-3 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 transition-all cursor-pointer">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Floating Chat Trigger Button (Bottom Right) -->
+    <button onclick="toggleChat()" class="fixed bottom-6 right-6 w-14 h-14 bg-purple-600 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:bg-purple-700 hover:scale-105 transition-all cursor-pointer border-2 border-white">
+        <img src="ai-avatar.jpg" alt="AI Assistant" class="w-full h-full rounded-full object-cover">
+    </button>
 
     <!-- Operational JavaScript Engine -->
     <script>
@@ -382,16 +289,63 @@
         setInterval(runSystemClocks, 1000); 
         runSystemClocks();
 
-        // Service Highlight Pulse Cycle
-        let highlightedNodeIdx = 0;
-        function runHighlightPulse() {
-            const cards = document.querySelectorAll('.service-card');
-            if(cards.length === 0) return;
-            cards.forEach((card, i) => { card.classList.toggle('service-pulse-active', i === highlightedNodeIdx); });
-            highlightedNodeIdx = (highlightedNodeIdx + 1) % cards.length;
+        // Chatbot Toggle Function
+        function toggleChat() {
+            const chatWin = document.getElementById('chat-window');
+            if (chatWin.classList.contains('hidden')) {
+                chatWin.classList.remove('hidden');
+                chatWin.classList.add('flex');
+            } else {
+                chatWin.classList.add('hidden');
+                chatWin.classList.remove('flex');
+            }
         }
-        setInterval(runHighlightPulse, 1200); 
-        runHighlightPulse();
+
+        // Chatbot Messaging Engine
+        function sendMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const userMsg = input.value.trim();
+
+            if (!userMsg) return;
+
+            // User Message HTML
+            const userHTML = `
+                <div class="flex gap-2.5 items-start justify-end">
+                    <div class="bg-purple-600 text-white p-3 rounded-2xl rounded-tr-none shadow-2xs">
+                        ${userMsg}
+                    </div>
+                </div>
+            `;
+            messages.innerHTML += userHTML;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            // Simulated AI Response
+            setTimeout(() => {
+                let aiReply = "Thank you for reaching out! Asif Hossain offers Graphic Design, SEO, Social Media Marketing, and Lead Generation services. Feel free to contact via WhatsApp at +8801778016695.";
+                
+                if(userMsg.toLowerCase().includes("hello") || userMsg.toLowerCase().includes("hi")) {
+                    aiReply = "Hello! How can I assist you regarding Asif's digital marketing or graphic design services?";
+                } else if(userMsg.toLowerCase().includes("service") || userMsg.toLowerCase().includes("work")) {
+                    aiReply = "Asif specializes in High-Fidelity Graphics, Technical SEO, Social Media Ecosystems, and B2B Lead Generation.";
+                } else if(userMsg.toLowerCase().includes("contact") || userMsg.toLowerCase().includes("phone") || userMsg.toLowerCase().includes("whatsapp")) {
+                    aiReply = "You can directly contact Asif via WhatsApp at +8801778016695 or email elhasshossain@gmail.com.";
+                }
+
+                const aiHTML = `
+                    <div class="flex gap-2.5 items-start">
+                        <img src="ai-avatar.jpg" class="w-6 h-6 rounded-full object-cover border border-purple-300 mt-0.5">
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 shadow-2xs">
+                            ${aiReply}
+                        </div>
+                    </div>
+                `;
+                messages.innerHTML += aiHTML;
+                messages.scrollTop = messages.scrollHeight;
+            }, 600);
+        }
     </script>
 </body>
 </html>
