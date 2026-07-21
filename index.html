@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Share+Tech+Mono&family=Cinzel:wght@600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Leaflet CSS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <!-- PWA Manifest Link -->
     <link rel="manifest" href="manifest.json">
 
@@ -163,6 +166,51 @@
         .card-3d:hover {
             transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale3d(1.02, 1.02, 1.02);
         }
+
+        /* Round Spinning Globe Styling */
+        .globe-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: inset -25px -25px 40px rgba(0,0,0,0.8), 0 0 30px rgba(59, 130, 246, 0.4);
+            overflow: hidden;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            background: #000;
+        }
+
+        @keyframes rotateGlobe {
+            0% { background-position: 0 0; }
+            100% { background-position: 630px 0; }
+        }
+
+        .globe-sphere {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-repeat: repeat-x;
+            animation: rotateGlobe 20s linear infinite;
+        }
+
+        /* Floating Pin Animation on Globe */
+        .globe-pin {
+            position: absolute;
+            top: 45%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        /* Interactive Map Container inside Modal/Section */
+        #interactive-map {
+            height: 350px;
+            width: 100%;
+            border-radius: 1rem;
+        }
     </style>
 </head>
 <body class="theme-cream min-h-screen relative overflow-x-hidden antialiased">
@@ -175,6 +223,20 @@
         <video autoplay loop muted playsinline>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-31782-large.mp4" type="video/mp4">
         </video>
+    </div>
+
+    <!-- Auto Popup Notification Toast (Triggered after 2s) -->
+    <div id="auto-toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-500 max-w-sm bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3">
+        <div class="p-2.5 bg-blue-600 rounded-xl">
+            <i class="fa-solid fa-bell text-white text-lg"></i>
+        </div>
+        <div>
+            <h4 class="text-xs font-bold text-blue-400 uppercase tracking-wider">Welcome Notice</h4>
+            <p class="text-xs text-slate-200 mt-0.5">স্বাগতম! যেকোনো তথ্যের জন্য আমাদের সাথে সরাসরি যোগাযোগ করুন।</p>
+        </div>
+        <button onclick="closeToast()" class="text-slate-400 hover:text-white ml-auto cursor-pointer">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
     </div>
 
     <!-- Sticky Navigation Bar -->
@@ -194,7 +256,7 @@
                 <a href="#dashboard" class="hover:text-blue-600 transition-colors" data-lang-en="Dashboard" data-lang-bn="ড্যাশবোর্ড">Dashboard</a>
                 <a href="#casestudies" class="hover:text-blue-600 transition-colors" data-lang-en="Case Studies" data-lang-bn="কেস স্টাডি">Case Studies</a>
                 <a href="#portfolio" class="hover:text-blue-600 transition-colors" data-lang-en="Achievements" data-lang-bn="সাফল্য">Achievements</a>
-                <a href="#workprocess" class="hover:text-blue-600 transition-colors" data-lang-en="Process" data-lang-bn="প্রক্রিয়া">Process</a>
+                <a href="#workprocess" class="hover:text-blue-600 transition-colors" data-lang-en="Process" data-lang-bn="প্রক্রিয়া">Process</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors" data-lang-en="Global Map" data-lang-bn="গ্লোবাল ম্যাপ">Global Map</a>
             </nav>
             
@@ -337,6 +399,43 @@
                 <a href="#services" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-slate-200 hover:border-orange-400 text-slate-700 text-xs font-bold uppercase tracking-wider shadow-xs">
                     Explore Matrix <i class="fa-solid fa-arrow-down"></i>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Round 3D Globe & Interactive Map Section -->
+    <section id="contact" class="py-16 bg-slate-950 text-white relative border-y border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 max-w-6xl text-center">
+            <div class="mb-10">
+                <span class="px-3 py-1 bg-blue-600/30 border border-blue-500/30 text-blue-400 text-[10px] font-bold rounded-full uppercase tracking-wider">3D Rotating Globe</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-2">Global Operations & Location Pin</h2>
+                <p class="text-slate-400 text-xs max-w-xl mx-auto">আমাদের অবস্থান ও আন্তর্জাতিক সার্ভিস নোডগুলো গোলাকার ঘূর্ণায়মান গ্লোবে পিন সহ দেখুন। বিস্তারিত দেখতে মানচিত্রে জুম করুন।</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Round Rotating Globe Container -->
+                <div class="flex flex-col items-center justify-center p-6 bg-slate-900/60 rounded-3xl border border-slate-800 backdrop-blur-md">
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-widest mb-6"><i class="fa-solid fa-earth-americas text-blue-500 mr-2"></i> Interactive 3D Globe</h3>
+                    <div class="globe-wrapper">
+                        <div class="globe-sphere"></div>
+                        <!-- Pinned location marker over globe -->
+                        <div class="globe-pin bounce-pin" onclick="zoomToBD()" title="Dhaka HQ Pinged">
+                            <i class="fa-solid fa-location-dot text-red-500 text-3xl drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"></i>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-6"><i class="fa-solid fa-circle-info text-blue-400"></i> লাল পিনে ক্লিক করে ঢাকা হেডকোয়ার্টার্স জুম করুন।</p>
+                </div>
+
+                <!-- Zoomable Interactive Map -->
+                <div class="p-6 bg-slate-900/60 rounded-3xl border border-slate-800 backdrop-blur-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-sm font-bold text-slate-300 uppercase tracking-widest"><i class="fa-solid fa-map-location-dot text-emerald-400 mr-2"></i> Precision Map Zoom</h3>
+                        <button onclick="zoomToBD()" class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-all cursor-pointer">
+                            <i class="fa-solid fa-location-crosshairs mr-1"></i> Zoom Dhaka
+                        </button>
+                    </div>
+                    <div id="interactive-map"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -497,29 +596,29 @@
                             <p class="text-xs font-semibold text-slate-700">Monthly Leads: ~350</p>
                         </div>
                         <div class="pl-2">
-                            <span class="text-[10px] uppercase font-bold text-emerald-600 block mb-1">✅ After Execution</span>
-                            <p class="text-xs font-semibold text-slate-900">Conversion Rate: 4.8%</p>
-                            <p class="text-xs font-semibold text-slate-900">Monthly Leads: ~1,850</p>
+                            <span class="text-[10px] uppercase font-bold text-emerald-600 block mb-1">✅ After Revamp</span>
+                            <p class="text-xs font-extrabold text-emerald-600">Conversion Rate: 4.8%</p>
+                            <p class="text-xs font-extrabold text-emerald-600">Monthly Leads: 2,400+</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Case Study 2 -->
                 <div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-sm zoom-hover">
-                    <span class="px-3 py-1 bg-purple-50 text-purple-700 text-[10px] font-bold rounded-md">E-Commerce & Retail</span>
-                    <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">UI/UX Redesign & ROAS Scaling</h3>
-                    <p class="text-slate-600 text-xs mb-6">Complete visual overhaul, high-fidelity graphics integration, and targeted media ad scaling.</p>
+                    <span class="px-3 py-1 bg-purple-50 text-purple-700 text-[10px] font-bold rounded-md">E-Commerce Ecosystem</span>
+                    <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2">Global Media Scale & ROAS Acceleration</h3>
+                    <p class="text-slate-600 text-xs mb-6">Implemented programmatic ad buying and retargeting workflows for rapid revenue growth.</p>
                     
                     <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
                         <div class="border-r border-slate-200 pr-2">
                             <span class="text-[10px] uppercase font-bold text-red-500 block mb-1">❌ Before Setup</span>
-                            <p class="text-xs font-semibold text-slate-700">ROAS: 1.4x</p>
-                            <p class="text-xs font-semibold text-slate-700">Monthly Revenue: $18K</p>
+                            <p class="text-xs font-semibold text-slate-700">Ad ROAS: 1.8x</p>
+                            <p class="text-xs font-semibold text-slate-700">CPA Cost: $18.50</p>
                         </div>
                         <div class="pl-2">
-                            <span class="text-[10px] uppercase font-bold text-emerald-600 block mb-1">✅ After Execution</span>
-                            <p class="text-xs font-semibold text-slate-900">ROAS: 4.2x</p>
-                            <p class="text-xs font-semibold text-slate-900">Monthly Revenue: $85K</p>
+                            <span class="text-[10px] uppercase font-bold text-emerald-600 block mb-1">✅ After Revamp</span>
+                            <p class="text-xs font-extrabold text-emerald-600">Ad ROAS: 5.4x</p>
+                            <p class="text-xs font-extrabold text-emerald-600">CPA Cost: $5.20</p>
                         </div>
                     </div>
                 </div>
@@ -527,384 +626,37 @@
         </div>
     </section>
 
-    <!-- Work Process (Step 1 -> Step 5) -->
-    <section id="workprocess" class="py-16 bg-white/40 border-y border-slate-200">
-        <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
-            <div class="text-center mb-12">
-                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full uppercase tracking-wider">Methodology</span>
-                <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-2">Work Process (Step 1 → Step 5)</h2>
-                <p class="text-slate-500 text-xs">Structured pipeline ensuring precision, speed, and exceptional ROI for every project.</p>
-            </div>
+    <!-- Leaflet JS for Map Interactivity -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <!-- Step 1 -->
-                <div class="bg-white border border-slate-200 p-5 rounded-2xl text-center zoom-hover shadow-2xs">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm mb-3">1</div>
-                    <h3 class="font-bold text-sm mb-1">Auditing & Research</h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Deep analysis of current brand infrastructure, competitors, and goals.</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="bg-white border border-slate-200 p-5 rounded-2xl text-center zoom-hover shadow-2xs">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm mb-3">2</div>
-                    <h3 class="font-bold text-sm mb-1">Strategy Design</h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Formulating custom UI blueprints, funnel architecture, and media plans.</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="bg-white border border-slate-200 p-5 rounded-2xl text-center zoom-hover shadow-2xs">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm mb-3">3</div>
-                    <h3 class="font-bold text-sm mb-1">Asset Production</h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Crafting high-fidelity graphics, copy, and technical system setups.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="bg-white border border-slate-200 p-5 rounded-2xl text-center zoom-hover shadow-2xs">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm mb-3">4</div>
-                    <h3 class="font-bold text-sm mb-1">Execution & Scale</h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Launching campaigns, activating traffic loops, and optimizing conversion rates.</p>
-                </div>
-                <!-- Step 5 -->
-                <div class="bg-white border border-slate-200 p-5 rounded-2xl text-center zoom-hover shadow-2xs">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm mb-3">5</div>
-                    <h3 class="font-bold text-sm mb-1">Reporting & ROI</h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Delivering transparent dashboards, analytics, and sustained growth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements, Awards, Certifications & Goals -->
-    <section id="portfolio" class="py-16 bg-slate-50">
-        <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2">Achievements, Awards & Certifications</h2>
-                <p class="text-slate-500 text-xs">Recognized excellence and verified professional accreditations.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <!-- Achievements & Awards -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm">
-                    <div class="text-amber-500 text-2xl mb-3"><i class="fa-solid fa-trophy"></i></div>
-                    <h3 class="text-base font-bold mb-3">🏆 Achievements & Awards</h3>
-                    <ul class="space-y-2 text-xs text-slate-600">
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Top Rated Digital Marketing Architect (2025-2026)</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Enterprise Campaign Excellence Award</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 1,200+ Successfully Delivered Projects Worldwide</li>
-                    </ul>
-                </div>
-
-                <!-- Certifications -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm">
-                    <div class="text-blue-600 text-2xl mb-3"><i class="fa-solid fa-certificate"></i></div>
-                    <h3 class="text-base font-bold mb-3">📜 Certifications</h3>
-                    <ul class="space-y-2 text-xs text-slate-600">
-                        <li><i class="fa-solid fa-shield-check text-blue-600 mr-2"></i> Google Certified Digital Marketing Professional</li>
-                        <li><i class="fa-solid fa-shield-check text-blue-600 mr-2"></i> Advanced UI/UX & Graphics System Specialist</li>
-                        <li><i class="fa-solid fa-shield-check text-blue-600 mr-2"></i> Meta Certified Media Buying Expert</li>
-                    </ul>
-                </div>
-
-                <!-- Goals & Vision -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm">
-                    <div class="text-purple-600 text-2xl mb-3"><i class="fa-solid fa-bullseye"></i></div>
-                    <h3 class="text-base font-bold mb-3">🎯 Goals & Vision</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                        Empowering cross-border enterprises with cutting-edge marketing pipelines, seamless design systems, and data-driven user acquisition frameworks.
-                    </p>
-                    <div class="text-[11px] font-bold text-purple-700 bg-purple-50 p-2 rounded-xl text-center">
-                        Vision: Setting new benchmarks in digital excellence.
-                    </div>
-                </div>
-            </div>
-
-           <!-- Clients & Brands Worked With Section -->
-<div class="clients-brands-section">
-    <h2>Clients & Brands Worked With</h2>
-    <ul class="client-list">
-        <!-- Newly Added Top 3 Companies -->
-        <li class="client-item featured">
-            <span class="company-name">Max Management & Services (Max Hr Group)</span>
-            <span class="company-location">Kamal Ataturk Avenue, Banani, Dhaka-1213</span>
-        </li>
-        <li class="client-item featured">
-            <span class="company-name">Atco International</span>
-            <span class="company-location">Gulshan 01 Lake Road, Dhaka</span>
-        </li>
-        <li class="client-item featured">
-            <span class="company-name">Global Trade International</span>
-            <span class="company-location">Dhaka, Azimpur</span>
-        </li>
-
-        <!-- Previous Clients & Brands (100% Retained) -->
-        <!-- আপনার আগের যতগুলো ক্লায়েন্ট/ব্র্যান্ড ছিল, তার সবগুলো এখানে অপরিবর্তিত থাকবে -->
-    </ul>
-</div>
-
-    <!-- Social Connections Section -->
-    <section id="socials" class="py-12 bg-white/60 backdrop-blur-xs transition-colors duration-1000">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Connect Networks</h2>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto">
-                <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
-                </a>
-                <button onclick="toggleChat()" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white shadow-xs cursor-pointer">
-                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
-                    AI Assistant
-                </button>
-                <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
-                </a>
-                <a href="https://x.com/hossain_mdasif" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-x-twitter text-lg"></i> Twitter
-                </a>
-                <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Map & Contact Section -->
-    <section id="contact" class="py-16 bg-white/40 border-t border-slate-200/80 transition-colors duration-1000">
-        <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight">Active Node Deployment Hub</h2>
-            <p class="text-center text-xs opacity-60 font-semibold mb-8 uppercase tracking-widest">Global Clients & Operational Strategic Locations</p>
-            
-            <div class="relative w-full bg-slate-900 rounded-3xl p-4 sm:p-8 shadow-2xl border border-slate-800 overflow-hidden mb-8">
-                <svg viewBox="0 0 1000 500" class="w-full h-auto opacity-40">
-                    <path d="M150,150 Q180,100 220,120 T300,180 T250,280 T150,220 Z" fill="#334155" />
-                    <path d="M250,300 Q300,280 340,330 T380,450 T300,480 T240,380 Z" fill="#334155" />
-                    <path d="M450,120 Q500,80 580,110 T620,200 T520,240 T440,180 Z" fill="#334155" />
-                    <path d="M460,250 Q520,220 580,280 T600,420 T500,450 T450,320 Z" fill="#334155" />
-                    <path d="M620,100 Q720,80 820,120 T880,250 T780,320 T650,220 Z" fill="#334155" />
-                    <path d="M780,350 Q850,330 890,380 T850,460 T760,420 Z" fill="#334155" />
-                </svg>
-
-                <div class="absolute top-[41%] left-[71%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-red-500 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-red-500 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-red-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-red-400 whitespace-nowrap">
-                        🇧🇩 Bangladesh (HQ)
-                    </span>
-                </div>
-
-                <div class="absolute top-[38%] left-[69.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-blue-500 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-blue-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(96,165,250,0.8)]" style="animation-delay: 0.4s;">
-                            <i class="fa-solid fa-building-flag"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-blue-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-blue-400 whitespace-nowrap">
-                        🏢 Walton Node
-                    </span>
-                </div>
-
-                <div class="absolute top-[43%] left-[61%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-amber-400 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-amber-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]" style="animation-delay: 0.8s;">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-amber-500/90 text-slate-950 text-[9px] font-black rounded-md shadow-lg tracking-wider border border-amber-300 whitespace-nowrap">
-                        🇦🇪 Dubai (UAE)
-                    </span>
-                </div>
-
-                <div class="absolute top-[52%] left-[75.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-emerald-400 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-emerald-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]" style="animation-delay: 1.2s;">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-emerald-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-emerald-400 whitespace-nowrap">
-                        🇲🇾 Malaysia
-                    </span>
-                </div>
-            </div>
-
-            <!-- Free Quote Form & Newsletter Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- Free Quote Form -->
-                <div class="bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-sm">
-                    <h3 class="text-lg font-bold mb-1">📝 Request a Free Quote</h3>
-                    <p class="text-xs text-slate-500 mb-4">Get a customized proposal for your marketing & design needs.</p>
-                    <form onsubmit="submitQuote(event)" class="space-y-3">
-                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-600">
-                        <input type="email" placeholder="Your Email Address" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-600">
-                        <textarea placeholder="Project Details & Requirements" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-blue-600"></textarea>
-                        <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">Submit Free Quote Request</button>
-                    </form>
-                </div>
-
-                <!-- Newsletter Subscription -->
-                <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-between shadow-xl">
-                    <div>
-                        <h3 class="text-lg font-bold mb-1" data-lang-en="Subscribe to Weekly Insights" data-lang-bn="সাপ্তাহিক নিউজলেটারে সাবস্ক্রাইব করুন">Subscribe to Weekly Insights</h3>
-                        <p class="text-xs text-blue-200 mb-6" data-lang-en="Get marketing strategies & UI/UX updates directly to your inbox." data-lang-bn="আপনার ইনবক্সে সরাসরি মারকেটিং কৌশল এবং ডিজাইনের আপডেট পান।">Get marketing strategies & UI/UX updates directly to your inbox.</p>
-                    </div>
-                    <form onsubmit="subscribeNewsletter(event)" class="space-y-3">
-                        <input type="email" placeholder="Enter your email address" required class="w-full px-4 py-2.5 rounded-xl text-xs bg-white text-slate-800 focus:outline-none">
-                        <button type="submit" class="w-full py-3 bg-orange-500 hover:bg-orange-600 font-bold text-xs rounded-xl uppercase tracking-wider transition-all cursor-pointer">Subscribe Now</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
-                    <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
-                </div>
-                <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">Direct Secure Data Pipeline</span>
-                    <p class="text-xs font-mono font-bold text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scroll-to-Top Button -->
-    <button onclick="scrollToTop()" id="scroll-top-btn" class="fixed bottom-6 right-6 z-40 hidden p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all cursor-pointer" title="Scroll to Top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- Footer with Admin Panel Link -->
-    <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200 relative">
-        <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
-        <button onclick="openAdminPanel()" class="mt-2 text-slate-500 hover:text-slate-800 text-[10px] underline cursor-pointer"><i class="fa-solid fa-lock"></i> Admin Panel (Visual Editor)</button>
-    </footer>
-
-    <!-- LIVE CLIENT REVIEWS WINDOW -->
-    <div id="review-window" class="fixed bottom-20 left-6 w-72 sm:w-80 bg-white/95 backdrop-blur-md border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
-        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-2">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-award text-amber-500 text-sm"></i>
-                <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-800">Verified Client Review</span>
-            </div>
-            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">100+ Verified</span>
-        </div>
-        <div id="review-card-content" class="review-fade"></div>
-    </div>
-
-    <!-- VOICE AI & COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
-    <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
-        <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
-            <div class="flex items-center gap-2.5">
-                <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI" class="w-7 h-7 rounded-full object-cover border border-white">
-                <div>
-                    <h4 class="text-xs font-bold">Asif's AI Assistant</h4>
-                    <span class="text-[9px] text-purple-200">Online & Ready</span>
-                </div>
-            </div>
-            <button onclick="toggleChat()" class="text-white hover:text-purple-200 text-xs cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-2.5 text-xs bg-slate-50">
-            <div class="bg-purple-100 text-purple-900 p-2.5 rounded-xl rounded-tl-xs max-w-[85%]">
-                Hello! I am Asif Hossain's AI assistant. How can I help you with digital marketing, UI/UX design, or booking a consultation today?
-            </div>
-        </div>
-        <div class="p-2.5 bg-white border-t border-slate-200 flex gap-2">
-            <input type="text" id="chat-input" placeholder="Type a message..." class="flex-grow px-3 py-1.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-            <button onclick="sendMessage()" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold cursor-pointer"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <!-- Free Consultation Modal -->
-    <div id="consultation-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openConsultationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-            <h3 class="text-xl font-extrabold mb-1">📅 Book Free Consultation</h3>
-            <p class="text-xs text-slate-500 mb-6">Schedule a 1-on-1 strategy call with MD. Asif Hossain.</p>
-            <form onsubmit="bookConsultation(event)" class="space-y-3.5">
-                <input type="text" placeholder="Full Name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                <input type="email" placeholder="Email Address" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                <input type="date" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                    <option>Digital Marketing Strategy</option>
-                    <option>UI/UX & Graphics Design</option>
-                    <option>Enterprise B2B Growth</option>
-                </select>
-                <button type="submit" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">Confirm Booking</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Free Resource Download Modal -->
-    <div id="resource-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openResourceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-            <h3 class="text-xl font-extrabold mb-1">🎁 Free Resource Download</h3>
-            <p class="text-xs text-slate-500 mb-6">Get our exclusive eBook & Marketing Checklist instantly.</p>
-            <form onsubmit="downloadResource(event)" class="space-y-3.5">
-                <input type="text" placeholder="Your Name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                <input type="email" placeholder="Email Address for Delivery" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-                <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">Download eBook & Checklist</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Online CV Modal -->
-    <div id="cv-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative review-fade max-h-[90vh] overflow-y-auto">
-            <button onclick="openCVModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-            <h3 class="text-xl font-extrabold mb-1">MD. ASIF HOSSAIN - Curriculum Vitae</h3>
-            <p class="text-xs text-slate-500 mb-6">Enterprise Marketing & Design Professional</p>
-            
-            <div class="space-y-4 text-xs text-slate-700">
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-slate-900 mb-1">Professional Summary</h4>
-                    <p>Expert in multi-regional user acquisition, conversion rate optimization, high-fidelity graphics systems, and enterprise brand scaling.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-slate-900 mb-1">Core Expertise</h4>
-                    <p>Digital Marketing Architecture, UI/UX System Design, Paid Media Scaling, Technical SEO Auditing.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Admin Panel Modal -->
-    <div id="admin-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openAdminPanel()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-            <h3 class="text-xl font-extrabold mb-1">🔐 Admin Visual Editor</h3>
-            <p class="text-xs text-slate-500 mb-6">Customize platform theme & configuration parameters.</p>
-            <div class="space-y-3">
-                <label class="block text-xs font-bold text-slate-700">Select Theme Scheme:</label>
-                <div class="grid grid-cols-2 gap-2">
-                    <button onclick="setTheme('theme-cream')" class="p-2 bg-amber-50 border rounded-xl text-xs font-bold">Cream Theme</button>
-                    <button onclick="setTheme('theme-white')" class="p-2 bg-white border rounded-xl text-xs font-bold">Pure White</button>
-                    <button onclick="setTheme('theme-light-blue')" class="p-2 bg-blue-50 border rounded-xl text-xs font-bold">Light Blue</button>
-                    <button onclick="setTheme('theme-warm-beige')" class="p-2 bg-stone-100 border rounded-xl text-xs font-bold">Warm Beige</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Scripts -->
     <script>
-        // Language Toggle State
-        let currentLang = 'en';
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'bn' : 'en';
-            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? 'BN' : 'EN';
-            document.querySelectorAll('[data-lang-en]').forEach(el => {
-                el.innerText = el.getAttribute(`data-lang-${currentLang}`);
-            });
+        // Clocks logic
+        function updateClocks() {
+            const now = new Date();
+            
+            // BD Clock (GMT+6)
+            const bdOptions = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('clock-bd').innerText = new Intl.DateTimeFormat('en-US', bdOptions).format(now);
+            
+            // EU Clock (GMT+1)
+            const euOptions = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('clock-eu').innerText = new Intl.DateTimeFormat('en-US', euOptions).format(now);
         }
+        setInterval(updateClocks, 1000);
+        updateClocks();
 
-        // Typing Text Effect
-        const words = ["Enterprise Marketing Architect", "UI/UX & Graphics Specialist", "Growth & Conversion Expert"];
-        let i = 0;
-        let timer;
+        // Reading Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+        };
+
+        // Typing Effect Logic
+        const words = ["Enterprise Marketing Strategist", "UI/UX & Visual Designer", "Conversion Optimization Specialist", "Full-Funnel Data Architect"];
+        let i = 0, timer;
+
         function typingEffect() {
             let word = words[i].split("");
             var loopTyping = function() {
@@ -918,6 +670,7 @@
             };
             loopTyping();
         }
+
         function deletingEffect() {
             let word = words[i].split("");
             var loopDeleting = function() {
@@ -925,7 +678,11 @@
                     word.pop();
                     document.getElementById('typing-text').innerHTML = word.join("");
                 } else {
-                    i = (i + 1) % words.length;
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
                     setTimeout(typingEffect, 500);
                     return false;
                 }
@@ -933,169 +690,55 @@
             };
             loopDeleting();
         }
-        document.addEventListener("DOMContentLoaded", () => { typingEffect(); });
+        typingEffect();
 
-        // Dual Clocks (BD and EU)
-        function updateClocks() {
-            const now = new Date();
-            
-            // BD Clock (GMT+6)
-            const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
-            document.getElementById('clock-bd').innerText = bdTime.toLocaleTimeString();
+        // Auto SMS/Toast Notification after 2 seconds
+        setTimeout(() => {
+            const toast = document.getElementById('auto-toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+        }, 2000);
 
-            // EU Clock (UK GMT+1 in summer)
-            const euTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" }));
-            document.getElementById('clock-eu').innerText = euTime.toLocaleTimeString();
+        function closeToast() {
+            const toast = document.getElementById('auto-toast');
+            toast.classList.add('translate-y-20', 'opacity-0');
+            toast.classList.remove('translate-y-0', 'opacity-100');
         }
-        setInterval(updateClocks, 1000);
-        updateClocks();
 
-        // Reading Progress Bar & Scroll-to-Top Button
-        window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('reading-progress').style.width = scrolled + '%';
+        // Initialize Interactive Map with Pinned Coordinates & Auto Zoom
+        let map;
+        const dhakaCoords = [23.8103, 90.4125];
 
-            const scrollBtn = document.getElementById('scroll-top-btn');
-            if (winScroll > 300) {
-                scrollBtn.classList.remove('hidden');
-            } else {
-                scrollBtn.classList.add('hidden');
-            }
+        document.addEventListener("DOMContentLoaded", function() {
+            map = L.map('interactive-map').setView(dhakaCoords, 4);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add Pinned Marker on Dhaka
+            const marker = L.marker(dhakaCoords).addTo(map);
+            marker.bindPopup("<b>MD. ASIF HOSSAIN HQ</b><br>Dhaka, Bangladesh Node").openPopup();
         });
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Live Reviews Rotation
-        const reviews = [
-            { name: "Johnathan Miller", text: "Asif transformed our digital acquisition funnel with incredible precision!", rating: "⭐⭐⭐⭐⭐" },
-            { name: "Tanvir Ahmed", text: "Exceptional UI graphics and top-tier marketing architecture.", rating: "⭐⭐⭐⭐⭐" },
-            { name: "Sarah Al-Maktoum", text: "Outstanding cross-border campaign execution and ROI scaling!", rating: "⭐⭐⭐⭐⭐" }
-        ];
-        let reviewIndex = 0;
-        function updateReviewCard() {
-            const rev = reviews[reviewIndex];
-            document.getElementById('review-card-content').innerHTML = `
-                <p class="text-xs text-slate-700 italic mb-2">"${rev.text}"</p>
-                <div class="flex justify-between items-center text-[10px] font-bold">
-                    <span class="text-slate-900">${rev.name}</span>
-                    <span>${rev.rating}</span>
-                </div>
-            `;
-            reviewIndex = (reviewIndex + 1) % reviews.length;
-        }
-        setInterval(updateReviewCard, 4000);
-        updateReviewCard();
-
-        // AI Chatbot Toggle & Messages
-        function toggleChat() {
-            const chatWin = document.getElementById('chat-window');
-            chatWin.classList.toggle('hidden');
-            chatWin.classList.toggle('flex');
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if(!msg) return;
-
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.innerHTML += `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-xs max-w-[85%] ml-auto">${msg}</div>`;
-            input.value = '';
-
-            setTimeout(() => {
-                chatMessages.innerHTML += `<div class="bg-purple-100 text-purple-900 p-2.5 rounded-xl rounded-tl-xs max-w-[85%]">Thank you for your message! Asif Hossain's automated assistant has recorded your query. You can also reach him directly via WhatsApp.</div>`;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 800);
-        }
-
-        // Modal Controls
-        function openConsultationModal() {
-            const modal = document.getElementById('consultation-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
-
-        function openResourceModal() {
-            const modal = document.getElementById('resource-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
-
-        function openCVModal() {
-            const modal = document.getElementById('cv-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
-
-        function openAdminPanel() {
-            const modal = document.getElementById('admin-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
-
-        function setTheme(themeName) {
-            document.body.className = `${themeName} min-h-screen relative overflow-x-hidden antialiased`;
-            openAdminPanel();
-        }
-
-        function bookConsultation(e) {
-            e.preventDefault();
-            alert('Consultation booked successfully! Asif Hossain will contact you shortly.');
-            openConsultationModal();
-        }
-
-        function downloadResource(e) {
-            e.preventDefault();
-            alert('Resource sent to your email successfully!');
-            openResourceModal();
-        }
-
-        function submitQuote(e) {
-            e.preventDefault();
-            alert('Free quote request submitted successfully! We will get back to you within 24 hours.');
-            e.target.reset();
-        }
-
-        function subscribeNewsletter(e) {
-            e.preventDefault();
-            alert('Subscribed successfully to weekly insights!');
-            e.target.reset();
-        }
-
-        function requestNotification() {
-            if(Notification.permission === "granted") {
-                new Notification("MD. Asif Hossain Hub", { body: "Notifications are already enabled!" });
-            } else {
-                Notification.requestPermission().then(permission => {
-                    if(permission === "granted") {
-                        new Notification("MD. Asif Hossain Hub", { body: "Notifications enabled successfully!" });
-                    }
+        function zoomToBD() {
+            if(map) {
+                map.flyTo(dhakaCoords, 11, {
+                    duration: 2.5
                 });
             }
         }
 
-        // PWA Install Prompt
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.getElementById('pwa-install-btn').classList.remove('hidden');
-        });
+        function toggleLanguage() {
+            const langBtnText = document.getElementById('lang-btn-text');
+            const isBn = langBtnText.innerText === 'BN';
+            langBtnText.innerText = isBn ? 'EN' : 'BN';
 
-        function installPWA() {
-            if(deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if(choiceResult.outcome === 'accepted') {
-                        document.getElementById('pwa-install-btn').classList.add('hidden');
-                    }
-                    deferredPrompt = null;
-                });
-            }
+            const elements = document.querySelectorAll('[data-lang-en]');
+            elements.forEach(el => {
+                el.innerText = isBn ? el.getAttribute('data-lang-bn') : el.getAttribute('data-lang-en');
+            });
         }
     </script>
 </body>
