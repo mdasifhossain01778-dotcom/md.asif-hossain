@@ -190,11 +190,11 @@
             justify-content: center;
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
-    </text>
+    </style>
 </head>
 <body class="theme-cream min-h-screen relative overflow-x-hidden antialiased">
 
-    <!-- 💫 Smooth Page Transition / 🎉 Welcome Animation -->
+    <!-- 💫 Page Transition Loader -->
     <div id="page-loader">
         <div class="text-center">
             <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
@@ -205,10 +205,6 @@
 
     <!-- 📖 Reading Progress Bar -->
     <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-500 z-50 transition-all duration-150" id="reading-progress"></div>
-
-    <!-- 🖱️ Custom Mouse Cursor Elements -->
-    <div class="custom-cursor hidden md:block" id="cursor"></div>
-    <div class="cursor-follower hidden md:block" id="cursor-follower"></div>
 
     <!-- Background Video Container -->
     <div class="video-bg-container">
@@ -234,87 +230,15 @@
                 <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
                 <a href="#case-studies" class="hover:text-blue-600 transition-colors">Case Studies</a>
                 <a href="#process" class="hover:text-blue-600 transition-colors">Process</a>
-                <a href="#calculator" class="hover:text-blue-600 transition-colors">Pricing</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </nav>
             
             <div class="flex items-center gap-2">
-                <!-- 🌤️ Weather Widget Button -->
-                <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">
-                    <i class="fa-solid fa-cloud-sun text-amber-500"></i>
-                    <span id="weather-text">Dhaka 28°C</span>
-                </div>
-
-                <!-- 🌙 Dark/Light Mode & Theme Toggle -->
-                <button onclick="cycleTheme()" class="p-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer" title="Toggle Theme">
-                    <i class="fa-solid fa-moon" id="theme-icon"></i>
-                </button>
-
-                <!-- Multi-Language Switcher Button -->
-                <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
-                    <i class="fa-solid fa-globe mr-1"></i> <span id="lang-btn-text">BN</span>
-                </button>
-
-                <!-- Push Notification Trigger -->
-                <button onclick="requestNotification()" class="p-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 text-xs font-bold cursor-pointer" title="Enable Notifications">
-                    <i class="fa-solid fa-bell"></i>
-                </button>
-
-                <!-- PWA Install Button -->
-                <button id="pwa-install-btn" onclick="installPWA()" class="hidden px-2.5 py-1.5 rounded-xl bg-blue-100 text-blue-700 text-xs font-bold hover:bg-blue-200 cursor-pointer">
-                    <i class="fa-solid fa-download mr-1"></i> App
-                </button>
-
-                <!-- AI Assistant Button -->
-                <button onclick="toggleChat()" class="zoom-hover px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-purple-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-purple-700 flex items-center gap-2 cursor-pointer">
-                    <img src="https://ui-avatars.com/api/?name=AI&background=6b21a8&color=fff" alt="AI Assistant" class="w-5 h-5 rounded-full object-cover border border-white">
-                    <span class="hidden sm:inline">AI Assistant</span>
-                </button>
-
-                <!-- WhatsApp Button -->
                 <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider shadow-md hover:bg-emerald-700 flex items-center gap-1.5">
                     <i class="fa-brands fa-whatsapp text-sm"></i> <span class="hidden sm:inline">WhatsApp</span>
                 </a>
             </div>
         </div>
     </header>
-
-    <!-- Analytics & Live Visitor Counter Bar -->
-    <div class="bg-slate-900 text-slate-300 py-1.5 px-4 text-center text-[10px] font-mono flex justify-center items-center gap-6 border-b border-slate-800">
-        <div><i class="fa-solid fa-users text-emerald-400 mr-1"></i> Live Visitors: <span id="visitor-count" class="text-white font-bold">1,482</span></div>
-        <div><i class="fa-solid fa-chart-line text-blue-400 mr-1"></i> Today's Page Views: <span id="views-count" class="text-white font-bold">5,290</span></div>
-    </div>
-
-    <!-- Dual Clock Components with Modern Custom Themes -->
-    <div class="w-full bg-slate-50/70 border-b border-slate-200 py-4 px-4 transition-colors duration-1000">
-        <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 max-w-4xl">
-            
-            <!-- Bangladesh Theme Clock -->
-            <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-950 border-2 border-emerald-500/40 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
-                <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-red-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-300 animate-ping"></span> BD Node (HQ)
-                </span>
-                <div class="flex flex-col mt-1">
-                    <span class="text-[10px] font-bold tracking-widest text-emerald-200 uppercase">Bangladesh Standard Time</span>
-                    <span class="text-[9px] font-medium text-emerald-300/80">Dhaka GMT+6</span>
-                </div>
-                <div id="clock-bd" class="text-base font-extrabold text-amber-300 mono-clock tracking-wider">00:00:00 AM</div>
-            </div>
-            
-            <!-- European Theme Clock -->
-            <div class="w-full sm:w-1/2 relative px-5 py-3.5 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-2 border-indigo-400/30 rounded-2xl flex items-center justify-between shadow-lg text-white zoom-hover">
-                <span class="absolute -top-3 left-4 px-2.5 py-0.5 bg-indigo-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-md flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> EU Node (Sync)
-                </span>
-                <div class="flex flex-col mt-1">
-                    <span class="text-[10px] font-bold tracking-widest text-indigo-200 uppercase euro-font">UK Regional Time</span>
-                    <span class="text-[9px] font-medium text-indigo-300/80">London GMT+1</span>
-                </div>
-                <div id="clock-eu" class="text-base font-bold text-sky-300 mono-clock tracking-wider">00:00:00 AM</div>
-            </div>
-
-        </div>
-    </div>
 
     <!-- Ticker Endless Scrolling Banner -->
     <div class="w-full bg-blue-950 text-white py-2.5 overflow-hidden border-b border-blue-900 shadow-inner">
@@ -323,761 +247,74 @@
             <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
             <span><i class="fa-solid fa-globe text-orange-400 mr-2"></i> Multi-Regional Distribution Framework</span>
             <span><i class="fa-solid fa-gears text-orange-400 mr-2"></i> B2B Lead Generation Loops Online</span>
-            <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
-            <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="container mx-auto px-4 sm:px-6 pt-8 pb-12 text-center max-w-4xl flex flex-col items-center justify-center">
-        <!-- Profile Image with Periodic Shine Effect -->
-        <div class="mb-6 w-48 sm:w-56 profile-shine-container rounded-3xl border-4 border-white shadow-2xl bg-slate-100 zoom-hover tilt-card">
+        <div class="mb-6 w-48 sm:w-56 profile-shine-container rounded-3xl border-4 border-white shadow-2xl bg-slate-100 zoom-hover">
             <img src="profile.jpg" alt="MD. ASIF HOSSAIN" class="w-full h-auto object-cover rounded-2xl" onerror="this.src='https://ui-avatars.com/api/?name=Asif+Hossain&size=200'">
         </div>
 
         <div class="w-full flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-[9px] sm:text-[10px] font-bold tracking-wider uppercase mb-4">
-                <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span> Multi-Regional Distribution Framework
-            </div>
-
-            <h1 id="hero-title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
                 Global Digital Matrix <br>
                 <span class="text-blue-700 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">MD. ASIF HOSSAIN</span>
             </h1>
 
-            <!-- ⌨️ Typing Text Effect -->
-            <div class="h-8 mb-4">
-                <span class="text-lg sm:text-xl font-bold text-orange-500 font-mono" id="typing-text"></span>
-            </div>
-
-            <p id="hero-subtitle" class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal" data-lang-en="Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises." data-lang-bn="স্পেশালাইজড ইউজার এক্যুইজিশন মডেল, ডেটা প্রসেসিং এবং ফুল-ফানেল মার্কেটিং ইন্টারপ্রাইজ তৈরি করা।">
+            <p class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal">
                 Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
             </p>
 
             <div class="flex flex-wrap justify-center gap-3.5 w-full sm:w-auto px-4">
-                <a href="#consultation" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-orange-500 text-white hover:bg-orange-600 text-xs font-bold uppercase tracking-wider shadow-md">
-                    <i class="fa-solid fa-calendar-check"></i> Book Consultation
-                </a>
                 <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold uppercase tracking-wider shadow-md">
                     <i class="fa-brands fa-whatsapp text-lg"></i> Direct WhatsApp
                 </a>
-                <button onclick="openCVModal()" class="zoom-hover w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer">
-                    <i class="fa-solid fa-file-lines text-lg"></i> Online CV
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📊 Live Project & Happy Clients Animated Counter -->
-    <section class="py-10 bg-blue-900 text-white">
-        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4">
-                <i class="fa-solid fa-diagram-project text-3xl text-orange-400 mb-2"></i>
-                <h3 class="text-3xl font-extrabold font-mono counter" data-target="250">0</h3>
-                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Live Projects Counter</p>
-            </div>
-            <div class="p-4">
-                <i class="fa-solid fa-smile-beam text-3xl text-emerald-400 mb-2"></i>
-                <h3 class="text-3xl font-extrabold font-mono counter" data-target="180">0</h3>
-                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Happy Clients Counter</p>
-            </div>
-            <div class="p-4">
-                <i class="fa-solid fa-award text-3xl text-amber-400 mb-2"></i>
-                <h3 class="text-3xl font-extrabold font-mono counter" data-target="15">0</h3>
-                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Awards & Recognition</p>
-            </div>
-            <div class="p-4">
-                <i class="fa-solid fa-globe text-3xl text-sky-400 mb-2"></i>
-                <h3 class="text-3xl font-extrabold font-mono counter" data-target="12">0</h3>
-                <p class="text-xs text-blue-200 font-semibold uppercase tracking-wider mt-1">Countries Reached</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📊 Digital Marketing Dashboard Overview -->
-    <section id="dashboard" class="py-16 container mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">Digital Marketing Performance Dashboard</h2>
-            <p class="text-xs opacity-60 uppercase tracking-widest font-bold mt-1">Real-time Campaign ROI & Lead Metrics</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-xs font-bold uppercase text-slate-500">Avg. Campaign ROI</span>
-                    <span class="text-emerald-500 text-xs font-bold">+340%</span>
-                </div>
-                <h4 class="text-3xl font-extrabold text-slate-800">4.8x Return</h4>
-                <p class="text-xs text-slate-500 mt-2">Across Meta, Google Ads & B2B Funnels.</p>
-            </div>
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-xs font-bold uppercase text-slate-500">Lead Conversion Rate</span>
-                    <span class="text-blue-500 text-xs font-bold">+18.2%</span>
-                </div>
-                <h4 class="text-3xl font-extrabold text-slate-800">12,450+ Leads</h4>
-                <p class="text-xs text-slate-500 mt-2">High-intent targeted client acquisition.</p>
-            </div>
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-xs font-bold uppercase text-slate-500">Brand Reach</span>
-                    <span class="text-purple-500 text-xs font-bold">2.5M+ Views</span>
-                </div>
-                <h4 class="text-3xl font-extrabold text-slate-800">Organic & Paid</h4>
-                <p class="text-xs text-slate-500 mt-2">Cross-platform digital impressions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📈 Animated Skill Bars -->
-    <section class="py-12 bg-slate-100/60 border-y border-slate-200">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-xl font-bold text-center mb-8 uppercase tracking-widest text-slate-700">Core Expertise & Technical Skills</h2>
-            <div class="space-y-4">
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-1">
-                        <span>Digital Marketing & Meta Ads</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-2.5">
-                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-1">
-                        <span>UI/UX & High-Fidelity Graphics Design</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-2.5">
-                        <div class="bg-orange-500 h-2.5 rounded-full" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-1">
-                        <span>Search Engine Optimization (SEO) & Technical Audit</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-2.5">
-                        <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 88%"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-1">
-                        <span>Full-Funnel Lead Generation & Analytics</span>
-                        <span>92%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-2.5">
-                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 92%"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-white/40 border-y border-slate-200/70 backdrop-blur-xs transition-colors duration-1000">
+    <section id="services" class="py-16 bg-white/40 border-y border-slate-200/70">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight" data-lang-en="Operations Infrastructure" data-lang-bn="সার্ভিস ও অপারেশনস অবকাঠামো">Operations Infrastructure</h2>
-                <p class="opacity-60 text-[10px] sm:text-xs uppercase tracking-widest font-bold" data-lang-en="Select nodes to evaluate specific workflow parameters" data-lang-bn="ওয়ার্কফ্লো প্যারামিটার মূল্যায়ন করতে সার্ভিস নোড নির্বাচন করুন">Select nodes to evaluate specific workflow parameters</p>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight">Operations Infrastructure</h2>
             </div>
 
-            <div id="service-showcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+                <div class="glass-card zoom-hover p-6 rounded-2xl">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-vector-square"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
+                    <h3 class="text-base font-bold mb-1.5 text-slate-900">High-Fidelity Graphics</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Corporate identity maps, UI visual system assets, conversion mockups, and layouts.</p>
                 </div>
-                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
+                <div class="glass-card zoom-hover p-6 rounded-2xl">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Deep technical audit setups, indexing configuration, and search rank loops.</p>
+                    <h3 class="text-base font-bold mb-1.5 text-slate-900">Search Optimization</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Deep technical audit setups, indexing configuration, and search rank loops.</p>
                 </div>
-                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
+                <div class="glass-card zoom-hover p-6 rounded-2xl">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
+                    <h3 class="text-base font-bold mb-1.5 text-slate-900">Social Ecosystems</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Profile health optimization matrices, automated asset multi-scheduling matrices.</p>
                 </div>
-                <div class="service-card glass-card zoom-hover p-5 sm:p-6 rounded-2xl cursor-pointer hover:border-orange-400">
+                <div class="glass-card zoom-hover p-6 rounded-2xl">
                     <div class="text-orange-500 text-2xl mb-3"><i class="fa-solid fa-rocket"></i></div>
-                    <h3 class="text-sm sm:text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed mb-4">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
+                    <h3 class="text-base font-bold mb-1.5 text-slate-900">Targeted Media Boosting</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Paid micro-conversion routing, algorithmic lookalike scaling frameworks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 📈 Case Studies (Before → After Results) -->
-    <section id="case-studies" class="py-16 container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-4xl font-extrabold">Case Studies & Growth Results</h2>
-            <p class="text-xs opacity-60 uppercase tracking-widest font-bold mt-1">Real Client Transformations (Before → After)</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass-card p-6 rounded-2xl border border-slate-200">
-                <span class="px-3 py-1 bg-blue-100 text-blue-700 font-bold text-[10px] rounded-full uppercase">E-Commerce Brand</span>
-                <h3 class="text-lg font-bold mt-3 mb-2">Scaling Online Sales via Meta Ads</h3>
-                <div class="grid grid-cols-2 gap-4 my-4 bg-slate-50 p-4 rounded-xl text-center">
-                    <div>
-                        <p class="text-xs text-red-500 font-bold uppercase">Before</p>
-                        <p class="text-lg font-extrabold text-slate-700">1.2x ROAS</p>
-                    </div>
-                    <div>
-                        <p class="text-xs text-emerald-500 font-bold uppercase">After</p>
-                        <p class="text-lg font-extrabold text-emerald-600">4.5x ROAS</p>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-600">Rebuilt audience funnels, introduced high-converting visual creatives, and optimized budget allocation.</p>
-            </div>
-
-            <div class="glass-card p-6 rounded-2xl border border-slate-200">
-                <span class="px-3 py-1 bg-amber-100 text-amber-700 font-bold text-[10px] rounded-full uppercase">B2B Software Agency</span>
-                <h3 class="text-lg font-bold mt-3 mb-2">Organic Search & Lead Pipeline</h3>
-                <div class="grid grid-cols-2 gap-4 my-4 bg-slate-50 p-4 rounded-xl text-center">
-                    <div>
-                        <p class="text-xs text-red-500 font-bold uppercase">Before</p>
-                        <p class="text-lg font-extrabold text-slate-700">20 Leads/mo</p>
-                    </div>
-                    <div>
-                        <p class="text-xs text-emerald-500 font-bold uppercase">After</p>
-                        <p class="text-lg font-extrabold text-emerald-600">180+ Leads/mo</p>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-600">Implemented full-site technical SEO audit, high-intent landing page UX, and automated email nurturing.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 💼 Work Process (Step 1 → Step 5) -->
-    <section id="process" class="py-16 bg-slate-900 text-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-4xl font-extrabold text-amber-400">Structured Work Process</h2>
-                <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">From Strategy to Execution & Scaling</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center relative">
-                    <div class="w-8 h-8 bg-orange-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">1</div>
-                    <h4 class="font-bold text-sm mb-1">Audit & Research</h4>
-                    <p class="text-[11px] text-slate-400">Analyzing brand state, competitors & market gaps.</p>
-                </div>
-                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
-                    <div class="w-8 h-8 bg-blue-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">2</div>
-                    <h4 class="font-bold text-sm mb-1">Strategy Design</h4>
-                    <p class="text-[11px] text-slate-400">Crafting full-funnel marketing & visual roadmap.</p>
-                </div>
-                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
-                    <div class="w-8 h-8 bg-purple-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">3</div>
-                    <h4 class="font-bold text-sm mb-1">Asset Creation</h4>
-                    <p class="text-[11px] text-slate-400">Designing graphics, ad copy, & landing pages.</p>
-                </div>
-                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
-                    <div class="w-8 h-8 bg-emerald-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">4</div>
-                    <h4 class="font-bold text-sm mb-1">Campaign Launch</h4>
-                    <p class="text-[11px] text-slate-400">Deploying paid ads & SEO index loops live.</p>
-                </div>
-                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 text-center">
-                    <div class="w-8 h-8 bg-amber-500 text-white font-black rounded-full flex items-center justify-center mx-auto mb-3">5</div>
-                    <h4 class="font-bold text-sm mb-1">Scale & Optimize</h4>
-                    <p class="text-[11px] text-slate-400">Continuous A/B testing & ROI amplification.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🏆 Achievements, Awards & Certifications -->
-    <section class="py-16 container mx-auto px-4 max-w-6xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Achievements -->
-            <div>
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-trophy text-amber-500"></i> Achievements & Awards</h3>
-                <div class="space-y-4">
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <div class="p-3 bg-amber-100 text-amber-600 rounded-lg text-xl"><i class="fa-solid fa-award"></i></div>
-                        <div>
-                            <h4 class="font-bold text-sm">Top Digital Strategist 2024</h4>
-                            <p class="text-xs text-slate-500">Recognized for outstanding B2B user acquisition models.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <div class="p-3 bg-blue-100 text-blue-600 rounded-lg text-xl"><i class="fa-solid fa-star"></i></div>
-                        <div>
-                            <h4 class="font-bold text-sm">Walton Enterprise Excellence</h4>
-                            <p class="text-xs text-slate-500">Node strategic operational leadership badge.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div>
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-certificate text-blue-500"></i> Certifications</h3>
-                <div class="space-y-4">
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <div class="p-3 bg-emerald-100 text-emerald-600 rounded-lg text-xl"><i class="fa-brands fa-google"></i></div>
-                        <div>
-                            <h4 class="font-bold text-sm">Google Certified Search & Analytics Professional</h4>
-                            <p class="text-xs text-slate-500">Verified Technical SEO & Data Tracking Credential.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
-                        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-lg text-xl"><i class="fa-brands fa-meta"></i></div>
-                        <div>
-                            <h4 class="font-bold text-sm">Meta Certified Media Buying Specialist</h4>
-                            <p class="text-xs text-slate-500">Advanced Paid Traffic & Conversion Optimization.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🤝 Company Logos & Clients Worked With -->
-    <section id="companies" class="py-12 bg-slate-50 border-y border-slate-200">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">Trusted By Enterprise Brands & Global Nodes</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 opacity-75 grayscale hover:grayscale-0 transition-all">
-                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-building-flag text-blue-600 mr-2"></i>WALTON NODE</span>
-                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-globe text-emerald-600 mr-2"></i>DUBAI MEDIA HUB</span>
-                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-chart-line text-purple-600 mr-2"></i>MALAYSIA TECH</span>
-                <span class="text-lg font-black tracking-tighter text-slate-800"><i class="fa-solid fa-bolt text-amber-500 mr-2"></i>GLOBAL MATRIX</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📹 Video Testimonials Placeholder Section -->
-    <section class="py-16 container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-3xl font-extrabold">Video Testimonials</h2>
-            <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Hear directly from clients and partners</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="bg-slate-900 rounded-2xl aspect-video flex items-center justify-center text-white relative overflow-hidden group cursor-pointer shadow-lg">
-                <i class="fa-solid fa-circle-play text-5xl text-orange-500 group-hover:scale-110 transition-transform"></i>
-                <span class="absolute bottom-4 left-4 text-xs font-bold bg-black/60 px-3 py-1 rounded-full">Client Feedback - E-Com Scaling</span>
-            </div>
-            <div class="bg-slate-900 rounded-2xl aspect-video flex items-center justify-center text-white relative overflow-hidden group cursor-pointer shadow-lg">
-                <i class="fa-solid fa-circle-play text-5xl text-blue-500 group-hover:scale-110 transition-transform"></i>
-                <span class="absolute bottom-4 left-4 text-xs font-bold bg-black/60 px-3 py-1 rounded-full">Executive Review - Enterprise Growth</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 💰 Interactive Pricing Calculator & 📝 Free Quote Form -->
-    <section id="calculator" class="py-16 bg-slate-100/80 border-t border-slate-200">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl sm:text-4xl font-extrabold">Pricing Calculator & Free Quote</h2>
-                <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Estimate project cost & request instant proposal</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Calculator -->
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 class="font-bold text-base mb-4 text-slate-800"><i class="fa-solid fa-calculator text-blue-600 mr-2"></i> Select Services</h3>
-                    <div class="space-y-3">
-                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
-                            <span><input type="checkbox" class="service-calc mr-2" value="300" onchange="calculatePrice()"> High-Fidelity Graphics</span>
-                            <span class="text-blue-600 font-bold">$300</span>
-                        </label>
-                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
-                            <span><input type="checkbox" class="service-calc mr-2" value="450" onchange="calculatePrice()"> Technical SEO Audit & Setup</span>
-                            <span class="text-blue-600 font-bold">$450</span>
-                        </label>
-                        <label class="flex items-center justify-between text-xs font-semibold p-2 bg-white rounded-lg cursor-pointer">
-                            <span><input type="checkbox" class="service-calc mr-2" value="500" onchange="calculatePrice()"> Full-Funnel Paid Ads Setup</span>
-                            <span class="text-blue-600 font-bold">$500</span>
-                        </label>
-                    </div>
-
-                    <div class="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center">
-                        <span class="text-xs font-bold uppercase text-slate-500">Estimated Total:</span>
-                        <span class="text-2xl font-extrabold text-emerald-600 font-mono" id="total-price">$0</span>
-                    </div>
-                </div>
-
-                <!-- Free Quote Form -->
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 class="font-bold text-base mb-4 text-slate-800"><i class="fa-solid fa-paper-plane text-orange-500 mr-2"></i> Request Free Quote</h3>
-                    <form onsubmit="submitQuote(event)" class="space-y-3">
-                        <input type="text" placeholder="Your Full Name" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none">
-                        <input type="email" placeholder="Email Address" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none">
-                        <textarea placeholder="Describe your project goal..." rows="3" required class="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-none"></textarea>
-                        <button type="submit" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer">Submit Quote Request</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📅 Book a Free Consultation Section -->
-    <section id="consultation" class="py-16 bg-white border-t border-slate-200">
-        <div class="container mx-auto px-4 max-w-2xl text-center">
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Book a Free 1-on-1 Consultation</h2>
-            <p class="text-xs text-slate-500 uppercase tracking-widest mb-8">Discuss strategy, growth bottlenecks, and campaign scaling</p>
-            
-            <form onsubmit="bookConsultation(event)" class="glass-card p-6 rounded-2xl space-y-4 text-left">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[11px] font-bold text-slate-600 mb-1">Your Name</label>
-                        <input type="text" required class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-slate-600 mb-1">Preferred Date</label>
-                        <input type="date" required class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Topic / Primary Goal</label>
-                    <select class="w-full px-3 py-2 text-xs rounded-xl bg-slate-50 border border-slate-200">
-                        <option>Paid Ads Scaling</option>
-                        <option>UI/UX & Brand Design</option>
-                        <option>SEO Strategy</option>
-                        <option>Full Marketing Audit</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl cursor-pointer">Confirm Booking Slot</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- 🎁 Free Resource Download (eBook, Checklist) -->
-    <section class="py-12 bg-gradient-to-r from-amber-500 to-orange-600 text-white">
-        <div class="container mx-auto px-4 max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-                <span class="px-3 py-1 bg-white/20 text-white text-[10px] font-bold uppercase rounded-full">Free Download</span>
-                <h3 class="text-2xl font-extrabold mt-2">2026 Enterprise Growth & Meta Ads Checklist</h3>
-                <p class="text-xs text-amber-100 mt-1">Get the exact step-by-step checklist used to scale B2B & E-Com clients.</p>
-            </div>
-            <button onclick="downloadEbook()" class="px-6 py-3 bg-slate-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-lg cursor-pointer whitespace-nowrap">
-                <i class="fa-solid fa-download mr-2"></i> Download eBook
-            </button>
-        </div>
-    </section>
-
-    <!-- Social Connections Section -->
-    <section id="socials" class="py-12 bg-white/60 backdrop-blur-xs transition-colors duration-1000">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Connect Networks</h2>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-4 max-w-4xl mx-auto">
-                <a href="https://wa.me/8801778016695" target="_blank" class="bounce-whatsapp zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
-                </a>
-                <button onclick="toggleChat()" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-50 border border-purple-100 text-purple-600 font-bold text-xs uppercase tracking-wider hover:bg-purple-600 hover:text-white shadow-xs cursor-pointer">
-                    <img src="https://ui-avatars.com/api/?name=AI&background=6b21a8&color=fff" alt="AI Assistant" class="w-6 h-6 rounded-full object-cover border border-purple-300">
-                    AI Assistant
-                </button>
-                <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
-                </a>
-                <a href="https://x.com/hossain_mdasif" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-x-twitter text-lg"></i> Twitter
-                </a>
-                <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white shadow-xs">
-                    <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Map & Contact Section -->
-    <section id="contact" class="py-16 bg-white/40 border-t border-slate-200/80 transition-colors duration-1000">
-        <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight">Active Node Deployment Hub</h2>
-            <p class="text-center text-xs opacity-60 font-semibold mb-8 uppercase tracking-widest">Global Clients & Operational Strategic Locations</p>
-            
-            <div class="relative w-full bg-slate-900 rounded-3xl p-4 sm:p-8 shadow-2xl border border-slate-800 overflow-hidden mb-8">
-                <svg viewBox="0 0 1000 500" class="w-full h-auto opacity-40">
-                    <path d="M150,150 Q180,100 220,120 T300,180 T250,280 T150,220 Z" fill="#334155" />
-                    <path d="M250,300 Q300,280 340,330 T380,450 T300,480 T240,380 Z" fill="#334155" />
-                    <path d="M450,120 Q500,80 580,110 T620,200 T520,240 T440,180 Z" fill="#334155" />
-                    <path d="M460,250 Q520,220 580,280 T600,420 T500,450 T450,320 Z" fill="#334155" />
-                    <path d="M620,100 Q720,80 820,120 T880,250 T780,320 T650,220 Z" fill="#334155" />
-                    <path d="M780,350 Q850,330 890,380 T850,460 T760,420 Z" fill="#334155" />
-                </svg>
-
-                <div class="absolute top-[41%] left-[71%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-red-500 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-red-500 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-red-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-red-400 whitespace-nowrap">
-                        🇧🇩 Bangladesh (HQ)
-                    </span>
-                </div>
-
-                <div class="absolute top-[38%] left-[69.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-blue-500 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-blue-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(96,165,250,0.8)]" style="animation-delay: 0.4s;">
-                            <i class="fa-solid fa-building-flag"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-blue-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-blue-400 whitespace-nowrap">
-                        🏢 Walton Node
-                    </span>
-                </div>
-
-                <div class="absolute top-[43%] left-[61%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-amber-400 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-amber-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]" style="animation-delay: 0.8s;">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-amber-500/90 text-slate-950 text-[9px] font-black rounded-md shadow-lg tracking-wider border border-amber-300 whitespace-nowrap">
-                        🇦🇪 Dubai (UAE)
-                    </span>
-                </div>
-
-                <div class="absolute top-[52%] left-[75.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
-                    <div class="relative flex items-center justify-center">
-                        <span class="absolute w-8 h-8 bg-emerald-400 rounded-full opacity-75 pulse-ring"></span>
-                        <div class="bounce-pin text-emerald-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]" style="animation-delay: 1.2s;">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    <span class="mt-1 px-2 py-0.5 bg-emerald-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-emerald-400 whitespace-nowrap">
-                        🇲🇾 Malaysia
-                    </span>
-                </div>
-            </div>
-
-            <!-- Newsletter Subscription Section -->
-            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-6 text-white text-center shadow-xl mb-8">
-                <h3 class="text-lg font-bold mb-1" data-lang-en="Subscribe to Weekly Insights" data-lang-bn="সাপ্তাহিক নিউজলেটারে সাবস্ক্রাইব করুন">Subscribe to Weekly Insights</h3>
-                <p class="text-xs text-blue-200 mb-4" data-lang-en="Get marketing strategies & UI/UX updates directly to your inbox." data-lang-bn="আপনার ইনবক্সে সরাসরি মারকেটিং কৌশল এবং ডিজাইনের আপডেট পান।">Get marketing strategies & UI/UX updates directly to your inbox.</p>
-                <form onsubmit="subscribeNewsletter(event)" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-                    <input type="email" placeholder="Enter your email address" required class="px-4 py-2 rounded-xl text-xs bg-white text-slate-800 flex-grow focus:outline-none">
-                    <button type="submit" class="px-5 py-2 bg-orange-500 hover:bg-orange-600 font-bold text-xs rounded-xl uppercase tracking-wider transition-all cursor-pointer">Subscribe</button>
-                </form>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="glass-card p-4 rounded-xl text-center shadow-2xs zoom-hover">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
-                    <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center shadow-2xs zoom-hover">
-                    <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">Direct Secure Data Pipeline</span>
-                    <p class="text-xs font-mono font-bold text-blue-600">elhasshossain@gmail.com / +8801778016695</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ⬆️ Scroll-to-Top Button -->
-    <button id="scrollTopBtn" onclick="scrollToTop()" class="fixed bottom-20 right-6 z-40 w-10 h-10 bg-blue-600 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all flex items-center justify-center hover:bg-blue-700 cursor-pointer">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- Footer with Admin Panel Link -->
-    <footer class="py-6 bg-slate-100 text-center text-[9px] text-slate-400 tracking-wider border-t border-slate-200 relative">
-        <p>&copy; 2026 MD. ASIF HOSSAIN. Ecosystem Engineering Infrastructure Protected.</p>
-        <button onclick="openAdminPanel()" class="mt-2 text-slate-500 hover:text-slate-800 text-[10px] underline cursor-pointer"><i class="fa-solid fa-lock"></i> Admin Panel (Visual Editor)</button>
-    </footer>
-
-    <!-- LIVE CLIENT REVIEWS WINDOW -->
-    <div id="review-window" class="fixed bottom-6 left-6 w-72 sm:w-80 glass-card border border-amber-200 rounded-2xl shadow-xl z-40 hidden sm:flex flex-col p-4">
-        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-2">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-award text-amber-500 text-sm"></i>
-                <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-800">Verified Client Review</span>
-            </div>
-            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">100+ Verified</span>
-        </div>
-        
-        <div id="review-card-content" class="review-fade">
-            <!-- Review Content Injected Via JavaScript -->
-        </div>
-    </div>
-
-    <!-- AI ASSISTANT POPUP CHATBOT WINDOW -->
-    <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
-        <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <img src="https://ui-avatars.com/api/?name=AI&background=fff&color=6b21a8" class="w-6 h-6 rounded-full">
-                <span class="text-xs font-bold uppercase tracking-wider">AI Assistant</span>
-            </div>
-            <button onclick="toggleChat()" class="text-white hover:text-slate-200 text-sm cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="p-3 h-64 overflow-y-auto text-xs space-y-2 bg-slate-50">
-            <div class="bg-purple-100 text-purple-900 p-2 rounded-lg max-w-[85%]">Hello! How can I assist you regarding Asif Hossain's services today?</div>
-        </div>
-        <form onsubmit="sendChatMessage(event)" class="p-2 border-t border-slate-200 flex gap-2 bg-white">
-            <input type="text" id="chat-input" placeholder="Type message..." class="flex-grow text-xs px-2 py-1.5 border rounded-lg focus:outline-none">
-            <button type="submit" class="bg-purple-700 text-white text-xs px-3 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-paper-plane"></i></button>
-        </form>
-    </div>
-
-    <!-- CV Modal -->
-    <div id="cv-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeCVModal()" class="absolute top-4 right-4 text-slate-500 hover:text-black text-lg"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-lg font-extrabold text-blue-700 mb-4">Curriculum Vitae - MD. ASIF HOSSAIN</h3>
-            <div class="text-xs space-y-3 text-slate-700">
-                <p><strong>Role:</strong> Lead Digital Marketing & Enterprise Growth Architect</p>
-                <p><strong>Experience:</strong> 5+ Years in Full-Funnel Digital Ads, Technical SEO, and Identity Design.</p>
-                <p><strong>Key Strengths:</strong> Data Processing, Meta Ads ROAS Amplification, Global Node Management.</p>
-            </div>
-            <div class="mt-6 flex justify-end gap-3">
-                <button onclick="closeCVModal()" class="px-4 py-2 bg-slate-200 text-xs font-bold rounded-xl">Close</button>
-                <a href="#" download class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">Download PDF</a>
-            </div>
-        </div>
-    </div>
-
+    <!-- Script to hide Loader -->
     <script>
-        // 💫 Hide Page Loader after load
-        window.addEventListener('load', () => {
+        window.addEventListener('load', function() {
             const loader = document.getElementById('page-loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.visibility = 'hidden', 600);
-            startCounters();
-        });
-
-        // 📖 Reading Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('reading-progress').style.width = scrolled + '%';
-
-            // Scroll-to-Top Button visibility
-            const btn = document.getElementById('scrollTopBtn');
-            if (winScroll > 300) {
-                btn.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                btn.classList.add('opacity-0', 'pointer-events-none');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 600);
             }
         });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // 🖱️ Custom Mouse Cursor
-        const cursor = document.getElementById('cursor');
-        const follower = document.getElementById('cursor-follower');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
-        });
-
-        // ⌨️ Typing Text Effect
-        const typingWords = ["Digital Marketing Specialist", "High-Fidelity UI/UX Designer", "Technical SEO Expert", "Full-Funnel Growth Architect"];
-        let wordIndex = 0, charIndex = 0, isDeleting = false;
-        function typeEffect() {
-            const currentWord = typingWords[wordIndex];
-            const target = document.getElementById('typing-text');
-            if (isDeleting) {
-                target.textContent = currentWord.substring(0, charIndex--);
-            } else {
-                target.textContent = currentWord.substring(0, charIndex++);
-            }
-
-            if (!isDeleting && charIndex === currentWord.length + 1) {
-                isDeleting = true;
-                setTimeout(typeEffect, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % typingWords.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-        }
-        document.addEventListener("DOMContentLoaded", typeEffect);
-
-        // 📊 Animated Counter Function
-        function startCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let count = 0;
-                const speed = target / 50;
-                const updateCount = () => {
-                    count += speed;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count);
-                        setTimeout(updateCount, 30);
-                    } else {
-                        counter.innerText = target + "+";
-                    }
-                };
-                updateCount();
-            });
-        }
-
-        // 🌙 Theme Switcher Logic
-        const themes = ['theme-cream', 'theme-dark', 'theme-gradient', 'theme-light-blue', 'theme-white'];
-        let currentThemeIdx = 0;
-        function cycleTheme() {
-            document.body.classList.remove(themes[currentThemeIdx]);
-            currentThemeIdx = (currentThemeIdx + 1) % themes.length;
-            document.body.classList.add(themes[currentThemeIdx]);
-        }
-
-        // 💰 Price Calculator
-        function calculatePrice() {
-            let total = 0;
-            document.querySelectorAll('.service-calc:checked').forEach(cb => {
-                total += parseInt(cb.value);
-            });
-            document.getElementById('total-price').innerText = '$' + total;
-        }
-
-        // Clocks Logic
-        function updateClocks() {
-            const now = new Date();
-            const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
-            const euTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" }));
-
-            document.getElementById('clock-bd').innerText = bdTime.toLocaleTimeString();
-            document.getElementById('clock-eu').innerText = euTime.toLocaleTimeString();
-        }
-        setInterval(updateClocks, 1000);
-        updateClocks();
-
-        // Modals & Chat Handlers
-        function openCVModal() { document.getElementById('cv-modal').classList.remove('hidden'); document.getElementById('cv-modal').classList.add('flex'); }
-        function closeCVModal() { document.getElementById('cv-modal').classList.add('hidden'); document.getElementById('cv-modal').classList.remove('flex'); }
-        function toggleChat() { 
-            const win = document.getElementById('chat-window');
-            win.classList.toggle('hidden'); 
-            win.classList.toggle('flex');
-        }
-        function sendChatMessage(e) {
-            e.preventDefault();
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if(!msg) return;
-            const container = document.getElementById('chat-messages');
-            container.innerHTML += `<div class="bg-blue-600 text-white p-2 rounded-lg max-w-[85%] ml-auto">${msg}</div>`;
-            input.value = '';
-            setTimeout(() => {
-                container.innerHTML += `<div class="bg-purple-100 text-purple-900 p-2 rounded-lg max-w-[85%]">Thanks for your message! Asif's team will contact you shortly.</div>`;
-                container.scrollTop = container.scrollHeight;
-            }, 800);
-        }
-
-        // Forms Handlers
-        function subscribeNewsletter(e) { e.preventDefault(); alert('Subscribed successfully!'); }
-        function submitQuote(e) { e.preventDefault(); alert('Quote Request Sent!'); }
-        function bookConsultation(e) { e.preventDefault(); alert('Consultation Booked Successfully!'); }
-        function downloadEbook() { alert('Downloading Enterprise Growth Checklist PDF...'); }
-        function toggleLanguage() { alert('Language Toggled'); }
-        function requestNotification() { alert('Notifications Enabled'); }
-        function openAdminPanel() { alert('Admin Login Required'); }
     </script>
 </body>
 </html>
