@@ -47,6 +47,23 @@
             animation: periodicBounce 3s infinite ease-in-out;
         }
 
+        /* Continuous Map Pin Bouncing & Pulsing Effect */
+        @keyframes mapPinBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .bounce-pin {
+            animation: mapPinBounce 1.8s infinite ease-in-out;
+        }
+
+        @keyframes pingGlow {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+        .pulse-ring {
+            animation: pingGlow 2s infinite ease-out;
+        }
+
         /* Periodic Shine Effect for Profile Image */
         .profile-shine-container {
             position: relative;
@@ -260,6 +277,9 @@
                 <a href="https://www.facebook.com/ilhas.hossain" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:text-white shadow-xs">
                     <i class="fa-brands fa-facebook-f text-lg"></i> Facebook
                 </a>
+                <a href="https://x.com/hossain_mdasif" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white shadow-xs">
+                    <i class="fa-brands fa-x-twitter text-lg"></i> Twitter
+                </a>
                 <a href="https://www.linkedin.com/in/md-asif-hossain-a23a0924b" target="_blank" class="zoom-hover flex items-center gap-3 px-5 py-3 rounded-2xl bg-sky-50 border border-sky-100 text-sky-700 font-bold text-xs uppercase tracking-wider hover:bg-sky-600 hover:text-white shadow-xs">
                     <i class="fa-brands fa-linkedin-in text-lg"></i> LinkedIn
                 </a>
@@ -267,11 +287,78 @@
         </div>
     </section>
 
-    <!-- Global Map & Contact -->
+    <!-- Global Map & Contact Section -->
     <section id="contact" class="py-16 bg-white/40 border-t border-slate-200/80 transition-colors duration-1000">
         <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
             <h2 class="text-2xl sm:text-4xl font-extrabold text-center mb-2 tracking-tight">Active Node Deployment Hub</h2>
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <p class="text-center text-xs opacity-60 font-semibold mb-8 uppercase tracking-widest">Global Clients & Operational Strategic Locations</p>
+            
+            <!-- Dynamic Vector World Map with Animated Bouncing Markers -->
+            <div class="relative w-full bg-slate-900 rounded-3xl p-4 sm:p-8 shadow-2xl border border-slate-800 overflow-hidden mb-8">
+                <!-- SVG World Map Graphic -->
+                <svg viewBox="0 0 1000 500" class="w-full h-auto opacity-40">
+                    <path d="M150,150 Q180,100 220,120 T300,180 T250,280 T150,220 Z" fill="#334155" />
+                    <path d="M250,300 Q300,280 340,330 T380,450 T300,480 T240,380 Z" fill="#334155" />
+                    <path d="M450,120 Q500,80 580,110 T620,200 T520,240 T440,180 Z" fill="#334155" />
+                    <path d="M460,250 Q520,220 580,280 T600,420 T500,450 T450,320 Z" fill="#334155" />
+                    <path d="M620,100 Q720,80 820,120 T880,250 T780,320 T650,220 Z" fill="#334155" />
+                    <path d="M780,350 Q850,330 890,380 T850,460 T760,420 Z" fill="#334155" />
+                </svg>
+
+                <!-- Marker 1: Bangladesh (HQ) -->
+                <div class="absolute top-[41%] left-[71%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+                    <div class="relative flex items-center justify-center">
+                        <span class="absolute w-8 h-8 bg-red-500 rounded-full opacity-75 pulse-ring"></span>
+                        <div class="bounce-pin text-red-500 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                    </div>
+                    <span class="mt-1 px-2 py-0.5 bg-red-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-red-400 whitespace-nowrap">
+                        🇧🇩 Bangladesh (HQ)
+                    </span>
+                </div>
+
+                <!-- Marker 2: Walton Node (BD Corporate Hub) -->
+                <div class="absolute top-[38%] left-[69.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+                    <div class="relative flex items-center justify-center">
+                        <span class="absolute w-8 h-8 bg-blue-500 rounded-full opacity-75 pulse-ring"></span>
+                        <div class="bounce-pin text-blue-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(96,165,250,0.8)]" style="animation-delay: 0.4s;">
+                            <i class="fa-solid fa-building-flag"></i>
+                        </div>
+                    </div>
+                    <span class="mt-1 px-2 py-0.5 bg-blue-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-blue-400 whitespace-nowrap">
+                        🏢 Walton Node
+                    </span>
+                </div>
+
+                <!-- Marker 3: Dubai / UAE -->
+                <div class="absolute top-[43%] left-[61%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+                    <div class="relative flex items-center justify-center">
+                        <span class="absolute w-8 h-8 bg-amber-400 rounded-full opacity-75 pulse-ring"></span>
+                        <div class="bounce-pin text-amber-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]" style="animation-delay: 0.8s;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                    </div>
+                    <span class="mt-1 px-2 py-0.5 bg-amber-500/90 text-slate-950 text-[9px] font-black rounded-md shadow-lg tracking-wider border border-amber-300 whitespace-nowrap">
+                        🇦🇪 Dubai (UAE)
+                    </span>
+                </div>
+
+                <!-- Marker 4: Malaysia -->
+                <div class="absolute top-[52%] left-[75.5%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
+                    <div class="relative flex items-center justify-center">
+                        <span class="absolute w-8 h-8 bg-emerald-400 rounded-full opacity-75 pulse-ring"></span>
+                        <div class="bounce-pin text-emerald-400 text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]" style="animation-delay: 1.2s;">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                    </div>
+                    <span class="mt-1 px-2 py-0.5 bg-emerald-600/90 text-white text-[9px] font-bold rounded-md shadow-lg tracking-wider border border-emerald-400 whitespace-nowrap">
+                        🇲🇾 Malaysia
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-white/90 border border-slate-200 p-4 rounded-xl text-center shadow-2xs zoom-hover">
                     <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider mb-1">HQ Core Location</span>
                     <p class="text-xs font-semibold text-slate-700">Gandaria, Dhaka-1204, Bangladesh</p>
@@ -482,35 +569,34 @@
             { name: "David K.", country: "🇺🇸 United States", rating: 5, text: "Asif's SEO and marketing framework brought us outstanding leads within weeks!" },
             { name: "Sarah L.", country: "🇬🇧 United Kingdom", rating: 5, text: "Top-notch Graphic Design pipelines! Highly creative and professional quality." },
             { name: "Mohammad Al-Farsi", country: "🇦🇪 UAE", rating: 5, text: "Extremely reliable social ecosystem scaling. Exceptional ROI!" },
-            { name: "Tanvir Ahmed", country: "🇧🇩 Bangladesh", rating: 5, text: "আসিফ ভাইয়ের ডিজাইন এবং মার্কেটিং সার্ভিস সেরা! অনেক দ্রুত সার্ভিস পেয়েছি।" },
+            { name: "Tanvir Ahmed", country: "🇧🇩 Bangladesh", rating: 5, text: "আসিফ ভাইয়ের ডিজাইন এবং মার্কেটিং সার্ভিস সেরা! অনেক দ্রুত সার্ভিস পেয়েছি।" },
             { name: "Michael R.", country: "🇨🇦 Canada", rating: 5, text: "Great communication, seamless delivery, and incredible attention to detail." },
             { name: "Elena Rostova", country: "🇩🇪 Germany", rating: 5, text: "Brilliant execution of our multi-regional campaign framework." },
             { name: "Siddharth Verma", country: "🇮🇳 India", rating: 5, text: "Targeted media boosting strategy worked perfectly for our SaaS platform." },
-            { name: "Liam O'Connor", country: "🇦🇺 Australia", rating: 5, text: "Outstanding technical SEO audit. Our traffic increased significantly." }
+            { name: "Liam O'Connor", country: "🇦🇺 Australia", rating: 5, text: "Outstanding technical SEO audit. Our traffic increased significantly!" }
         ];
 
-        let reviewIndex = 0;
+        let currentReviewIndex = 0;
 
         function renderClientReview() {
-            const container = document.getElementById('review-card-content');
-            if(!container) return;
+            const reviewCard = document.getElementById('review-card-content');
+            if(!reviewCard) return;
 
-            const review = clientReviews[reviewIndex];
-            const stars = "★".repeat(review.rating);
+            const rev = clientReviews[currentReviewIndex];
+            const starsHTML = '<i class="fa-solid fa-star text-amber-400 text-xs"></i>'.repeat(rev.rating);
 
-            container.classList.remove('review-fade');
-            void container.offsetWidth; // Trigger Reflow for Restarting Animation
-            container.classList.add('review-fade');
-
-            container.innerHTML = `
-                <div class="flex items-center justify-between mb-1">
-                    <span class="text-xs font-bold text-slate-800">${review.name} <span class="text-[10px] font-normal text-slate-400">${review.country}</span></span>
-                    <span class="text-amber-400 text-xs font-bold">${stars}</span>
+            reviewCard.innerHTML = `
+                <div class="flex justify-between items-start mb-1">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900">${rev.name}</h4>
+                        <span class="text-[9px] text-slate-500 font-medium">${rev.country}</span>
+                    </div>
+                    <div class="flex gap-0.5">${starsHTML}</div>
                 </div>
-                <p class="text-[10px] text-slate-600 italic leading-snug">"${review.text}"</p>
+                <p class="text-[11px] text-slate-600 italic leading-snug">"${rev.text}"</p>
             `;
 
-            reviewIndex = (reviewIndex + 1) % clientReviews.length;
+            currentReviewIndex = (currentReviewIndex + 1) % clientReviews.length;
         }
     </script>
 </body>
