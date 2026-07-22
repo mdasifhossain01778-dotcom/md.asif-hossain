@@ -159,6 +159,7 @@
         .card-3d {
             transition: transform 0.5s ease;
             transform-style: preserve-3d;
+            will-change: transform;
         }
         .card-3d:hover {
             transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale3d(1.02, 1.02, 1.02);
@@ -619,11 +620,10 @@
             <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm text-center">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">👥 Clients & Brands Worked With</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center opacity-80">
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🏢Max Management & Services Ltd.</div>
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🌐 Atco International
-</div>
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">⚡ scholar's it limited</div>
-                    <div class="font-extrabold text-lg text-slate-800 tracking-wider">🚀 Global Trade International</div>
+                    <div class="font-extrabold text-slate-800 tracking-wider text-xs sm:text-sm">🏢 Max Management & Services Ltd.</div>
+                    <div class="font-extrabold text-slate-800 tracking-wider text-xs sm:text-sm">🌐 Atco International</div>
+                    <div class="font-extrabold text-slate-800 tracking-wider text-xs sm:text-sm">⚡ Scholar's IT Limited</div>
+                    <div class="font-extrabold text-slate-800 tracking-wider text-xs sm:text-sm">🚀 Global Trade International</div>
                 </div>
             </div>
         </div>
@@ -811,7 +811,7 @@
     <!-- Free Consultation Modal -->
     <div id="consultation-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openConsultationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <button onclick="closeConsultationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             <h3 class="text-xl font-extrabold mb-1">📅 Book Free Consultation</h3>
             <p class="text-xs text-slate-500 mb-6">Schedule a 1-on-1 strategy call with MD. Asif Hossain.</p>
             <form onsubmit="bookConsultation(event)" class="space-y-3.5">
@@ -831,7 +831,7 @@
     <!-- Free Resource Download Modal -->
     <div id="resource-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openResourceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <button onclick="closeResourceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             <h3 class="text-xl font-extrabold mb-1">🎁 Free Resource Download</h3>
             <p class="text-xs text-slate-500 mb-6">Get our exclusive eBook & Marketing Checklist instantly.</p>
             <form onsubmit="downloadResource(event)" class="space-y-3.5">
@@ -845,7 +845,7 @@
     <!-- Online CV Modal -->
     <div id="cv-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative review-fade max-h-[90vh] overflow-y-auto">
-            <button onclick="openCVModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <button onclick="closeCVModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             <h3 class="text-xl font-extrabold mb-1">MD. ASIF HOSSAIN - Curriculum Vitae</h3>
             <p class="text-xs text-slate-500 mb-6">Enterprise Marketing & Design Professional</p>
             
@@ -865,16 +865,16 @@
     <!-- Admin Panel Modal -->
     <div id="admin-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative review-fade">
-            <button onclick="openAdminPanel()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <button onclick="closeAdminPanel()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
             <h3 class="text-xl font-extrabold mb-1">🔐 Admin Visual Editor</h3>
             <p class="text-xs text-slate-500 mb-6">Customize platform theme & configuration parameters.</p>
             <div class="space-y-3">
                 <label class="block text-xs font-bold text-slate-700">Select Theme Scheme:</label>
                 <div class="grid grid-cols-2 gap-2">
-                    <button onclick="setTheme('theme-cream')" class="p-2 bg-amber-50 border rounded-xl text-xs font-bold">Cream Theme</button>
-                    <button onclick="setTheme('theme-white')" class="p-2 bg-white border rounded-xl text-xs font-bold">Pure White</button>
-                    <button onclick="setTheme('theme-light-blue')" class="p-2 bg-blue-50 border rounded-xl text-xs font-bold">Light Blue</button>
-                    <button onclick="setTheme('theme-warm-beige')" class="p-2 bg-stone-100 border rounded-xl text-xs font-bold">Warm Beige</button>
+                    <button onclick="setTheme('theme-cream')" class="p-2 bg-amber-50 border rounded-xl text-xs font-bold cursor-pointer">Cream Theme</button>
+                    <button onclick="setTheme('theme-white')" class="p-2 bg-white border rounded-xl text-xs font-bold cursor-pointer">Pure White</button>
+                    <button onclick="setTheme('theme-light-blue')" class="p-2 bg-blue-50 border rounded-xl text-xs font-bold cursor-pointer">Light Blue</button>
+                    <button onclick="setTheme('theme-warm-beige')" class="p-2 bg-stone-100 border rounded-xl text-xs font-bold cursor-pointer">Warm Beige</button>
                 </div>
             </div>
         </div>
@@ -1003,46 +1003,65 @@
             }, 800);
         }
 
-        // Modal Controls
+        // Modal Toggle Explicit Controls
         function openConsultationModal() {
-            const modal = document.getElementById('consultation-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
+            document.getElementById('consultation-modal').classList.remove('hidden');
+            document.getElementById('consultation-modal').classList.add('flex');
+        }
+        function closeConsultationModal() {
+            document.getElementById('consultation-modal').classList.add('hidden');
+            document.getElementById('consultation-modal').classList.remove('flex');
         }
 
         function openResourceModal() {
-            const modal = document.getElementById('resource-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
+            document.getElementById('resource-modal').classList.remove('hidden');
+            document.getElementById('resource-modal').classList.add('flex');
+        }
+        function closeResourceModal() {
+            document.getElementById('resource-modal').classList.add('hidden');
+            document.getElementById('resource-modal').classList.remove('flex');
         }
 
+        document.getElementById('consultation-modal').addEventListener('click', (e) => {
+            if(e.target === document.getElementById('consultation-modal')) closeConsultationModal();
+        });
+        document.getElementById('resource-modal').addEventListener('click', (e) => {
+            if(e.target === document.getElementById('resource-modal')) closeResourceModal();
+        });
+
         function openCVModal() {
-            const modal = document.getElementById('cv-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
+            document.getElementById('cv-modal').classList.remove('hidden');
+            document.getElementById('cv-modal').classList.add('flex');
+        }
+        function closeCVModal() {
+            document.getElementById('cv-modal').classList.add('hidden');
+            document.getElementById('cv-modal').classList.remove('flex');
         }
 
         function openAdminPanel() {
-            const modal = document.getElementById('admin-modal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.getElementById('admin-modal').classList.add('flex');
+        }
+        function closeAdminPanel() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.getElementById('admin-modal').classList.remove('flex');
         }
 
         function setTheme(themeName) {
             document.body.className = `${themeName} min-h-screen relative overflow-x-hidden antialiased`;
-            openAdminPanel();
+            closeAdminPanel();
         }
 
         function bookConsultation(e) {
             e.preventDefault();
             alert('Consultation booked successfully! Asif Hossain will contact you shortly.');
-            openConsultationModal();
+            closeConsultationModal();
         }
 
         function downloadResource(e) {
             e.preventDefault();
             alert('Resource sent to your email successfully!');
-            openResourceModal();
+            closeResourceModal();
         }
 
         function submitQuote(e) {
