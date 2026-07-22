@@ -279,7 +279,7 @@
     </div>
 
     <!-- Ticker Endless Scrolling Banner -->
-    <div class="w-full bg-blue-950 text-white py-2.5 overflow-hidden border-b border-blue-900 shadow-inner">
+    <div class="w-full bg-blue-955 text-white py-2.5 overflow-hidden border-b border-blue-900 shadow-inner">
         <div class="animate-marquee whitespace-nowrap flex items-center gap-8 text-[10px] sm:text-xs font-semibold tracking-widest uppercase opacity-90">
             <span><i class="fa-solid fa-bolt text-orange-400 mr-2"></i> Graphics Design Pipelines Active</span>
             <span><i class="fa-solid fa-chart-line text-orange-400 mr-2"></i> Conversion Optimization Live</span>
@@ -318,7 +318,7 @@
                 <p class="text-sm sm:text-lg font-bold text-slate-700"><span id="typing-text" class="border-r-2 border-blue-600 pr-1"></span></p>
             </div>
 
-            <p id="hero-subtitle" class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal" data-lang-en="Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises." data-lang-bn="স্পেশালাইজড ইউজার এক্যুইজিশন মডেল, ডেটা প্রসেসিং এবং ফুল-ফানেল মার্কেটিং ইন্টারপ্রাইজ তৈরি করা।">
+            <p id="hero-subtitle" class="text-sm sm:text-base opacity-80 max-w-2xl mb-8 leading-relaxed font-normal" data-lang-en="Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises." data-lang-bn="স্পেশালাইজড ইউজার এক্যুইজিশন মডেল, ডেটা প্রসেসিং এবং ফুল-ফানেল营销 ইন্টারপ্রাইজ তৈরি করা।">
                 Architecting specialized user acquisition models, robust data processing, and full-funnel operations for cross-border enterprises.
             </p>
 
@@ -616,7 +616,7 @@
                 </div>
             </div>
 
-            <!-- Clients & Brands Worked With (Company Logos Marquee / Grid) -->
+            <!-- Clients & Brands Worked With -->
             <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm text-center">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">👥 Clients & Brands Worked With</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center opacity-80">
@@ -740,7 +740,7 @@
                 <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl p-6 sm:p-8 text-white flex flex-col justify-between shadow-xl">
                     <div>
                         <h3 class="text-lg font-bold mb-1" data-lang-en="Subscribe to Weekly Insights" data-lang-bn="সাপ্তাহিক নিউজলেটারে সাবস্ক্রাইব করুন">Subscribe to Weekly Insights</h3>
-                        <p class="text-xs text-blue-200 mb-6" data-lang-en="Get marketing strategies & UI/UX updates directly to your inbox." data-lang-bn="আপনার ইনবক্সে সরাসরি মারকেটিং কৌশল এবং ডিজাইনের আপডেট পান।">Get marketing strategies & UI/UX updates directly to your inbox.</p>
+                        <p class="text-xs text-blue-200 mb-6" data-lang-en="Get marketing strategies & UI/UX updates directly to your inbox." data-lang-bn="আপনার ইনবক্সে সরাসরি মার্কেটিং কৌশল এবং ডিজাইনের আপডেট পান।">Get marketing strategies & UI/UX updates directly to your inbox.</p>
                     </div>
                     <form onsubmit="subscribeNewsletter(event)" class="space-y-3">
                         <input type="email" placeholder="Enter your email address" required class="w-full px-4 py-2.5 rounded-xl text-xs bg-white text-slate-800 focus:outline-none">
@@ -786,25 +786,31 @@
     </div>
 
     <!-- VOICE AI & COMPACT AI ASSISTANT POPUP CHATBOT WINDOW -->
-    <div id="chat-window" class="fixed bottom-6 right-6 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300">
-        <div class="bg-purple-700 text-white p-3 flex justify-between items-center">
-            <div class="flex items-center gap-2.5">
-                <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI" class="w-7 h-7 rounded-full object-cover border border-white">
+    <div id="chat-window" class="fixed bottom-6 right-6 w-80 sm:w-96 bg-white border border-slate-200 rounded-3xl shadow-2xl z-50 hidden flex-col overflow-hidden transition-all duration-300 transform translate-y-4 opacity-0">
+        <!-- Chat Header -->
+        <div class="bg-gradient-to-r from-purple-700 to-indigo-800 text-white p-4 flex justify-between items-center shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="https://github.com/user-attachments/assets/43bd6c94-e1b8-4b38-8e59-021f3fcf1092" alt="AI" class="w-8 h-8 rounded-full object-cover border-2 border-white/40">
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
+                </div>
                 <div>
-                    <h4 class="text-xs font-bold">Asif's AI Assistant</h4>
-                    <span class="text-[9px] text-purple-200">Online & Ready</span>
+                    <h4 class="text-xs font-black tracking-wide">Asif's AI Engine v4.0</h4>
+                    <span class="text-[9px] text-purple-200 font-medium">Interactive Guide Mode</span>
                 </div>
             </div>
-            <button onclick="toggleChat()" class="text-white hover:text-purple-200 text-xs cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="toggleChat()" class="text-white/80 hover:text-white text-sm p-1 cursor-pointer transition-colors"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div id="chat-messages" class="p-3 h-64 overflow-y-auto space-y-2.5 text-xs bg-slate-50">
-            <div class="bg-purple-100 text-purple-900 p-2.5 rounded-xl rounded-tl-xs max-w-[85%]">
-                Hello! I am Asif Hossain's AI assistant. How can I help you with digital marketing, UI/UX design, or booking a consultation today?
-            </div>
+
+        <!-- Chat Area (Messages & Menu Buttons) -->
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-3 text-xs bg-slate-50 flex flex-col">
+            <!-- Messages injected here dynamically -->
         </div>
-        <div class="p-2.5 bg-white border-t border-slate-200 flex gap-2">
-            <input type="text" id="chat-input" placeholder="Type a message..." class="flex-grow px-3 py-1.5 rounded-xl border border-slate-200 text-xs focus:outline-none">
-            <button onclick="sendMessage()" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold cursor-pointer"><i class="fa-solid fa-paper-plane"></i></button>
+
+        <!-- Chat Input Field -->
+        <div class="p-3 bg-white border-t border-slate-100 flex gap-2 items-center">
+            <input type="text" id="chat-input" placeholder="Type or ask anything..." class="flex-grow px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition-all" onkeypress="handleChatKeyPress(event)">
+            <button onclick="sendMessage()" class="p-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold cursor-pointer transition-all shadow-md shadow-purple-200"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -882,6 +888,156 @@
 
     <!-- JavaScript Scripts -->
     <script>
+        // --- ADVANCED INTERACTIVE AI BOT CONFIGURATION ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const chatWin = document.getElementById('chat-window');
+                if (chatWin.classList.contains('hidden')) {
+                    openChatWithWelcome();
+                }
+            }, 2500); // 2.5 Seconds Auto Delay Popup Trigger
+        });
+
+        function toggleChat() {
+            const chatWin = document.getElementById('chat-window');
+            if (chatWin.classList.contains('hidden')) {
+                openChatWithWelcome();
+            } else {
+                chatWin.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => { chatWin.classList.add('hidden'); chatWin.classList.remove('flex'); }, 200);
+            }
+        }
+
+        function openChatWithWelcome() {
+            const chatWin = document.getElementById('chat-window');
+            chatWin.classList.remove('hidden');
+            chatWin.classList.add('flex');
+            
+            setTimeout(() => {
+                chatWin.classList.remove('translate-y-4', 'opacity-0');
+            }, 50);
+
+            const chatMessages = document.getElementById('chat-messages');
+            if (chatMessages.children.length === 0) {
+                showBotResponse(
+                    "👋 আসসালামু আলাইকুম! আমি আসিফ হোসেনের পার্সোনাল AI অ্যাসিস্ট্যান্ট। " +
+                    "আমাদের এন্টারপ্রাইজ মার্কেটিং ও ডিজাইন হাবে আপনাকে স্বাগতম! 🚀<br><br>" +
+                    "আমি আপনাকে কীভাবে সাহায্য করতে পারি? নিচের মেনু থেকে যেকোনো একটি অপশন সিলেক্ট করুন:",
+                    'main-menu'
+                );
+            }
+        }
+
+        function handleChatKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += `<div class="bg-purple-600 text-white p-2.5 rounded-2xl rounded-tr-xs max-w-[80%] ml-auto shadow-xs review-fade">${msg}</div>`;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            setTimeout(() => {
+                let response = "ধন্যবাদ আপনার বার্তার জন্য! আসিফের অটোমেটেড ইঞ্জিন আপনার কুয়েরিটি রেকর্ড করেছে। আপনি চাইলে সরাসরি নিচের মেনু অপশনগুলো ব্যবহার করে দ্রুত তথ্য পেতে পারেন:";
+                showBotResponse(response, 'main-menu');
+            }, 800);
+        }
+
+        function showBotResponse(text, menuType = null) {
+            const chatMessages = document.getElementById('chat-messages');
+            
+            const botBubble = document.createElement('div');
+            botBubble.className = "bg-purple-50 border border-purple-100 text-purple-950 p-3 rounded-2xl rounded-tl-xs max-w-[85%] shadow-xs review-fade leading-relaxed";
+            botBubble.innerHTML = text;
+            chatMessages.appendChild(botBubble);
+
+            if (menuType) {
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = "flex flex-col gap-1.5 pt-1 max-w-[85%] review-fade";
+                
+                let options = [];
+                if (menuType === 'main-menu') {
+                    options = [
+                        { text: "🛠️ আমাদের সার্ভিসসমূহ (Services)", action: "selectMenu('services')" },
+                        { text: "📊 আমাদের সাকসেস কেস স্টাডি", action: "selectMenu('cases')" },
+                        { text: "📅 ফ্রি কনসালটেশন বুক করুন", action: "closeAndBook()" },
+                        { text: "📞 সরাসরি যোগাযোগ (Contact)", action: "selectMenu('contact')" }
+                    ];
+                } else if (menuType === 'services-menu') {
+                    options = [
+                        { text: "🎨 Graphics & UI Visual Systems", action: "selectMenu('srv-graphics')" },
+                        { text: "🔍 Technical SEO & Search Marketing", action: "selectMenu('srv-seo')" },
+                        { text: "📈 Paid Ads & Media Scaling", action: "selectMenu('srv-ads')" },
+                        { text: "↩️ প্রধান মেনুতে ফিরুন", action: "selectMenu('main')" }
+                    ];
+                } else if (menuType === 'back-only') {
+                    options = [
+                        { text: "↩️ প্রধান মেনুতে ফিরুন", action: "selectMenu('main')" }
+                    ];
+                }
+
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "w-full text-left px-3 py-2 rounded-xl bg-white border border-slate-200 text-purple-700 font-bold hover:bg-purple-50 hover:border-purple-300 transition-all cursor-pointer text-[11px]";
+                    btn.setAttribute('onclick', opt.action);
+                    btn.innerText = opt.text;
+                    buttonContainer.appendChild(btn);
+                });
+                chatMessages.appendChild(buttonContainer);
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function selectMenu(menuKey) {
+            if (menuKey === 'main') {
+                showBotResponse("প্রধান মেনু রি-লোড করা হয়েছে। আপনার কাঙ্ক্ষিত অপশনটি বেছে নিন:", 'main-menu');
+            } 
+            else if (menuKey === 'services') {
+                showBotResponse(
+                    "💼 **আমাদের অপারেশনস অবকাঠামো:**<br>" +
+                    "আসিফ হোসেনের টিম মাল্টি-রিজিওনাল করপোরেট ব্র্যান্ডের জন্য স্কেলেবল ডিজাইন এবং ইউজার এক্যুইজিশন ফানেল ম্যাপ তৈরি করে। কোন সার্ভিসটি সম্পর্কে জানতে চান?", 
+                    'services-menu'
+                );
+            } 
+            else if (menuKey === 'cases') {
+                showBotResponse(
+                    "🏆 **কেস স্টাডি ও সাফল্য:**<br>" +
+                    "• **Walton & Atco International:** আমরা এদের লিড জেনারেশন ও কনভার্সন রেট ১.২% থেকে ৪.৮%-এ রূপান্তর করেছি।<br>" +
+                    "• **E-commerce Scaling:** কাস্টম গ্রাফিক্স আর্কিটেকচার এবং মেটা পেইড বুস্টিংয়ের মাধ্যমে ROAS ৪.২x পর্যন্ত স্কেল করেছি।", 
+                    'back-only'
+                );
+            } 
+            else if (menuKey === 'contact') {
+                showBotResponse(
+                    "📞 **যোগাযোগের নোড:**<br>" +
+                    "• ইমেইল: elhasshossain@gmail.com<br>" +
+                    "• অফিস: গ্যান্ডারিয়া, ঢাকা-১২০৪, বাংলাদেশ।<br><br>" +
+                    "সরাসরি আসিফের সাথে চ্যাট করতে উপরে ডানদিকের **WhatsApp** বাটনে চাপ দিন!", 
+                    'back-only'
+                );
+            }
+            else if (menuKey === 'srv-graphics') {
+                showBotResponse("🎨 **High-Fidelity Graphics:** করপোরেট আইডেন্টিটি ম্যাপ, হাই-কনভার্সন ল্যান্ডিং পেজ UI, ব্যানার ও প্রিমিয়াম প্রমোশনাল লেআউট মেকিং প্রসেস।", 'services-menu');
+            }
+            else if (menuKey === 'srv-seo') {
+                showBotResponse("🔍 **Technical SEO:** ডিপ টেকনিক্যাল অডিট, গুগল ইনডেক্সিং কনফিগারেশন এবং সার্চ র‍্যাঙ্কিং রিটেনশন লুপ আর্কিটেকচার।", 'services-menu');
+            }
+            else if (menuKey === 'srv-ads') {
+                showBotResponse("📈 **Paid Ads Boosting:** ডেটা-ড্রিভেন ফেসবুক, ইনস্টাগ্রাম ও গুগল পিক্সেল ট্র্যাকিং এডভান্সড কাস্টম কনভার্সন স্কেলিং ফ্রেমওয়ার্ক।", 'services-menu');
+            }
+        }
+
+        function closeAndBook() {
+            toggleChat();
+            openConsultationModal();
+        }
+
         // Language Toggle State
         let currentLang = 'en';
         function toggleLanguage() {
@@ -894,10 +1050,10 @@
 
         // Typing Text Effect
         const words = ["Enterprise Marketing Architect", "UI/UX & Graphics Specialist", "Growth & Conversion Expert"];
-        let i = 0;
+        let wordIdx = 0;
         let timer;
         function typingEffect() {
-            let word = words[i].split("");
+            let word = words[wordIdx].split("");
             var loopTyping = function() {
                 if (word.length > 0) {
                     document.getElementById('typing-text').innerHTML += word.shift();
@@ -910,13 +1066,13 @@
             loopTyping();
         }
         function deletingEffect() {
-            let word = words[i].split("");
+            let word = words[wordIdx].split("");
             var loopDeleting = function() {
                 if (word.length > 0) {
                     word.pop();
                     document.getElementById('typing-text').innerHTML = word.join("");
                 } else {
-                    i = (i + 1) % words.length;
+                    wordIdx = (wordIdx + 1) % words.length;
                     setTimeout(typingEffect, 500);
                     return false;
                 }
@@ -929,19 +1085,16 @@
         // Dual Clocks (BD and EU)
         function updateClocks() {
             const now = new Date();
-            
-            // BD Clock (GMT+6)
             const bdTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
             document.getElementById('clock-bd').innerText = bdTime.toLocaleTimeString();
 
-            // EU Clock (UK GMT+1 in summer)
             const euTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" }));
             document.getElementById('clock-eu').innerText = euTime.toLocaleTimeString();
         }
         setInterval(updateClocks, 1000);
         updateClocks();
 
-        // Reading Progress Bar & Scroll-to-Top Button
+        // Reading Progress Bar & Scroll Button
         window.addEventListener('scroll', () => {
             const winScroll = document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -949,11 +1102,8 @@
             document.getElementById('reading-progress').style.width = scrolled + '%';
 
             const scrollBtn = document.getElementById('scroll-top-btn');
-            if (winScroll > 300) {
-                scrollBtn.classList.remove('hidden');
-            } else {
-                scrollBtn.classList.add('hidden');
-            }
+            if (winScroll > 300) scrollBtn.classList.remove('hidden');
+            else scrollBtn.classList.add('hidden');
         });
 
         function scrollToTop() {
@@ -981,29 +1131,7 @@
         setInterval(updateReviewCard, 4000);
         updateReviewCard();
 
-        // AI Chatbot Toggle & Messages
-        function toggleChat() {
-            const chatWin = document.getElementById('chat-window');
-            chatWin.classList.toggle('hidden');
-            chatWin.classList.toggle('flex');
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if(!msg) return;
-
-            const chatMessages = document.getElementById('chat-messages');
-            chatMessages.innerHTML += `<div class="bg-blue-600 text-white p-2.5 rounded-xl rounded-tr-xs max-w-[85%] ml-auto">${msg}</div>`;
-            input.value = '';
-
-            setTimeout(() => {
-                chatMessages.innerHTML += `<div class="bg-purple-100 text-purple-900 p-2.5 rounded-xl rounded-tl-xs max-w-[85%]">Thank you for your message! Asif Hossain's automated assistant has recorded your query. You can also reach him directly via WhatsApp.</div>`;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 800);
-        }
-
-        // Modal Toggle Explicit Controls
+        // Modal Functionalities
         function openConsultationModal() {
             document.getElementById('consultation-modal').classList.remove('hidden');
             document.getElementById('consultation-modal').classList.add('flex');
@@ -1066,7 +1194,7 @@
 
         function submitQuote(e) {
             e.preventDefault();
-            alert('Free quote request submitted successfully! We will get back to you within 24 hours.');
+            alert('Free quote request submitted successfully!');
             e.target.reset();
         }
 
